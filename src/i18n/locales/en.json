@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "brand": "ilyakav",
+    "name": "Ilya Kavaleuski",
+    "site": "ilyakav.com"
+  },
+  "nav": {
+    "work": "Work",
+    "range": "Range",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "actions": {
+    "startProject": "Start a project",
+    "viewWork": "View selected work",
+    "viewProject": "View project",
+    "askDirect": "Ask me directly",
+    "switchTheme": "Switch theme",
+    "backToTop": "Back to top ↑",
+    "themeAria": "Theme",
+    "menuAria": "Menu"
+  },
+  "hero": {
+    "badge": "Ilya Kavaleuski · open for projects",
+    "title": "Websites that bring clients",
+    "lead": "Strategy, design and development for businesses — from landing pages to custom systems with accounts, integrations and business logic.",
+    "videoNote": "3D loop goes here — drop the file in and it plays full-bleed"
+  },
+  "laptop": {
+    "caption": "Flagship project — marianaleus.com",
+    "screenTop": "site screenshot — top of the page",
+    "screenMid": "offer & services",
+    "screenBottom": "request form — bottom of the page",
+    "note": "One page. One offer. One action. Built to receive paid traffic."
+  },
+  "flagship": {
+    "lead": "A page for an independent media buyer — the client's main entry point for traffic, and in her words it brings requests steadily.",
+    "industryLabel": "Industry",
+    "industryValue": "Performance marketing",
+    "locationLabel": "Location",
+    "locationValue": "Warsaw, Poland",
+    "scopeLabel": "Scope",
+    "scopeValue": "Strategy, design, development",
+    "yearLabel": "Year",
+    "yearValue": "2025"
+  },
+  "selectedWork": {
+    "title": "Selected work",
+    "items": {
+      "ceilings": {
+        "shot": "site screenshot",
+        "title": "Stretch ceilings",
+        "meta": "Repair & finishing · Redesign, structure, implementation"
+      },
+      "cleaning": {
+        "shot": "landing page — mobile first",
+        "title": "Cleaning company",
+        "meta": "Home & office services · Landing page, development"
+      },
+      "renovation": {
+        "shot": "site screenshot",
+        "title": "Apartment renovation",
+        "meta": "Construction · Customization, content"
+      },
+      "onePagers": {
+        "shot": "series of one-page sites",
+        "title": "One-page business sites",
+        "meta": "Small business · Design, structure, implementation"
+      }
+    },
+    "conceptsTitle": "Concepts & explorations",
+    "conceptsNote": "Self-initiated work — kept separate from client projects, arriving soon.",
+    "conceptsSoon": "concept — coming soon"
+  },
+  "morph": {
+    "title": "One website. Every screen.",
+    "desktopCopy": "Ad traffic mostly arrives on phones — so mobile is not a leftover of the desktop layout.",
+    "mobileCopy": "The same logic recomposed for a thumb: large targets, short blocks, the request always near.",
+    "desktopLabel": "desktop 1440",
+    "mobileLabel": "mobile 390"
+  },
+  "range": {
+    "title": "From a landing page to a full digital product.",
+    "lead": "Some businesses need five pages and a contact form. Others need databases, integrations, user accounts and custom business logic. The solution should match the actual problem.",
+    "items": {
+      "landing": "Landing page",
+      "business": "Business website",
+      "custom": "Fully custom website",
+      "app": "Web application",
+      "platform": "Complex platform",
+      "desktop": "Desktop software"
+    },
+    "note": "The further down the list, the deeper the engineering — and the more of the team joins in."
+  },
+  "services": {
+    "title": "Services",
+    "priceFrom": "From 1 500 €",
+    "items": {
+      "site": {
+        "title": "Business websites",
+        "desc": "Strategy, design and custom development for businesses that need a strong presence.",
+        "tag": "business website",
+        "previewTitle": "Structure that leads to a request",
+        "previewNote": "A few pages, clear navigation, one target step on each."
+      },
+      "landing": {
+        "title": "Landing pages",
+        "desc": "Pages built around ad campaigns and lead generation — one offer, one action.",
+        "tag": "landing page",
+        "previewTitle": "One page, one decision",
+        "previewNote": "Built for a specific campaign: offer, trust, form."
+      },
+      "redesign": {
+        "title": "Redesign & existing projects",
+        "desc": "You do not have to start over — a builder site, old code or work left by another developer can be improved, rebuilt or extended.",
+        "tag": "before / after",
+        "previewTitle": "Not always from scratch",
+        "previewNote": "I review what exists and say honestly: improve, rebuild or extend."
+      },
+      "app": {
+        "title": "Custom web applications",
+        "desc": "Systems with user accounts, dashboards, integrations, databases and business logic.",
+        "tag": "web application",
+        "previewTitle": "Accounts, data, logic",
+        "previewNote": "When a site is not enough: records, roles, integrations, workflows."
+      },
+      "desktop": {
+        "title": "Desktop software",
+        "desc": "When the work happens inside the company rather than in a browser.",
+        "tag": "desktop",
+        "previewTitle": "A tool inside the company",
+        "previewNote": "A Windows application when the process does not live in a browser."
+      }
+    }
+  },
+  "team": {
+    "title": "Independent when it makes sense. A team when it matters.",
+    "p1": "I lead every project personally and stay your single point of contact. A simple site never becomes complicated for the sake of it.",
+    "p2": "When a project needs deeper engineering, a small trusted circle of specialists is assembled around it. You still talk to me.",
+    "lead": "Ilya — strategy, design, frontend, ownership",
+    "backend": "Backend & databases — when accounts and logic are involved",
+    "desktop": "Desktop engineering — when the tool lives inside the company",
+    "ads": "Advertising & analytics — when traffic has to arrive"
+  },
+  "process": {
+    "title": "Process",
+    "steps": {
+      "discover": {
+        "title": "Discover",
+        "desc": "Business, audience, offer, competitors."
+      },
+      "structure": {
+        "title": "Structure",
+        "desc": "Block order, message hierarchy, the decision point."
+      },
+      "design": {
+        "title": "Design",
+        "desc": "Visual language, typography, key screens."
+      },
+      "build": {
+        "title": "Build",
+        "desc": "Development, speed, forms, integrations."
+      },
+      "launch": {
+        "title": "Launch",
+        "desc": "Domain, analytics, ad readiness, handover."
+      }
+    }
+  },
+  "about": {
+    "portraitNote": "portrait — Ilya (drop a photo here)",
+    "badge": "the person who answers you",
+    "title": "I design, build and improve digital products for businesses.",
+    "p1": "Most people either draw a site or code it. I also care about what happens after a visitor arrives from an ad or a search result — where attention goes, what is understood in the first five seconds, whether the next step is obvious.",
+    "p2": "Business understanding, marketing thinking, design and frontend development in one head — plus access to deeper engineering when a project needs it.",
+    "role": "Independent designer & developer · Poland"
+  },
+  "faq": {
+    "title": "Still thinking? That's normal.",
+    "lead": "A website is a real investment. If your question is not here, just ask me directly.",
+    "items": {
+      "price": {
+        "q": "How much does a website cost?",
+        "a": "Landing pages start from 1 500 €, business sites from 2 500 €, custom applications are quoted per project. You get a fixed price before the work starts."
+      },
+      "time": {
+        "q": "How long does a project take?",
+        "a": "A landing page usually 2–3 weeks, a business site 4–6. Applications depend on scope."
+      },
+      "scope": {
+        "q": "Do you handle both design and development?",
+        "a": "Yes — strategy, structure, design and build. For deeper engineering I bring in trusted specialists and remain your point of contact."
+      },
+      "existing": {
+        "q": "Can you take over an existing project?",
+        "a": "Yes — a builder site, old code or work left by another developer. I review it first and say honestly whether to improve, rebuild or extend."
+      },
+      "ownership": {
+        "q": "Will I own the website?",
+        "a": "Fully. Domain, hosting and all files are in your name, with access handed over at launch."
+      },
+      "ads": {
+        "q": "Can it be used with Google or Meta Ads?",
+        "a": "That is how it is planned from the start: clear offer, fast load, analytics and lead events ready for traffic."
+      }
+    }
+  },
+  "testimonials": {
+    "label": "Client words — reserved",
+    "text": "Real quotes appear here as clients write them — nothing invented, and no stand-in praise in the meantime."
+  },
+  "finalCta": {
+    "title": "Have something worth building?",
+    "lead": "Tell me what you are working on. I will tell you how I would approach it — plainly, before any invoice."
+  },
+  "footer": {
+    "writeDirect": "Write directly",
+    "replyNote": "Usually a reply within one working day",
+    "colSite": "Site",
+    "colProjects": "Projects",
+    "colDirect": "Direct",
+    "colInterface": "Interface",
+    "location": "Poland · working across Europe",
+    "copyright": "© 2026 Ilya Kavaleuski · ilyakav.com",
+    "madeBy": "Designed and built by the person you will be talking to"
+  }
+}
