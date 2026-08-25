@@ -12,6 +12,8 @@ npm run dev        # http://localhost:5173
 npm run build      # type-check + production bundle into dist/
 npm run preview    # serve the built bundle
 npm run typecheck
+npm run cf:preview # build and preview through Cloudflare Workers locally
+npm run cf:deploy  # build and deploy to Cloudflare Workers
 ```
 
 ## Structure
@@ -83,6 +85,23 @@ the closing CTA bloom drift slowly.
 - FAQ is an accessible accordion (`aria-expanded` / `role="region"`) animating on a `0fr → 1fr`
   grid row, with a `+` marker that folds into a `−`.
 
+## Cloudflare Workers deployment
+
+The site is configured for **Workers Static Assets** in `wrangler.jsonc`; there is no Worker script
+or runtime invocation for normal requests. Wrangler uploads `dist/`, and unmatched URLs fall back
+to `index.html` so direct visits to SPA routes work.
+
+For Cloudflare Workers Builds, import this repository and use:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Production branch: `main` (or the repository's actual default branch)
+
+The Worker name in Cloudflare must be `ilyakav`, matching `wrangler.jsonc`. After the first deploy,
+attach the custom domain in **Workers & Pages → ilyakav → Settings → Domains & Routes**. Security
+headers and long-lived browser caching for Vite's fingerprinted `/assets/*` files live in
+`public/_headers` and are copied into the build output automatically.
+
 ## Assets and routes
 
 - **Hero video** — `public/media/hero.mp4` (path configurable in `config/site.ts`). If it is
@@ -92,5 +111,5 @@ the closing CTA bloom drift slowly.
   stable captures as its default preview and loads the external live site only after an explicit
   desktop click.
 - **Routes** — `/`, `/about`, `/privacy`, `/contact`, `/case/marianaleus`, plus an in-app 404.
-  `vercel.json` rewrites
-  direct SPA requests to `index.html` so refreshes and deep links work after deployment.
+  Workers Static Assets returns `index.html` for unmatched requests so refreshes and deep links work
+  after deployment.
