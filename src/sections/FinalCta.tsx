@@ -38,11 +38,11 @@ const Bloom = styled.div`
 `
 
 const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
   font-size: clamp(36px, 6.4vw, 104px);
   line-height: 0.98;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
   max-width: 16ch;
 `
 

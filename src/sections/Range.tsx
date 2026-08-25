@@ -7,18 +7,18 @@ import { useReveal } from '../hooks/useReveal'
 
 const Head = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(22px, 4vw, 72px);
   align-items: end;
   margin-bottom: clamp(28px, 4vw, 52px);
 `
 
 const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
   font-size: clamp(32px, 4.8vw, 72px);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
   max-width: 18ch;
 `
 
@@ -44,12 +44,14 @@ const Step = styled(Card)<{ $accent?: boolean }>`
 
 const StepIndex = styled.p<{ $accent?: boolean }>`
   margin-bottom: 30px;
-  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
   color: ${({ theme, $accent }) => ($accent ? 'rgba(255,255,255,.8)' : theme.colors.accent)};
 `
 
 const StepLabel = styled.p`
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: 26px;
 `
 

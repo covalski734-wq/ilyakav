@@ -1,7 +1,5 @@
 /**
  * Single source of truth for contacts and cross-page links.
- * The Contact and Case pages are separate artboards in the design project;
- * only their routes are declared here so they can be wired up later.
  */
 export const SITE = {
   email: 'covalski734@gmail.com',
@@ -13,6 +11,8 @@ export const SITE = {
 export const ROUTES = {
   contact: '/contact',
   caseMarianaleus: '/case/marianaleus',
+  about: '/about',
+  privacy: '/privacy',
 } as const
 
 export const SECTION_IDS = {
@@ -25,10 +25,10 @@ export const SECTION_IDS = {
 
 /** Nav entries, in the order they appear in the header, menu and footer. */
 export const NAV_LINKS = [
-  { key: 'work', href: `#${SECTION_IDS.work}` },
-  { key: 'range', href: `#${SECTION_IDS.range}` },
-  { key: 'services', href: `#${SECTION_IDS.services}` },
-  { key: 'about', href: `#${SECTION_IDS.about}` },
+  { key: 'work', href: `/#${SECTION_IDS.work}` },
+  { key: 'range', href: `/#${SECTION_IDS.range}` },
+  { key: 'services', href: `/#${SECTION_IDS.services}` },
+  { key: 'about', href: ROUTES.about },
   { key: 'contact', href: ROUTES.contact },
 ] as const
 

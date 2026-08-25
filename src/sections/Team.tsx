@@ -8,17 +8,17 @@ const Layout = styled.div`
   max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(26px, 4vw, 80px);
   align-items: center;
 `
 
 const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
   font-size: clamp(30px, 4vw, 58px);
   line-height: 1.02;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
   margin-bottom: 20px;
   max-width: 20ch;
 `
@@ -48,13 +48,15 @@ const LeadRole = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.s};
 
   p {
-    font-family: ${({ theme }) => theme.fonts.serif};
+    font-family: ${({ theme }) => theme.fonts.display};
+    font-weight: 600;
     font-size: 22px;
   }
 `
 
 const SupportRole = styled.div`
   background: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.line};
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 20px 26px;
   box-shadow: ${({ theme }) => theme.shadows.s};

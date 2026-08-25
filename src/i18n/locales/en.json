@@ -2,7 +2,19 @@
   "meta": {
     "brand": "ilyakav",
     "name": "Ilya Kavaleuski",
-    "site": "ilyakav.com"
+    "site": "ilyakav.com",
+    "homeTitle": "ilyakav. — Websites that bring clients",
+    "homeDescription": "Strategy, design and development for businesses — from landing pages to custom systems.",
+    "contactTitle": "Start a project — ilyakav.",
+    "contactDescription": "Tell Ilya what you need to build and get a clear reply within one working day.",
+    "caseTitle": "Mariana Leus case study — ilyakav.",
+    "caseDescription": "Strategy, design and development of a conversion-focused website for performance marketer Mariana Leus.",
+    "notFoundTitle": "Page not found — ilyakav.",
+    "notFoundDescription": "The requested page does not exist.",
+    "aboutTitle": "About Ilya Kavaleuski — ilyakav.",
+    "aboutDescription": "Independent strategy, design and development for websites and custom digital products.",
+    "privacyTitle": "Privacy policy — ilyakav.",
+    "privacyDescription": "How ilyakav.com handles contact details, local preferences and third-party services."
   },
   "nav": {
     "work": "Work",
@@ -28,11 +40,77 @@
     "videoNote": "3D loop goes here — drop the file in and it plays full-bleed"
   },
   "laptop": {
-    "caption": "Flagship project — marianaleus.com",
-    "screenTop": "site screenshot — top of the page",
-    "screenMid": "offer & services",
-    "screenBottom": "request form — bottom of the page",
-    "note": "One page. One offer. One action. Built to receive paid traffic."
+    "caption": "Interactive demo scene — rendered in code",
+    "note": "No video and no iframe: layout, motion and scrolling run directly in the browser.",
+    "demo": {
+      "ariaLabel": "An animated project management interface scrolling inside a laptop",
+      "brand": "arcflow",
+      "status": "system live",
+      "nav": {
+        "overview": "Overview",
+        "workflow": "Workflow",
+        "signals": "Signals"
+      },
+      "hero": {
+        "eyebrow": "Interactive product demo",
+        "title": "Complex work. One clear flow.",
+        "lead": "Projects, decisions and feedback brought together in one understandable system.",
+        "action": "Open workspace"
+      },
+      "metrics": {
+        "active": "Active projects",
+        "review": "In review",
+        "velocity": "Team velocity"
+      },
+      "overview": {
+        "eyebrow": "Momentum",
+        "title": "Delivery rhythm",
+        "period": "last 12 weeks"
+      },
+      "ticker": {
+        "delivery": "release ready",
+        "review": "design approved",
+        "sync": "data synchronized"
+      },
+      "workflow": {
+        "eyebrow": "Workflow",
+        "title": "From idea to release",
+        "meta": "updates in real time",
+        "columns": {
+          "active": "In progress",
+          "review": "Review",
+          "ready": "Ready"
+        },
+        "cards": {
+          "discovery": "Discovery",
+          "content": "Content & structure",
+          "prototype": "Interactive prototype",
+          "release": "Release v2.4"
+        }
+      },
+      "signals": {
+        "eyebrow": "Signals",
+        "title": "Context stays attached",
+        "items": {
+          "priority": {
+            "title": "Priorities",
+            "body": "The team sees what matters now and why."
+          },
+          "handoff": {
+            "title": "Lossless handoff",
+            "body": "Decisions stay with the work instead of disappearing into chat."
+          },
+          "momentum": {
+            "title": "Visible progress",
+            "body": "Momentum is clear without extra status calls."
+          }
+        }
+      },
+      "closing": {
+        "title": "Work moves. The team knows why.",
+        "action": "Start the flow"
+      }
+    }
   },
   "flagship": {
     "lead": "A page for an independent media buyer — the client's main entry point for traffic, and in her words it brings requests steadily.",
@@ -74,11 +152,66 @@
     "conceptsSoon": "concept — coming soon"
   },
   "morph": {
-    "title": "One website. Every screen.",
-    "desktopCopy": "Ad traffic mostly arrives on phones — so mobile is not a leftover of the desktop layout.",
-    "mobileCopy": "The same logic recomposed for a thumb: large targets, short blocks, the request always near.",
+    "title": "One interface. Any screen.",
+    "desktopCopy": "Inside the frame is a real interface, not a screenshot: its grid and components react to the available width.",
+    "mobileCopy": "As it narrows, navigation, hierarchy and target sizes change — without loading a second website.",
     "desktopLabel": "desktop 1440",
-    "mobileLabel": "mobile 390"
+    "mobileLabel": "mobile 390",
+    "demo": {
+      "ariaLabel": "A responsive product management interface rebuilding from desktop to mobile",
+      "brand": "orbit",
+      "workspace": "Product team",
+      "nav": {
+        "overview": "Overview",
+        "projects": "Projects",
+        "team": "Team"
+      },
+      "search": "Search workspace",
+      "newTask": "+ New task",
+      "eyebrow": "Workspace",
+      "title": "Product delivery",
+      "lead": "Projects, pace and the team's next step in one place.",
+      "stats": {
+        "active": {
+          "label": "Active",
+          "value": "12"
+        },
+        "completed": {
+          "label": "Completed",
+          "value": "38"
+        },
+        "velocity": {
+          "label": "Velocity",
+          "value": "1.8×"
+        }
+      },
+      "projects": {
+        "title": "Active projects",
+        "viewAll": "View all",
+        "items": {
+          "checkout": {
+            "title": "New checkout",
+            "meta": "Design · Development",
+            "progress": "72%"
+          },
+          "portal": {
+            "title": "Client portal",
+            "meta": "System · Integrations",
+            "progress": "46%"
+          }
+        }
+      },
+      "next": {
+        "title": "Team sync",
+        "time": "10:30",
+        "label": "Next call"
+      },
+      "account": {
+        "initials": "IK",
+        "name": "Ilya",
+        "status": "online"
+      }
+    }
   },
   "range": {
     "title": "From a landing page to a full digital product.",
@@ -174,7 +307,131 @@
     "title": "I design, build and improve digital products for businesses.",
     "p1": "Most people either draw a site or code it. I also care about what happens after a visitor arrives from an ad or a search result — where attention goes, what is understood in the first five seconds, whether the next step is obvious.",
     "p2": "Business understanding, marketing thinking, design and frontend development in one head — plus access to deeper engineering when a project needs it.",
-    "role": "Independent designer & developer · Poland"
+    "role": "Independent designer & developer · Poland",
+    "more": "More about how I work"
+  },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "Independent designer & developer",
+      "title": "I turn business problems into clear digital products.",
+      "lead": "Strategy, design and development stay connected from the first question to the final release.",
+      "note": "Some of my product work is confidential. I can still explain my role, decisions and process without breaking an NDA."
+    },
+    "positioning": {
+      "eyebrow": "How I work",
+      "title": "One person who understands the whole product.",
+      "lead": "A website works better when its message, interface and code are shaped around the same goal.",
+      "body": "I work across strategy, structure, visual design and frontend development. That gives you one accountable partner, fewer handovers and decisions that make sense both for the business and for the people using the product.",
+      "statementLabel": "My role",
+      "statement": "Make the complex clear, then build it properly."
+    },
+    "principles": {
+      "eyebrow": "Principles",
+      "title": "What guides every decision.",
+      "lead": "Good work is not defined by decoration or technical complexity. It is defined by what the product helps someone understand and do.",
+      "items": {
+        "clarity": {
+          "index": "01",
+          "title": "Clarity before polish",
+          "body": "The offer, hierarchy and next step need to be understandable before visual detail can make them stronger."
+        },
+        "purpose": {
+          "index": "02",
+          "title": "Every element earns its place",
+          "body": "A section, interaction or animation stays only when it supports comprehension, trust or action."
+        },
+        "ownership": {
+          "index": "03",
+          "title": "Personal ownership",
+          "body": "I stay close to the work, explain trade-offs clearly and remain responsible for how the pieces fit together."
+        },
+        "longevity": {
+          "index": "04",
+          "title": "Built beyond launch",
+          "body": "The result should be maintainable, adaptable and useful after the first campaign or release is over."
+        }
+      }
+    },
+    "capabilities": {
+      "eyebrow": "Capabilities",
+      "title": "From the first idea to a working product.",
+      "lead": "The scope can be a focused marketing page or a custom application with real business logic.",
+      "items": {
+        "strategy": {
+          "index": "01",
+          "title": "Strategy & structure",
+          "body": "Clarifying the audience, offer, priorities and customer path before deciding what the interface should contain."
+        },
+        "design": {
+          "index": "02",
+          "title": "Product & web design",
+          "body": "Creating a visual system and responsive experience that make the message easier to understand and trust."
+        },
+        "frontend": {
+          "index": "03",
+          "title": "Frontend development",
+          "body": "Turning the design into a fast, accessible interface with considered motion and reliable behaviour across screens."
+        },
+        "customApps": {
+          "index": "04",
+          "title": "Custom applications",
+          "body": "Building products with accounts, data, integrations and workflows when a conventional website is not enough."
+        }
+      }
+    },
+    "collaboration": {
+      "eyebrow": "Collaboration",
+      "title": "Independent by default. Expanded when the work requires it.",
+      "lead": "You always have one clear point of contact, while the delivery model follows the real needs of the project.",
+      "solo": {
+        "label": "Direct",
+        "title": "I handle focused projects personally.",
+        "body": "For strategy, design and frontend work, I stay hands-on from discovery through launch. Communication is direct and decisions move quickly."
+      },
+      "network": {
+        "label": "Specialists",
+        "title": "Trusted expertise joins when needed.",
+        "body": "For deeper backend, infrastructure, desktop or growth work, I bring in trusted specialists and continue to own the overall direction."
+      }
+    },
+    "process": {
+      "eyebrow": "Process",
+      "title": "Five steps, with room to think.",
+      "lead": "The details change with every project, but the logic stays transparent from start to finish.",
+      "items": {
+        "context": {
+          "index": "01",
+          "title": "Understand the context",
+          "body": "We define the business goal, audience, constraints and what success should look like."
+        },
+        "direction": {
+          "index": "02",
+          "title": "Set the direction",
+          "body": "I shape the offer, information structure and core experience before committing to visual detail."
+        },
+        "build": {
+          "index": "03",
+          "title": "Design and build",
+          "body": "The visual system and implementation develop together, keeping ideas grounded in a responsive working product."
+        },
+        "refine": {
+          "index": "04",
+          "title": "Review and refine",
+          "body": "We test the important flows, resolve edge cases and improve the details that affect understanding and use."
+        },
+        "launch": {
+          "index": "05",
+          "title": "Launch and hand over",
+          "body": "The product goes live with the necessary access, documentation and a clear path for future changes."
+        }
+      }
+    },
+    "finalCta": {
+      "eyebrow": "Have a project in mind?",
+      "title": "Let’s make the next step clear.",
+      "lead": "Tell me what you are trying to build or improve. I will come back with practical questions and an honest direction.",
+      "button": "Start a project"
+    }
   },
   "faq": {
     "title": "Still thinking? That's normal.",
@@ -214,6 +471,199 @@
     "title": "Have something worth building?",
     "lead": "Tell me what you are working on. I will tell you how I would approach it — plainly, before any invoice."
   },
+  "contact": {
+    "eyebrow": "Open for new projects",
+    "title": "Tell me what needs building.",
+    "lead": "A few sentences are enough. I will clarify the details and suggest a clear next step.",
+    "replyNote": "Usually a reply within one working day",
+    "form": {
+      "title": "A short project brief",
+      "lead": "This form prepares a message and opens it in your email app — nothing is sent through the site.",
+      "nameLabel": "Your name",
+      "namePlaceholder": "How should I address you?",
+      "contactLabel": "Email or Telegram",
+      "contactPlaceholder": "Where should I reply?",
+      "typeLabel": "Project type",
+      "briefLabel": "What needs to be done",
+      "briefPlaceholder": "The task, audience, timing and anything you already know.",
+      "submit": "Continue in email",
+      "privacyNote": "Your email app will open with a prepared draft. Nothing is stored on this site.",
+      "emailSubject": "New project — {{name}}",
+      "types": {
+        "site": "Business website",
+        "landing": "Landing page",
+        "webApp": "Web application",
+        "desktop": "Desktop application",
+        "redesign": "Redesign / existing project",
+        "other": "Other"
+      }
+    },
+    "direct": {
+      "title": "Prefer writing directly?",
+      "lead": "Use whichever channel is easiest. No formal brief required.",
+      "email": "Email",
+      "telegram": "Telegram",
+      "phone": "Phone"
+    }
+  },
+  "caseMariana": {
+    "hero": {
+      "eyebrow": "01 / flagship case",
+      "title": "Mariana Leus",
+      "lead": "A website for a performance marketer: a clear offer, proof of results and a short path to an enquiry."
+    },
+    "actions": {
+      "openLive": "Open live website",
+      "exploreCase": "Explore the case",
+      "startProject": "Discuss your project"
+    },
+    "facts": {
+      "industryLabel": "Industry",
+      "industryValue": "Performance marketing",
+      "locationLabel": "Location",
+      "locationValue": "Warsaw, Poland",
+      "scopeLabel": "Scope",
+      "scopeValue": "Strategy, design, development",
+      "yearLabel": "Year",
+      "yearValue": "2025"
+    },
+    "story": {
+      "eyebrow": "Context",
+      "title": "Not a brochure, but a working point of entry.",
+      "lead": "A visitor arrives from an ad or a recommendation and should understand the specialism, see proof and choose a next step within seconds."
+    },
+    "problem": {
+      "eyebrow": "Challenge",
+      "title": "Turn several services into one convincing story.",
+      "body": "Mariana works across several disciplines and markets. The site needed to avoid feeling like an agency catalogue while keeping a personal, expert voice."
+    },
+    "approach": {
+      "eyebrow": "Approach",
+      "title": "One offer leads through the whole page.",
+      "body": "The flow starts with the outcome, then moves through services, real cases, testimonials and the form. Every block answers the client's next question."
+    },
+    "solutions": {
+      "eyebrow": "Solutions",
+      "title": "Three foundations for conversion.",
+      "lead": "The structure does not decorate the offer — it helps people decide sooner.",
+      "items": {
+        "message": {
+          "index": "01",
+          "title": "An offer that needs no decoding",
+          "body": "The first screen states the business outcome instead of listing advertising tools."
+        },
+        "trust": {
+          "index": "02",
+          "title": "Trust built with facts",
+          "body": "Cases, working figures and testimonials appear before the visitor is asked to submit an enquiry."
+        },
+        "conversion": {
+          "index": "03",
+          "title": "A short path to contact",
+          "body": "The main calls to action return at the right moments, and the form offers a convenient contact channel."
+        }
+      }
+    },
+    "preview": {
+      "eyebrow": "Responsive / live",
+      "title": "One website in two real viewport sizes.",
+      "lead": "The captured view stays stable, while live mode lets you check the real animation and responsive behaviour.",
+      "modeGroupLabel": "Preview mode",
+      "screenshot": "Captured view",
+      "openLiveMobile": "Open website",
+      "live": "Live",
+      "deviceGroupLabel": "Viewport size",
+      "desktop": "Desktop 1440",
+      "mobile": "Mobile 390",
+      "exitLive": "Close live view",
+      "iframeTitle": "Interactive preview of marianaleus.com",
+      "desktopAlt": "Desktop view of the marianaleus.com homepage",
+      "mobileAlt": "Mobile view of the marianaleus.com homepage"
+    },
+    "finalCta": {
+      "eyebrow": "Next project",
+      "title": "Your website can work as one coherent system too.",
+      "lead": "We will begin with the task, the offer and the customer path — before drawing the first page."
+    }
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "This page does not exist.",
+    "lead": "The link may be outdated or the address may contain a typo. Return home or tell me about your project.",
+    "home": "Back to home",
+    "contact": "Start a project"
+  },
+  "privacyPage": {
+    "hero": {
+      "eyebrow": "Privacy",
+      "title": "A clear account of what happens to your data.",
+      "lead": "This policy explains the limited information used when you browse this website or choose to contact me.",
+      "lastUpdatedLabel": "Last updated",
+      "lastUpdatedValue": "25 August 2026"
+    },
+    "toc": {
+      "label": "On this page"
+    },
+    "controller": {
+      "eyebrow": "Data controller",
+      "title": "Ilya Kavaleuski",
+      "body": "I am based in Poland and act as the controller for the personal data described in this policy. You can contact me with any privacy question by email.",
+      "emailLabel": "Privacy contact"
+    },
+    "sections": {
+      "scope": {
+        "title": "Scope of this policy",
+        "p1": "This policy applies to ilyakav.com and to personal data you send when asking about a project or otherwise contacting me about my services.",
+        "p2": "External websites and services have their own privacy practices. This policy does not control what they do after you follow a link, open Telegram or load an optional third-party preview."
+      },
+      "information": {
+        "title": "Information I may receive",
+        "p1": "If you contact me by email, Telegram or phone, I receive the details you choose to provide, such as your name, contact details, project information and the content of our conversation.",
+        "p2": "The project form does not submit information to a server or database. It prepares a mailto link and asks your own email application to open a draft; you decide whether to send it.",
+        "p3": "The site stores only your language and theme preferences in localStorage. Hosting and network providers may also process technical logs such as an IP address, request time, requested page, browser information and error data to deliver and protect the site."
+      },
+      "use": {
+        "title": "Why information is used",
+        "p1": "I use contact information to reply, understand a proposed project, prepare or perform an agreement, keep necessary business records, and protect or troubleshoot the website.",
+        "p2": "Depending on the situation, the legal basis is taking steps at your request or performing a contract under Article 6(1)(b) GDPR, my legitimate interests in communication, operation and security under Article 6(1)(f), or a legal obligation under Article 6(1)(c). I do not use personal data for automated decision-making or profiling."
+      },
+      "sharing": {
+        "title": "Who may process information",
+        "p1": "Information may be handled by providers needed to host and deliver the site, operate email and communications, or maintain its security. If you contact me through Telegram or by phone, the service you choose also processes that communication under its own terms.",
+        "p2": "I do not sell or rent personal data. I may disclose information when the law requires it, or when reasonably necessary to establish, exercise or defend legal claims and protect the website, its users or others."
+      },
+      "cookies": {
+        "title": "Local storage and third-party content",
+        "p1": "This site does not set first-party analytics or advertising cookies. It uses localStorage only to remember the selected language and light or dark theme. Google Fonts are requested from Google, so Google may receive technical request data such as your IP address and browser information.",
+        "p2": "The live desktop preview of marianaleus.com is mounted only after you explicitly select Live. Loading it connects your browser to that website and any services it uses, which may process data under their own policies. On mobile, the live site opens as an external page instead."
+      },
+      "retention": {
+        "title": "How long information is kept",
+        "p1": "Messages and project records are kept only for as long as needed to answer you, manage a working relationship, maintain necessary business records, meet legal duties or handle possible claims. The appropriate period depends on the nature of the contact and any agreement.",
+        "p2": "Language and theme preferences remain in your browser until you clear site data or replace them. Technical logs are retained according to the operational and security schedules of the relevant hosting or network provider."
+      },
+      "rights": {
+        "title": "Your GDPR rights",
+        "p1": "Where the GDPR applies, you may have the right to access, correct or erase your personal data, restrict its use, receive portable data, and object to processing based on legitimate interests. These rights can be limited where the law permits or requires continued processing.",
+        "p2": "You can make a request using the email above. I may need enough information to verify your identity and understand the request. You may also complain to Poland’s supervisory authority, the President of the Personal Data Protection Office (UODO), at uodo.gov.pl."
+      },
+      "security": {
+        "title": "Security",
+        "p1": "I use reasonable technical and organisational measures appropriate to this small website and the information involved, including limiting collection and relying on established service providers.",
+        "p2": "No website, network or communication method can be guaranteed completely secure. Please avoid sending sensitive information that is not necessary for the initial conversation."
+      },
+      "international": {
+        "title": "Processing outside the EEA",
+        "p1": "Some selected technology or communication providers may process information in countries outside the European Economic Area. Data protection rules in those countries may differ from those in Poland.",
+        "p2": "Where a restricted international transfer is involved, the relevant provider or I rely on an available legal safeguard, such as an adequacy decision or approved standard contractual clauses, as applicable to that service."
+      },
+      "changes": {
+        "title": "Changes to this policy",
+        "p1": "This policy may be updated when the site, its providers or legal requirements change. The revised text will be published on this page with a new last-updated date.",
+        "p2": "If a change materially affects how information already provided is used, I will take reasonable steps to give any additional notice required by law."
+      }
+    }
+  },
   "footer": {
     "writeDirect": "Write directly",
     "replyNote": "Usually a reply within one working day",
@@ -223,6 +673,7 @@
     "colInterface": "Interface",
     "location": "Poland · working across Europe",
     "copyright": "© 2026 Ilya Kavaleuski · ilyakav.com",
-    "madeBy": "Designed and built by the person you will be talking to"
+    "madeBy": "Designed and built by the person you will be talking to",
+    "privacy": "Privacy"
   }
 }

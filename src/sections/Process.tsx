@@ -17,19 +17,21 @@ const Title = styled(SectionTitle)`
 
 const Step = styled.div`
   background: ${({ theme }) => theme.colors.deep2};
+  border: 1px solid rgba(247, 249, 252, 0.08);
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 26px 24px;
 `
 
 const StepIndex = styled.p`
   margin-bottom: 26px;
-  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.accent};
 `
 
 const StepTitle = styled.h3`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: 24px;
   margin-bottom: 8px;
 `

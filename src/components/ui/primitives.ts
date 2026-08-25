@@ -11,11 +11,11 @@ export const Container = styled.div`
 `
 
 export const SectionTitle = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
   font-size: clamp(32px, 4.4vw, 62px);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
 `
 
 const buttonBase = css`
@@ -26,7 +26,7 @@ const buttonBase = css`
   font-weight: 600;
   border: 0;
   cursor: pointer;
-  border-radius: ${({ theme }) => theme.radii.pill};
+  border-radius: ${({ theme }) => theme.radii.md};
   transition:
     background 0.3s ease,
     color 0.3s ease,
@@ -75,6 +75,7 @@ export const InvertedButton = styled.a`
 
 export const Card = styled.div`
   background: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.line};
   border-radius: ${({ theme }) => theme.radii.lg};
   box-shadow: ${({ theme }) => theme.shadows.s};
   padding: 24px;
@@ -83,11 +84,13 @@ export const Card = styled.div`
 /** Auto-fitting grid used by every card row on the page. */
 export const AutoGrid = styled.div<{ $min?: string; $gap?: string }>`
   display: grid;
-  grid-template-columns: ${({ $min = '230px' }) => `repeat(auto-fit, minmax(${$min}, 1fr))`};
+  grid-template-columns: ${({ $min = '230px' }) => `repeat(auto-fit, minmax(min(100%, ${$min}), 1fr))`};
   gap: ${({ $gap = 'clamp(12px, 1.6vw, 18px)' }) => $gap};
 `
 
 export const Eyebrow = styled.p`
-  font-size: 13px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
+  letter-spacing: 0.03em;
   color: ${({ theme }) => theme.colors.textDim};
 `

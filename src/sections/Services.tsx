@@ -21,6 +21,10 @@ const Wrapper = styled.section`
   padding: ${({ theme }) => theme.layout.sectionPadding} ${({ theme }) => theme.layout.pagePadding};
   background: ${({ theme }) => theme.colors.surface2};
   border-radius: ${({ theme }) => theme.radii.xl};
+
+  @media (max-width: 760px) {
+    border-radius: ${({ theme }) => theme.radii.lg};
+  }
 `
 
 const Head = styled.div`
@@ -33,13 +37,15 @@ const Head = styled.div`
 `
 
 const Price = styled.p`
-  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
+  letter-spacing: 0.02em;
   color: ${({ theme }) => theme.colors.accent};
 `
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
   gap: clamp(18px, 3vw, 44px);
   align-items: start;
 `
@@ -52,6 +58,7 @@ const List = styled.div`
 
 const Item = styled.div<{ $active: boolean }>`
   background: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme, $active }) => ($active ? theme.colors.accent : theme.colors.line)};
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: clamp(18px, 2.2vw, 26px);
   cursor: pointer;
@@ -65,11 +72,19 @@ const Item = styled.div<{ $active: boolean }>`
     transform: translateX(6px);
     box-shadow: ${({ theme }) => theme.shadows.s};
   }
+
+  @media (max-width: 760px) {
+    transform: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
 `
 
 const ItemTitle = styled.h3`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: clamp(22px, 2.2vw, 30px);
   margin-bottom: 6px;
 `
@@ -86,9 +101,14 @@ const Preview = styled.div`
   position: sticky;
   top: 110px;
   background: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.line};
   border-radius: ${({ theme }) => theme.radii.xl};
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.m};
+
+  @media (max-width: 760px) {
+    position: static;
+  }
 `
 
 const PreviewShot = styled.div`
@@ -130,13 +150,15 @@ const PreviewShotTint = styled.div<{ $index: number }>`
 
 const PreviewTag = styled.p`
   margin-bottom: 10px;
-  font-size: 13px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.accent};
 `
 
 const PreviewTitle = styled.p`
   margin-bottom: 8px;
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: 26px;
   line-height: 1.15;
 `

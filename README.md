@@ -18,7 +18,7 @@ npm run typecheck
 
 ```
 src/
-  App.tsx                  page composition — sections in order
+  App.tsx                  lightweight pathname routing and page composition
   main.tsx                 entry: i18n, theme provider, global style
   config/site.ts           contacts, routes, section ids, feature flags, hero video
   i18n/
@@ -31,6 +31,7 @@ src/
     GlobalStyle.ts         reset, keyframes, shared media mixin
   components/              header, mobile menu, language switcher, theme toggle, bottom bar
   components/ui/           styled primitives shared across sections
+  pages/                   about, privacy, contact, Mariana Leus case study and 404
   sections/                one file per page section
   hooks/                   media query / reduced motion, body scroll lock
   lib/gsap.ts              single ScrollTrigger registration
@@ -58,9 +59,10 @@ Every animation below is disabled or collapsed to its end state under `prefers-r
 
 **Pinned scroll scenes** (GSAP ScrollTrigger)
 
-- `sections/LaptopScene.tsx` — the lid opens and a page strip scrolls inside the screen.
-- `sections/MorphScene.tsx` — one frame resizes from a desktop viewport into a phone, with the
-  copy and the label swapping past 55% progress.
+- `sections/LaptopScene.tsx` — the lid opens onto a code-native product demo; its live CSS motion
+  and long interface scroll inside the screen without video or an iframe.
+- `sections/MorphScene.tsx` — a code-native dashboard resizes from desktop into mobile; container
+  queries rebuild its navigation, content hierarchy and card grid inside the changing frame.
 
 **Scroll reveals** — `hooks/useReveal.ts` fades an element, or its direct children in sequence, up
 into view once. It clears its inline props on finish so no leftover transform can break a
@@ -72,7 +74,8 @@ the closing CTA bloom drift slowly.
 
 **Interaction**
 
-- Header cross-fades from transparent-over-video to a solid pill that drops in past the hero.
+- Header starts integrated into the hero and becomes a solid floating pill after the first 24px
+  of scrolling.
 - Hero video cross-fades over the gradient fallback once decoded.
 - Burger morphs into a cross; the mobile menu slides down.
 - Theme dot rotates 180°; work, range and services cards lift or shift on hover.
@@ -80,12 +83,14 @@ the closing CTA bloom drift slowly.
 - FAQ is an accessible accordion (`aria-expanded` / `role="region"`) animating on a `0fr → 1fr`
   grid row, with a `+` marker that folds into a `−`.
 
-## Assets and pending pages
+## Assets and routes
 
 - **Hero video** — `public/media/hero.mp4` (path configurable in `config/site.ts`). If it is
-  missing or fails to decode, the animated gradient fallback stays up and the "3D loop goes here"
-  note reappears.
-- **Screenshots and portrait** — the gradient placeholders carry the design's own captions.
-- **Contact and case pages** are separate artboards in the design project and are not part of this
-  page. Their links point at `ROUTES.contact` / `ROUTES.caseMarianaleus` in `config/site.ts` —
-  wire a router to those paths when the pages land.
+  missing or fails to decode, the animated gradient fallback stays up. Mobile, reduced-motion and
+  data-saver clients intentionally use that lightweight fallback instead of downloading the video.
+- **Case screenshots** — `public/media/marianaleus-{desktop,mobile}.jpg`. The case keeps these
+  stable captures as its default preview and loads the external live site only after an explicit
+  desktop click.
+- **Routes** — `/`, `/about`, `/privacy`, `/contact`, `/case/marianaleus`, plus an in-app 404.
+  `vercel.json` rewrites
+  direct SPA requests to `index.html` so refreshes and deep links work after deployment.

@@ -8,8 +8,8 @@ const ToggleButton = styled.button`
   align-items: center;
   justify-content: center;
   flex: none;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   padding: 0;
   background: none;
   border: 0;

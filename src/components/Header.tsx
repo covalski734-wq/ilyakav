@@ -3,6 +3,7 @@ import styled, { css, keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 import { NAV_LINKS, ROUTES } from '../config/site'
+import { LANGUAGE_LABELS } from '../i18n'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -15,13 +16,18 @@ const dropIn = keyframes`
 const Bar = styled.header`
   position: sticky;
   top: 0;
-  z-index: 80;
-  padding: 14px clamp(14px, 3vw, 34px);
+  z-index: 100;
+  padding: max(12px, env(safe-area-inset-top)) clamp(12px, 3vw, 34px) 12px;
+
+  @media (max-width: 760px), (max-height: 600px) and (max-width: 1020px) {
+    padding: max(9px, env(safe-area-inset-top)) 10px 9px;
+  }
 `
 
 /**
- * Over the hero video the pill is transparent and everything inside turns light;
- * once the hero is scrolled past it drops in as a solid floating pill.
+ * At the very top the header belongs to the hero. After the first small scroll
+ * it becomes a solid floating pill, so content never has to pass below a
+ * transparent navigation bar for the length of the whole hero.
  */
 const Pill = styled.div<{ $floating: boolean }>`
   max-width: ${({ theme }) => theme.layout.maxWidth};
@@ -31,14 +37,17 @@ const Pill = styled.div<{ $floating: boolean }>`
   align-items: center;
   gap: clamp(10px, 2vw, 26px);
   border-radius: ${({ theme }) => theme.radii.pill};
+  border: 1px solid transparent;
   transition:
     background 0.4s ease,
+    border-color 0.4s ease,
     box-shadow 0.45s ease;
 
   ${({ $floating, theme }) =>
     $floating
       ? css`
           background: ${theme.colors.surface};
+          border-color: ${theme.colors.line};
           box-shadow: ${theme.shadows.m};
           animation: ${dropIn} 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.3);
         `
@@ -49,13 +58,13 @@ const Pill = styled.div<{ $floating: boolean }>`
           /* doubled selector so these win over the nav's own dimmed link colour */
           && a,
           && button {
-            color: #f8f3ec;
+            color: #f7f9fc;
           }
 
           && a:hover,
           && button:hover {
             color: #fff;
-            background: rgba(248, 243, 236, 0.16);
+            background: rgba(247, 249, 252, 0.13);
           }
 
           /* the accent pill keeps its own colours */
@@ -70,24 +79,32 @@ const Pill = styled.div<{ $floating: boolean }>`
           }
 
           [data-theme-dot] {
-            background: linear-gradient(90deg, #f8f3ec 50%, transparent 50%);
-            box-shadow: inset 0 0 0 2px #f8f3ec;
+            background: linear-gradient(90deg, #f7f9fc 50%, transparent 50%);
+            box-shadow: inset 0 0 0 2px #f7f9fc;
           }
 
           [data-burger-bar] {
-            background: #f8f3ec;
+            background: #f7f9fc;
           }
         `}
 
+  @media (max-width: 760px), (max-height: 600px) and (max-width: 1020px) {
+    padding: 7px 7px 7px 14px;
+    gap: 5px;
+    border-radius: 18px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     animation: none;
+    transition: none;
   }
 `
 
 const Logo = styled.a`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 25px;
-  letter-spacing: -0.01em;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.text};
   flex: none;
@@ -132,7 +149,7 @@ const HeadCta = styled.a`
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  border-radius: ${({ theme }) => theme.radii.pill};
+  border-radius: ${({ theme }) => theme.radii.md};
   padding: 12px 22px;
   transition:
     background 0.3s ease,
@@ -143,7 +160,7 @@ const HeadCta = styled.a`
     transform: translateY(-1px);
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 760px), (max-height: 600px) and (max-width: 1020px) {
     display: none;
   }
 `
@@ -155,8 +172,8 @@ const Burger = styled.button`
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   padding: 0;
   background: none;
   border: 0;
@@ -164,6 +181,41 @@ const Burger = styled.button`
   cursor: pointer;
 
   @media (max-width: 1020px) {
+    display: flex;
+  }
+`
+
+const DesktopControls = styled.div`
+  display: contents;
+
+  @media (max-width: 760px), (max-height: 600px) and (max-width: 1020px) {
+    display: none;
+  }
+`
+
+const MobileLanguage = styled.button`
+  display: none;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  min-width: 44px;
+  height: 42px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: ${({ theme }) => theme.colors.text};
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  span {
+    font-size: 10px;
+    opacity: 0.65;
+  }
+
+  @media (max-width: 760px), (max-height: 600px) and (max-width: 1020px) {
     display: flex;
   }
 `
@@ -190,20 +242,45 @@ type Props = {
 }
 
 export function Header({ menuOpen, onToggleMenu }: Props) {
-  const { t } = useTranslation()
-  const [floating, setFloating] = useState(false)
+  const { t, i18n } = useTranslation()
+  const [floating, setFloating] = useState(() =>
+    typeof window === 'undefined' ? false : Math.max(0, window.scrollY) >= 24,
+  )
+  const languageCode = (i18n.resolvedLanguage || i18n.language || 'en').slice(0, 2)
+  const currentLanguage =
+    LANGUAGE_LABELS[languageCode as keyof typeof LANGUAGE_LABELS] ?? languageCode.toUpperCase()
 
   useEffect(() => {
-    const onScroll = () => setFloating(window.scrollY > window.innerHeight * 0.8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    let frame = 0
+
+    const update = () => {
+      frame = 0
+      const scrollTop = Math.max(window.scrollY, document.documentElement.scrollTop)
+
+      // A little hysteresis prevents the pill from flickering around the
+      // threshold on touch devices with elastic scrolling.
+      setFloating((current) => (current ? scrollTop > 4 : scrollTop >= 24))
+    }
+
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(update)
+    }
+
+    update()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', requestUpdate)
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', requestUpdate)
+    }
   }, [])
 
   return (
     <Bar>
       <Pill $floating={floating || menuOpen}>
-        <Logo href="#top">
+        <Logo href="/#top">
           ilyakav<span>.</span>
         </Logo>
 
@@ -215,10 +292,27 @@ export function Header({ menuOpen, onToggleMenu }: Props) {
           ))}
         </Nav>
 
-        <LanguageSwitcher />
-        <ThemeToggle />
+        <DesktopControls>
+          <LanguageSwitcher />
+          <ThemeToggle />
+        </DesktopControls>
 
-        <Burger type="button" onClick={onToggleMenu} aria-label={t('actions.menuAria')} aria-expanded={menuOpen}>
+        <MobileLanguage
+          type="button"
+          onClick={onToggleMenu}
+          aria-label={`${t('actions.menuAria')}: ${currentLanguage}`}
+          aria-expanded={menuOpen}
+        >
+          {currentLanguage}
+          <span aria-hidden="true">⌄</span>
+        </MobileLanguage>
+
+        <Burger
+          type="button"
+          onClick={onToggleMenu}
+          aria-label={t('actions.menuAria')}
+          aria-expanded={menuOpen}
+        >
           {([0, 1, 2] as const).map((index) => (
             <BurgerBar key={index} $open={menuOpen} $index={index} data-burger-bar />
           ))}

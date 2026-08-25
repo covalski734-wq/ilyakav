@@ -8,7 +8,7 @@ import { useReveal } from '../hooks/useReveal'
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: clamp(16px, 2.4vw, 28px);
 `
 
@@ -19,6 +19,7 @@ const Title = styled(SectionTitle)`
 
 const Item = styled.article`
   background: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.line};
   border-radius: ${({ theme }) => theme.radii.xl};
   padding: 14px;
   box-shadow: ${({ theme }) => theme.shadows.s};
@@ -46,7 +47,8 @@ const Shot = styled.div<{ $flip: boolean }>`
   padding: 16px;
 
   span {
-    font-size: 13px;
+    font-family: ${({ theme }) => theme.fonts.mono};
+    font-size: 12px;
     color: ${({ theme }) => theme.colors.textDim};
   }
 `
@@ -56,9 +58,11 @@ const Body = styled.div`
 `
 
 const ItemTitle = styled.h3`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: 28px;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   margin-bottom: 6px;
 `
 
@@ -68,7 +72,7 @@ const Meta = styled.p`
 `
 
 const ConceptsGrid = styled(Grid)`
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   margin-top: clamp(16px, 2.4vw, 28px);
 `
 
@@ -88,7 +92,8 @@ const ConceptPlaceholder = styled(ConceptCard)`
 `
 
 const ConceptTitle = styled.p`
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: 26px;
 `
 

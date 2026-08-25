@@ -38,15 +38,24 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.colors.bg};
     color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fonts.sans};
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.6;
+    font-feature-settings: 'ss01' 1, 'cv05' 1;
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
   }
 
   h1, h2, h3, h4, p { margin: 0; }
 
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
   a { color: inherit; }
+
+  section[id] {
+    scroll-margin-top: 112px;
+  }
 
   summary {
     list-style: none;
@@ -54,7 +63,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   summary::-webkit-details-marker { display: none; }
 
-  button { font-family: inherit; }
+  button, input, textarea, select { font: inherit; }
 
   :focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.accent};
@@ -63,5 +72,9 @@ export const GlobalStyle = createGlobalStyle`
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+  }
+
+  @media (max-width: 760px), (max-height: 600px) and (max-width: 1020px) {
+    section[id] { scroll-margin-top: 80px; }
   }
 `

@@ -23,14 +23,15 @@ const Inner = styled.div`
 
 const Top = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(20px, 4vw, 60px);
   align-items: end;
 `
 
 const DirectLabel = styled.p`
   margin-bottom: 12px;
-  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.accent};
 `
 
@@ -38,9 +39,11 @@ const MailLink = styled.a`
   display: block;
   max-width: 100%;
   overflow-wrap: anywhere;
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
   font-size: clamp(26px, 3.6vw, 54px);
-  line-height: 1.05;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
   color: ${({ theme }) => theme.colors.text};
   text-decoration: none;
   transition: color 0.3s ease;
@@ -66,7 +69,7 @@ const Pulse = styled.span`
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.accent};
+  background: ${({ theme }) => theme.colors.status};
   animation: ${breathe} 2.6s ease-in-out infinite;
 
   @media (prefers-reduced-motion: reduce) {
@@ -143,19 +146,31 @@ const Legal = styled.div`
   align-items: baseline;
   margin-top: clamp(20px, 3vw, 32px);
 
-  p {
+  p,
+  a {
     font-size: 13px;
     color: ${({ theme }) => theme.colors.textDim};
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
 `
 
-const SITE_LINKS = NAV_LINKS.filter((link) => link.href.startsWith('#'))
+const SITE_LINKS = NAV_LINKS.filter((link) => link.key !== 'contact')
 
 export function Footer() {
   const { t } = useTranslation()
   const { toggleTheme } = useTheme()
   const topRef = useReveal<HTMLDivElement>({ children: true, stagger: 0.12 })
-  const columnsRef = useReveal<HTMLDivElement>({ children: true, stagger: 0.08 })
+  const columnsRef = useReveal<HTMLDivElement>({
+    children: true,
+    stagger: 0.08,
+  })
 
   return (
     <Wrapper>
@@ -206,6 +221,7 @@ export function Footer() {
 
         <Legal>
           <p>{t('footer.copyright')}</p>
+          <a href={ROUTES.privacy}>{t('footer.privacy')}</a>
           <p>{t('footer.madeBy')}</p>
         </Legal>
       </Inner>

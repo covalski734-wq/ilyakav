@@ -14,18 +14,18 @@ const Wrapper = styled.section`
 
 const Head = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(20px, 3vw, 56px);
   align-items: end;
   margin-bottom: clamp(26px, 4vw, 48px);
 `
 
 const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
   font-size: clamp(34px, 5.4vw, 76px);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
 
   span {
     color: ${({ theme }) => theme.colors.accent};
@@ -40,18 +40,21 @@ const Lead = styled.p`
 
 const Fact = styled.div`
   background: ${({ theme }) => theme.colors.deep2};
+  border: 1px solid rgba(247, 249, 252, 0.08);
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 22px 24px;
 `
 
 const FactLabel = styled.p`
   margin-bottom: 8px;
-  font-size: 13px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.onDeepDim};
 `
 
 const FactValue = styled.p`
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: 22px;
 `
 
@@ -70,7 +73,8 @@ const YearFact = styled(Fact)`
 `
 
 const YearValue = styled.p`
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-weight: 600;
   font-size: 34px;
   line-height: 1;
 `

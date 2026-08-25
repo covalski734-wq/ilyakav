@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { FEATURE_FLAGS } from './config/site'
 import { Header } from './components/Header'
@@ -18,35 +19,109 @@ import { Faq } from './sections/Faq'
 import { Testimonials } from './sections/Testimonials'
 import { FinalCta } from './sections/FinalCta'
 import { Footer } from './sections/Footer'
+import { ContactPage } from './pages/ContactPage'
+import { MarianaleusCasePage } from './pages/MarianaleusCasePage'
+import { NotFoundPage } from './pages/NotFoundPage'
+import { AboutPage } from './pages/AboutPage'
+import { PrivacyPage } from './pages/PrivacyPage'
+
+type RouteName = 'home' | 'contact' | 'caseMariana' | 'about' | 'privacy' | 'notFound'
+
+const normalizePathname = (pathname: string) => pathname.replace(/\/+$/, '') || '/'
+
+const getRoute = (pathname: string): RouteName => {
+  switch (normalizePathname(pathname)) {
+    case '/':
+      return 'home'
+    case '/contact':
+      return 'contact'
+    case '/case/marianaleus':
+      return 'caseMariana'
+    case '/about':
+      return 'about'
+    case '/privacy':
+      return 'privacy'
+    default:
+      return 'notFound'
+  }
+}
+
+const META_KEYS = {
+  home: { title: 'meta.homeTitle', description: 'meta.homeDescription' },
+  contact: {
+    title: 'meta.contactTitle',
+    description: 'meta.contactDescription',
+  },
+  caseMariana: { title: 'meta.caseTitle', description: 'meta.caseDescription' },
+  about: { title: 'meta.aboutTitle', description: 'meta.aboutDescription' },
+  privacy: {
+    title: 'meta.privacyTitle',
+    description: 'meta.privacyDescription',
+  },
+  notFound: {
+    title: 'meta.notFoundTitle',
+    description: 'meta.notFoundDescription',
+  },
+} as const
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <LaptopScene />
+      <FlagshipCase />
+      <SelectedWork />
+      <MorphScene />
+      <Range />
+      <Services />
+      <Team />
+      <Process />
+      <About />
+      <Faq />
+      {FEATURE_FLAGS.showTestimonials && <Testimonials />}
+      <FinalCta />
+    </>
+  )
+}
 
 export function App() {
+  const { t, i18n } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
+  const route = getRoute(window.location.pathname)
 
   const toggleMenu = useCallback(() => setMenuOpen((open) => !open), [])
   const closeMenu = useCallback(() => setMenuOpen(false), [])
+
+  useEffect(() => {
+    const meta = META_KEYS[route]
+    document.title = t(meta.title)
+
+    let description = document.querySelector<HTMLMetaElement>('meta[name="description"]')
+    if (!description) {
+      description = document.createElement('meta')
+      description.name = 'description'
+      document.head.append(description)
+    }
+    description.content = t(meta.description)
+  }, [i18n.resolvedLanguage, route, t])
+
+  const page = {
+    home: <HomePage />,
+    contact: <ContactPage />,
+    caseMariana: <MarianaleusCasePage />,
+    about: <AboutPage />,
+    privacy: <PrivacyPage />,
+    notFound: <NotFoundPage />,
+  }[route]
 
   return (
     <>
       <Header menuOpen={menuOpen} onToggleMenu={toggleMenu} />
       <MobileMenu open={menuOpen} onClose={closeMenu} />
 
-      <main>
-        <Hero />
-        <LaptopScene />
-        <FlagshipCase />
-        <SelectedWork />
-        <MorphScene />
-        <Range />
-        <Services />
-        <Team />
-        <Process />
-        <About />
-        <Faq />
-        {FEATURE_FLAGS.showTestimonials && <Testimonials />}
-        <FinalCta />
-      </main>
+      <main>{page}</main>
 
-      <BottomBar />
+      {route === 'home' && <BottomBar />}
       <Footer />
     </>
   )

@@ -20,9 +20,10 @@ const LangButton = styled.button<{ $active: boolean; $variant: 'bare' | 'filled'
   background: ${({ theme, $variant }) => ($variant === 'bare' ? 'none' : theme.colors.surface2)};
   border: 0;
   padding: ${({ $variant }) => ($variant === 'bare' ? '8px 9px' : '9px 13px')};
+  min-height: ${({ $variant }) => ($variant === 'bare' ? '36px' : '42px')};
   cursor: pointer;
   border-radius: ${({ theme }) => theme.radii.pill};
-  font-family: ${({ theme }) => theme.fonts.sans};
+  font-family: ${({ theme }) => theme.fonts.mono};
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.04em;

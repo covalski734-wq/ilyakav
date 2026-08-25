@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
-import { FEATURE_FLAGS, SECTION_IDS } from '../config/site'
+import { FEATURE_FLAGS, ROUTES, SECTION_IDS } from '../config/site'
 import { Section } from '../components/ui/primitives'
 import { grayscaleMedia } from '../theme/GlobalStyle'
 import { useReveal } from '../hooks/useReveal'
@@ -10,7 +10,7 @@ const Layout = styled.div`
   max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(28px, 5vw, 88px);
   align-items: center;
 `
@@ -53,11 +53,11 @@ const Badge = styled.div`
 `
 
 const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 400;
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
   font-size: clamp(30px, 4vw, 58px);
   line-height: 1.02;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
   margin-bottom: 20px;
   max-width: 22ch;
 `
@@ -75,7 +75,8 @@ const Paragraph = styled.p`
 `
 
 const Name = styled.p`
-  font-family: ${({ theme }) => theme.fonts.serif};
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 600;
   font-size: 24px;
 `
 
@@ -83,6 +84,35 @@ const Role = styled.p`
   margin-top: 4px;
   font-size: 15px;
   color: ${({ theme }) => theme.colors.textDim};
+`
+
+const MoreLink = styled.a`
+  width: fit-content;
+  margin-top: 24px;
+  padding: 12px 0 5px;
+  border-bottom: 1px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: ${({ theme }) => theme.colors.text};
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    gap 0.25s ease,
+    color 0.25s ease;
+
+  &::after {
+    content: '\2192';
+  }
+
+  &:hover {
+    gap: 15px;
+    color: ${({ theme }) => theme.colors.accent};
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export function About() {
@@ -118,6 +148,7 @@ export function About() {
           <Paragraph>{t('about.p2')}</Paragraph>
           <Name>Ilya Kavaleuski</Name>
           <Role>{t('about.role')}</Role>
+          <MoreLink href={ROUTES.about}>{t('about.more')}</MoreLink>
         </div>
       </Layout>
     </Section>
