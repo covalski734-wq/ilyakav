@@ -20,10 +20,7 @@ function readStoredMode(): ThemeMode {
     const stored = localStorage.getItem(STORAGE_KEY)
     if (stored === 'light' || stored === 'dark') return stored
   } catch {
-    /* storage unavailable — fall through to the system preference */
-  }
-  if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark'
+    /* Storage unavailable: use the light site default. */
   }
   return 'light'
 }

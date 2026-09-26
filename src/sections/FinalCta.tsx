@@ -77,6 +77,9 @@ const SolidLink = styled.a`
 `
 
 const SoftLink = styled.a`
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   color: #fff;
   text-decoration: none;
   font-weight: 600;

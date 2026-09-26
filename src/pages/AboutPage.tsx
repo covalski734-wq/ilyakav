@@ -98,10 +98,6 @@ const HeroInner = styled(Container)`
 
 const HeroMain = styled.div``
 
-const HeroEyebrow = styled(Eyebrow)`
-  margin-bottom: clamp(22px, 3vw, 34px);
-  color: ${({ theme }) => theme.colors.status};
-`
 
 const HeroTitle = styled.h1`
   max-width: 12ch;
@@ -175,9 +171,6 @@ const EditorialHead = styled.div`
   }
 `
 
-const SectionEyebrow = styled(Eyebrow)`
-  color: ${({ theme }) => (theme.mode === 'dark' ? '#aaa5ff' : theme.colors.accent)};
-`
 
 const SectionTitle = styled.h2`
   max-width: 15ch;
@@ -637,7 +630,6 @@ export function AboutPage() {
       <AboutHero id="top">
         <HeroInner ref={heroRef}>
           <HeroMain>
-            <HeroEyebrow>{t('aboutPage.hero.eyebrow')}</HeroEyebrow>
             <HeroTitle>{t('aboutPage.hero.title')}</HeroTitle>
           </HeroMain>
 
@@ -652,7 +644,6 @@ export function AboutPage() {
         <Container>
           <EditorialHead ref={positioningRef}>
             <div>
-              <SectionEyebrow>{t('aboutPage.positioning.eyebrow')}</SectionEyebrow>
               <SectionTitle>{t('aboutPage.positioning.title')}</SectionTitle>
             </div>
             <PositioningCopy>
@@ -672,7 +663,6 @@ export function AboutPage() {
         <Container>
           <SplitHead ref={principlesHeadRef}>
             <div>
-              <SectionEyebrow>{t('aboutPage.principles.eyebrow')}</SectionEyebrow>
               <SectionTitle>{t('aboutPage.principles.title')}</SectionTitle>
             </div>
             <SectionLead>{t('aboutPage.principles.lead')}</SectionLead>
@@ -698,7 +688,6 @@ export function AboutPage() {
         <Container>
           <SplitHead ref={capabilitiesHeadRef}>
             <div>
-              <SectionEyebrow>{t('aboutPage.capabilities.eyebrow')}</SectionEyebrow>
               <SectionTitle>{t('aboutPage.capabilities.title')}</SectionTitle>
             </div>
             <DarkSectionLead>{t('aboutPage.capabilities.lead')}</DarkSectionLead>
@@ -726,7 +715,6 @@ export function AboutPage() {
         <Container>
           <CollaborationGrid>
             <CollaborationIntro ref={collaborationIntroRef}>
-              <SectionEyebrow>{t('aboutPage.collaboration.eyebrow')}</SectionEyebrow>
               <SectionTitle>{t('aboutPage.collaboration.title')}</SectionTitle>
               <CollaborationLead>{t('aboutPage.collaboration.lead')}</CollaborationLead>
             </CollaborationIntro>
@@ -756,7 +744,6 @@ export function AboutPage() {
         <Container>
           <SplitHead ref={processHeadRef}>
             <div>
-              <SectionEyebrow>{t('aboutPage.process.eyebrow')}</SectionEyebrow>
               <SectionTitle>{t('aboutPage.process.title')}</SectionTitle>
             </div>
             <SectionLead>{t('aboutPage.process.lead')}</SectionLead>
@@ -781,7 +768,6 @@ export function AboutPage() {
       <FinalSection>
         <FinalGrid ref={finalRef}>
           <div>
-            <HeroEyebrow>{t('aboutPage.finalCta.eyebrow')}</HeroEyebrow>
             <FinalTitle>{t('aboutPage.finalCta.title')}</FinalTitle>
           </div>
           <FinalCopy>

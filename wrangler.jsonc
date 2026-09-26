@@ -1,9 +1,13 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "ilyakav",
+  "main": "./worker/index.ts",
   "compatibility_date": "2026-08-25",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "single-page-application"
+    "not_found_handling": "single-page-application",
+    "binding": "ASSETS",
+    // without this the SPA fallback would answer /api/* with index.html
+    "run_worker_first": ["/api/*"]
   }
 }

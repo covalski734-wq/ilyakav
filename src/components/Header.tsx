@@ -29,7 +29,7 @@ const Bar = styled.header`
  * it becomes a solid floating pill, so content never has to pass below a
  * transparent navigation bar for the length of the whole hero.
  */
-const Pill = styled.div<{ $floating: boolean }>`
+const Pill = styled.div<{ $floating: boolean; $home: boolean }>`
   max-width: ${({ theme }) => theme.layout.maxWidth};
   margin: 0 auto;
   padding: 10px 10px 10px 22px;
@@ -43,7 +43,7 @@ const Pill = styled.div<{ $floating: boolean }>`
     border-color 0.4s ease,
     box-shadow 0.45s ease;
 
-  ${({ $floating, theme }) =>
+  ${({ $floating, $home, theme }) =>
     $floating
       ? css`
           background: ${theme.colors.surface};
@@ -58,13 +58,13 @@ const Pill = styled.div<{ $floating: boolean }>`
           /* doubled selector so these win over the nav's own dimmed link colour */
           && a,
           && button {
-            color: #f7f9fc;
+            color: ${$home ? theme.colors.text : "#f7f9fc"};
           }
 
           && a:hover,
           && button:hover {
-            color: #fff;
-            background: rgba(247, 249, 252, 0.13);
+            color: ${$home ? theme.colors.text : "#fff"};
+            background: ${$home ? theme.colors.surface2 : "rgba(247, 249, 252, 0.13)"};
           }
 
           /* the accent pill keeps its own colours */
@@ -79,12 +79,12 @@ const Pill = styled.div<{ $floating: boolean }>`
           }
 
           [data-theme-dot] {
-            background: linear-gradient(90deg, #f7f9fc 50%, transparent 50%);
-            box-shadow: inset 0 0 0 2px #f7f9fc;
+            background: linear-gradient(90deg, ${$home ? theme.colors.text : "#f7f9fc"} 50%, transparent 50%);
+            box-shadow: inset 0 0 0 2px ${$home ? theme.colors.text : "#f7f9fc"};
           }
 
           [data-burger-bar] {
-            background: #f7f9fc;
+            background: ${$home ? theme.colors.text : "#f7f9fc"};
           }
         `}
 
@@ -101,6 +101,9 @@ const Pill = styled.div<{ $floating: boolean }>`
 `
 
 const Logo = styled.a`
+    display: inline-flex;
+    align-items: center;
+    img { display: block; width: 30px; height: 30px; margin-right: 9px; }
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 20px;
   font-weight: 600;
@@ -111,6 +114,12 @@ const Logo = styled.a`
 
   span {
     color: ${({ theme }) => theme.colors.accent};
+  }
+
+  /* the nav below carries the pill's spacing on desktop; once it is hidden the
+     logo takes over, so the controls stay pinned to the right edge */
+  @media (max-width: 1020px) {
+    margin-right: auto;
   }
 `
 
@@ -197,7 +206,6 @@ const MobileLanguage = styled.button`
   display: none;
   align-items: center;
   gap: 5px;
-  margin-left: auto;
   min-width: 44px;
   height: 42px;
   padding: 0 9px;
@@ -279,8 +287,9 @@ export function Header({ menuOpen, onToggleMenu }: Props) {
 
   return (
     <Bar>
-      <Pill $floating={floating || menuOpen}>
+      <Pill $floating={floating || menuOpen} $home={window.location.pathname === "/"}>
         <Logo href="/#top">
+          <img src="/brand/ilyakav-symbol.svg?v=2" alt="" width="30" height="30" />
           ilyakav<span>.</span>
         </Logo>
 
@@ -302,6 +311,7 @@ export function Header({ menuOpen, onToggleMenu }: Props) {
           onClick={onToggleMenu}
           aria-label={`${t('actions.menuAria')}: ${currentLanguage}`}
           aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           {currentLanguage}
           <span aria-hidden="true">⌄</span>
@@ -312,6 +322,8 @@ export function Header({ menuOpen, onToggleMenu }: Props) {
           onClick={onToggleMenu}
           aria-label={t('actions.menuAria')}
           aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          data-menu-toggle
         >
           {([0, 1, 2] as const).map((index) => (
             <BurgerBar key={index} $open={menuOpen} $index={index} data-burger-bar />

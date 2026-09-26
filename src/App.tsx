@@ -70,7 +70,7 @@ function HomePage() {
       <Hero />
       <LaptopScene />
       <FlagshipCase />
-      <SelectedWork />
+      {FEATURE_FLAGS.showSelectedWork && <SelectedWork />}
       <MorphScene />
       <Range />
       <Services />

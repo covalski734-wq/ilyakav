@@ -77,7 +77,7 @@ export function Range() {
           <Lead>{t('range.lead')}</Lead>
         </Head>
 
-        <AutoGrid ref={gridRef} $min="230px">
+        <AutoGrid ref={gridRef} $min="260px" $cols={3}>
           {RANGE_ITEMS.map((key, index) => {
             const accent = index === RANGE_ITEMS.length - 1
             return (

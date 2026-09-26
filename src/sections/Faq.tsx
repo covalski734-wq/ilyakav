@@ -169,7 +169,7 @@ export function Faq() {
                   <Marker $open={isOpen} aria-hidden="true" />
                 </Question>
 
-                <AnswerRegion id={regionId} role="region" $open={isOpen}>
+                <AnswerRegion id={regionId} role="region" aria-hidden={!isOpen} $open={isOpen}>
                   <div>
                     <Answer>{t(`faq.items.${key}.a` as const)}</Answer>
                   </div>

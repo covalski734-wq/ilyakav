@@ -24,7 +24,7 @@
     "contact": "Contact"
   },
   "actions": {
-    "startProject": "Start a project",
+    "startProject": "Let’s talk",
     "viewWork": "View selected work",
     "viewProject": "View project",
     "askDirect": "Ask me directly",
@@ -34,14 +34,57 @@
     "menuAria": "Menu"
   },
   "hero": {
-    "badge": "Ilya Kavaleuski · open for projects",
-    "title": "Websites that bring clients",
-    "lead": "Strategy, design and development for businesses — from landing pages to custom systems with accounts, integrations and business logic.",
-    "videoNote": "3D loop goes here — drop the file in and it plays full-bleed"
+    "mobileLead": "Websites and applications for your business, from idea to launch.",
+    "badge": "Ilya Kavaleuski · design & development",
+    "title": "Built to work.",
+    "lead": "Websites, web platforms and applications for your business. From the first sketch to a working product — I personally lead every stage.",
+    "titleAccent": "Made for you.",
+    "note": "Tell me about your project. We’ll discuss the approach, timing and cost.",
+    "signature": "Ilya Kavaleuski · developer",
+    "explore": "What I can build",
+    "facts": {
+      "scope": "From idea to launch",
+      "scopeNote": "Structure, design & development",
+      "contact": "One person by your side",
+      "contactNote": "I personally lead your project"
+    },
+    "scene": {
+      "incoming": "A new conversation",
+      "incomingNote": "From your website or Telegram",
+      "result": "Everything in its place",
+      "resultNote": "Inquiry → your workflow",
+      "choose": "Choose an example solution",
+      "caption": "Illustrative concept",
+      "pause": "Pause animation",
+      "play": "Resume animation",
+      "scenarios": {
+        "site": {
+          "label": "Website",
+          "title": "Get noticed. Get chosen.",
+          "note": "A clear offer and an easy way to get in touch.",
+          "action": "Discuss a project"
+        },
+        "bot": {
+          "label": "Bot",
+          "title": "A conversation that helps.",
+          "note": "Service selection, answers, and inquiries in Telegram.",
+          "action": "Choose a service"
+        },
+        "automation": {
+          "label": "Automation",
+          "title": "Less manual work.",
+          "note": "Inquiries reach your CRM and your team gets notified.",
+          "action": "View inquiry"
+        }
+      }
+    },
+    "projectLink": "View my work — the Mariana Leus website",
+    "projectAlt": "The Mariana Leus website I developed, shown on desktop",
+    "projectNote": "My work: structure, design and development"
   },
   "laptop": {
-    "caption": "Interactive demo scene — rendered in code",
-    "note": "No video and no iframe: layout, motion and scrolling run directly in the browser.",
+    "caption": "Complex work. A clear interface.",
+    "note": "A demonstration: tasks, statuses, and decisions in one shared workspace.",
     "demo": {
       "ariaLabel": "An animated project management interface scrolling inside a laptop",
       "brand": "arcflow",
@@ -153,8 +196,8 @@
   },
   "morph": {
     "title": "One interface. Any screen.",
-    "desktopCopy": "Inside the frame is a real interface, not a screenshot: its grid and components react to the available width.",
-    "mobileCopy": "As it narrows, navigation, hierarchy and target sizes change — without loading a second website.",
+    "desktopCopy": "On a large screen, see the full picture: data, tasks, and useful actions together.",
+    "mobileCopy": "On your phone, key actions stay within reach, with clear navigation and buttons sized for touch.",
     "desktopLabel": "desktop 1440",
     "mobileLabel": "mobile 390",
     "demo": {
@@ -228,44 +271,75 @@
   },
   "services": {
     "title": "Services",
-    "priceFrom": "From 1 500 €",
+    "priceFrom": "Websites from €1,500",
     "items": {
       "site": {
         "title": "Business websites",
         "desc": "Strategy, design and custom development for businesses that need a strong presence.",
         "tag": "business website",
         "previewTitle": "Structure that leads to a request",
-        "previewNote": "A few pages, clear navigation, one target step on each."
+        "previewNote": "A few pages, clear navigation, one target step on each.",
+        "price": "from €2,500",
+        "timing": "Usually 4–6 weeks · scope agreed before we start"
       },
       "landing": {
         "title": "Landing pages",
         "desc": "Pages built around ad campaigns and lead generation — one offer, one action.",
         "tag": "landing page",
         "previewTitle": "One page, one decision",
-        "previewNote": "Built for a specific campaign: offer, trust, form."
+        "previewNote": "Built for a specific campaign: offer, trust, form.",
+        "price": "from €1,500",
+        "timing": "Usually 2–3 weeks · scope agreed before we start"
       },
       "redesign": {
         "title": "Redesign & existing projects",
         "desc": "You do not have to start over — a builder site, old code or work left by another developer can be improved, rebuilt or extended.",
         "tag": "before / after",
         "previewTitle": "Not always from scratch",
-        "previewNote": "I review what exists and say honestly: improve, rebuild or extend."
+        "previewNote": "I review what exists and say honestly: improve, rebuild or extend.",
+        "price": "Estimated after a site review",
+        "timing": "Cost and timeline depend on the changes"
       },
       "app": {
         "title": "Custom web applications",
-        "desc": "Systems with user accounts, dashboards, integrations, databases and business logic.",
+        "desc": "Customer portals, documents, order statuses, and internal tools built around your business processes.",
         "tag": "web application",
         "previewTitle": "Accounts, data, logic",
-        "previewNote": "When a site is not enough: records, roles, integrations, workflows."
+        "previewNote": "When a site is not enough: records, roles, integrations, workflows.",
+        "price": "Estimated for your project",
+        "timing": "We start with workflows, roles, and integrations"
       },
       "desktop": {
         "title": "Desktop software",
         "desc": "When the work happens inside the company rather than in a browser.",
         "tag": "desktop",
         "previewTitle": "A tool inside the company",
-        "previewNote": "A Windows application when the process does not live in a browser."
+        "previewNote": "A Windows application when the process does not live in a browser.",
+        "price": "Estimated for your project",
+        "timing": "We discuss the workflow and application requirements"
       }
-    }
+    },
+    "discuss": "Discuss this project",
+    "extensions": {
+      "title": "What your website can connect to",
+      "lead": "An inquiry is just the start. I connect your website to the services you and your clients use.",
+      "note": "Available for a new website or your existing one. Scope and cost depend on your workflow.",
+      "items": {
+        "bot": {
+          "title": "Telegram bots",
+          "desc": "Service selection, answers to common questions, and inquiries in a messenger. Hand the conversation to a person when needed."
+        },
+        "automation": {
+          "title": "Inquiries & CRM",
+          "desc": "Send website inquiries to your CRM or spreadsheet. Notify the team and track progress without copying data by hand."
+        },
+        "booking": {
+          "title": "Booking & payments",
+          "desc": "Clients choose a service and time, pay, and receive confirmation. Connect an existing service or build custom booking logic."
+        }
+      }
+    },
+    "workspaceAlt": "Illustration of the design process: page sketches and a laptop on a desk"
   },
   "team": {
     "title": "Independent when it makes sense. A team when it matters.",
@@ -274,7 +348,8 @@
     "lead": "Ilya — strategy, design, frontend, ownership",
     "backend": "Backend & databases — when accounts and logic are involved",
     "desktop": "Desktop engineering — when the tool lives inside the company",
-    "ads": "Advertising & analytics — when traffic has to arrive"
+    "ads": "Advertising & analytics — when traffic has to arrive",
+    "photoAlt": "Illustration of collaboration: discussing a website structure on paper"
   },
   "process": {
     "title": "Process",
@@ -304,9 +379,9 @@
   "about": {
     "portraitNote": "portrait — Ilya (drop a photo here)",
     "badge": "the person who answers you",
-    "title": "I design, build and improve digital products for businesses.",
-    "p1": "Most people either draw a site or code it. I also care about what happens after a visitor arrives from an ad or a search result — where attention goes, what is understood in the first five seconds, whether the next step is obvious.",
-    "p2": "Business understanding, marketing thinking, design and frontend development in one head — plus access to deeper engineering when a project needs it.",
+    "title": "Hi, I’m Ilya. Let’s meet.",
+    "p1": "You can describe your project in everyday language. Tell me how your business works, what gets in the way and what you want to achieve. I’ll suggest how a website or application could help.",
+    "p2": "I lead the project myself: planning the structure, designing the pages and writing the code. I share progress and explain my decisions. When other specialists are needed, I bring them in and stay your point of contact.",
     "role": "Independent designer & developer · Poland",
     "more": "More about how I work"
   },
@@ -478,7 +553,7 @@
     "replyNote": "Usually a reply within one working day",
     "form": {
       "title": "A short project brief",
-      "lead": "This form prepares a message and opens it in your email app — nothing is sent through the site.",
+      "lead": "Four fields — it lands in my Telegram and I reply within a working day.",
       "nameLabel": "Your name",
       "namePlaceholder": "How should I address you?",
       "contactLabel": "Email or Telegram",
@@ -486,8 +561,8 @@
       "typeLabel": "Project type",
       "briefLabel": "What needs to be done",
       "briefPlaceholder": "The task, audience, timing and anything you already know.",
-      "submit": "Continue in email",
-      "privacyNote": "Your email app will open with a prepared draft. Nothing is stored on this site.",
+      "submit": "Send the brief",
+      "privacyNote": "Form fields pass through the website server to my Telegram so I can respond to your inquiry.",
       "emailSubject": "New project — {{name}}",
       "types": {
         "site": "Business website",
@@ -495,8 +570,18 @@
         "webApp": "Web application",
         "desktop": "Desktop application",
         "redesign": "Redesign / existing project",
-        "other": "Other"
-      }
+        "other": "Other",
+        "bot": "Telegram bot",
+        "automation": "Inquiries / CRM / automation",
+        "booking": "Online booking and payments"
+      },
+      "sending": "Sending…",
+      "sentTitle": "Brief sent.",
+      "sentBody": "Thank you — I will read it and come back to you within a working day.",
+      "errorTitle": "Could not send it.",
+      "errorBody": "Something is off with the network or the sending service. Reach me directly instead:",
+      "errorMailAction": "Open it in your mail app",
+      "openForm": "Go to the short project brief"
     },
     "direct": {
       "title": "Prefer writing directly?",
@@ -504,7 +589,8 @@
       "email": "Email",
       "telegram": "Telegram",
       "phone": "Phone"
-    }
+    },
+    "quickLabel": "Or reach me directly"
   },
   "caseMariana": {
     "hero": {
@@ -599,7 +685,7 @@
       "title": "A clear account of what happens to your data.",
       "lead": "This policy explains the limited information used when you browse this website or choose to contact me.",
       "lastUpdatedLabel": "Last updated",
-      "lastUpdatedValue": "25 August 2026"
+      "lastUpdatedValue": "15 September 2026"
     },
     "toc": {
       "label": "On this page"
@@ -619,7 +705,7 @@
       "information": {
         "title": "Information I may receive",
         "p1": "If you contact me by email, Telegram or phone, I receive the details you choose to provide, such as your name, contact details, project information and the content of our conversation.",
-        "p2": "The project form does not submit information to a server or database. It prepares a mailto link and asks your own email application to open a draft; you decide whether to send it.",
+        "p2": "When you submit the contact form, your name, contact details, selected project type, and brief are sent to the website server on Cloudflare and forwarded to my Telegram through a bot. The website code does not write these fields to a separate database. If sending fails, you can contact me directly or open an email draft.",
         "p3": "The site stores only your language and theme preferences in localStorage. Hosting and network providers may also process technical logs such as an IP address, request time, requested page, browser information and error data to deliver and protect the site."
       },
       "use": {

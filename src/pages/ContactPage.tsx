@@ -1,18 +1,17 @@
-import { type FormEvent, useId } from 'react'
+import { type FormEvent, useId, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 import { Container, Eyebrow, SectionTitle } from '../components/ui/primitives'
-import { SITE } from '../config/site'
+import { ROUTES, SITE } from '../config/site'
 import { useReveal } from '../hooks/useReveal'
 import { breathe } from '../theme/GlobalStyle'
 
 const Intro = styled.section`
   position: relative;
-  min-height: min(720px, 72svh);
   margin-top: calc(-92px - env(safe-area-inset-top));
   padding: calc(156px + env(safe-area-inset-top)) ${({ theme }) => theme.layout.pagePadding}
-    clamp(62px, 9vw, 120px);
+    clamp(42px, 5vw, 64px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -50,7 +49,6 @@ const Intro = styled.section`
   }
 
   @media (max-width: 760px) {
-    min-height: min(660px, 78svh);
     margin-top: calc(-78px - env(safe-area-inset-top));
     padding: calc(126px + env(safe-area-inset-top)) clamp(18px, 5vw, 24px) 58px;
 
@@ -95,10 +93,10 @@ const Pulse = styled.span`
 `
 
 const IntroTitle = styled.h1`
-  max-width: 12ch;
+  max-width: 18ch;
   font-family: ${({ theme }) => theme.fonts.display};
   font-weight: 700;
-  font-size: clamp(48px, 7.8vw, 116px);
+  font-size: clamp(48px, 6.4vw, 88px);
   line-height: 0.94;
   letter-spacing: -0.055em;
 `
@@ -127,6 +125,65 @@ const ReplyNote = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 12px;
   color: ${({ theme }) => theme.colors.onDeepDim};
+`
+
+/** Direct contact is available before the form on every screen. */
+const QuickContacts = styled.div`
+  width: 100%;
+  margin-top: clamp(22px, 4vw, 34px);
+`
+
+const FormAnchor = styled.a`
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 18px;
+  font-weight: 600;
+  text-underline-offset: 5px;
+`
+
+const QuickLabel = styled(Eyebrow)`
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.colors.onDeepDim};
+`
+
+const QuickList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`
+
+const QuickLink = styled.a`
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 15px;
+  border: 1px solid rgba(247, 249, 252, 0.16);
+  border-radius: ${({ theme }) => theme.radii.pill};
+  background: rgba(9, 12, 18, 0.34);
+  color: ${({ theme }) => theme.colors.onDeep};
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+
+  span {
+    font-family: ${({ theme }) => theme.fonts.mono};
+    font-size: 11px;
+    color: ${({ theme }) => theme.colors.onDeepDim};
+  }
+
+  strong {
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  &:hover {
+    background: rgba(9, 12, 18, 0.62);
+    border-color: rgba(247, 249, 252, 0.32);
+  }
 `
 
 const Content = styled.section`
@@ -164,8 +221,11 @@ const FormLead = styled.p`
   line-height: 1.6;
 `
 
-const Fields = styled.div`
+const Fields = styled.fieldset`
   display: grid;
+  min-width: 0;
+  padding: 0;
+  border: 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   margin-top: clamp(28px, 4vw, 42px);
@@ -265,8 +325,60 @@ const Submit = styled.button`
     transform: translateY(-2px);
   }
 
+  &:disabled {
+    cursor: wait;
+    opacity: 0.65;
+    transform: none;
+  }
+
   @media (max-width: 520px) {
     width: 100%;
+  }
+`
+
+/** Off-screen rather than `display: none`, which crawlers skip. */
+const Honeypot = styled.div`
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+`
+
+const Result = styled.div<{ $error?: boolean }>`
+  margin-top: 22px;
+  padding: 20px 22px;
+  border-radius: ${({ theme }) => theme.radii.lg};
+  border: 1px solid
+    ${({ theme, $error }) => ($error ? theme.colors.line : theme.colors.accent)};
+  background: ${({ theme, $error }) => ($error ? theme.colors.surface2 : theme.colors.accentSoft)};
+`
+
+const ResultTitle = styled.p`
+  font-family: ${({ theme }) => theme.fonts.display};
+  font-weight: 650;
+  font-size: 20px;
+  line-height: 1.2;
+`
+
+const ResultBody = styled.p`
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.textDim};
+`
+
+const ResultLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+
+  a {
+    font-weight: 600;
+    font-size: 15px;
+    color: ${({ theme }) => theme.colors.accent};
+    overflow-wrap: anywhere;
   }
 `
 
@@ -282,8 +394,9 @@ const Direct = styled.aside`
   position: sticky;
   top: 112px;
 
+  /* phones get the same links up beside the heading instead */
   @media (max-width: 900px) {
-    position: static;
+    display: none;
   }
 `
 
@@ -343,8 +456,13 @@ const DirectLink = styled.a`
   }
 `
 
-const PROJECT_TYPES = ['site', 'landing', 'webApp', 'desktop', 'redesign', 'other'] as const
+const PROJECT_TYPES = ['site', 'landing', 'webApp', 'desktop', 'redesign', 'bot', 'automation', 'booking', 'other'] as const
 type ProjectType = (typeof PROJECT_TYPES)[number]
+
+const isProjectType = (value: string | null): value is ProjectType =>
+  PROJECT_TYPES.includes(value as ProjectType)
+
+type Status = 'idle' | 'sending' | 'sent' | 'error'
 
 export function ContactPage() {
   const { t } = useTranslation()
@@ -353,27 +471,73 @@ export function ContactPage() {
   const formRef = useReveal<HTMLFormElement>({ y: 34 })
   const directRef = useReveal<HTMLElement>({ y: 34, delay: 0.12 })
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const [status, setStatus] = useState<Status>('idle')
+  const [mailDraft, setMailDraft] = useState('')
+  const [initialType] = useState<ProjectType>(() => {
+    const requested = new URLSearchParams(window.location.search).get('type')
+    return isProjectType(requested) ? requested : 'site'
+  })
 
-    const data = new FormData(event.currentTarget)
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (status === 'sending') return
+
+    // captured before the first await, after which React clears currentTarget
+    const form = event.currentTarget
+    const data = new FormData(form)
     const name = String(data.get('name') ?? '').trim()
     const contact = String(data.get('contact') ?? '').trim()
     const brief = String(data.get('brief') ?? '').trim()
     const rawType = String(data.get('type') ?? 'other')
-    const type: ProjectType = PROJECT_TYPES.includes(rawType as ProjectType) ? (rawType as ProjectType) : 'other'
+    const type = isProjectType(rawType) ? rawType : 'other'
+    const typeLabel = t(`contact.form.types.${type}` as const)
 
+    // A ready-made mail draft is kept aside so a failed send still has a way
+    // out instead of losing everything the visitor typed.
     const subject = t('contact.form.emailSubject', { name })
     const body = [
       `${t('contact.form.nameLabel')}: ${name}`,
       `${t('contact.form.contactLabel')}: ${contact}`,
-      `${t('contact.form.typeLabel')}: ${t(`contact.form.types.${type}` as const)}`,
+      `${t('contact.form.typeLabel')}: ${typeLabel}`,
       '',
       `${t('contact.form.briefLabel')}:`,
       brief,
     ].join('\n')
+    setMailDraft(
+      `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+    )
 
-    window.location.assign(`mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
+    setStatus('sending')
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), 15_000)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        signal: controller.signal,
+        body: JSON.stringify({
+          name,
+          contact,
+          type: typeLabel,
+          brief,
+          company: String(data.get('company') ?? ''),
+        }),
+      })
+
+      if (!response.ok) throw new Error(String(response.status))
+      const result: unknown = await response.json()
+      if (!result || typeof result !== 'object' || !('ok' in result) || result.ok !== true) {
+        throw new Error('Unconfirmed delivery')
+      }
+
+      form.reset()
+      setStatus('sent')
+    } catch {
+      setStatus('error')
+    } finally {
+      window.clearTimeout(timeout)
+    }
   }
 
   return (
@@ -389,22 +553,50 @@ export function ContactPage() {
             <IntroLead>{t('contact.lead')}</IntroLead>
             <ReplyNote>{t('contact.replyNote')}</ReplyNote>
           </IntroBottom>
+
+          <QuickContacts>
+            <QuickLabel>{t('contact.quickLabel')}</QuickLabel>
+            <QuickList>
+              <QuickLink href={SITE.telegram.url}>
+                <span>{t('contact.direct.telegram')}</span>
+                <strong>{SITE.telegram.handle}</strong>
+              </QuickLink>
+              <QuickLink href={`mailto:${SITE.email}`}>
+                <span>{t('contact.direct.email')}</span>
+                <strong>{SITE.email}</strong>
+              </QuickLink>
+              <QuickLink href={SITE.phone.href}>
+                <span>{t('contact.direct.phone')}</span>
+                <strong>{SITE.phone.display}</strong>
+              </QuickLink>
+            </QuickList>
+          </QuickContacts>
+          <FormAnchor href="#project-form">{t('contact.form.openForm')} ↓</FormAnchor>
         </IntroInner>
       </Intro>
 
-      <Content>
+      <Content id="project-form">
         <Layout>
-          <Form ref={formRef} onSubmit={handleSubmit} aria-describedby={privacyId}>
+          <Form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            onChange={() => {
+              if (status === 'sent' || status === 'error') setStatus('idle')
+            }}
+            aria-describedby={privacyId}
+            aria-busy={status === 'sending'}
+          >
             <FormTitle>{t('contact.form.title')}</FormTitle>
             <FormLead>{t('contact.form.lead')}</FormLead>
 
-            <Fields>
+            <Fields disabled={status === 'sending'}>
               <Field>
                 <Label>{t('contact.form.nameLabel')}</Label>
                 <Input
                   name="name"
                   type="text"
                   autoComplete="name"
+                  maxLength={120}
                   placeholder={t('contact.form.namePlaceholder')}
                   required
                 />
@@ -416,6 +608,7 @@ export function ContactPage() {
                   name="contact"
                   type="text"
                   autoComplete="email"
+                  maxLength={200}
                   placeholder={t('contact.form.contactPlaceholder')}
                   required
                 />
@@ -423,7 +616,7 @@ export function ContactPage() {
 
               <Field $wide>
                 <Label>{t('contact.form.typeLabel')}</Label>
-                <Select name="type" defaultValue="site">
+                <Select name="type" defaultValue={initialType}>
                   {PROJECT_TYPES.map((type) => (
                     <option key={type} value={type}>
                       {t(`contact.form.types.${type}` as const)}
@@ -438,15 +631,41 @@ export function ContactPage() {
                   name="brief"
                   placeholder={t('contact.form.briefPlaceholder')}
                   rows={6}
+                  maxLength={3500}
                   required
                 />
               </Field>
             </Fields>
 
+            <Honeypot aria-hidden="true">
+              <input name="company" type="text" tabIndex={-1} autoComplete="off" />
+            </Honeypot>
+
             <FormFooter>
-              <Submit type="submit">{t('contact.form.submit')}</Submit>
-              <Privacy id={privacyId}>{t('contact.form.privacyNote')}</Privacy>
+              <Submit type="submit" disabled={status === 'sending'}>
+                {status === 'sending' ? t('contact.form.sending') : t('contact.form.submit')}
+              </Submit>
+              <Privacy id={privacyId}>{t('contact.form.privacyNote')} <a href={ROUTES.privacy}>{t('footer.privacy')}</a></Privacy>
             </FormFooter>
+
+            {status === 'sent' && (
+              <Result role="status">
+                <ResultTitle>{t('contact.form.sentTitle')}</ResultTitle>
+                <ResultBody>{t('contact.form.sentBody')}</ResultBody>
+              </Result>
+            )}
+
+            {status === 'error' && (
+              <Result $error role="alert">
+                <ResultTitle>{t('contact.form.errorTitle')}</ResultTitle>
+                <ResultBody>{t('contact.form.errorBody')}</ResultBody>
+                <ResultLinks>
+                  <a href={SITE.telegram.url}>{SITE.telegram.handle}</a>
+                  <a href={SITE.phone.href}>{SITE.phone.display}</a>
+                  <a href={mailDraft}>{t('contact.form.errorMailAction')}</a>
+                </ResultLinks>
+              </Result>
+            )}
           </Form>
 
           <Direct ref={directRef}>

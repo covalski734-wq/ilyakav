@@ -737,27 +737,33 @@ export function LaptopScene() {
         },
       })
 
+      // Timing note: the lid used to finish at 1.4 with the screen waking at 1.3
+      // of a 5.0 timeline, so the first quarter of the scroll was spent staring
+      // at a dark panel. The hardware now settles in the first sixth and the
+      // interface itself owns roughly two thirds of the scroll.
       timeline
         .fromTo(
           '[data-laptop]',
           { y: mobile ? 32 : 90, scale: mobile ? 0.96 : 0.92 },
-          { y: 0, scale: 1, ease: 'none', duration: 1 },
+          { y: 0, scale: 1, ease: 'none', duration: 0.8 },
           0,
         )
         .fromTo(
           '[data-lid]',
           { rotateX: mobile ? -70 : -88 },
-          { rotateX: 0, ease: 'none', duration: 1.4 },
+          { rotateX: 0, ease: 'none', duration: 0.85 },
           0,
         )
-        .fromTo('[data-base]', { rotateX: 84 }, { rotateX: 74, ease: 'none', duration: 1.4 }, 0)
-        .to('[data-screen-off]', { opacity: 0, duration: 0.3 }, 1.3)
-        .to('[data-screen-on]', { opacity: 1, duration: 0.3 }, 1.3)
-        .to('[data-glow]', { opacity: 0.88, scale: 1.12, duration: 1 }, 1.3)
-        .fromTo('[data-strip]', { y: 0 }, { y: scrollDistance, ease: 'none', duration: 2.6 }, 1.7)
-        .fromTo('[data-note]', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 2.0)
-        .to('[data-laptop]', { scale: 0.9, y: -26, duration: 0.8 }, 4.2)
-        .to('[data-caption]', { opacity: 0.4, duration: 0.8 }, 4.2)
+        .fromTo('[data-base]', { rotateX: 84 }, { rotateX: 74, ease: 'none', duration: 0.85 }, 0)
+        // the panel lights up while the lid is still swinging up, the way real
+        // hardware wakes before it is fully open
+        .to('[data-screen-off]', { opacity: 0, duration: 0.28 }, 0.58)
+        .to('[data-screen-on]', { opacity: 1, duration: 0.28 }, 0.58)
+        .to('[data-glow]', { opacity: 0.88, scale: 1.12, duration: 0.9 }, 0.58)
+        .fromTo('[data-strip]', { y: 0 }, { y: scrollDistance, ease: 'none', duration: 3.4 }, 1)
+        .fromTo('[data-note]', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 1.3)
+        .to('[data-laptop]', { scale: 0.9, y: -26, duration: 0.8 }, 4.4)
+        .to('[data-caption]', { opacity: 0.4, duration: 0.8 }, 4.4)
     }, root)
 
     return () => ctx.revert()
@@ -770,7 +776,7 @@ export function LaptopScene() {
   ]
 
   return (
-    <Scene ref={root}>
+    <Scene ref={root} id="capabilities">
       <Stage $still={still} data-stage>
         <Glow data-glow />
         <SceneHeader $still={still} data-caption>

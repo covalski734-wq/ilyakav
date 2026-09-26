@@ -81,11 +81,26 @@ export const Card = styled.div`
   padding: 24px;
 `
 
-/** Auto-fitting grid used by every card row on the page. */
-export const AutoGrid = styled.div<{ $min?: string; $gap?: string }>`
+/**
+ * Auto-fitting grid used by every card row on the page.
+ *
+ * `$cols` pins an exact column count on wide screens. Plain `auto-fit` packs in
+ * as many tracks as fit, which strands a lone card on its own row whenever the
+ * item count is not divisible by whatever that number happens to be — six items
+ * became 5 + 1 at 1440px. Pass the count that divides the row cleanly.
+ */
+export const AutoGrid = styled.div<{ $min?: string; $gap?: string; $cols?: number }>`
   display: grid;
   grid-template-columns: ${({ $min = '230px' }) => `repeat(auto-fit, minmax(min(100%, ${$min}), 1fr))`};
   gap: ${({ $gap = 'clamp(12px, 1.6vw, 18px)' }) => $gap};
+
+  ${({ $cols }) =>
+    $cols &&
+    css`
+      @media (min-width: 1100px) {
+        grid-template-columns: repeat(${$cols}, minmax(0, 1fr));
+      }
+    `}
 `
 
 export const Eyebrow = styled.p`

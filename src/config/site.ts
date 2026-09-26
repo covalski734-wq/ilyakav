@@ -43,8 +43,9 @@ export const HERO_VIDEO = {
 } as const
 
 export const FEATURE_FLAGS = {
-  showConcepts: true,
-  showTestimonials: true,
+  showSelectedWork: false,
+  showConcepts: false,
+  showTestimonials: false,
   /** Playful asides — the badge on the portrait and the closing line of the range grid. */
   personality: true,
 } as const

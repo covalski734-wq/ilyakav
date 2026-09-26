@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
@@ -29,7 +30,11 @@ const Panel = styled.div<{ $open: boolean }>`
   transition:
     opacity 0.35s ease,
     transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1),
-    visibility 0.35s;
+    /* Snaps visible on the opening frame so the panel is focusable right away,
+       and is held back until the fade finishes when closing. A single
+       visibility 0.35s left it hidden on frame one and focus() silently
+       failed. */
+    visibility 0s ${({ $open }) => ($open ? '0s' : '0.35s')};
 
   @media (max-height: 620px) {
     justify-content: flex-start;
@@ -91,6 +96,8 @@ const Controls = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.line};
 `
 
+const FOCUSABLE = 'a[href], button:not([disabled])'
+
 type Props = {
   open: boolean
   onClose: () => void
@@ -98,10 +105,94 @@ type Props = {
 
 export function MobileMenu({ open, onClose }: Props) {
   const { t } = useTranslation()
+  const panelRef = useRef<HTMLDivElement>(null)
   useLockBodyScroll(open)
 
+  // Escape closes, Tab cycles inside the panel, and focus lands on the first
+  // link so the menu is reachable without a pointer.
+  useEffect(() => {
+    const panel = panelRef.current
+    if (!panel) return
+
+    panel.toggleAttribute('inert', !open)
+    if (!open) return
+
+    const previouslyFocused = document.activeElement as HTMLElement | null
+    const closeButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]')
+
+    // one frame later, otherwise the browser re-focuses the burger it just
+    // finished clicking and focus never reaches the panel
+    const frame = requestAnimationFrame(() => {
+      panel.querySelector<HTMLElement>(FOCUSABLE)?.focus({ preventScroll: true })
+    })
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        onClose()
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const items = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE))
+      // The visible header close button is part of the keyboard loop too.
+      if (closeButton?.getClientRects().length) items.push(closeButton)
+      if (!items.length) return
+
+      const current = items.indexOf(document.activeElement as HTMLElement)
+      const next = current < 0
+        ? (event.shiftKey ? items.length - 1 : 0)
+        : (current + (event.shiftKey ? -1 : 1) + items.length) % items.length
+
+      event.preventDefault()
+      items[next].focus()
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      cancelAnimationFrame(frame)
+      document.removeEventListener('keydown', onKeyDown)
+      if (previouslyFocused?.isConnected) previouslyFocused.focus({ preventScroll: true })
+    }
+  }, [open, onClose])
+
+  // Everything behind the panel is taken out of the tab order and the
+  // accessibility tree while it is open.
+  useEffect(() => {
+    if (!open) return
+
+    const behind = Array.from(
+      document.querySelectorAll<HTMLElement>('main:not([inert]), footer:not([inert]), [data-bottom-bar]:not([inert])'),
+    )
+    behind.forEach((node) => node.setAttribute('inert', ''))
+
+    return () => behind.forEach((node) => node.removeAttribute('inert'))
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    const desktop = window.matchMedia('(min-width: 1021px)')
+    const closeOnDesktop = () => {
+      if (desktop.matches) onClose()
+    }
+    closeOnDesktop()
+    desktop.addEventListener('change', closeOnDesktop)
+    return () => desktop.removeEventListener('change', closeOnDesktop)
+  }, [open, onClose])
+
   return (
-    <Panel $open={open} onClick={onClose}>
+    <Panel
+      ref={panelRef}
+      id="mobile-menu"
+      $open={open}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!open}
+      aria-label={t('actions.menuAria')}
+    >
       <Links>
         {NAV_LINKS.map((link) => (
           <a key={link.key} href={link.href}>
@@ -116,7 +207,8 @@ export function MobileMenu({ open, onClose }: Props) {
         <a href={SITE.phone.href}>{SITE.phone.display}</a>
       </Contacts>
 
-      <Controls>
+      {/* these controls stay put: only navigation and the backdrop close the menu */}
+      <Controls onClick={(event) => event.stopPropagation()}>
         <LanguageSwitcher variant="filled" onSelect={onClose} />
         <ThemeToggle />
       </Controls>

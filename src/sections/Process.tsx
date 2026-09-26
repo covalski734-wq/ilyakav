@@ -42,6 +42,16 @@ const StepDesc = styled.p`
   color: ${({ theme }) => theme.colors.onDeepDim};
 `
 
+/**
+ * Five steps have no divisor that auto-fit can find on its own, so the ladder is
+ * explicit: one row on desktop, a deliberate 3 + 2 on tablets, a list on phones.
+ */
+const Steps = styled(AutoGrid)`
+  @media (min-width: 760px) and (max-width: 1099px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+`
+
 const STEPS = ['discover', 'structure', 'design', 'build', 'launch'] as const
 
 export function Process() {
@@ -54,7 +64,7 @@ export function Process() {
       <Container>
         <Title ref={titleRef}>{t('process.title')}</Title>
 
-        <AutoGrid ref={gridRef} $min="210px">
+        <Steps ref={gridRef} $min="240px" $cols={5}>
           {STEPS.map((key, index) => (
             <Step key={key}>
               <StepIndex>{String(index + 1).padStart(2, '0')}</StepIndex>
@@ -62,7 +72,7 @@ export function Process() {
               <StepDesc>{t(`process.steps.${key}.desc` as const)}</StepDesc>
             </Step>
           ))}
-        </AutoGrid>
+        </Steps>
       </Container>
     </Wrapper>
   )

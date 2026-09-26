@@ -34,6 +34,10 @@ const Paragraph = styled.p`
   }
 `
 
+const Photo = styled.img`
+  display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: ${({ theme }) => theme.radii.xl}; margin-bottom: 14px;
+`
+
 const Roles = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,7 +49,7 @@ const LeadRole = styled.div`
   color: #fff;
   border-radius: ${({ theme }) => theme.radii.lg};
   padding: 22px 26px;
-  box-shadow: ${({ theme }) => theme.shadows.s};
+
 
   p {
     font-family: ${({ theme }) => theme.fonts.display};
@@ -84,6 +88,7 @@ export function Team() {
         </div>
 
         <Roles ref={rolesRef}>
+          <Photo src="/media/collaboration-editorial.jpg" alt={t("team.photoAlt")} width="1536" height="1024" loading="lazy" decoding="async" />
           <LeadRole>
             <p>{t('team.lead')}</p>
           </LeadRole>

@@ -53,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a { color: inherit; }
 
-  section[id] {
+  section[id], #capabilities {
     scroll-margin-top: 112px;
   }
 
@@ -75,6 +75,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @media (max-width: 760px), (max-height: 600px) and (max-width: 1020px) {
-    section[id] { scroll-margin-top: 80px; }
+    section[id], #capabilities { scroll-margin-top: 80px; }
   }
 `

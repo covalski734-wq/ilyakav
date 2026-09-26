@@ -97,7 +97,7 @@ export function FlagshipCase() {
           <Lead>{t('flagship.lead')}</Lead>
         </Head>
 
-        <AutoGrid ref={factsRef} $min="210px" $gap="14px">
+        <AutoGrid ref={factsRef} $min="340px" $cols={4} $gap="14px">
           {FACTS.map((fact) => (
             <Fact key={fact}>
               <FactLabel>{t(`flagship.${fact}Label` as const)}</FactLabel>

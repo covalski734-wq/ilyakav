@@ -2,6 +2,7 @@ node_modules
 dist
 .wrangler
 .design
+.dev.vars
 *.local
 .DS_Store
 tsconfig.tsbuildinfo

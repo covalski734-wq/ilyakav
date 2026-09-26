@@ -491,7 +491,7 @@ export function PrivacyPage() {
             <Updated>
               <dt>{t('privacyPage.hero.lastUpdatedLabel')}</dt>
               <dd>
-                <time dateTime="2026-08-25">{t('privacyPage.hero.lastUpdatedValue')}</time>
+                <time dateTime="2026-09-15">{t('privacyPage.hero.lastUpdatedValue')}</time>
               </dd>
             </Updated>
           </IntroBottom>
