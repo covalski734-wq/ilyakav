@@ -6,7 +6,6 @@ import { ROUTES, SECTION_IDS } from '../config/site'
 import { Container, SectionTitle } from '../components/ui/primitives'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { useReveal } from '../hooks/useReveal'
-import { ServiceIcon } from '../components/ui/ServiceIcon'
 
 const swapIn = keyframes`
   from { opacity: 0; transform: translateY(10px); }
@@ -17,7 +16,7 @@ const PreviewShot = styled.div`
   overflow: hidden;
   img { display: block; width: 100%; height: 100%; object-fit: cover; }
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   background: linear-gradient(
     150deg,
     ${({ theme }) => theme.colors.surface2},
@@ -25,9 +24,10 @@ const PreviewShot = styled.div`
   );
 `
 
-const MobilePhoto = styled.img`
-  display: none;
-  @media (max-width: 760px) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: ${({ theme }) => theme.radii.lg}; margin-bottom: 24px; }
+const InlineShot = styled(PreviewShot)`
+  width: 100%;
+  border-radius: ${({ theme }) => theme.radii.lg};
+  margin-bottom: 20px;
 `
 
 const Wrapper = styled.section`
@@ -220,7 +220,6 @@ const ExtensionGrid = styled.div`
 `
 const Extension = styled.a`
   display: flex; flex-direction: column; align-items: start; color: inherit; text-decoration: none;
-  > svg { width: 28px; height: 28px; margin-bottom: 18px; color: ${({ theme }) => theme.colors.accent}; }
   h4 { width: 100%; display: flex; justify-content: space-between; gap: 16px; font-size: 21px; line-height: 1.25; letter-spacing: -.025em; }
   p { margin-top: 12px; font-size: 14px; line-height: 1.65; color: ${({ theme }) => theme.colors.textDim}; }
   > span { margin-top: auto; padding-top: 16px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
@@ -231,6 +230,24 @@ const Extension = styled.a`
 const SERVICE_KEYS = ['site', 'landing', 'redesign', 'app', 'desktop'] as const
 type ServiceKey = (typeof SERVICE_KEYS)[number]
 const PROJECT_TYPE = { site: 'site', landing: 'landing', redesign: 'redesign', app: 'webApp', desktop: 'desktop' } as const
+
+type PhotoKey = ServiceKey | 'bot' | 'automation' | 'booking'
+
+function ServicePhoto({ kind, compact = false }: { kind: PhotoKey; compact?: boolean }) {
+  const { t } = useTranslation()
+  return (
+    <img
+      src={`/media/services/${kind}-v1.webp`}
+      srcSet={`/media/services/${kind}-v1-600.webp 600w, /media/services/${kind}-v1.webp 1200w`}
+      sizes={compact ? '(max-width: 760px) calc(100vw - 80px), (max-width: 1200px) 30vw, 380px' : '(max-width: 760px) calc(100vw - 100px), (max-width: 1200px) 45vw, 620px'}
+      alt={t(`services.images.${kind}`)}
+      width={1200}
+      height={800}
+      loading="lazy"
+      decoding="async"
+    />
+  )
+}
 
 export function Services() {
   const { t } = useTranslation()
@@ -249,7 +266,6 @@ export function Services() {
           <Price>{t('services.priceFrom')}</Price>
         </Head>
 
-        <MobilePhoto src="/media/workspace-editorial.jpg" alt={t("services.workspaceAlt")} width="1536" height="1024" loading="lazy" decoding="async" />
         <Layout>
           <List ref={listRef}>
             {SERVICE_KEYS.map((key) => {
@@ -278,6 +294,7 @@ export function Services() {
 
                   {phone && (
                     <Details id={`${detailsId}-${key}`} hidden={!open}>
+                      {open && <InlineShot><ServicePhoto kind={key} /></InlineShot>}
                       <PreviewTitle>
                         {t(`services.items.${key}.previewTitle` as const)}
                       </PreviewTitle>
@@ -291,9 +308,9 @@ export function Services() {
             })}
           </List>
 
-          <Preview>
+          {!phone && <Preview>
             <PreviewShot>
-              <img src="/media/workspace-editorial.jpg" alt={t("services.workspaceAlt")} width="1536" height="1024" loading="lazy" decoding="async" />
+              <ServicePhoto kind={active} />
             </PreviewShot>
             <PreviewBody key={active}>
               <PreviewTitle>{t(`services.items.${active}.previewTitle` as const)}</PreviewTitle>
@@ -301,14 +318,14 @@ export function Services() {
               <ServiceTerms>{t(`services.items.${active}.price`)}<span>{t(`services.items.${active}.timing`)}</span></ServiceTerms>
               <ServiceLink href={`${ROUTES.contact}?type=${PROJECT_TYPE[active]}`}>{t('services.discuss')} <span aria-hidden="true">↗</span></ServiceLink>
             </PreviewBody>
-          </Preview>
+          </Preview>}
         </Layout>
         <Extensions>
           <h3>{t('services.extensions.title')}</h3>
           <p>{t('services.extensions.lead')}</p>
           <ExtensionGrid>
             {(['bot', 'automation', 'booking'] as const).map(key => <Extension key={key} href={`${ROUTES.contact}?type=${key}`}>
-              <ServiceIcon kind={key} />
+              <InlineShot><ServicePhoto kind={key} compact /></InlineShot>
               <h4>{t(`services.extensions.items.${key}.title`)}<span aria-hidden="true">↗</span></h4>
               <p>{t(`services.extensions.items.${key}.desc`)}</p>
               <span>{t('services.discuss')}</span>

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Section } from '../components/ui/primitives'
 import { useReveal } from '../hooks/useReveal'
+import { SITE } from '../config/site'
 
 const Layout = styled.div`
   max-width: ${({ theme }) => theme.layout.maxWidth};
@@ -71,7 +72,25 @@ const SupportRole = styled.div`
   }
 `
 
-const SUPPORT_ROLES = ['backend', 'desktop', 'ads'] as const
+const Partner = styled.a`
+  display: block;
+  margin-top: 20px;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid ${({ theme }) => theme.colors.line};
+  border-radius: ${({ theme }) => theme.radii.lg};
+  background: ${({ theme }) => theme.colors.accentSoft};
+  color: ${({ theme }) => theme.colors.text};
+  text-decoration: none;
+
+  h3 { font-family: ${({ theme }) => theme.fonts.display}; font-size: 28px; letter-spacing: -.035em; }
+  p { margin-top: 12px; font-size: 15px; line-height: 1.65; color: ${({ theme }) => theme.colors.textDim}; }
+  p:first-of-type { margin-top: 4px; color: ${({ theme }) => theme.colors.text}; font-weight: 600; }
+  > span { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-top: 14px; font-size: 14px; text-decoration: underline; text-underline-offset: 5px; }
+  &:hover > span { color: ${({ theme }) => theme.colors.accent}; }
+  &:focus-visible { outline: 2px solid ${({ theme }) => theme.colors.accent}; outline-offset: 4px; }
+`
+
+const SUPPORT_ROLES = ['backend', 'desktop'] as const
 
 export function Team() {
   const { t } = useTranslation()
@@ -85,6 +104,12 @@ export function Team() {
           <Title>{t('team.title')}</Title>
           <Paragraph>{t('team.p1')}</Paragraph>
           <Paragraph>{t('team.p2')}</Paragraph>
+          <Partner href={SITE.advertisingPartner.url} target="_blank" rel="noopener noreferrer">
+            <h3>{SITE.advertisingPartner.name}</h3>
+            <p>{t('team.partner.role')}</p>
+            <p>{t('team.partner.body')}</p>
+            <span>{t('team.partner.link')} <span aria-hidden="true">↗</span></span>
+          </Partner>
         </div>
 
         <Roles ref={rolesRef}>

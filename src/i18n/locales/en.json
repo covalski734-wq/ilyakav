@@ -339,7 +339,17 @@
         }
       }
     },
-    "workspaceAlt": "Illustration of the design process: page sketches and a laptop on a desk"
+    "workspaceAlt": "Illustration of the design process: page sketches and a laptop on a desk",
+    "images": {
+      "site": "Website concept: an architecture studio website on a laptop",
+      "landing": "Landing page concept: a single-product page on a tablet",
+      "redesign": "Redesign concept: layout sketches alongside the refreshed website",
+      "app": "Web application concept: project management on a monitor and tablet",
+      "desktop": "Desktop application concept: an inventory workspace on a monitor",
+      "bot": "Chatbot concept: service selection and booking confirmation on a phone",
+      "automation": "Automation concept: inquiries, notifications and a workflow sketch",
+      "booking": "Online booking concept: a calendar and available times on a phone"
+    }
   },
   "team": {
     "title": "Independent when it makes sense. A team when it matters.",
@@ -349,7 +359,12 @@
     "backend": "Backend & databases — when accounts and logic are involved",
     "desktop": "Desktop engineering — when the tool lives inside the company",
     "ads": "Advertising & analytics — when traffic has to arrive",
-    "photoAlt": "Illustration of collaboration: discussing a website structure on paper"
+    "photoAlt": "Illustration of collaboration: discussing a website structure on paper",
+    "partner": {
+      "role": "Advertising partner",
+      "body": "When a project needs advertising, Mariana joins in. I handle the website and technical work; she handles the campaign launch. We agree on the scope around your needs.",
+      "link": "Meet Mariana"
+    }
   },
   "process": {
     "title": "Process",

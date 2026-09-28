@@ -3,9 +3,10 @@
  */
 export const SITE = {
   email: 'covalski734@gmail.com',
-  telegram: { handle: '@bot_qwerty', url: 'https://t.me/bot_qwerty' },
+  telegram: { handle: '@ilyakav', url: 'https://t.me/ilyakav' },
   phone: { display: '+48 572 197 330', href: 'tel:+48572197330' },
   flagship: 'marianaleus.com',
+  advertisingPartner: { name: 'Mariana Leus', url: 'https://marianaleus.com/' },
 } as const
 
 export const ROUTES = {
