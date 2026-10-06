@@ -9,7 +9,11 @@ import { useReveal } from '../hooks/useReveal'
 const Wrapper = styled.section`
   padding: clamp(40px, 5vw, 72px) ${({ theme }) => theme.layout.pagePadding};
   background: ${({ theme }) => theme.colors.surface2};
-  border-top: 1px solid ${({ theme }) => theme.colors.line};
+  border-radius: ${({ theme }) => theme.radii.xl};
+
+  @media (max-width: 760px) {
+    border-radius: ${({ theme }) => theme.radii.lg};
+  }
 `
 
 const Layout = styled.div`

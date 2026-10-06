@@ -6,7 +6,7 @@ import { drift } from '../theme/GlobalStyle'
 import { useReveal } from '../hooks/useReveal'
 
 const Wrapper = styled.section`
-  padding: 0 ${({ theme }) => theme.layout.pagePadding} clamp(28px, 4vw, 52px);
+  padding: clamp(32px, 4vw, 56px) ${({ theme }) => theme.layout.pagePadding} clamp(28px, 4vw, 52px);
 `
 
 const Panel = styled.div`
