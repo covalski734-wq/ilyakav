@@ -1,0 +1,152 @@
+[
+  {
+    "path": "public/media/cases/skyline/desktop.webp",
+    "source": "https://skylineceilings.ca/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "desktop",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/skyline/services.webp",
+    "source": "https://skylineceilings.ca/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "services",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/skyline/projects.webp",
+    "source": "https://skylineceilings.ca/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "projects",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/skyline/mobile.webp",
+    "source": "https://skylineceilings.ca/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "section": "mobile",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/skyline/contact.webp",
+    "source": "https://skylineceilings.ca/",
+    "viewport": {
+      "width": 390,
+      "height": 1100
+    },
+    "section": "contact",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/maryna/desktop.webp",
+    "source": "https://marynacleaning.com/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "desktop",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/maryna/services.webp",
+    "source": "https://marynacleaning.com/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "services",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/maryna/projects.webp",
+    "source": "https://marynacleaning.com/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "projects",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/maryna/mobile.webp",
+    "source": "https://marynacleaning.com/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "section": "mobile",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/maryna/contact.webp",
+    "source": "https://marynacleaning.com/",
+    "viewport": {
+      "width": 390,
+      "height": 1100
+    },
+    "section": "contact",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/tile/desktop.webp",
+    "source": "https://tileexpertsolutions.com/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "desktop",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/tile/services.webp",
+    "source": "https://tileexpertsolutions.com/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "services",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/tile/projects.webp",
+    "source": "https://tileexpertsolutions.com/",
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "section": "projects",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/tile/mobile.webp",
+    "source": "https://tileexpertsolutions.com/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "section": "mobile",
+    "captured": "2026-10-05"
+  },
+  {
+    "path": "public/media/cases/tile/contact.webp",
+    "source": "https://tileexpertsolutions.com/",
+    "viewport": {
+      "width": 390,
+      "height": 1100
+    },
+    "section": "contact",
+    "captured": "2026-10-05"
+  }
+]

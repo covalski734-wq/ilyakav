@@ -7,7 +7,9 @@ import { PrimaryButton } from '../components/ui/primitives'
 import { useReveal } from '../hooks/useReveal'
 
 const Wrapper = styled.section`
-  padding: clamp(48px, 7vw, 100px) ${({ theme }) => theme.layout.pagePadding};
+  padding: clamp(40px, 5vw, 72px) ${({ theme }) => theme.layout.pagePadding};
+  background: ${({ theme }) => theme.colors.surface2};
+  border-top: 1px solid ${({ theme }) => theme.colors.line};
 `
 
 const Layout = styled.div`
@@ -144,7 +146,7 @@ export function Faq() {
   const toggle = (key: FaqKey) => setOpen((current) => (current === key ? null : key))
 
   return (
-    <Wrapper>
+    <Wrapper id="faq">
       <Layout>
         <div ref={copyRef}>
           <Title>{t('faq.title')}</Title>

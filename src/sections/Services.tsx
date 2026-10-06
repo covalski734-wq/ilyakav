@@ -2,10 +2,11 @@ import { useId, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
-import { ROUTES, SECTION_IDS } from '../config/site'
+import { SECTION_IDS } from '../config/site'
 import { Container, SectionTitle } from '../components/ui/primitives'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { useReveal } from '../hooks/useReveal'
+import { servicePath } from '../config/services'
 
 const swapIn = keyframes`
   from { opacity: 0; transform: translateY(10px); }
@@ -229,7 +230,6 @@ const Extension = styled.a`
 
 const SERVICE_KEYS = ['site', 'landing', 'redesign', 'app', 'desktop'] as const
 type ServiceKey = (typeof SERVICE_KEYS)[number]
-const PROJECT_TYPE = { site: 'site', landing: 'landing', redesign: 'redesign', app: 'webApp', desktop: 'desktop' } as const
 
 type PhotoKey = ServiceKey | 'bot' | 'automation' | 'booking'
 
@@ -290,7 +290,7 @@ export function Services() {
                       {t(`services.items.${key}.title` as const)}
                     </ItemButton>
                   </ItemTitle>
-                  <ItemDesc>{t(`services.items.${key}.desc` as const)}</ItemDesc>
+                  <ItemDesc>{t(`offering.pages.${key}.lead`)}</ItemDesc>
 
                   {phone && (
                     <Details id={`${detailsId}-${key}`} hidden={!open}>
@@ -300,7 +300,7 @@ export function Services() {
                       </PreviewTitle>
                       <PreviewNote>{t(`services.items.${key}.previewNote` as const)}</PreviewNote>
                       <ServiceTerms>{t(`services.items.${key}.price`)}<span>{t(`services.items.${key}.timing`)}</span></ServiceTerms>
-                      <ServiceLink href={`${ROUTES.contact}?type=${PROJECT_TYPE[key]}`}>{t('services.discuss')} <span aria-hidden="true">↗</span></ServiceLink>
+                      <ServiceLink href={servicePath(key)}>{t('offering.learn')} <span aria-hidden="true">↗</span></ServiceLink>
                     </Details>
                   )}
                 </Item>
@@ -316,7 +316,7 @@ export function Services() {
               <PreviewTitle>{t(`services.items.${active}.previewTitle` as const)}</PreviewTitle>
               <PreviewNote>{t(`services.items.${active}.previewNote` as const)}</PreviewNote>
               <ServiceTerms>{t(`services.items.${active}.price`)}<span>{t(`services.items.${active}.timing`)}</span></ServiceTerms>
-              <ServiceLink href={`${ROUTES.contact}?type=${PROJECT_TYPE[active]}`}>{t('services.discuss')} <span aria-hidden="true">↗</span></ServiceLink>
+              <ServiceLink href={servicePath(active)}>{t('offering.learn')} <span aria-hidden="true">↗</span></ServiceLink>
             </PreviewBody>
           </Preview>}
         </Layout>
@@ -324,11 +324,11 @@ export function Services() {
           <h3>{t('services.extensions.title')}</h3>
           <p>{t('services.extensions.lead')}</p>
           <ExtensionGrid>
-            {(['bot', 'automation', 'booking'] as const).map(key => <Extension key={key} href={`${ROUTES.contact}?type=${key}`}>
+            {(['bot', 'automation', 'booking'] as const).map(key => <Extension key={key} href={servicePath(key)}>
               <InlineShot><ServicePhoto kind={key} compact /></InlineShot>
               <h4>{t(`services.extensions.items.${key}.title`)}<span aria-hidden="true">↗</span></h4>
               <p>{t(`services.extensions.items.${key}.desc`)}</p>
-              <span>{t('services.discuss')}</span>
+              <span>{t('offering.learn')}</span>
             </Extension>)}
           </ExtensionGrid>
           <p>{t('services.extensions.note')}</p>

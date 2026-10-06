@@ -4,7 +4,7 @@
     "name": "Ilya Kavaleuski",
     "site": "ilyakav.com",
     "homeTitle": "ilyakav. — Websites that bring clients",
-    "homeDescription": "Strategy, design and development for businesses — from landing pages to custom systems.",
+    "homeDescription": "Complete websites and applications. Design, development and launch, with full handover or an ongoing support subscription.",
     "contactTitle": "Start a project — ilyakav.",
     "contactDescription": "Tell Ilya what you need to build and get a clear reply within one working day.",
     "caseTitle": "Mariana Leus case study — ilyakav.",
@@ -18,7 +18,7 @@
   },
   "nav": {
     "work": "Work",
-    "range": "Range",
+    "range": "Your needs",
     "services": "Services",
     "about": "About",
     "contact": "Contact"
@@ -34,11 +34,11 @@
     "menuAria": "Menu"
   },
   "hero": {
-    "mobileLead": "Websites and applications for your business, from idea to launch.",
+    "mobileLead": "Websites and applications for customer enquiries and daily work. Choose a full handover or ongoing support after launch.",
     "badge": "Ilya Kavaleuski · design & development",
-    "title": "Built to work.",
-    "lead": "Websites, web platforms and applications for your business. From the first sketch to a working product — I personally lead every stage.",
-    "titleAccent": "Made for you.",
+    "title": "Your website.",
+    "lead": "Websites and applications for customer enquiries and daily work. Choose a full handover or ongoing support after launch.",
+    "titleAccent": "Built to work.",
     "note": "Tell me about your project. We’ll discuss the approach, timing and cost.",
     "signature": "Ilya Kavaleuski · developer",
     "explore": "What I can build",
@@ -257,8 +257,8 @@
     }
   },
   "range": {
-    "title": "From a landing page to a full digital product.",
-    "lead": "Some businesses need five pages and a contact form. Others need databases, integrations, user accounts and custom business logic. The solution should match the actual problem.",
+    "title": "Start with what you need",
+    "lead": "Explain your services, take bookings or organise your team’s work. The solution starts with your business needs.",
     "items": {
       "landing": "Landing page",
       "business": "Business website",
@@ -267,7 +267,7 @@
       "platform": "Complex platform",
       "desktop": "Desktop software"
     },
-    "note": "The further down the list, the deeper the engineering — and the more of the team joins in."
+    "note": "Scope follows the functions you need, not the number of technologies used."
   },
   "services": {
     "title": "Services",
@@ -387,7 +387,7 @@
       },
       "launch": {
         "title": "Launch",
-        "desc": "Domain, analytics, ad readiness, handover."
+        "desc": "Check and launch the site, then hand it over or provide ongoing support."
       }
     }
   },
@@ -524,8 +524,8 @@
     }
   },
   "faq": {
-    "title": "Still thinking? That's normal.",
-    "lead": "A website is a real investment. If your question is not here, just ask me directly.",
+    "title": "Questions before we start",
+    "lead": "Costs, timelines and what happens after launch.",
     "items": {
       "price": {
         "q": "How much does a website cost?",
@@ -537,15 +537,15 @@
       },
       "scope": {
         "q": "Do you handle both design and development?",
-        "a": "Yes — strategy, structure, design and build. For deeper engineering I bring in trusted specialists and remain your point of contact."
+        "a": "Yes. We plan the structure, design, develop and launch the website. Any additional specialists are agreed in advance."
       },
       "existing": {
         "q": "Can you take over an existing project?",
         "a": "Yes — a builder site, old code or work left by another developer. I review it first and say honestly whether to improve, rebuild or extend."
       },
       "ownership": {
-        "q": "Will I own the website?",
-        "a": "Fully. Domain, hosting and all files are in your name, with access handed over at launch."
+        "q": "Who manages the website after launch?",
+        "a": "Choose a full handover of code and access, or a support subscription with the option to take over later. After a full handover, you can return to us for changes at a client discount. Support coverage, handover terms and the discount are agreed before we start."
       },
       "ads": {
         "q": "Can it be used with Google or Meta Ads?",
@@ -558,8 +558,8 @@
     "text": "Real quotes appear here as clients write them — nothing invented, and no stand-in praise in the meantime."
   },
   "finalCta": {
-    "title": "Have something worth building?",
-    "lead": "Tell me what you are working on. I will tell you how I would approach it — plainly, before any invoice."
+    "title": "What should your website do?",
+    "lead": "Tell me about your business and the task. I’ll suggest an appropriate solution, scope and cost."
   },
   "contact": {
     "eyebrow": "Open for new projects",
@@ -700,7 +700,7 @@
       "title": "A clear account of what happens to your data.",
       "lead": "This policy explains the limited information used when you browse this website or choose to contact me.",
       "lastUpdatedLabel": "Last updated",
-      "lastUpdatedValue": "15 September 2026"
+      "lastUpdatedValue": "5 October 2026"
     },
     "toc": {
       "label": "On this page"
@@ -719,7 +719,7 @@
       },
       "information": {
         "title": "Information I may receive",
-        "p1": "If you contact me by email, Telegram or phone, I receive the details you choose to provide, such as your name, contact details, project information and the content of our conversation.",
+        "p1": "If you contact me by email or Telegram, I receive the details you choose to provide, such as your name, contact details, project information and the content of our conversation.",
         "p2": "When you submit the contact form, your name, contact details, selected project type, and brief are sent to the website server on Cloudflare and forwarded to my Telegram through a bot. The website code does not write these fields to a separate database. If sending fails, you can contact me directly or open an email draft.",
         "p3": "The site stores only your language and theme preferences in localStorage. Hosting and network providers may also process technical logs such as an IP address, request time, requested page, browser information and error data to deliver and protect the site."
       },
@@ -730,7 +730,7 @@
       },
       "sharing": {
         "title": "Who may process information",
-        "p1": "Information may be handled by providers needed to host and deliver the site, operate email and communications, or maintain its security. If you contact me through Telegram or by phone, the service you choose also processes that communication under its own terms.",
+        "p1": "Information may be handled by providers needed to host and deliver the site, operate email and communications, or maintain its security. If you contact me through Telegram, the service you choose also processes that communication under its own terms.",
         "p2": "I do not sell or rent personal data. I may disclose information when the law requires it, or when reasonably necessary to establish, exercise or defend legal claims and protect the website, its users or others."
       },
       "cookies": {

@@ -1,0 +1,175 @@
+{
+  "learn": "Explore this service",
+  "all": "All services",
+  "eyebrow": "From brief to launch",
+  "why": "The problem it solves",
+  "fit": "When it makes sense",
+  "includes": "What the work includes",
+  "example": "How it works in practice",
+  "honest": "Before you decide",
+  "next": "Start with your situation",
+  "nextBody": "Tell me how customers find you or how your team works today. I’ll suggest a suitable scope and explain the cost and timeline.",
+  "discuss": "Discuss this service",
+  "related": "Other solutions",
+  "ownership": {
+    "title": "Your website. Your choice of support.",
+    "lead": "We build your website from planning and design through development and launch. Then you choose who looks after it.",
+    "full": {
+      "title": "Full handover",
+      "for": "For managing the website yourself or with your own team.",
+      "items": [
+        "Receive the code, project materials and website access.",
+        "Get an explanation of how the project works and how to update it.",
+        "Return to us for future changes at a client discount."
+      ],
+      "benefit": "You choose who maintains the website. There is no compulsory subscription to our support."
+    },
+    "managed": {
+      "title": "Ongoing subscription",
+      "for": "For focusing on your business while we handle the technical side.",
+      "items": [
+        "We handle hosting and maintenance within an agreed scope.",
+        "The recurring fee, support coverage and change process are agreed upfront.",
+        "You can move to a full handover later under the agreed terms."
+      ],
+      "benefit": "You have someone to turn to for technical questions, without finding a new specialist for each request."
+    },
+    "note": "We agree the subscription price, coverage, handover terms and discount on changes before starting. Domain, hosting and third-party service charges are considered separately and depend on the project.",
+    "value": "Compare more than the launch price: what you receive, who helps afterwards and whether you can change providers. We discuss those terms upfront."
+  },
+  "team": {
+    "title": "One contact throughout the project",
+    "body": "I’m Ilya, a designer and developer. I plan the structure, design the interface and write the code. You see work in progress and know who to contact.",
+    "support": "If the project needs other specialists, we agree their involvement in advance. I handle the coordination.",
+    "partnerTitle": "Need advertising after launch?",
+    "partnerBody": "For Google Ads and Meta Ads, we can bring in Mariana Leus. I handle the website and Mariana manages the campaigns. Scope and budget are discussed separately."
+  },
+  "pages": {
+    "site": {
+      "title": "A complete website for your business",
+      "lead": "Help people understand your services, see your work and enquire, even when you are unavailable.",
+      "why": "A recommendation or an ad can introduce someone to your business, but they still need to decide. A website gives them space to compare services, check terms, see examples and send a request. You spend less time repeating the basics in every conversation.",
+      "fit": "You offer several services, customers ask similar questions, and their decision depends on examples, pricing or an explanation of the process.",
+      "includes": [
+        "Page structure based on your services and customer questions.",
+        "Design and development for phones and computers.",
+        "Content, forms and integrations within the agreed scope.",
+        "Checks, launch and your chosen support or handover arrangement."
+      ],
+      "example": "For a renovation company, visitors choose the type of work, look at similar properties and describe their room. The enquiry comes with context for a conversation about an estimate.",
+      "limit": "A website helps you respond to interest in your business, but does not create visitor traffic on its own. Traffic sources are discussed separately. For a single offer, a landing page may be enough."
+    },
+    "landing": {
+      "title": "A landing page for one clear offer",
+      "lead": "One page that helps people understand the offer and take the next step: enquire, book or buy.",
+      "why": "After clicking an ad, visitors expect to find the service it promised. A landing page brings the description, terms, examples and answers together. They do not have to explore multiple sections to decide whether it suits them.",
+      "fit": "You are launching a service, a separate campaign or an event, or want to explore interest in a new offer.",
+      "includes": [
+        "A structure centred on one offer and a target action.",
+        "Design, copy based on your materials and responsive development.",
+        "An enquiry form or booking and payment integration as needed.",
+        "Launch checks and agreed analytics event setup."
+      ],
+      "example": "Someone looking for a deep clean sees the service area, what is included, a starting price and a form for property details. The next step is clear without an initial phone call.",
+      "limit": "For many services, one long page can make choosing harder. Separate pages may work better. Advertising results also depend on the audience, offer and how enquiries are handled."
+    },
+    "redesign": {
+      "title": "Website redesign and improvements",
+      "lead": "Make your existing website clearer and easier to use, keeping what already serves your business.",
+      "why": "Small mobile text, hard-to-find services or a broken form can make contacting you difficult. We start with specific obstacles and check what can be improved in the current project.",
+      "fit": "You already have a website, but the offer has changed, the mobile experience is outdated or pages need work before advertising starts.",
+      "includes": [
+        "Review of the current site, access and technical constraints.",
+        "An agreed list of changes and priorities.",
+        "Updates to structure, interface or functions on that list.",
+        "Checks of the changed pages, forms and navigation."
+      ],
+      "example": "A cleaning website can organise services and rates clearly, show results and ask for property details in the form. Visitors get information for choosing and the business gets context for an estimate.",
+      "limit": "The work needs reviewing before anyone can promise that every change will be simple. If platform or code constraints make updates poor value, I’ll explain the alternatives and their scope."
+    },
+    "app": {
+      "title": "A web application for your workflow",
+      "lead": "When you need to give people a working tool in their browser, beyond a description of your business.",
+      "why": "Requests, documents and statuses can get lost across spreadsheets and messages. An application connects them to an order and gives each person useful actions: customers check progress, staff update records and managers see the work.",
+      "fit": "You have a recurring process, different user roles and information that needs to stay in one place and be kept up to date.",
+      "includes": [
+        "Definition of the workflow and user permissions.",
+        "A prototype of the main screens before substantial development.",
+        "Interface, server logic and integrations within the agreed scope.",
+        "Checks of core scenarios and preparation for operation."
+      ],
+      "example": "A customer portal shows the stage of an order and its documents. The manager updates the status in the same place. Both have less reason to search through message history for current information.",
+      "limit": "Custom development requires a budget and ongoing support. We first check whether an existing service or a small integration could solve the problem."
+    },
+    "desktop": {
+      "title": "A Windows application for your team",
+      "lead": "A working tool for tasks tied to a computer, local files or equipment.",
+      "why": "Some operations are awkward in a browser: processing local files, working with devices or meeting internal access requirements. A desktop application can bring those actions into a clear workflow at a workstation.",
+      "fit": "Your process depends on Windows, local data, equipment or operation without a continuous internet connection.",
+      "includes": [
+        "Review of workstations, environment and technical constraints.",
+        "Screens designed around staff actions.",
+        "Development of agreed functions and data connections.",
+        "Checks in the target environment and installation instructions."
+      ],
+      "example": "A staff member selects a document folder, checks the data and starts batch processing. The application reports results and errors instead of requiring the same manual steps for each file.",
+      "limit": "Specific equipment and offline behaviour must be agreed and tested separately. If access from different devices is the priority, a web application may be more suitable."
+    },
+    "bot": {
+      "title": "A Telegram bot for enquiries and answers",
+      "lead": "Let customers choose a service and share details in a place where they already like to communicate.",
+      "why": "Repeated questions take time, while unstructured messages often miss order details. A bot asks questions step by step, presents choices and passes the collected enquiry to you or your system.",
+      "fit": "Your customers use Telegram and you have a clear selection, booking or initial information-gathering process.",
+      "includes": [
+        "Conversation flow and a route to a person when needed.",
+        "Selection buttons, answers and collection of required details.",
+        "Delivery of enquiries to the agreed channel or service.",
+        "Conversation branch checks and management instructions."
+      ],
+      "example": "A customer chooses a service, enters an area and leaves contact details. You receive a structured enquiry and can continue the discussion personally.",
+      "limit": "A bot does not replace a specialist in a complex conversation or attract an audience by itself. If customers do not use Telegram, a website form or another channel may be more useful."
+    },
+    "automation": {
+      "title": "Connect enquiries to your CRM",
+      "lead": "Connect the website to your working tools so information reaches the right person and is ready to process.",
+      "why": "Copying an enquiry from email into a spreadsheet adds work and creates a chance of missing it. An integration sends the form fields to the right system and tells the team about the request.",
+      "fit": "You already use a CRM, spreadsheet or another service and regularly move the same data manually.",
+      "includes": [
+        "A data flow and field mapping.",
+        "Connection through available APIs or existing integrations.",
+        "Notifications and error handling within the agreed scope.",
+        "Checks with test data and operating instructions."
+      ],
+      "example": "After a form is submitted, an enquiry appears in the CRM with the selected service and contact details, and the manager receives a notification. They can handle it without copying it first.",
+      "limit": "Capabilities depend on third-party APIs, plans and access rights. We check which data can be transferred and where a person should remain in control."
+    },
+    "booking": {
+      "title": "Online booking and payments",
+      "lead": "Let customers choose a service and an available time without a long exchange of messages.",
+      "why": "Arranging a time manually can take several messages. Online booking shows available options and collects the required details. Payment through a provider can be added when appropriate for your service.",
+      "fit": "Your services follow a schedule, durations are clear and availability can be tracked in a shared system.",
+      "includes": [
+        "Rules for booking, availability and confirmation.",
+        "An existing booking service or agreed custom logic.",
+        "Connection to a chosen payment provider if needed.",
+        "Checks of bookings, confirmations and supported cancellations."
+      ],
+      "example": "A customer selects a consultation and an available time, enters contact details and receives confirmation. If prepayment is agreed, payment comes before final confirmation.",
+      "limit": "Rescheduling, cancellation and refund rules need defining upfront. Provider fees, supported countries and payment terms must be checked for your business."
+    }
+  },
+  "goals": [
+    {
+      "title": "Enquiries with useful context",
+      "body": "Services, examples and terms help people decide whether your offer suits their needs."
+    },
+    {
+      "title": "Less scheduling back and forth",
+      "body": "Customers see available times and make a booking while you receive the details you need."
+    },
+    {
+      "title": "Keep daily work organised",
+      "body": "Orders, documents and statuses are available to the team in one place."
+    }
+  ]
+}

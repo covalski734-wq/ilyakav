@@ -204,7 +204,6 @@ export function MobileMenu({ open, onClose }: Props) {
       <Contacts>
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
         <a href={SITE.telegram.url}>Telegram {SITE.telegram.handle}</a>
-        <a href={SITE.phone.href}>{SITE.phone.display}</a>
       </Contacts>
 
       {/* these controls stay put: only navigation and the backdrop close the menu */}

@@ -10,6 +10,7 @@ const Wrapper = styled.section`
   color: ${({ theme }) => theme.colors.onDeep};
   padding: clamp(48px, 7vw, 104px) ${({ theme }) => theme.layout.pagePadding} clamp(56px, 9vw, 124px);
   border-radius: 0 0 ${({ theme }) => theme.radii.xl} ${({ theme }) => theme.radii.xl};
+  @media (max-width: 760px) { padding-top: 30px; }
 `
 
 const Head = styled.div`

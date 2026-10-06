@@ -1,0 +1,234 @@
+{
+  "matrix": [
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "ru",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "ru",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "ru",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "ru",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "ru",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "ru",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "ru",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "ru",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "ru",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "ru",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "ru",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "ru",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "uk",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "uk",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "uk",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "uk",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "uk",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "uk",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "uk",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "uk",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "uk",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "uk",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "uk",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "uk",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "en",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "en",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "en",
+      "width": 320,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "en",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "en",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "en",
+      "width": 390,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "en",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "en",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "en",
+      "width": 768,
+      "status": "passed"
+    },
+    {
+      "route": "skyline-stretch-ceilings",
+      "lang": "en",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "maryna-cleaning",
+      "lang": "en",
+      "width": 1440,
+      "status": "passed"
+    },
+    {
+      "route": "tile-expert-solutions",
+      "lang": "en",
+      "width": 1440,
+      "status": "passed"
+    }
+  ],
+  "checks": [
+    "locale key parity",
+    "direct URLs and trailing slash",
+    "image decoding",
+    "responsive overflow",
+    "metadata",
+    "external links",
+    "related links",
+    "portfolio navigation",
+    "contact navigation",
+    "language switching and persistence",
+    "dark theme",
+    "mobile language menu"
+  ]
+}

@@ -4,7 +4,6 @@
 export const SITE = {
   email: 'covalski734@gmail.com',
   telegram: { handle: '@ilyakav', url: 'https://t.me/ilyakav' },
-  phone: { display: '+48 572 197 330', href: 'tel:+48572197330' },
   flagship: 'marianaleus.com',
   advertisingPartner: { name: 'Mariana Leus', url: 'https://marianaleus.com/' },
 } as const
@@ -44,7 +43,7 @@ export const HERO_VIDEO = {
 } as const
 
 export const FEATURE_FLAGS = {
-  showSelectedWork: false,
+  showSelectedWork: true,
   showConcepts: false,
   showTestimonials: false,
   /** Playful asides — the badge on the portrait and the closing line of the range grid. */

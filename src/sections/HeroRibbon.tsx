@@ -16,7 +16,7 @@ const Art = styled.div`
   user-select: none;
   @media (max-width: 760px) {
     grid-column: 1; grid-row: 3; width: 100%;
-    height: clamp(190px, calc(100svh - 460px), 340px);
+    height: clamp(230px, 64vw, 320px);
     margin: 0;
     align-self: center;
     display: grid;

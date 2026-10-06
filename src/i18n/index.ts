@@ -5,6 +5,12 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import ru from './locales/ru.json'
 import uk from './locales/uk.json'
 import en from './locales/en.json'
+import ruCases from './locales/cases.ru.json'
+import ukCases from './locales/cases.uk.json'
+import enCases from './locales/cases.en.json'
+import ruOffering from './locales/offering.ru.json'
+import ukOffering from './locales/offering.uk.json'
+import enOffering from './locales/offering.en.json'
 
 export const LANGUAGES = ['ru', 'uk', 'en'] as const
 export type Language = (typeof LANGUAGES)[number]
@@ -23,9 +29,9 @@ void i18n
   .use(initReactI18next)
   .init({
     resources: {
-      ru: { translation: ru },
-      uk: { translation: uk },
-      en: { translation: en },
+      ru: { translation: { ...ru, webCases: ruCases, offering: ruOffering } },
+      uk: { translation: { ...uk, webCases: ukCases, offering: ukOffering } },
+      en: { translation: { ...en, webCases: enCases, offering: enOffering } },
     },
     fallbackLng: 'ru',
     supportedLngs: LANGUAGES as unknown as string[],

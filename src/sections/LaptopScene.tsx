@@ -27,6 +27,9 @@ const cardFloat = keyframes`
 
 const Scene = styled.div`
   position: relative;
+  /* ScrollTrigger's spacer is taller than the compact stage. Its entire
+     scroll runway belongs to this dark scene, including below the pinned lid. */
+  background: ${({ theme }) => theme.colors.deep};
 `
 
 /**
@@ -45,6 +48,12 @@ const Stage = styled.div<{ $still: boolean }>`
     clamp(30px, 7vh, 58px);
   background: ${({ theme }) => theme.colors.deep};
   color: ${({ theme }) => theme.colors.onDeep};
+
+  @media (max-width: 760px) {
+    height: clamp(540px, 76svh, 740px);
+    padding-top: 150px;
+    padding-bottom: 32px;
+  }
 
   @media (max-height: 600px) and (orientation: landscape) {
     padding-top: 132px;
@@ -729,7 +738,7 @@ export function LaptopScene() {
         scrollTrigger: {
           trigger: q('[data-stage]')[0],
           start: 'top top',
-          end: mobile ? '+=150%' : '+=260%',
+          end: mobile ? '+=85%' : '+=260%',
           scrub: mobile ? 0.4 : 0.6,
           pin: true,
           anticipatePin: 1,
@@ -762,8 +771,8 @@ export function LaptopScene() {
         .to('[data-glow]', { opacity: 0.88, scale: 1.12, duration: 0.9 }, 0.58)
         .fromTo('[data-strip]', { y: 0 }, { y: scrollDistance, ease: 'none', duration: 3.4 }, 1)
         .fromTo('[data-note]', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 1.3)
-        .to('[data-laptop]', { scale: 0.9, y: -26, duration: 0.8 }, 4.4)
-        .to('[data-caption]', { opacity: 0.4, duration: 0.8 }, 4.4)
+        .to('[data-laptop]', { scale: mobile ? 1 : 0.9, y: mobile ? 0 : -26, duration: mobile ? 0.25 : 0.8 }, 4.4)
+        .to('[data-caption]', { opacity: 0.4, duration: mobile ? 0.25 : 0.8 }, 4.4)
     }, root)
 
     return () => ctx.revert()

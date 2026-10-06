@@ -205,7 +205,6 @@ export function Footer() {
           <Column>
             <ColumnLabel>{t('footer.colDirect')}</ColumnLabel>
             <a href={SITE.telegram.url}>Telegram {SITE.telegram.handle}</a>
-            <a href={SITE.phone.href}>{SITE.phone.display}</a>
             <Muted>{t('footer.location')}</Muted>
           </Column>
 

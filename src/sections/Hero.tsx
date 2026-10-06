@@ -39,7 +39,8 @@ const Wrapper = styled.section`
   display: flex;
   > div { display: flex; flex-direction: column; }
   @media (max-width: 760px) {
-    padding: calc(86px + env(safe-area-inset-top)) clamp(20px, 5.6vw, 36px) 0;
+    min-height: auto;
+    padding: calc(108px + env(safe-area-inset-top)) clamp(20px, 5.6vw, 36px) 0;
     border-radius: 0 0 24px 24px;
     > div { max-width: 520px; }
   }
@@ -59,9 +60,10 @@ const Layout = styled.div`
   align-content: center;
   @media (max-width: 760px) {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto minmax(0, 1fr);
-    row-gap: 14px;
-    padding: 10px 0 0;
+    flex: none;
+    grid-template-rows: auto auto auto;
+    row-gap: 24px;
+    padding: 14px 0 24px;
     align-content: start;
   }
   @media (max-height: 600px) and (min-width: 761px) and (max-width: 1020px) {
@@ -87,9 +89,9 @@ const Title = styled.h1`
     grid-row: 1;
     padding-bottom: 0;
     max-width: none;
-    font-size: clamp(36px, 10.5vw, 62px);
-    line-height: 1.04;
-    letter-spacing: -.055em;
+    font-size: clamp(38px, 10.8vw, 62px);
+    line-height: 1.08;
+    letter-spacing: -.045em;
   }
   @media (max-height: 600px) and (min-width: 761px) and (max-width: 1020px) {
     font-size: clamp(34px, 5vw, 48px);
@@ -112,8 +114,8 @@ const Lead = styled.p`
   [data-mobile-copy] { display: none; }
   @media (max-width: 760px) {
     max-width: 35ch;
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.55;
     [data-desktop-copy] { display: none; }
     [data-mobile-copy] { display: inline; }
   }
@@ -127,7 +129,7 @@ const Actions = styled.div`
   margin-top: 30px;
   > a:first-child { gap: 24px; padding: 18px 24px; border-radius: 16px; }
   @media (max-width: 760px) {
-    margin-top: 18px;
+    margin-top: 24px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 12px 22px;

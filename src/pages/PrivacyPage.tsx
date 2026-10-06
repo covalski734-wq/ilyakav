@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Container, Eyebrow } from '../components/ui/primitives'
 import { SITE } from '../config/site'
 import { useReveal } from '../hooks/useReveal'
+import { BackToTop } from '../components/BackToTop'
 
 const PRIVACY_SECTIONS = [
   {
@@ -491,7 +492,7 @@ export function PrivacyPage() {
             <Updated>
               <dt>{t('privacyPage.hero.lastUpdatedLabel')}</dt>
               <dd>
-                <time dateTime="2026-09-15">{t('privacyPage.hero.lastUpdatedValue')}</time>
+                <time dateTime="2026-10-05">{t('privacyPage.hero.lastUpdatedValue')}</time>
               </dd>
             </Updated>
           </IntroBottom>
@@ -545,6 +546,7 @@ export function PrivacyPage() {
           </Article>
         </LegalLayout>
       </Content>
+      <BackToTop />
     </>
   )
 }

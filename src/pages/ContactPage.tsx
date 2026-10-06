@@ -565,10 +565,6 @@ export function ContactPage() {
                 <span>{t('contact.direct.email')}</span>
                 <strong>{SITE.email}</strong>
               </QuickLink>
-              <QuickLink href={SITE.phone.href}>
-                <span>{t('contact.direct.phone')}</span>
-                <strong>{SITE.phone.display}</strong>
-              </QuickLink>
             </QuickList>
           </QuickContacts>
           <FormAnchor href="#project-form">{t('contact.form.openForm')} ↓</FormAnchor>
@@ -661,7 +657,6 @@ export function ContactPage() {
                 <ResultBody>{t('contact.form.errorBody')}</ResultBody>
                 <ResultLinks>
                   <a href={SITE.telegram.url}>{SITE.telegram.handle}</a>
-                  <a href={SITE.phone.href}>{SITE.phone.display}</a>
                   <a href={mailDraft}>{t('contact.form.errorMailAction')}</a>
                 </ResultLinks>
               </Result>
@@ -680,10 +675,6 @@ export function ContactPage() {
               <DirectLink href={SITE.telegram.url}>
                 <span>{t('contact.direct.telegram')}</span>
                 <span>{SITE.telegram.handle}</span>
-              </DirectLink>
-              <DirectLink href={SITE.phone.href}>
-                <span>{t('contact.direct.phone')}</span>
-                <span>{SITE.phone.display}</span>
               </DirectLink>
             </DirectLinks>
           </Direct>
