@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
+import { useRef } from 'react'
 
 import { gsap } from '../lib/gsap'
 import { usePrefersReducedMotion } from './useMediaQuery'
@@ -35,7 +36,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>({
   const ref = useRef<T>(null)
   const still = usePrefersReducedMotion()
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const el = ref.current
     if (still || !el) return
 

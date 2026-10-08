@@ -86,11 +86,11 @@ const SoftLink = styled.a`
   font-size: 17px;
   border-radius: ${({ theme }) => theme.radii.pill};
   padding: 19px 26px;
-  background: rgba(255, 255, 255, 0.16);
+  background: ${({ theme }) => theme.colors.accentInk};
   transition: background 0.3s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.26);
+    background: #353090;
   }
 `
 

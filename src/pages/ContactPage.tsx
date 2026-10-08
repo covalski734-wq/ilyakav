@@ -1,17 +1,18 @@
-import { type FormEvent, useId, useState } from 'react'
+import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { useTranslation } from 'react-i18next'
+import { trackEvent } from '../lib/consent'
 
-import { Container, Eyebrow, SectionTitle } from '../components/ui/primitives'
+import { Container, SectionTitle } from '../components/ui/primitives'
 import { ROUTES, SITE } from '../config/site'
 import { useReveal } from '../hooks/useReveal'
-import { breathe } from '../theme/GlobalStyle'
+import { PROJECT_TYPES, isProjectType, validateContact, type ProjectType, type FieldErrors, type ContactField } from '../../shared/contact'
 
 const Intro = styled.section`
   position: relative;
   margin-top: calc(-92px - env(safe-area-inset-top));
-  padding: calc(156px + env(safe-area-inset-top)) ${({ theme }) => theme.layout.pagePadding}
-    clamp(42px, 5vw, 64px);
+  padding: calc(120px + env(safe-area-inset-top)) ${({ theme }) => theme.layout.pagePadding}
+    28px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -50,7 +51,7 @@ const Intro = styled.section`
 
   @media (max-width: 760px) {
     margin-top: calc(-78px - env(safe-area-inset-top));
-    padding: calc(126px + env(safe-area-inset-top)) clamp(18px, 5vw, 24px) 58px;
+    padding: calc(102px + env(safe-area-inset-top)) clamp(18px, 5vw, 24px) 24px;
 
     &::before {
       width: 120vw;
@@ -70,40 +71,18 @@ const IntroInner = styled(Container)`
   align-items: flex-start;
 `
 
-const IntroEyebrow = styled(Eyebrow)`
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: clamp(20px, 3vw, 34px);
-  color: ${({ theme }) => theme.colors.onDeepDim};
-`
-
-const Pulse = styled.span`
-  width: 8px;
-  height: 8px;
-  flex: none;
-  border-radius: 50%;
-  background: ${({ theme }) => theme.colors.status};
-  box-shadow: 0 0 0 4px rgba(85, 214, 160, 0.1);
-  animation: ${breathe} 2.6s ease-in-out infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-`
-
 const IntroTitle = styled.h1`
   max-width: 18ch;
   font-family: ${({ theme }) => theme.fonts.display};
   font-weight: 700;
-  font-size: clamp(48px, 6.4vw, 88px);
+  font-size: clamp(38px, 4.2vw, 60px);
   line-height: 0.94;
   letter-spacing: -0.055em;
 `
 
 const IntroBottom = styled.div`
   width: 100%;
-  margin-top: clamp(28px, 4vw, 48px);
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -130,21 +109,7 @@ const ReplyNote = styled.p`
 /** Direct contact is available before the form on every screen. */
 const QuickContacts = styled.div`
   width: 100%;
-  margin-top: clamp(22px, 4vw, 34px);
-`
-
-const FormAnchor = styled.a`
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin-top: 18px;
-  font-weight: 600;
-  text-underline-offset: 5px;
-`
-
-const QuickLabel = styled(Eyebrow)`
-  margin-bottom: 10px;
-  color: ${({ theme }) => theme.colors.onDeepDim};
+  margin-top: 16px;
 `
 
 const QuickList = styled.div`
@@ -187,7 +152,7 @@ const QuickLink = styled.a`
 `
 
 const Content = styled.section`
-  padding: clamp(52px, 8vw, 112px) ${({ theme }) => theme.layout.pagePadding};
+  padding: clamp(24px, 3vw, 42px) ${({ theme }) => theme.layout.pagePadding};
 `
 
 const Layout = styled(Container)`
@@ -202,7 +167,7 @@ const Layout = styled(Container)`
 `
 
 const Form = styled.form`
-  padding: clamp(24px, 4vw, 54px);
+  padding: clamp(20px, 3vw, 36px);
   border: 1px solid ${({ theme }) => theme.colors.line};
   border-radius: ${({ theme }) => theme.radii.xl};
   background: ${({ theme }) => theme.colors.surface};
@@ -210,15 +175,7 @@ const Form = styled.form`
 `
 
 const FormTitle = styled(SectionTitle)`
-  font-size: clamp(30px, 4vw, 54px);
-`
-
-const FormLead = styled.p`
-  max-width: 50ch;
-  margin-top: 14px;
-  color: ${({ theme }) => theme.colors.textDim};
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: clamp(26px, 3vw, 36px);
 `
 
 const Fields = styled.fieldset`
@@ -228,7 +185,7 @@ const Fields = styled.fieldset`
   border: 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
-  margin-top: clamp(28px, 4vw, 42px);
+  margin-top: 20px;
 
   @media (max-width: 620px) {
     grid-template-columns: minmax(0, 1fr);
@@ -236,6 +193,8 @@ const Fields = styled.fieldset`
 `
 
 const Field = styled.label<{ $wide?: boolean }>`
+  [role="alert"] { font-size: 13px; line-height: 1.45; font-weight: 600; }
+  [aria-invalid="true"] { border-color: currentColor; border-width: 2px; }
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -456,31 +415,30 @@ const DirectLink = styled.a`
   }
 `
 
-const PROJECT_TYPES = ['site', 'landing', 'webApp', 'desktop', 'redesign', 'bot', 'automation', 'booking', 'other'] as const
-type ProjectType = (typeof PROJECT_TYPES)[number]
-
-const isProjectType = (value: string | null): value is ProjectType =>
-  PROJECT_TYPES.includes(value as ProjectType)
-
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
 export function ContactPage() {
   const { t } = useTranslation()
   const privacyId = useId()
   const introRef = useReveal<HTMLDivElement>({ children: true, stagger: 0.12, start: 'top 92%' })
-  const formRef = useReveal<HTMLFormElement>({ y: 34 })
+  const formRef = useRef<HTMLFormElement>(null)
+  const busy = useRef(false)
+  const [errors, setErrors] = useState<FieldErrors>({})
   const directRef = useReveal<HTMLElement>({ y: 34, delay: 0.12 })
 
   const [status, setStatus] = useState<Status>('idle')
   const [mailDraft, setMailDraft] = useState('')
-  const [initialType] = useState<ProjectType>(() => {
+  const [initialType, setInitialType] = useState<ProjectType>('site')
+  useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get('type')
-    return isProjectType(requested) ? requested : 'site'
-  })
+    if (isProjectType(requested)) setInitialType(requested)
+  }, [])
+  const fieldError = (field: ContactField) => errors[field] ? <span id={privacyId + '-' + field} role="alert">{t(`contact.form.errors.${errors[field]}`)}</span> : null
+  const fieldAccessibility = (field: ContactField) => ({ 'aria-invalid': !!errors[field], 'aria-describedby': errors[field] ? privacyId + '-' + field : undefined })
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (status === 'sending') return
+    if (busy.current) return
 
     // captured before the first await, after which React clears currentTarget
     const form = event.currentTarget
@@ -491,6 +449,14 @@ export function ContactPage() {
     const rawType = String(data.get('type') ?? 'other')
     const type = isProjectType(rawType) ? rawType : 'other'
     const typeLabel = t(`contact.form.types.${type}` as const)
+    const validation = validateContact({ name, contact, brief, type })
+    setErrors(validation.errors)
+    if (!validation.valid) {
+      const first = Object.keys(validation.errors)[0]
+      form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus()
+      setStatus('idle')
+      return
+    }
 
     // A ready-made mail draft is kept aside so a failed send still has a way
     // out instead of losing everything the visitor typed.
@@ -507,6 +473,7 @@ export function ContactPage() {
       `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
     )
 
+    busy.current = true
     setStatus('sending')
     const controller = new AbortController()
     const timeout = window.setTimeout(() => controller.abort(), 15_000)
@@ -519,24 +486,36 @@ export function ContactPage() {
         body: JSON.stringify({
           name,
           contact,
-          type: typeLabel,
+          type,
           brief,
           company: String(data.get('company') ?? ''),
         }),
       })
 
-      if (!response.ok) throw new Error(String(response.status))
       const result: unknown = await response.json()
+      if (!response.ok) {
+        if (response.status === 422 && result && typeof result === 'object' && 'fields' in result && result.fields && typeof result.fields === 'object') {
+          const fields: FieldErrors = {}
+          for (const key of ['name', 'contact', 'brief', 'type'] as const) {
+            const code = (result.fields as Record<string, unknown>)[key]
+            if (code === 'required' || code === 'too_long' || code === 'invalid_contact' || code === 'invalid_type') fields[key] = code
+          }
+          setErrors(fields)
+        }
+        throw new Error(String(response.status))
+      }
       if (!result || typeof result !== 'object' || !('ok' in result) || result.ok !== true) {
         throw new Error('Unconfirmed delivery')
       }
 
+      trackEvent('generate_lead', 'contact_form')
       form.reset()
       setStatus('sent')
     } catch {
       setStatus('error')
     } finally {
       window.clearTimeout(timeout)
+      busy.current = false
     }
   }
 
@@ -544,10 +523,6 @@ export function ContactPage() {
     <>
       <Intro id="top">
         <IntroInner ref={introRef}>
-          <IntroEyebrow>
-            <Pulse aria-hidden="true" />
-            {t('contact.eyebrow')}
-          </IntroEyebrow>
           <IntroTitle>{t('contact.title')}</IntroTitle>
           <IntroBottom>
             <IntroLead>{t('contact.lead')}</IntroLead>
@@ -555,7 +530,6 @@ export function ContactPage() {
           </IntroBottom>
 
           <QuickContacts>
-            <QuickLabel>{t('contact.quickLabel')}</QuickLabel>
             <QuickList>
               <QuickLink href={SITE.telegram.url}>
                 <span>{t('contact.direct.telegram')}</span>
@@ -567,69 +541,74 @@ export function ContactPage() {
               </QuickLink>
             </QuickList>
           </QuickContacts>
-          <FormAnchor href="#project-form">{t('contact.form.openForm')} ↓</FormAnchor>
         </IntroInner>
       </Intro>
 
       <Content id="project-form">
         <Layout>
           <Form
+            noValidate
             ref={formRef}
             onSubmit={handleSubmit}
-            onChange={() => {
+            onChange={(event) => {
+              const name = (event.target as HTMLInputElement).name as ContactField
+              setErrors(current => ({ ...current, [name]: undefined }))
               if (status === 'sent' || status === 'error') setStatus('idle')
             }}
             aria-describedby={privacyId}
             aria-busy={status === 'sending'}
           >
             <FormTitle>{t('contact.form.title')}</FormTitle>
-            <FormLead>{t('contact.form.lead')}</FormLead>
 
             <Fields disabled={status === 'sending'}>
               <Field>
                 <Label>{t('contact.form.nameLabel')}</Label>
                 <Input
-                  name="name"
+                  name="name" {...fieldAccessibility('name')}
                   type="text"
                   autoComplete="name"
                   maxLength={120}
                   placeholder={t('contact.form.namePlaceholder')}
                   required
                 />
+                {fieldError('name')}
               </Field>
 
               <Field>
                 <Label>{t('contact.form.contactLabel')}</Label>
                 <Input
-                  name="contact"
+                  name="contact" {...fieldAccessibility('contact')}
                   type="text"
                   autoComplete="email"
                   maxLength={200}
                   placeholder={t('contact.form.contactPlaceholder')}
                   required
                 />
+                {fieldError('contact')}
               </Field>
 
               <Field $wide>
                 <Label>{t('contact.form.typeLabel')}</Label>
-                <Select name="type" defaultValue={initialType}>
+                <Select name="type" value={initialType} onChange={event => setInitialType(event.target.value as ProjectType)} {...fieldAccessibility('type')}>
                   {PROJECT_TYPES.map((type) => (
                     <option key={type} value={type}>
                       {t(`contact.form.types.${type}` as const)}
                     </option>
                   ))}
                 </Select>
+                {fieldError('type')}
               </Field>
 
               <Field $wide>
                 <Label>{t('contact.form.briefLabel')}</Label>
                 <Textarea
-                  name="brief"
+                  name="brief" {...fieldAccessibility('brief')}
                   placeholder={t('contact.form.briefPlaceholder')}
                   rows={6}
                   maxLength={3500}
                   required
                 />
+                {fieldError('brief')}
               </Field>
             </Fields>
 

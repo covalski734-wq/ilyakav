@@ -8,8 +8,8 @@ const ToggleButton = styled.button`
   align-items: center;
   justify-content: center;
   flex: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   background: none;
   border: 0;
@@ -39,7 +39,7 @@ export function ThemeToggle() {
   const { t } = useTranslation()
 
   return (
-    <ToggleButton type="button" onClick={toggleTheme} aria-label={t('actions.themeAria')}>
+    <ToggleButton type="button" onClick={toggleTheme} aria-label={t(mode === 'dark' ? 'actions.themeToLight' : 'actions.themeToDark')} aria-pressed={mode === 'dark'}>
       <Dot $dark={mode === 'dark'} data-theme-dot />
     </ToggleButton>
   )

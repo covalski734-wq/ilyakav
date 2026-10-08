@@ -6,3 +6,7 @@ dist
 *.local
 .DS_Store
 tsconfig.tsbuildinfo
+
+# Temporary server build for static generation
+.ssg/
+/artifacts

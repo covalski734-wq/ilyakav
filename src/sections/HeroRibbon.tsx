@@ -1,4 +1,5 @@
-import { useId, useLayoutEffect, useRef } from 'react'
+import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
+import { useId, useRef } from 'react'
 import styled from 'styled-components'
 import { gsap } from '../lib/gsap'
 import { usePrefersReducedMotion } from '../hooks/useMediaQuery'
@@ -48,7 +49,7 @@ export function HeroRibbon() {
   const id=useId().replace(/:/g,'')
   const root=useRef<HTMLDivElement>(null)
   const reduced=usePrefersReducedMotion()
-  useLayoutEffect(()=>{
+  useIsomorphicLayoutEffect(()=>{
     const element=root.current
     const track=element?.closest<HTMLElement>('[data-hero-track]')
     if(!element||!track||reduced)return

@@ -101,6 +101,7 @@ const Pill = styled.div<{ $floating: boolean; $home: boolean }>`
 `
 
 const Logo = styled.a`
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
     img { display: block; width: 30px; height: 30px; margin-right: 9px; }
@@ -118,7 +119,7 @@ const Logo = styled.a`
 
   /* the nav below carries the pill's spacing on desktop; once it is hidden the
      logo takes over, so the controls stay pinned to the right edge */
-  @media (max-width: 1020px) {
+  @media (max-width: 1180px) {
     margin-right: auto;
   }
 `
@@ -130,6 +131,9 @@ const Nav = styled.nav`
   align-items: center;
 
   a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     white-space: nowrap;
     font-size: 15px;
     text-decoration: none;
@@ -146,7 +150,7 @@ const Nav = styled.nav`
     background: ${({ theme }) => theme.colors.surface2};
   }
 
-  @media (max-width: 1020px) {
+  @media (max-width: 1180px) {
     display: none;
   }
 `
@@ -181,15 +185,15 @@ const Burger = styled.button`
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   background: none;
   border: 0;
   border-radius: 50%;
   cursor: pointer;
 
-  @media (max-width: 1020px) {
+  @media (max-width: 1180px) {
     display: flex;
   }
 `
@@ -207,7 +211,7 @@ const MobileLanguage = styled.button`
   align-items: center;
   gap: 5px;
   min-width: 44px;
-  height: 42px;
+  height: 44px;
   padding: 0 9px;
   border: 0;
   border-radius: 12px;
@@ -245,15 +249,14 @@ const BurgerBar = styled.span<{ $open: boolean; $index: 0 | 1 | 2 }>`
 `
 
 type Props = {
+  pathname: string
   menuOpen: boolean
   onToggleMenu: () => void
 }
 
-export function Header({ menuOpen, onToggleMenu }: Props) {
+export function Header({ pathname, menuOpen, onToggleMenu }: Props) {
   const { t, i18n } = useTranslation()
-  const [floating, setFloating] = useState(() =>
-    typeof window === 'undefined' ? false : Math.max(0, window.scrollY) >= 24,
-  )
+  const [floating, setFloating] = useState(false)
   const languageCode = (i18n.resolvedLanguage || i18n.language || 'en').slice(0, 2)
   const currentLanguage =
     LANGUAGE_LABELS[languageCode as keyof typeof LANGUAGE_LABELS] ?? languageCode.toUpperCase()
@@ -287,7 +290,7 @@ export function Header({ menuOpen, onToggleMenu }: Props) {
 
   return (
     <Bar>
-      <Pill $floating={floating || menuOpen} $home={window.location.pathname === "/"}>
+      <Pill $floating={floating || menuOpen} $home={pathname === '/' || pathname === '/cookies'}>
         <Logo href="/#top">
           <img src="/brand/ilyakav-symbol.svg?v=2" alt="" width="30" height="30" />
           ilyakav<span>.</span>
@@ -295,7 +298,7 @@ export function Header({ menuOpen, onToggleMenu }: Props) {
 
         <Nav>
           {NAV_LINKS.map((link) => (
-            <a key={link.key} href={link.href}>
+            <a key={link.key} href={link.href} aria-current={link.href === pathname ? 'page' : undefined}>
               {t(`nav.${link.key}` as const)}
             </a>
           ))}

@@ -14,7 +14,9 @@
     "aboutTitle": "About Ilya Kavaleuski — ilyakav.",
     "aboutDescription": "Independent strategy, design and development for websites and custom digital products.",
     "privacyTitle": "Privacy policy — ilyakav.",
-    "privacyDescription": "How ilyakav.com handles contact details, local preferences and third-party services."
+    "privacyDescription": "How ilyakav.com handles contact details, local preferences and third-party services.",
+    "cookiesTitle": "Cookie policy — ilyakav.",
+    "cookiesDescription": "Browser storage, cookie categories and consent settings on ilyakav.com."
   },
   "nav": {
     "work": "Work",
@@ -31,13 +33,16 @@
     "switchTheme": "Switch theme",
     "backToTop": "Back to top ↑",
     "themeAria": "Theme",
-    "menuAria": "Menu"
+    "menuAria": "Menu",
+    "skipToContent": "Skip to main content",
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme"
   },
   "hero": {
-    "mobileLead": "Websites and applications for customer enquiries and daily work. Choose a full handover or ongoing support after launch.",
+    "mobileLead": "Business websites with a clear offer and a simple way to enquire. I handle your project personally through launch.",
     "badge": "Ilya Kavaleuski · design & development",
     "title": "Your website.",
-    "lead": "Websites and applications for customer enquiries and daily work. Choose a full handover or ongoing support after launch.",
+    "lead": "I build business websites with clear services, real work and a simple way to enquire. I handle your project personally, from structure to launch.",
     "titleAccent": "Built to work.",
     "note": "Tell me about your project. We’ll discuss the approach, timing and cost.",
     "signature": "Ilya Kavaleuski · developer",
@@ -83,7 +88,21 @@
     "projectNote": "My work: structure, design and development"
   },
   "laptop": {
-    "caption": "Complex work. A clear interface.",
+    "chapters": [
+      {
+        "title": "Start with a clear picture",
+        "body": "An overview helps your team see what is happening and where to go next."
+      },
+      {
+        "title": "Every task has its place",
+        "body": "Tasks move from work in progress to review and a finished result."
+      },
+      {
+        "title": "Keep the important things in view",
+        "body": "Priorities, decisions and statuses are available to your team in one interface."
+      }
+    ],
+    "caption": "Interface demonstration · sample data",
     "note": "A demonstration: tasks, statuses, and decisions in one shared workspace.",
     "demo": {
       "ariaLabel": "An animated project management interface scrolling inside a laptop",
@@ -257,8 +276,8 @@
     }
   },
   "range": {
-    "title": "Start with what you need",
-    "lead": "Explain your services, take bookings or organise your team’s work. The solution starts with your business needs.",
+    "title": "Where do we start?",
+    "lead": "A new website, an update to your current one or a tool for your team — start with what you need.",
     "items": {
       "landing": "Landing page",
       "business": "Business website",
@@ -596,7 +615,13 @@
       "errorTitle": "Could not send it.",
       "errorBody": "Something is off with the network or the sending service. Reach me directly instead:",
       "errorMailAction": "Open it in your mail app",
-      "openForm": "Go to the short project brief"
+      "openForm": "Go to the short project brief",
+      "errors": {
+        "required": "Please fill in this field.",
+        "too_long": "Please shorten this field.",
+        "invalid_contact": "Enter an email or Telegram @username (5–32 characters).",
+        "invalid_type": "Choose a project type."
+      }
     },
     "direct": {
       "title": "Prefer writing directly?",
@@ -735,7 +760,7 @@
       },
       "cookies": {
         "title": "Local storage and third-party content",
-        "p1": "This site does not set first-party analytics or advertising cookies. It uses localStorage only to remember the selected language and light or dark theme. Google Fonts are requested from Google, so Google may receive technical request data such as your IP address and browser information.",
+        "p1": "Optional analytics and marketing require your consent. Your choice, its date and version are stored in localStorage; settings are available in the footer. The Cookie Policy lists the storage used and the current status of optional services.",
         "p2": "The live desktop preview of marianaleus.com is mounted only after you explicitly select Live. Loading it connects your browser to that website and any services it uses, which may process data under their own policies. On mobile, the live site opens as an external page instead."
       },
       "retention": {

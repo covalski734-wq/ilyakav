@@ -20,7 +20,8 @@ const LangButton = styled.button<{ $active: boolean; $variant: 'bare' | 'filled'
   background: ${({ theme, $variant }) => ($variant === 'bare' ? 'none' : theme.colors.surface2)};
   border: 0;
   padding: ${({ $variant }) => ($variant === 'bare' ? '8px 9px' : '9px 13px')};
-  min-height: ${({ $variant }) => ($variant === 'bare' ? '36px' : '42px')};
+  min-height: 44px;
+  min-width: 44px;
   cursor: pointer;
   border-radius: ${({ theme }) => theme.radii.pill};
   font-family: ${({ theme }) => theme.fonts.mono};
@@ -28,7 +29,7 @@ const LangButton = styled.button<{ $active: boolean; $variant: 'bare' | 'filled'
   font-size: 12px;
   letter-spacing: 0.04em;
   color: ${({ theme }) => theme.colors.text};
-  opacity: ${({ $active, $variant }) => ($variant === 'bare' && !$active ? 0.45 : 1)};
+  opacity: ${({ $active, $variant }) => ($variant === 'bare' && !$active ? 0.7 : 1)};
   transition:
     background 0.25s ease,
     opacity 0.25s ease;

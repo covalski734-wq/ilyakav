@@ -5,6 +5,9 @@ import { Container, Eyebrow } from '../components/ui/primitives'
 import { SITE } from '../config/site'
 import { useReveal } from '../hooks/useReveal'
 import { BackToTop } from '../components/BackToTop'
+import { useConsentText } from '../components/consentText'
+import { openCookieSettings } from '../lib/consent'
+import { ModalButton } from '../components/ui/Modal'
 
 const PRIVACY_SECTIONS = [
   {
@@ -147,6 +150,7 @@ const IntroEyebrow = styled(Eyebrow)`
 `
 
 const IntroTitle = styled.h1`
+  overflow-wrap: anywhere;
   max-width: 11ch;
   font-family: ${({ theme }) => theme.fonts.display};
   font-weight: 700;
@@ -156,7 +160,7 @@ const IntroTitle = styled.h1`
 
   @media (max-width: 760px) {
     max-width: 100%;
-    font-size: clamp(32px, 9.4vw, 40px);
+    font-size: clamp(30px, 8.7vw, 38px);
     line-height: 0.94;
     letter-spacing: -0.045em;
   }
@@ -318,6 +322,8 @@ const TocList = styled.ol`
 `
 
 const TocLink = styled.a`
+  min-height: 44px;
+  align-items: center;
   counter-increment: privacy-toc;
   display: grid;
   grid-template-columns: 24px minmax(0, 1fr);
@@ -447,6 +453,7 @@ const SectionCopy = styled.div`
 `
 
 function PrivacySection({ section, index }: { section: PrivacySectionDefinition; index: number }) {
+  const consentText = useConsentText()
   const { t } = useTranslation()
   const sectionRef = useReveal<HTMLElement>({
     children: true,
@@ -459,6 +466,7 @@ function PrivacySection({ section, index }: { section: PrivacySectionDefinition;
       <SectionNumber aria-hidden="true">{String(index + 1).padStart(2, '0')}</SectionNumber>
       <SectionTitle>{t(section.titleKey)}</SectionTitle>
       <SectionCopy>
+        {section.id === 'cookies' && <p>{consentText.inventoryBody} <a href="/cookies">{consentText.policy}</a> · <ModalButton onClick={openCookieSettings}>{consentText.settings}</ModalButton></p>}
         {section.bodyKeys.map((bodyKey) => (
           <p key={bodyKey}>{t(bodyKey)}</p>
         ))}
@@ -492,7 +500,7 @@ export function PrivacyPage() {
             <Updated>
               <dt>{t('privacyPage.hero.lastUpdatedLabel')}</dt>
               <dd>
-                <time dateTime="2026-10-05">{t('privacyPage.hero.lastUpdatedValue')}</time>
+                <time dateTime="2026-10-08">2026-10-08</time>
               </dd>
             </Updated>
           </IntroBottom>

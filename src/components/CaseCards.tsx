@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { caseImage, WEB_CASES, WEB_CASE_IDS, type WebCaseId } from '../config/cases'
+import { ROUTES } from '../config/site'
+import { caseImage, WEB_CASES, type WebCaseId } from '../config/cases'
 
 const Grid = styled.div<{ $related: boolean }>`
   display: grid;
@@ -50,7 +51,11 @@ const Read = styled.span`
 export function CaseCards({ exclude }: { exclude?: WebCaseId }) {
   const { t } = useTranslation()
   return <Grid $related={!!exclude}>
-    {WEB_CASE_IDS.filter(id => id !== exclude).map(id => {
+    {(['mariana', 'skyline', 'maryna'] as const).filter(id => id !== exclude).map(id => {
+      if (id === 'mariana') return <Item href={ROUTES.caseMarianaleus} key={id}>
+        <img src="/media/marianaleus-desktop.jpg" alt={t('caseMariana.preview.desktopAlt')} width={1440} height={1000} loading="lazy" decoding="async" />
+        <Body><h3>{t('caseMariana.hero.title')}</h3><Tags><span>{t('caseMariana.facts.scopeValue')}</span></Tags><p>{t('caseMariana.hero.lead')}</p><Read>{t('webCases.read')}<span aria-hidden="true">↗</span></Read></Body>
+      </Item>
       const project = t(`webCases.projects.${id}`, { returnObjects: true })
       return <Item href={WEB_CASES[id].path} key={id}>
         <img src={caseImage(id, 'desktop')} alt={project.captions.desktop} width={1440} height={960} loading="lazy" decoding="async" />

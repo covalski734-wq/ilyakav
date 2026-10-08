@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 import { SECTION_IDS } from '../config/site'
-import { Container, SectionTitle } from '../components/ui/primitives'
+import { Container, PrimaryButton, SectionTitle } from '../components/ui/primitives'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { useReveal } from '../hooks/useReveal'
 import { servicePath } from '../config/services'
@@ -32,7 +32,7 @@ const InlineShot = styled(PreviewShot)`
 `
 
 const Wrapper = styled.section`
-  padding: ${({ theme }) => theme.layout.sectionPadding} ${({ theme }) => theme.layout.pagePadding};
+  padding: clamp(48px, 5vw, 76px) ${({ theme }) => theme.layout.pagePadding} clamp(36px, 4vw, 56px);
   background: ${({ theme }) => theme.colors.surface2};
   border-radius: ${({ theme }) => theme.radii.xl};
 
@@ -157,6 +157,7 @@ const ItemDesc = styled.p`
 
 /** Sticky preview that follows whichever service is hovered or focused. */
 const Preview = styled.div`
+  display: grid;
   position: sticky;
   top: 110px;
   background: ${({ theme }) => theme.colors.surface};
@@ -171,14 +172,20 @@ const Preview = styled.div`
 `
 
 
-/** Re-keyed on every service change so the copy cross-fades instead of snapping. */
+/** All panels share a grid cell: the tallest sets a stable preview height. */
+const PreviewLayer = styled.div<{ $active: boolean }>`
+  grid-area: 1 / 1;
+  min-width: 0;
+  opacity: ${({ $active }) => $active ? 1 : 0};
+  visibility: ${({ $active }) => $active ? 'visible' : 'hidden'};
+  pointer-events: ${({ $active }) => $active ? 'auto' : 'none'};
+  transform: ${({ $active }) => $active ? 'translateY(0)' : 'translateY(8px)'};
+  transition: opacity 380ms ease, transform 380ms ease, visibility 0s ${({ $active }) => $active ? '0s' : '380ms'};
+  @media (prefers-reduced-motion: reduce) { transition: none; transform: none; }
+`
+
 const PreviewBody = styled.div`
   padding: clamp(18px, 2.4vw, 28px);
-  animation: ${swapIn} 0.45s cubic-bezier(0.2, 0.8, 0.3, 1);
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
 `
 
 const PreviewTitle = styled.p`
@@ -210,7 +217,7 @@ const ServiceLink = styled.a`
   &:hover { color: ${({ theme }) => theme.colors.accent}; }
 `
 const Extensions = styled.div`
-  margin-top: clamp(44px, 6vw, 80px); padding-top: 32px;
+  margin-top: clamp(36px, 4vw, 56px); padding-top: 28px;
   border-top: 1px solid ${({ theme }) => theme.colors.line};
   > h3 { font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.035em; }
   > p { max-width: 65ch; margin-top: 14px; font-size: 15px; color: ${({ theme }) => theme.colors.textDim}; }
@@ -309,15 +316,17 @@ export function Services() {
           </List>
 
           {!phone && <Preview>
+            {SERVICE_KEYS.map(key => <PreviewLayer key={key} $active={key === active} aria-hidden={key !== active} data-service-preview={key}>
             <PreviewShot>
-              <ServicePhoto kind={active} />
+              <ServicePhoto kind={key} />
             </PreviewShot>
-            <PreviewBody key={active}>
-              <PreviewTitle>{t(`services.items.${active}.previewTitle` as const)}</PreviewTitle>
-              <PreviewNote>{t(`services.items.${active}.previewNote` as const)}</PreviewNote>
-              <ServiceTerms>{t(`services.items.${active}.price`)}<span>{t(`services.items.${active}.timing`)}</span></ServiceTerms>
-              <ServiceLink href={servicePath(active)}>{t('offering.learn')} <span aria-hidden="true">↗</span></ServiceLink>
+            <PreviewBody>
+              <PreviewTitle>{t(`services.items.${key}.previewTitle` as const)}</PreviewTitle>
+              <PreviewNote>{t(`services.items.${key}.previewNote` as const)}</PreviewNote>
+              <ServiceTerms>{t(`services.items.${key}.price`)}<span>{t(`services.items.${key}.timing`)}</span></ServiceTerms>
+              <ServiceLink href={servicePath(key)} tabIndex={key === active ? 0 : -1}>{t('offering.learn')} <span aria-hidden="true">↗</span></ServiceLink>
             </PreviewBody>
+            </PreviewLayer>)}
           </Preview>}
         </Layout>
         <Extensions>
@@ -333,7 +342,24 @@ export function Services() {
           </ExtensionGrid>
           <p>{t('services.extensions.note')}</p>
         </Extensions>
+        <NextStep>
+          <p>{t('hero.note')}</p>
+          <PrimaryButton href="/contact#project-form">{t('actions.startProject')}</PrimaryButton>
+        </NextStep>
       </Container>
     </Wrapper>
   )
 }
+
+const NextStep = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid ${({ theme }) => theme.colors.line};
+  p { max-width: 52ch; color: ${({ theme }) => theme.colors.textDim}; }
+  a { flex-shrink: 0; }
+  @media (max-width: 760px) { align-items: flex-start; flex-direction: column; gap: 18px; }
+`

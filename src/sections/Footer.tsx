@@ -6,6 +6,8 @@ import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import { useTheme } from '../theme/ThemeContext'
 import { breathe } from '../theme/GlobalStyle'
 import { useReveal } from '../hooks/useReveal'
+import { openCookieSettings } from '../lib/consent'
+import { useConsentText } from '../components/consentText'
 
 const Wrapper = styled.footer`
   padding: clamp(36px, 5vw, 64px) ${({ theme }) => theme.layout.pagePadding} clamp(30px, 4vw, 48px);
@@ -32,7 +34,7 @@ const DirectLabel = styled.p`
   margin-bottom: 12px;
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 12px;
-  color: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.mode === 'dark' ? '#aaa5ff' : theme.colors.accentInk};
 `
 
 const MailLink = styled.a`
@@ -121,6 +123,7 @@ const InterfaceColumn = styled(Column)`
 `
 
 const ThemeButton = styled.button`
+  min-height: 44px;
   background: ${({ theme }) => theme.colors.surface2};
   border: 0;
   padding: 11px 16px;
@@ -163,9 +166,10 @@ const Legal = styled.div`
 
 const SITE_LINKS = NAV_LINKS.filter((link) => link.key !== 'contact')
 
-export function Footer() {
+export function Footer({ pathname }: { pathname: string }) {
+  const consentText = useConsentText()
   const { t } = useTranslation()
-  const { toggleTheme } = useTheme()
+  const { toggleTheme, mode } = useTheme()
   const topRef = useReveal<HTMLDivElement>({ children: true, stagger: 0.12 })
   const columnsRef = useReveal<HTMLDivElement>({
     children: true,
@@ -190,7 +194,7 @@ export function Footer() {
           <Column>
             <ColumnLabel>{t('footer.colSite')}</ColumnLabel>
             {SITE_LINKS.map((link) => (
-              <a key={link.key} href={link.href}>
+              <a key={link.key} href={link.href} aria-current={pathname === link.href ? 'page' : undefined}>
                 {t(`nav.${link.key}` as const)}
               </a>
             ))}
@@ -211,7 +215,7 @@ export function Footer() {
           <InterfaceColumn>
             <ColumnLabel>{t('footer.colInterface')}</ColumnLabel>
             <LanguageSwitcher variant="filled" />
-            <ThemeButton type="button" onClick={toggleTheme}>
+            <ThemeButton type="button" onClick={toggleTheme} aria-pressed={mode === 'dark'} aria-label={t(mode === 'dark' ? 'actions.themeToLight' : 'actions.themeToDark')}>
               {t('actions.switchTheme')}
             </ThemeButton>
             <TopLink href={`#${SECTION_IDS.top}`}>{t('actions.backToTop')}</TopLink>
@@ -219,8 +223,10 @@ export function Footer() {
         </Columns>
 
         <Legal>
+          <ThemeButton type="button" onClick={openCookieSettings}>{consentText.settings}</ThemeButton>
+          <a href="/cookies" aria-current={pathname === '/cookies' ? 'page' : undefined}>{consentText.policy}</a>
           <p>{t('footer.copyright')}</p>
-          <a href={ROUTES.privacy}>{t('footer.privacy')}</a>
+          <a href={ROUTES.privacy} aria-current={pathname === ROUTES.privacy ? 'page' : undefined}>{t('footer.privacy')}</a>
           <p>{t('footer.madeBy')}</p>
         </Legal>
       </Inner>

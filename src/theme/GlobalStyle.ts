@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after { box-sizing: border-box; }
 
   html {
+    scrollbar-gutter: stable;
     scroll-behavior: smooth;
     background: ${({ theme }) => theme.colors.bg};
   }

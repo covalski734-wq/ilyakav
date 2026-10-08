@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
+import { useRef } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { ROUTES, SECTION_IDS } from '../config/site'
@@ -179,7 +180,7 @@ export function Hero() {
   const track = useRef<HTMLDivElement>(null)
   const scene = useRef<HTMLElement>(null)
   const reduced = usePrefersReducedMotion()
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const outer = track.current, inner = scene.current
     if (!outer || !inner) return
     let frame = 0, disposed = false
@@ -223,7 +224,7 @@ export function Hero() {
           <Lead><span data-desktop-copy>{t('hero.lead')}</span><span data-mobile-copy>{t('hero.mobileLead')}</span></Lead>
           <Actions>
             <PrimaryButton href={ROUTES.contact}>{t('actions.startProject')}<span aria-hidden="true">↗</span></PrimaryButton>
-            <More href={`#${SECTION_IDS.services}`}>{t('nav.services')}<span aria-hidden="true">↓</span></More>
+            <More href={`#${SECTION_IDS.work}`}>{t('nav.work')}<span aria-hidden="true">↓</span></More>
           </Actions>
         </Details>
         <HeroRibbon />

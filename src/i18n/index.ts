@@ -1,6 +1,5 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
 
 import ru from './locales/ru.json'
 import uk from './locales/uk.json'
@@ -25,7 +24,6 @@ export const LANGUAGE_LABELS: Record<Language, string> = {
 export const STORAGE_KEY = 'ilyakav-lang'
 
 void i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
@@ -33,23 +31,28 @@ void i18n
       uk: { translation: { ...uk, webCases: ukCases, offering: ukOffering } },
       en: { translation: { ...en, webCases: enCases, offering: enOffering } },
     },
+    lng: 'ru',
     fallbackLng: 'ru',
     supportedLngs: LANGUAGES as unknown as string[],
     nonExplicitSupportedLngs: true,
     load: 'languageOnly',
     interpolation: { escapeValue: false },
-    detection: {
-      order: ['localStorage', 'navigator'],
-      lookupLocalStorage: STORAGE_KEY,
-      caches: ['localStorage'],
-    },
   })
 
 const syncDocumentLang = (lng: string) => {
+  if (typeof document === 'undefined') return
   document.documentElement.lang = lng
+  try { localStorage.setItem(STORAGE_KEY, lng) } catch { /* Storage may be disabled. */ }
 }
 
-syncDocumentLang(i18n.resolvedLanguage ?? 'ru')
 i18n.on('languageChanged', syncDocumentLang)
+
+export function restoreLanguage() {
+  let preferred: string | null = null
+  try { preferred = localStorage.getItem(STORAGE_KEY) } catch { /* Use browser preference. */ }
+  const detected = preferred ?? navigator.languages.find(language => LANGUAGES.includes(language.slice(0, 2) as Language)) ?? 'ru'
+  const language = detected.slice(0, 2)
+  void i18n.changeLanguage(LANGUAGES.includes(language as Language) ? language : 'ru')
+}
 
 export default i18n

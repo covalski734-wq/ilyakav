@@ -55,8 +55,8 @@ export function ServicePage({ id }: { id: ServiceId }) {
   return <>
     <Hero id="top"><Container>
       <Eyebrow>{t('offering.eyebrow')}</Eyebrow><h1>{page.title}</h1><p data-lead>{page.lead}</p>
-      <Actions><PrimaryButton href={`${ROUTES.contact}?type=${SERVICE_PAGES[id].type}`}>{t('offering.discuss')}</PrimaryButton><a href="/#services">{t('offering.all')}</a></Actions>
-      {core && <Terms>{t(`services.items.${id}.price`)}<span>{t(`services.items.${id}.timing`)}</span></Terms>}
+      <Actions><PrimaryButton href={`${ROUTES.contact}?type=${SERVICE_PAGES[id].type}#project-form`}>{t('offering.discuss')}</PrimaryButton><a href="/#services">{t('offering.all')}</a></Actions>
+      {core ? <Terms>{t(`services.items.${id}.price`)}<span>{t(`services.items.${id}.timing`)}</span><span>{t('offering.priceNote')}</span></Terms> : <Terms>{t('offering.individualEstimate')}</Terms>}
     </Container></Hero>
     <Section><Container><Grid>
       <Copy><SectionTitle>{t('offering.why')}</SectionTitle><p>{page.why}</p><h3>{t('offering.fit')}</h3><p>{page.fit}</p></Copy>
@@ -64,11 +64,13 @@ export function ServicePage({ id }: { id: ServiceId }) {
     </Grid></Container></Section>
     <Tint><Container><SectionTitle>{t('offering.includes')}</SectionTitle><List>{page.includes.map((item,index) => <li key={item}><span aria-hidden="true">0{index + 1}</span>{item}</li>)}</List></Container></Tint>
     <Section><Container><Grid>
-      <Copy><SectionTitle>{t('offering.example')}</SectionTitle><p>{page.example}</p></Copy>
+      <Copy><SectionTitle>{t('offering.example')}</SectionTitle><p>{page.example}</p>
+      {id === 'redesign' && <Related><a href="/case/maryna-cleaning">Maryna Cleaning ↗</a></Related>}
+      {id === 'site' && <Related><a href="/case/skyline-stretch-ceilings">Skyline Stretch Ceilings ↗</a><a href="/case/marianaleus">Mariana Leus ↗</a></Related>}</Copy>
       <Copy><SectionTitle>{t('offering.honest')}</SectionTitle><p>{page.limit}</p></Copy>
     </Grid></Container></Section>
     {['site','landing','redesign'].includes(id) && <Ownership />}
-    <Tint><Container><Copy><SectionTitle>{t('offering.next')}</SectionTitle><p>{t('offering.nextBody')}</p></Copy><Actions><PrimaryButton href={`${ROUTES.contact}?type=${SERVICE_PAGES[id].type}`}>{t('offering.discuss')}</PrimaryButton></Actions></Container></Tint>
+    <Tint><Container><Copy><SectionTitle>{t('offering.next')}</SectionTitle><p>{t('offering.nextBody')}</p></Copy><Actions><PrimaryButton href={`${ROUTES.contact}?type=${SERVICE_PAGES[id].type}#project-form`}>{t('offering.discuss')}</PrimaryButton></Actions></Container></Tint>
     <Section><Container><SectionTitle>{t('offering.related')}</SectionTitle><Related aria-label={t('offering.related')}>{SERVICE_IDS.filter(key => key !== id).map(key => <a key={key} href={servicePath(key)}>{t(`offering.pages.${key}.title`)} ↗</a>)}</Related></Container></Section>
   </>
 }

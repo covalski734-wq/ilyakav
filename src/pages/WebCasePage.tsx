@@ -144,7 +144,7 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
   const screenshot = (name: keyof typeof project.captions, eager = false) => {
     const mobile = name === 'mobile' || name === 'contact'
     return <Figure>
-      <a href={caseImage(id, name)} target="_blank" rel="noopener noreferrer" aria-label={`${t('webCases.imageLink')}: ${project.captions[name]}`}>
+      <a href={caseImage(id, name)} data-lightbox aria-haspopup="dialog" aria-label={`${t('webCases.imageLink')}: ${project.captions[name]}`}>
         <img src={caseImage(id, name)} alt={`${project.title}. ${project.captions[name]}`} width={mobile ? 390 : 1440} height={mobile ? name === 'contact' ? 1100 : 844 : 960} loading={eager ? 'eager' : 'lazy'} decoding="async" />
       </a>
       <figcaption>{project.captions[name]}</figcaption>
@@ -165,7 +165,7 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
           <h1>{project.title}</h1>
           <div><p>{project.summary}</p><Actions>
             <PrimaryButton href={website.url} target="_blank" rel="noopener noreferrer" aria-label={t('webCases.visitAria', { name: project.title })}>{t('webCases.visit')}</PrimaryButton>
-            <a href="/#selected-work">{t('webCases.back')}</a>
+            <a href="/#work">{t('webCases.back')}</a>
           </Actions></div>
         </HeroGrid>
         <Facts>{(['industry', 'location', 'scope', 'technology'] as const).map(key => <div key={key}><dt>{t(`webCases.${key}`)}</dt><dd>{project[key]}</dd></div>)}</Facts>
@@ -203,7 +203,7 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
     <Section><Container>
       <Heading>{t('webCases.related')}</Heading>
       <CaseCards exclude={id} />
-      <Actions><a href={ROUTES.caseMarianaleus}>marianaleus.com ↗</a><a href="/#selected-work">{t('webCases.back')}</a></Actions>
+      <Actions><a href={ROUTES.caseMarianaleus}>marianaleus.com ↗</a><a href="/#work">{t('webCases.back')}</a></Actions>
     </Container></Section>
     <Cta><Container>
       <SectionTitle>{t('webCases.ctaTitle')}</SectionTitle>

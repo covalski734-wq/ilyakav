@@ -26,7 +26,8 @@ function readStoredMode(): ThemeMode {
 }
 
 export function AppThemeProvider({ children }: { children: ReactNode }) {
-  const [mode, setModeState] = useState<ThemeMode>(readStoredMode)
+  const [mode, setModeState] = useState<ThemeMode>('light')
+  useEffect(() => { setModeState(readStoredMode()) }, [])
 
   const setMode = useCallback((next: ThemeMode) => {
     setModeState(next)

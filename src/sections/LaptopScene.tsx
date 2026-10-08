@@ -1,8 +1,11 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
+import { useEffect, useRef } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 import { gsap } from '../lib/gsap'
+import { bindScrollTimeline } from '../lib/scrollTimeline'
+import { ScrollTrack } from '../components/ui/ScrollScene'
 import { useMediaQuery, usePrefersReducedMotion } from '../hooks/useMediaQuery'
 
 const pulse = keyframes`
@@ -25,16 +28,14 @@ const cardFloat = keyframes`
   50% { transform: translateY(-0.7em); }
 `
 
-const Scene = styled.div`
+const Scene = styled(ScrollTrack)`
   position: relative;
-  /* ScrollTrigger's spacer is taller than the compact stage. Its entire
-     scroll runway belongs to this dark scene, including below the pinned lid. */
   background: ${({ theme }) => theme.colors.deep};
 `
 
 /**
- * Pinned animation on normal devices; with reduced motion it collapses to a
- * normal auto-height block with the lid already open.
+ * Pinned, scroll-driven chapters. Reduced motion keeps every caption readable
+ * in normal flow, without pinning or transitions.
  */
 const Stage = styled.div<{ $still: boolean }>`
   height: 100svh;
@@ -43,21 +44,24 @@ const Stage = styled.div<{ $still: boolean }>`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  position: relative;
+  position: sticky;
+  top: 0;
+  @media (prefers-reduced-motion: reduce) { position: relative; }
   padding: clamp(84px, 14vh, 120px) ${({ theme }) => theme.layout.pagePadding}
     clamp(30px, 7vh, 58px);
   background: ${({ theme }) => theme.colors.deep};
   color: ${({ theme }) => theme.colors.onDeep};
 
   @media (max-width: 760px) {
-    height: clamp(540px, 76svh, 740px);
-    padding-top: 150px;
-    padding-bottom: 32px;
+    padding-top: 138px;
+    padding-bottom: 88px;
   }
 
   @media (max-height: 600px) and (orientation: landscape) {
-    padding-top: 132px;
-    padding-bottom: 24px;
+    flex-direction: row;
+    gap: 28px;
+    padding-top: 140px;
+    padding-bottom: 32px;
   }
 
   ${({ $still }) =>
@@ -68,6 +72,7 @@ const Stage = styled.div<{ $still: boolean }>`
       overflow: visible;
       padding-top: clamp(48px, 10vw, 90px);
       padding-bottom: clamp(48px, 10vw, 90px);
+      flex-direction: column;
     `}
 `
 
@@ -85,6 +90,10 @@ const Glow = styled.div`
 const SceneHeader = styled.div<{ $still: boolean }>`
   margin: 0 0 clamp(18px, 3vh, 34px);
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; color: inherit; font-size: 12px; text-underline-offset: 4px; }
 
   @media (max-width: 760px), (max-height: 600px) {
     width: auto;
@@ -127,29 +136,16 @@ const Caption = styled.p`
   color: ${({ theme }) => theme.colors.onDeepDim};
 `
 
-const ChapterArrow = styled.span`
-  display: none;
-
-  @media (max-width: 760px), (max-height: 600px) {
-    width: 28px;
-    height: 28px;
-    border: 1px solid rgba(231, 236, 245, 0.18);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    color: ${({ theme }) => theme.colors.onDeepDim};
-    font-size: 13px;
-    line-height: 1;
-  }
-`
-
 const Perspective = styled.div`
   perspective: 1900px;
-  width: min(980px, 84vw, 68vh);
+  width: min(900px, 82vw, 52svh);
   position: relative;
+  flex-shrink: 0;
+  margin-bottom: -24px;
+  @media (max-width: 760px) { width: min(82vw, 40svh); }
 
   @media (max-height: 600px) and (orientation: landscape) {
-    width: min(900px, 72vw, 34vh);
+    width: min(36vw, 52svh);
   }
 `
 
@@ -681,21 +677,23 @@ const Trackpad = styled.div`
   background: rgba(231, 236, 245, 0.08);
 `
 
-const Note = styled.p<{ $still: boolean }>`
-  margin: clamp(20px, 3vh, 40px) 0 0;
-  max-width: 54ch;
+const Notes = styled.div<{ $still: boolean }>`
+  margin-top: clamp(16px, 2.5vh, 28px);
+  width: min(100%, 660px);
+  display: grid;
+  text-align: center;
   position: relative;
-  opacity: ${({ $still }) => ($still ? 1 : 0)};
-  color: ${({ theme }) => theme.colors.onDeepDim};
-  font-size: clamp(15px, 1.4vw, 19px);
-  line-height: 1.5;
-
-  @media (max-height: 600px) and (orientation: landscape) {
-    margin-top: 8px;
-    max-width: min(54ch, 76vw);
-    font-size: 13px;
-    line-height: 1.35;
-  }
+  > div { grid-area: 1 / 1; }
+  > div:not(:first-child) { opacity: 0; visibility: hidden; }
+  small { font-family: ${({ theme }) => theme.fonts.mono}; font-size: 11px; color: ${({ theme }) => theme.colors.onDeepDim}; }
+  h3 { margin: 8px 0 10px; font-size: clamp(24px, 2.5vw, 36px); line-height: 1.08; letter-spacing: -.035em; }
+  p { margin: 0 auto; max-width: 52ch; color: ${({ theme }) => theme.colors.onDeepDim}; font-size: clamp(14px, 1.3vw, 18px); line-height: 1.45; }
+  @media (max-height: 600px) { margin-top: 8px; h3 { font-size: 23px; margin: 4px 0 6px; } p { font-size: 13px; } }
+  @media (max-height: 600px) and (orientation: landscape) { width: min(48vw, 480px); margin-top: 0; }
+  ${({ $still }) => $still && css`
+    gap: 24px;
+    > div, > div:not(:first-child) { grid-area: auto; opacity: 1; visibility: visible; }
+  `}
 `
 
 const KEY_ROWS = [14, 14, 13] as const
@@ -723,33 +721,29 @@ export function LaptopScene() {
     return () => observer.disconnect()
   }, [])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (still || !root.current) return
+    let stopScroll = () => {}
 
     const ctx = gsap.context((self) => {
       const q = self.selector as (selector: string) => Element[]
-      const mobile = mobileViewport
+      const mobile = window.matchMedia('(max-width: 760px), (max-height: 600px)').matches
       const screen = q('[data-screen]')[0] as HTMLElement | undefined
       const strip = q('[data-strip]')[0] as HTMLElement | undefined
       const scrollDistance = () =>
         strip && screen ? -Math.max(0, strip.scrollHeight - screen.clientHeight) : 0
+      const notes = q('[data-chapter]')
 
       const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: q('[data-stage]')[0],
-          start: 'top top',
-          end: mobile ? '+=85%' : '+=260%',
-          scrub: mobile ? 0.4 : 0.6,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+        paused: true,
+        onUpdate() {
+          const time = this.time()
+          const active = time >= 4.2 ? 2 : time >= 2.2 ? 1 : 0
+          notes.forEach((note, index) => note.setAttribute('aria-hidden', String(index !== active)))
         },
       })
 
-      // Timing note: the lid used to finish at 1.4 with the screen waking at 1.3
-      // of a 5.0 timeline, so the first quarter of the scroll was spent staring
-      // at a dark panel. The hardware now settles in the first sixth and the
-      // interface itself owns roughly two thirds of the scroll.
+      // The interface scrolls continuously; only the captions change in chapters.
       timeline
         .fromTo(
           '[data-laptop]',
@@ -769,13 +763,20 @@ export function LaptopScene() {
         .to('[data-screen-off]', { opacity: 0, duration: 0.28 }, 0.58)
         .to('[data-screen-on]', { opacity: 1, duration: 0.28 }, 0.58)
         .to('[data-glow]', { opacity: 0.88, scale: 1.12, duration: 0.9 }, 0.58)
-        .fromTo('[data-strip]', { y: 0 }, { y: scrollDistance, ease: 'none', duration: 3.4 }, 1)
-        .fromTo('[data-note]', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 1.3)
-        .to('[data-laptop]', { scale: mobile ? 1 : 0.9, y: mobile ? 0 : -26, duration: mobile ? 0.25 : 0.8 }, 4.4)
-        .to('[data-caption]', { opacity: 0.4, duration: mobile ? 0.25 : 0.8 }, 4.4)
+        .fromTo('[data-strip]', { y: 0 }, { y: scrollDistance, ease: 'none', duration: 6 }, 0)
+        .to(notes[0], { autoAlpha: 0, y: -16, duration: 0.25 }, 2)
+        .fromTo(notes[1], { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35 }, 2.2)
+        .to('[data-laptop]', { scale: 0.92, ease: 'none', duration: 5.2 }, 0.8)
+        .to(notes[1], { autoAlpha: 0, y: -16, duration: 0.25 }, 4)
+        .fromTo(notes[2], { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35 }, 4.2)
+      stopScroll = bindScrollTimeline(root.current!, timeline)
     }, root)
 
-    return () => ctx.revert()
+    return () => {
+      stopScroll()
+      ctx.revert()
+      root.current?.querySelectorAll('[data-chapter]').forEach(note => note.removeAttribute('aria-hidden'))
+    }
   }, [mobileViewport, still])
 
   const tickerItems = [
@@ -785,13 +786,13 @@ export function LaptopScene() {
   ]
 
   return (
-    <Scene ref={root} id="capabilities">
-      <Stage $still={still} data-stage>
+    <Scene ref={root} id="capabilities" $distance="185svh" $compactDistance="145svh">
+      <Stage $still={still} data-stage data-sticky-scene>
         <Glow data-glow />
         <SceneHeader $still={still} data-caption>
           <ChapterIndex aria-hidden="true">01</ChapterIndex>
           <Caption>{t('laptop.caption')}</Caption>
-          <ChapterArrow aria-hidden="true">↓</ChapterArrow>
+          <a href="#work">{t('nav.work')} <span aria-hidden="true">↓</span></a>
         </SceneHeader>
 
         <Perspective>
@@ -863,7 +864,7 @@ export function LaptopScene() {
                       </TickerTrack>
                     </DemoTicker>
 
-                    <DemoWorkflow>
+                    <DemoWorkflow data-workflow>
                       <DemoSectionHead>
                         <div>
                           <p>{t('laptop.demo.workflow.eyebrow')}</p>
@@ -904,7 +905,7 @@ export function LaptopScene() {
                       </WorkflowGrid>
                     </DemoWorkflow>
 
-                    <DemoSignals>
+                    <DemoSignals data-signals>
                       <DemoSectionHead>
                         <div>
                           <p>{t('laptop.demo.signals.eyebrow')}</p>
@@ -954,9 +955,12 @@ export function LaptopScene() {
           </Laptop>
         </Perspective>
 
-        <Note $still={still} data-note>
-          {t('laptop.note')}
-        </Note>
+        <Notes $still={still}>
+          {t('laptop.chapters', { returnObjects: true }).map((chapter, index) => <div key={index} data-chapter>
+            <small aria-hidden="true">0{index + 1} / 03</small>
+            <h3>{chapter.title}</h3><p>{chapter.body}</p>
+          </div>)}
+        </Notes>
       </Stage>
     </Scene>
   )

@@ -1,115 +1,105 @@
 # ilyakav.com
 
-Home page implemented from the Claude Design artboard `Home.dc.html`.
+React 18 + Vite + TypeScript, styled-components, i18next (RU / UK / EN), GSAP. The production site combines generated HTML with a Cloudflare Worker for routing and the contact API. Analytics are not connected.
 
-**Stack:** Vite · React 18 · TypeScript · styled-components · i18next (RU / UA / EN, one JSON per language) · GSAP ScrollTrigger.
+## Local development and checks
 
-## Getting started
+Use Node 24 LTS (minimum 22.18 for native TypeScript test imports) and npm (`npm.cmd` on Windows if PowerShell blocks npm.ps1).
 
 ```bash
-npm install
-npm run dev        # http://localhost:5173
-npm run build      # type-check + production bundle into dist/
-npm run preview    # serve the built bundle
-npm run typecheck
-npm run cf:preview # build and preview through Cloudflare Workers locally
-npm run cf:deploy  # build and deploy to Cloudflare Workers
+npm ci
+npm run dev          # Vite frontend, http://localhost:5173; no contact API
+npm run typecheck    # frontend, shared modules and Worker
+npm run build        # typecheck, client bundle, SSR bundle, static HTML
+npm test             # validation, Worker with mocked Telegram, generated HTML
+npm run cf:check     # Wrangler deployment dry-run; does not publish
+npm run preview      # local Worker + built assets, default port 8787
 ```
 
-## Structure
+Restart the local preview after rebuilding: Wrangler may retain an old asset manifest. For browser checks, keep `npm run preview` running in another terminal:
 
-```
-src/
-  App.tsx                  lightweight pathname routing and page composition
-  main.tsx                 entry: i18n, theme provider, global style
-  config/site.ts           contacts, routes, section ids, feature flags, hero video
-  i18n/
-    index.ts               i18next setup (localStorage + navigator detection)
-    resources.d.ts         types translation keys from ru.json
-    locales/{ru,uk,en}.json
-  theme/
-    tokens.ts              light/dark token sets (colors, shadows, radii, fonts, layout)
-    ThemeContext.tsx       mode state, localStorage, styled-components provider
-    GlobalStyle.ts         reset, keyframes, shared media mixin
-  components/              header, mobile menu, language switcher, theme toggle, bottom bar
-  components/ui/           styled primitives shared across sections
-  pages/                   about, privacy, contact, Mariana Leus case study and 404
-  sections/                one file per page section
-  hooks/                   media query / reduced motion, body scroll lock
-  lib/gsap.ts              single ScrollTrigger registration
+```bash
+npx playwright install chromium
+npm run test:browser
 ```
 
-## i18n
+`TEST_BASE_URL` can override `http://127.0.0.1:8787`. Run browser tests against a local test instance. They test an invalid API request and intercept valid form submissions; they never intentionally send a real Telegram message. Evidence goes to `artifacts/verification-2026-10-07/`.
 
-Three languages live in `src/i18n/locales/`. `ru.json` is the reference shape — `resources.d.ts`
-types every `t()` call against it, so a missing or misspelled key fails the type check.
+## Static generation and routes
 
-Language resolution: `localStorage` (`ilyakav-lang`) → browser language → `ru`. The switcher in the
-header and footer writes the choice back to storage and updates `<html lang>`.
+`src/routes.tsx` dynamically imports the requested page. Home demos are in the HomePage chunk and are not loaded by direct contact, privacy, service or case visits. Shared React, i18n resources and animation utilities remain common.
 
-To add a language: drop a JSON file next to the others, register it in `resources` and `LANGUAGES`
-in `src/i18n/index.ts`, and add its label to `LANGUAGE_LABELS`.
+`src/entry-server.tsx` renders each route with React and `ServerStyleSheet`. `scripts/prerender.mjs` combines that markup, its CSS and metadata with Vite's client entry. The temporary server bundle lives in `.ssg/`; only `dist/` is deployed. No browser is needed to generate HTML.
 
-## Theme
+`shared/routes.ts` is the indexable route manifest:
 
-Light and dark token sets in `src/theme/tokens.ts` feed the styled-components `ThemeProvider`.
-The mode is stored under `ilyakav-theme` and falls back to `prefers-color-scheme`.
+- `/`, `/about`, `/contact`, `/privacy`
+- `/case/marianaleus`, `/case/skyline-stretch-ceilings`, `/case/maryna-cleaning`, `/case/tile-expert-solutions`
+- `/services/business-websites`, `/services/landing-pages`, `/services/website-redesign`, `/services/web-applications`, `/services/desktop-applications`, `/services/telegram-bots`, `/services/crm-automation`, `/services/booking-and-payments`
 
-## Motion
+To add a page, update the manifest, dynamic loader and metadata mapping, then rebuild and run tests. Each route gets `dist/<route>/index.html`; the root gets `dist/index.html`. `dist/404.html` contains the existing 404 design and noindex metadata.
 
-Every animation below is disabled or collapsed to its end state under `prefers-reduced-motion`.
+`worker/index.ts` maps public URLs explicitly to these files. Public URLs have no trailing slash except `/`; trailing slashes and public `index.html` aliases redirect with 308. Query parameters are preserved by redirects and excluded from canonical URLs. Unknown routes return the 404 page with HTTP 404. There is no SPA fallback. Static asset HTML handling is disabled so it cannot add conflicting slash redirects.
 
-**Pinned scroll scenes** (GSAP ScrollTrigger)
+The build generates a real `robots.txt` (plain text, public indexing allowed, `/api/` disallowed) and `sitemap.xml` containing exactly the 16 public URLs. No query strings, API or 404 URLs are listed. Each page has its own title, description, canonical, Open Graph and Twitter Card tags. The social preview is a simple brand graphic at `public/brand/social-card.png`.
 
-- `sections/LaptopScene.tsx` — the lid opens onto a code-native product demo; its live CSS motion
-  and long interface scroll inside the screen without video or an iframe.
-- `sections/MorphScene.tsx` — a code-native dashboard resizes from desktop into mobile; container
-  queries rebuild its navigation, content hierarchy and card grid inside the changing frame.
+## Language, theme and hydration
 
-**Scroll reveals** — `hooks/useReveal.ts` fades an element, or its direct children in sequence, up
-into view once. It clears its inline props on finish so no leftover transform can break a
-`position: sticky` descendant. Applied to the flagship case, selected work, range, services, team,
-process, about, FAQ, testimonials, closing CTA and footer.
+Generated HTML uses RU and the light theme. The first client render uses the same values, including media-query defaults, to preserve hydration and styled-components IDs. After mounting, language resolves from `ilyakav-lang` in localStorage, then a supported browser language, then RU. Theme resolves from `ilyakav-theme`, defaulting to light. The switchers persist preferences and update `html lang`, metadata and theme. A stored preference may cause a brief change after hydration. Separate language URLs are not implemented.
 
-**Continuous** — hero badge and footer availability dots breathe; the hero gradient fallback and
-the closing CTA bloom drift slowly.
+The mobile menu retains its focus loop, Escape handling, focus restoration and inert background. Layout effects use a server-safe wrapper. Reduced-motion preferences disable or simplify animations after mounting.
 
-**Interaction**
+## Contact API
 
-- Header starts integrated into the hero and becomes a solid floating pill after the first 24px
-  of scrolling.
-- Hero video cross-fades over the gradient fallback once decoded.
-- Burger morphs into a cross; the mobile menu slides down.
-- Theme dot rotates 180°; work, range and services cards lift or shift on hover.
-- Services preview cross-fades its copy and gradient when the active service changes.
-- FAQ is an accessible accordion (`aria-expanded` / `role="region"`) animating on a `0fr → 1fr`
-  grid row, with a `+` marker that folds into a `−`.
+The frontend posts JSON to `/api/contact`:
 
-## Cloudflare Workers deployment
+```json
+{"name":"Name","contact":"person@example.com","type":"landing","brief":"Project details","company":""}
+```
 
-The site is configured for **Workers Static Assets** in `wrangler.jsonc`; there is no Worker script
-or runtime invocation for normal requests. Wrangler uploads `dist/`, and unmatched URLs fall back
-to `index.html` so direct visits to SPA routes work.
+`type` is one of `site`, `landing`, `webApp`, `desktop`, `redesign`, `bot`, `automation`, `booking`, `other`. Service links use `/contact?type=TYPE#project-form`; the form restores this selection after hydration.
 
-For Cloudflare Workers Builds, import this repository and use:
+`shared/contact.ts` is used by both frontend and Worker. Name, contact and brief are trimmed; blank values, unknown types and overlong values are rejected. Contact accepts an email address or a standard Telegram `@username` (5–32 Latin letters, digits or underscores, beginning with a letter). Field limits: name 120, contact 200, brief 3500 characters. The JSON body is capped at 32 KiB, including streamed requests without Content-Length.
 
-- Build command: `npm run build`
-- Deploy command: `npx wrangler deploy`
-- Production branch: `main` (or the repository's actual default branch)
+Responses are JSON with `Cache-Control: no-store`:
 
-The Worker name in Cloudflare must be `ilyakav`, matching `wrangler.jsonc`. After the first deploy,
-attach the custom domain in **Workers & Pages → ilyakav → Settings → Domains & Routes**. Security
-headers and long-lived browser caching for Vite's fingerprinted `/assets/*` files live in
-`public/_headers` and are copied into the build output automatically.
+| Condition | Status |
+| --- | --- |
+| GET or another unsupported API method | 405, Allow: POST |
+| Invalid JSON / body shape | 400 |
+| Cross-origin browser submission | 403 |
+| Body above limit | 413 |
+| Non-JSON content type | 415 |
+| Field validation error | 422 with `fields` error codes |
+| Missing Telegram configuration | 503 |
+| Telegram rejection, network error or 10-second timeout | 502 |
+| Telegram explicitly confirms `ok: true` | 200, `{"ok":true}` |
 
-## Assets and routes
+The hidden `company` honeypot returns an inert success without contacting Telegram. No parse_mode is used; visitor input is plain text. The frontend has a 15-second timeout, prevents duplicate pending sends, shows field errors, and retains all input after delivery errors. Success appears only when an HTTP success response also contains `ok: true`. Direct Telegram and an email draft remain available on failure.
 
-- **Hero video** — `public/media/hero.mp4` (path configurable in `config/site.ts`). If it is
-  missing or fails to decode, the animated gradient fallback stays up. Mobile, reduced-motion and
-  data-saver clients intentionally use that lightweight fallback instead of downloading the video.
-- **Case screenshots** — `public/media/marianaleus-{desktop,mobile}.jpg`. The case keeps these
-  stable captures as its default preview and loads the external live site only after an explicit
-  desktop click.
-- **Routes** — `/`, `/about`, `/privacy`, `/contact`, `/case/marianaleus`, plus an in-app 404.
-  Workers Static Assets returns `index.html` for unmatched requests so refreshes and deep links work
-  after deployment.
+## Cloudflare deployment
+
+The authoritative configuration is `wrangler.jsonc`: `main: worker/index.ts`, `assets.directory: dist`, `assets.binding: ASSETS`, `run_worker_first: true`, `not_found_handling: none`, `html_handling: none`.
+
+Required production secrets (values never belong in source or any `VITE_*` variable):
+
+```bash
+npx wrangler secret put TELEGRAM_BOT_TOKEN
+npx wrangler secret put TELEGRAM_CHAT_ID
+```
+
+For local manual integration only, use an ignored `.dev.vars` file containing these names. Automated tests inject dummy values and mock Telegram. The bot must have permission to send to the configured chat.
+
+```bash
+npm run cf:deploy    # builds and publishes Worker + dist together
+```
+
+For Cloudflare Workers Builds: build command `npm run build`, deploy command `npx wrangler deploy`, project root this repository, Worker name `ilyakav`. A static-only Pages deployment will not execute this Worker API. Do not upload only dist or replace this routing with SPA fallback.
+
+Attach `ilyakav.com` to this Worker in **Workers & Pages → ilyakav → Settings → Domains & Routes**. Retain the zone's HTTPS configuration. The Worker also redirects production HTTP and `www.ilyakav.com` to HTTPS on the apex domain. The www redirect requires valid DNS, certificate and Worker/domain routing in Cloudflare; application code alone cannot fix a missing DNS record. No dashboard settings or production secrets are modified by the local build or checks.
+
+`public/_headers` defines CSP and security headers for assets and HTML returned by the asset binding, plus cache policies for fingerprinted JS and media. After deployment, verify the public API GET is JSON 405, invalid JSON-object POST is JSON 422, robots/sitemap have correct content types, an unknown URL is 404 and public page source contains its H1. Confirm actual delivery only with an explicitly agreed test message.
+
+## Content boundaries
+
+Mariana, Skyline and Maryna are the three main portfolio projects. Tile remains available as a secondary case with the existing scope disclaimer. Maryna's combined advertising/site evidence and Skyline's limitations are preserved. Starting prices remain indicative: no fixed page counts, revision counts or delivery guarantees have been invented. Telegram bots, CRM and booking receive individual estimates. Analytics, new photographs, testimonials and unverified results are not added.

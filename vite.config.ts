@@ -5,9 +5,10 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [['babel-plugin-styled-components', { displayName: true, ssr: false }]],
+        plugins: [['babel-plugin-styled-components', { displayName: true, ssr: true }]],
       },
     }),
   ],
   server: { port: 5173, open: true },
+  ssr: { noExternal: ['styled-components', 'gsap'] },
 })

@@ -1,4 +1,5 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 
@@ -424,7 +425,7 @@ const ToolbarSide = styled.div`
 `
 
 const toolbarControlStyles = css`
-  min-height: 42px;
+  min-height: 44px;
   padding: 10px 15px;
   border: 1px solid ${({ theme }) => theme.colors.line};
   border-radius: 11px;
@@ -595,7 +596,7 @@ export function MarianaleusCasePage() {
     if (compact && mode === 'live') setMode('screenshot')
   }, [compact, mode])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 

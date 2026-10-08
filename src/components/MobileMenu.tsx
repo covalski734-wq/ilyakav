@@ -59,6 +59,9 @@ const Links = styled.nav`
   gap: 8px;
 
   a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     font-family: ${({ theme }) => theme.fonts.display};
     font-size: clamp(34px, 11vw, 52px);
     font-weight: 650;
@@ -80,6 +83,9 @@ const Contacts = styled.div`
   gap: 8px;
 
   a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     font-family: ${({ theme }) => theme.fonts.mono};
     font-size: 13px;
     color: ${({ theme }) => theme.colors.textDim};
@@ -99,11 +105,12 @@ const Controls = styled.div`
 const FOCUSABLE = 'a[href], button:not([disabled])'
 
 type Props = {
+  pathname: string
   open: boolean
   onClose: () => void
 }
 
-export function MobileMenu({ open, onClose }: Props) {
+export function MobileMenu({ pathname, open, onClose }: Props) {
   const { t } = useTranslation()
   const panelRef = useRef<HTMLDivElement>(null)
   useLockBodyScroll(open)
@@ -173,7 +180,7 @@ export function MobileMenu({ open, onClose }: Props) {
 
   useEffect(() => {
     if (!open) return
-    const desktop = window.matchMedia('(min-width: 1021px)')
+    const desktop = window.matchMedia('(min-width: 1181px)')
     const closeOnDesktop = () => {
       if (desktop.matches) onClose()
     }
@@ -195,7 +202,7 @@ export function MobileMenu({ open, onClose }: Props) {
     >
       <Links>
         {NAV_LINKS.map((link) => (
-          <a key={link.key} href={link.href}>
+          <a key={link.key} href={link.href} aria-current={pathname === link.href ? 'page' : undefined}>
             {t(`nav.${link.key}` as const)}
           </a>
         ))}

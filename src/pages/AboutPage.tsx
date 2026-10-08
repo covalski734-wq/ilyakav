@@ -100,6 +100,8 @@ const HeroMain = styled.div``
 
 
 const HeroTitle = styled.h1`
+  overflow-wrap: anywhere;
+  hyphens: manual;
   max-width: 12ch;
   font-family: ${({ theme }) => theme.fonts.display};
   font-size: clamp(52px, 9.4vw, 140px);
@@ -179,6 +181,11 @@ const SectionTitle = styled.h2`
   font-weight: 650;
   line-height: 0.96;
   letter-spacing: -0.055em;
+`
+
+const PositioningTitle = styled(SectionTitle)`
+  font-size: clamp(38px, 4vw, 56px);
+  overflow-wrap: anywhere;
 `
 
 const PositioningCopy = styled.div``
@@ -644,7 +651,7 @@ export function AboutPage() {
         <Container>
           <EditorialHead ref={positioningRef}>
             <div>
-              <SectionTitle>{t('aboutPage.positioning.title')}</SectionTitle>
+              <PositioningTitle>{t('aboutPage.positioning.title')}</PositioningTitle>
             </div>
             <PositioningCopy>
               <PositioningLead>{t('aboutPage.positioning.lead')}</PositioningLead>

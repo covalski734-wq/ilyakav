@@ -4,8 +4,10 @@ import { Container, Section, SectionTitle } from '../components/ui/primitives'
 import { ROUTES, SITE } from '../config/site'
 
 const Wrapper = styled(Section)`
-  padding-top: clamp(48px, 6vw, 88px);
+  padding-top: clamp(40px, 4vw, 60px);
   padding-bottom: clamp(36px, 4vw, 56px);
+  background: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.radii.xl};
 `
 const Grid = styled.div`
   display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 6vw, 80px); align-items: start;

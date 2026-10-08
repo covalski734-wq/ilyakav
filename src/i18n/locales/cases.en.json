@@ -1,7 +1,7 @@
 {
   "eyebrow": "Web development · case study",
   "portfolio": "Websites for service businesses",
-  "portfolioLead": "Three different briefs: introduce a product, prepare a website for advertising and improve an existing site.",
+  "portfolioLead": "Selected projects: a website for a marketer, a business website built from scratch, and a redesign prepared for advertising.",
   "read": "Explore the project",
   "back": "All work",
   "visit": "Visit website ↗",
@@ -22,7 +22,7 @@
   "ctaBody": "Tell us about your service, audience and goals. We can discuss a structure that helps visitors understand your offer and get in touch.",
   "cta": "Discuss a similar project",
   "captureNote": "Screenshots of the live websites · 5 October 2026. Public versions may change after our work is completed.",
-  "imageLink": "Open the full screenshot",
+  "imageLink": "Open image",
   "projects": {
     "skyline": {
       "title": "Skyline Stretch Ceilings",
@@ -34,14 +34,37 @@
       "context": "The client wanted to test demand for a product unfamiliar to their target audience in Canada. A service name alone cannot explain stretch ceilings to someone encountering them for the first time. They need to see the result and understand how the ceiling works with lighting and an existing interior.",
       "task": "Build a website that explains the product, helps people compare options and provides a clear way to request an estimate. Before making contact, visitors need to understand the material, assess its appearance and know what installation will involve in their home.",
       "note": "",
-      "journey": ["See the ceiling in a room", "Choose a finish and lighting", "Understand installation", "Request an estimate"],
+      "journey": [
+        "See the ceiling in a room",
+        "Choose a finish and lighting",
+        "Understand installation",
+        "Request an estimate"
+      ],
       "solutions": [
-        {"title": "An interior first, an explanation next", "body": "A large opening photograph shows the combined effect of the ceiling and lighting. The following section explains the tensioned system. Visitors can connect an unfamiliar term with a visible result, while the business gains a place to introduce the product before a personal consultation."},
-        {"title": "Options people can compare", "body": "Cards for glossy and translucent ceilings, light lines and other treatments make the finishes easier to compare. Short descriptions connect their appearance with uses in a room. By the time visitors enquire, they have a way to describe the option that interests them."},
-        {"title": "Work shown in context", "body": "The gallery presents ceilings in residential and commercial interiors. Visitors can judge scale, lighting geometry and the relationship with the furnishings. A photograph becomes a concrete starting point for a conversation about their own space."},
-        {"title": "A clear installation sequence", "body": "The installation explanation and the steps from consultation to handover answer separate questions: what changes in the room and how the working relationship is organised. This helps visitors prepare for measurements and scheduling, while giving the company a way to explain the process upfront."},
-        {"title": "Questions before the enquiry", "body": "The FAQ covers appearance, loss of ceiling height, maintenance and timing, details that a photograph cannot explain. Visitors can check the basics before discussing their own room. Specific properties and conditions still need to be confirmed for the chosen system."},
-        {"title": "An estimate through WhatsApp", "body": "Estimate calls to action lead to WhatsApp, with a form also available on the site. Chat lets visitors describe a room and share photographs in a familiar interface. For the business, this starts a practical discussion about dimensions, lighting and preferences instead of applying one price to every project."}
+        {
+          "title": "An interior first, an explanation next",
+          "body": "A large opening photograph shows the combined effect of the ceiling and lighting. The following section explains the tensioned system. Visitors can connect an unfamiliar term with a visible result, while the business gains a place to introduce the product before a personal consultation."
+        },
+        {
+          "title": "Options people can compare",
+          "body": "Cards for glossy and translucent ceilings, light lines and other treatments make the finishes easier to compare. Short descriptions connect their appearance with uses in a room. By the time visitors enquire, they have a way to describe the option that interests them."
+        },
+        {
+          "title": "Work shown in context",
+          "body": "The gallery presents ceilings in residential and commercial interiors. Visitors can judge scale, lighting geometry and the relationship with the furnishings. A photograph becomes a concrete starting point for a conversation about their own space."
+        },
+        {
+          "title": "A clear installation sequence",
+          "body": "The installation explanation and the steps from consultation to handover answer separate questions: what changes in the room and how the working relationship is organised. This helps visitors prepare for measurements and scheduling, while giving the company a way to explain the process upfront."
+        },
+        {
+          "title": "Questions before the enquiry",
+          "body": "The FAQ covers appearance, loss of ceiling height, maintenance and timing, details that a photograph cannot explain. Visitors can check the basics before discussing their own room. Specific properties and conditions still need to be confirmed for the chosen system."
+        },
+        {
+          "title": "An estimate through WhatsApp",
+          "body": "Estimate calls to action lead to WhatsApp, with a form also available on the site. Chat lets visitors describe a room and share photographs in a familiar interface. For the business, this starts a practical discussion about dimensions, lighting and preferences instead of applying one price to every project."
+        }
       ],
       "galleryBody": "The catalogue helps answer which ceiling might suit a visitor, while the gallery shows how an idea looks in a room. The two sections work together: one helps people name an option, the other helps them imagine it in their own space.",
       "mobileBody": "On a phone, the introduction retains the product and a visible estimate request. Visitors can keep reading or start a conversation when they have enough information. A form and WhatsApp link at the bottom let them take the next step without returning to the top.",
@@ -65,14 +88,37 @@
       "context": "The website was updated as part of combined website and Google Ads work. A visitor arriving from an ad needs to match the offer to a practical need: regular cleaning, a deep clean or a move, whether the company covers their area and what budget to expect.",
       "task": "Make the offer clear before an enquiry: show services, coverage, starting rates and a way to get in touch. The form needs enough information for the company to follow up with pricing and availability.",
       "note": "The redesign formed part of work on the website and Google Ads. The owner's feedback below concerns the whole engagement and does not measure the website's individual effect.",
-      "journey": ["Check the service and area", "Understand starting prices", "Review results and feedback", "Share cleaning requirements"],
+      "journey": [
+        "Check the service and area",
+        "Understand starting prices",
+        "Review results and feedback",
+        "Share cleaning requirements"
+      ],
       "solutions": [
-        {"title": "Services for different situations", "body": "Regular cleaning, deep cleaning, moving and commercial spaces have separate entries. Visitors can recognise their situation in a name and short description. The business can receive an enquiry with a service already selected and continue by clarifying its scope."},
-        {"title": "Coverage before contact", "body": "Niagara Region appears at the start of the page alongside coverage information. Visitors do not have to find an address in the footer to assess whether the offer is relevant. The area or postal code field then allows the company to check a specific location."},
-        {"title": "Starting rates with context", "body": "Hourly rates give visitors a budgeting reference. An explanation that final pricing depends on size, condition and cleaning type distinguishes a starting rate from a complete estimate. It also explains why the company needs more details before quoting."},
-        {"title": "Results and reviews serve different purposes", "body": "Cleaning photographs let visitors look at surfaces and the extent of the work, while published reviews add other customers' experiences. Together they provide more context for a decision than a general promise of cleanliness. These materials concern cleaning, not website development."},
-        {"title": "Answers to practical questions", "body": "The FAQ addresses equipment, whether the owner must be home, duration and what the service includes. This helps visitors plan a first booking and understand what they need to arrange. The company can then focus its conversation on the particular property."},
-        {"title": "A form with useful job details", "body": "Phone number, area, service type, bedrooms and bathrooms, pets and notes provide a basis for an initial assessment. Visitors do not have to compose a request from scratch. The company receives contact information and the details needed to discuss price and availability."}
+        {
+          "title": "Services for different situations",
+          "body": "Regular cleaning, deep cleaning, moving and commercial spaces have separate entries. Visitors can recognise their situation in a name and short description. The business can receive an enquiry with a service already selected and continue by clarifying its scope."
+        },
+        {
+          "title": "Coverage before contact",
+          "body": "Niagara Region appears at the start of the page alongside coverage information. Visitors do not have to find an address in the footer to assess whether the offer is relevant. The area or postal code field then allows the company to check a specific location."
+        },
+        {
+          "title": "Starting rates with context",
+          "body": "Hourly rates give visitors a budgeting reference. An explanation that final pricing depends on size, condition and cleaning type distinguishes a starting rate from a complete estimate. It also explains why the company needs more details before quoting."
+        },
+        {
+          "title": "Results and reviews serve different purposes",
+          "body": "Cleaning photographs let visitors look at surfaces and the extent of the work, while published reviews add other customers' experiences. Together they provide more context for a decision than a general promise of cleanliness. These materials concern cleaning, not website development."
+        },
+        {
+          "title": "Answers to practical questions",
+          "body": "The FAQ addresses equipment, whether the owner must be home, duration and what the service includes. This helps visitors plan a first booking and understand what they need to arrange. The company can then focus its conversation on the particular property."
+        },
+        {
+          "title": "A form with useful job details",
+          "body": "Phone number, area, service type, bedrooms and bathrooms, pets and notes provide a basis for an initial assessment. Visitors do not have to compose a request from scratch. The company receives contact information and the details needed to discuss price and availability."
+        }
       ],
       "galleryBody": "Services and rates answer practical questions, while photographs help visitors assess the work. Moving between these materials supports the decision from choosing a cleaning service to understanding what its result might look like.",
       "mobileBody": "The mobile version lets visitors check the offer and request cleaning from their phone. Labelled fields explain which details are useful for an estimate. Notes leave room for unusual requirements, while contact information lets the company continue the conversation.",
@@ -96,14 +142,37 @@
       "context": "The company offers tile installation and remodeling in Minnesota. Visitors are choosing a contractor for a particular space. They need to find relevant work, examine examples and understand who will be responsible for the result.",
       "task": "Our involvement was to improve an existing website. The exact change list is no longer available. The practical purpose of the current page is to help visitors choose a service and provide initial details for an estimate. That is an analysis of its role, not a reconstructed project brief.",
       "note": "The analysis below concerns the current public website. Its sections and design are not attributed to our work: without a change archive, we cannot establish which were part of our contribution.",
-      "journey": ["Find the relevant renovation task", "Look through project examples", "Get to know the contractor", "Request an estimate"],
+      "journey": [
+        "Find the relevant renovation task",
+        "Look through project examples",
+        "Get to know the contractor",
+        "Request an estimate"
+      ],
       "solutions": [
-        {"title": "Services named by the task", "body": "Kitchen backsplashes, kitchen or bathroom remodeling and damaged tile replacement appear as separate services. Visitors can identify their situation without decoding a general construction list. An estimate link alongside a service connects that choice with an enquiry."},
-        {"title": "Materials help refine an enquiry", "body": "The surface types section describes tile and other finishes. It gives visitors vocabulary for discussing materials and how a space will be used. The company can start with a more specific need while leaving the final selection to a consultation."},
-        {"title": "Projects make workmanship visible", "body": "Photographs allow visitors to examine finishes and material combinations in rooms. They provide a visual reference for a future renovation. These are the contractor's published examples; photographs alone cannot verify the full scope of services or guarantee an identical result elsewhere."},
-        {"title": "A person behind the offer", "body": "The founder section introduces the contractor and describes his experience and approach. Contact information and location add context. Visitors can understand who they will be speaking to, while the company has space to explain its specialisation."},
-        {"title": "An estimate suited to the work", "body": "Renovation scope depends on the space and the task, so the site invites an estimate request. This is a practical next step: visitors do not need to derive a total from a list of services. The contractor can first clarify the property's condition and the customer's expectations."},
-        {"title": "A short form starts the conversation", "body": "The form asks for a name, phone number, ZIP code and project type. These details allow the business to make contact, check the area and identify the kind of work. Further questions can follow. This describes the existing form and makes no claim about who developed it."}
+        {
+          "title": "Services named by the task",
+          "body": "Kitchen backsplashes, kitchen or bathroom remodeling and damaged tile replacement appear as separate services. Visitors can identify their situation without decoding a general construction list. An estimate link alongside a service connects that choice with an enquiry."
+        },
+        {
+          "title": "Materials help refine an enquiry",
+          "body": "The surface types section describes tile and other finishes. It gives visitors vocabulary for discussing materials and how a space will be used. The company can start with a more specific need while leaving the final selection to a consultation."
+        },
+        {
+          "title": "Projects make workmanship visible",
+          "body": "Photographs allow visitors to examine finishes and material combinations in rooms. They provide a visual reference for a future renovation. These are the contractor's published examples; photographs alone cannot verify the full scope of services or guarantee an identical result elsewhere."
+        },
+        {
+          "title": "A person behind the offer",
+          "body": "The founder section introduces the contractor and describes his experience and approach. Contact information and location add context. Visitors can understand who they will be speaking to, while the company has space to explain its specialisation."
+        },
+        {
+          "title": "An estimate suited to the work",
+          "body": "Renovation scope depends on the space and the task, so the site invites an estimate request. This is a practical next step: visitors do not need to derive a total from a list of services. The contractor can first clarify the property's condition and the customer's expectations."
+        },
+        {
+          "title": "A short form starts the conversation",
+          "body": "The form asks for a name, phone number, ZIP code and project type. These details allow the business to make contact, check the area and identify the kind of work. Further questions can follow. This describes the existing form and makes no claim about who developed it."
+        }
       ],
       "galleryBody": "The service list helps visitors find a relevant category, and project photographs turn descriptions into examples. These screenshots document how that relationship appears on the live website at the time of review.",
       "mobileBody": "Visitors can read about the offer and reach the estimate form on a phone. A small set of fields provides a clear starting point for discussing a renovation. The mobile screenshots document the current site and do not represent a before-and-after comparison of our work.",
@@ -117,5 +186,7 @@
         "contact": "Name, phone, ZIP code and project type give the estimate conversation a starting point."
       }
     }
-  }
+  },
+  "secondary": "Another project with a limited confirmed scope",
+  "secondaryLead": "Tile Expert Solutions — the exact changes are unconfirmed. See the case for details and limitations."
 }

@@ -5,7 +5,7 @@ import { AutoGrid, Container, SectionTitle } from '../components/ui/primitives'
 import { useReveal } from '../hooks/useReveal'
 
 const Wrapper = styled.section`
-  padding: clamp(56px, 8vw, 116px) ${({ theme }) => theme.layout.pagePadding};
+  padding: clamp(48px, 5vw, 76px) ${({ theme }) => theme.layout.pagePadding};
   background: ${({ theme }) => theme.colors.deep};
   color: ${({ theme }) => theme.colors.onDeep};
   border-radius: ${({ theme }) => theme.radii.xl};
@@ -26,7 +26,7 @@ const StepIndex = styled.p`
   margin-bottom: 26px;
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 12px;
-  color: ${({ theme }) => theme.colors.accent};
+  color: #aaa5ff;
 `
 
 const StepTitle = styled.h3`
@@ -47,7 +47,7 @@ const StepDesc = styled.p`
  * explicit: one row on desktop, a deliberate 3 + 2 on tablets, a list on phones.
  */
 const Steps = styled(AutoGrid)`
-  @media (min-width: 760px) and (max-width: 1099px) {
+  @media (min-width: 760px) and (max-width: 1199px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 `

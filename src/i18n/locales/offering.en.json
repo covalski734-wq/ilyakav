@@ -160,16 +160,21 @@
   },
   "goals": [
     {
-      "title": "Enquiries with useful context",
-      "body": "Services, examples and terms help people decide whether your offer suits their needs."
+      "title": "I need a new website",
+      "body": "Present your services, show your work and help customers get in touch.",
+      "action": "Business websites"
     },
     {
-      "title": "Less scheduling back and forth",
-      "body": "Customers see available times and make a booking while you receive the details you need."
+      "title": "My website needs an update",
+      "body": "Rethink the structure, design and mobile experience of your existing site.",
+      "action": "Website redesign"
     },
     {
-      "title": "Keep daily work organised",
-      "body": "Orders, documents and statuses are available to the team in one place."
+      "title": "I need a tool for my team",
+      "body": "Bring tasks, data and statuses into an application built around your workflow.",
+      "action": "Web applications"
     }
-  ]
+  ],
+  "priceNote": "The starting price is a guide. The final quote depends on the agreed scope described below. Domain, hosting and third-party service charges are considered separately.",
+  "individualEstimate": "Cost and timeline are determined after reviewing the task."
 }

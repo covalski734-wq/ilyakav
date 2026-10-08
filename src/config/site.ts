@@ -13,6 +13,7 @@ export const ROUTES = {
   caseMarianaleus: '/case/marianaleus',
   about: '/about',
   privacy: '/privacy',
+  cookies: '/cookies',
 } as const
 
 export const SECTION_IDS = {

@@ -1,8 +1,12 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
+import { useEffect, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 import { gsap } from '../lib/gsap'
+import { bindScrollTimeline } from '../lib/scrollTimeline'
+import { ScrollTrack, StickyScene } from '../components/ui/ScrollScene'
 import { useMediaQuery, usePrefersReducedMotion } from '../hooks/useMediaQuery'
 
 const progressIn = keyframes`
@@ -10,20 +14,20 @@ const progressIn = keyframes`
   to { transform: scaleX(1); }
 `
 
-const Scene = styled.div`
+const Scene = styled(ScrollTrack)`
   position: relative;
 `
 
 const Stage = styled.div<{ $still: boolean }>`
-  height: 100svh;
+  height: clamp(540px, 72svh, 760px);
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: clamp(20px, 4vw, 64px);
-  padding: clamp(80px, 13vh, 116px) ${({ theme }) => theme.layout.pagePadding}
-    clamp(26px, 6vh, 52px);
-  background: ${({ theme }) => theme.colors.surface2};
+  padding: 104px ${({ theme }) => theme.layout.pagePadding}
+    clamp(24px, 4vh, 40px);
+  background: ${({ theme }) => theme.colors.bg};
   border-radius: ${({ theme }) => theme.radii.xl};
   position: relative;
 
@@ -31,17 +35,20 @@ const Stage = styled.div<{ $still: boolean }>`
     $still &&
     css`
       height: auto;
-      overflow: visible;
+      overflow: clip;
       padding-top: clamp(44px, 10vw, 76px);
       padding-bottom: clamp(44px, 10vw, 76px);
     `}
 
   @media (max-width: 760px) {
+    padding-top: 88px;
+    height: ${({ $still }) => $still ? 'auto' : 'clamp(600px, 78svh, 740px)'};
     flex-direction: column;
     text-align: left;
   }
 
   @media (max-height: 600px) and (orientation: landscape) {
+    height: ${({ $still }) => $still ? 'auto' : '100svh'};
     gap: 20px;
     padding-top: 116px;
     padding-bottom: 22px;
@@ -52,9 +59,11 @@ const CopyCol = styled.div`
   position: relative;
   z-index: 2;
   flex: 0 1 min(38ch, 40%);
+  padding-top: clamp(20px, 4vh, 40px);
 
   @media (max-width: 760px) {
     flex: none;
+    padding-top: 0;
   }
 `
 
@@ -92,7 +101,8 @@ const FrameWrap = styled.div`
   align-self: stretch;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-bottom: 40px;
 `
 
 const Halo = styled.div`
@@ -141,7 +151,7 @@ const ProductUi = styled.div`
   background: #f3f5f9;
   color: #121724;
   font-family: ${({ theme }) => theme.fonts.sans};
-  font-size: clamp(5px, 1.5cqw, 13px);
+  font-size: clamp(1px, 1.5cqw, 13px);
 
   @container (max-width: 460px) {
     grid-template-columns: minmax(0, 1fr);
@@ -670,10 +680,11 @@ const ViewportLabel = styled.span`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 11px;
   line-height: 1;
+  white-space: nowrap;
   backdrop-filter: blur(10px);
 `
 
-export function MorphScene() {
+export function MorphScene({ children }: { children?: ReactNode }) {
   const { t } = useTranslation()
   const root = useRef<HTMLDivElement>(null)
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -696,17 +707,21 @@ export function MorphScene() {
     return () => observer.disconnect()
   }, [])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (still || !root.current) return
+    let stopScroll = () => {}
 
     const ctx = gsap.context((self) => {
       const q = self.selector as (selector: string) => Element[]
       const frame = q('[data-frame]')[0] as HTMLElement | undefined
       if (!frame) return
 
-      const mobile = mobileViewport
+      const mobile = window.matchMedia('(max-width: 760px)').matches
       const stageWidth = () => frame.parentElement?.clientWidth || window.innerWidth
-      const stageHeight = () => frame.parentElement?.clientHeight || window.innerHeight
+      const stageHeight = () => {
+        const parent = frame.parentElement
+        return parent ? parent.clientHeight - parseFloat(getComputedStyle(parent).paddingBottom) : window.innerHeight
+      }
       const desktopWidth = () =>
         Math.min(mobile ? 420 : 900, stageWidth() * (mobile ? 0.9 : 0.82), stageHeight() / 0.625)
       const phoneWidth = () =>
@@ -716,21 +731,13 @@ export function MorphScene() {
       frame.style.aspectRatio = 'auto'
 
       const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: q('[data-stage]')[0],
-          start: 'top top',
-          end: mobile ? '+=140%' : '+=200%',
-          scrub: mobile ? 0.4 : 0.6,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const nextPhone = self.progress > 0.55
+        paused: true,
+          onUpdate() {
+            const nextPhone = this.progress() > 0.55
             if (nextPhone === phoneState) return
             phoneState = nextPhone
             setIsPhone(nextPhone)
           },
-        },
       })
 
       timeline.fromTo(
@@ -744,9 +751,11 @@ export function MorphScene() {
         },
         0,
       )
+      stopScroll = bindScrollTimeline(root.current!, timeline)
     }, root)
 
     return () => {
+      stopScroll()
       ctx.revert()
       const frame = root.current?.querySelector('[data-frame]') as HTMLElement | null
       frame?.style.removeProperty('aspect-ratio')
@@ -757,7 +766,8 @@ export function MorphScene() {
   const phone = still ? mobileViewport : isPhone
 
   return (
-    <Scene ref={root}>
+    <Scene ref={root} id="responsive-demo" $distance="90svh" $compactDistance="65svh">
+      <StickyScene data-sticky-scene>
       <Stage $still={still} data-stage>
         <CopyCol>
           <Title>{t('morph.title')}</Title>
@@ -854,6 +864,8 @@ export function MorphScene() {
           </Frame>
         </FrameWrap>
       </Stage>
+      {children}
+      </StickyScene>
     </Scene>
   )
 }
