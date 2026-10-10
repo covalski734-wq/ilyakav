@@ -9,7 +9,7 @@ export type Env = {
 const json = (body: unknown, status: number, extra: HeadersInit = {}) => new Response(JSON.stringify(body), {
   status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...extra },
 })
-async function handleContact(request: Request, env: Env): Promise<Response> {
+export async function handleContact(request: Request, env: Pick<Env, 'TELEGRAM_BOT_TOKEN' | 'TELEGRAM_CHAT_ID'>): Promise<Response> {
   if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405, { Allow: 'POST' })
   const origin = request.headers.get('origin')
   if (origin && origin !== new URL(request.url).origin) return json({ error: 'forbidden' }, 403)

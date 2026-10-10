@@ -1,3 +1,4 @@
+import { contactMailto } from '../lib/mailto'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
@@ -108,7 +109,7 @@ export function FinalCta() {
           <Lead>{t('finalCta.lead')}</Lead>
           <Actions>
             <SolidLink href={ROUTES.contact}>{t('actions.startProject')}</SolidLink>
-            <SoftLink href={`mailto:${SITE.email}`}>{SITE.email}</SoftLink>
+            <SoftLink href={contactMailto(t)}>{SITE.email}</SoftLink>
           </Actions>
         </div>
       </Panel>

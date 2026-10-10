@@ -1,0 +1,474 @@
+- generic [ref=f17e2]:
+  - link "К основному содержимому" [ref=f17e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f17e4]:
+    - generic [ref=f17e5]:
+      - link "ilyakav ." [ref=f17e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=f17e7]: .
+      - navigation [ref=f17e8]:
+        - link "Работы" [ref=f17e9] [cursor=pointer]:
+          - /url: /#work
+        - link "Задачи" [ref=f17e10] [cursor=pointer]:
+          - /url: /#range
+        - link "Услуги" [ref=f17e11] [cursor=pointer]:
+          - /url: /#services
+        - link "Обо мне" [ref=f17e12] [cursor=pointer]:
+          - /url: /about
+        - link "Контакты" [ref=f17e13] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f17e14]:
+        - generic [ref=f17e15]:
+          - button "RU" [pressed] [ref=f17e16] [cursor=pointer]
+          - button "UA" [ref=f17e17] [cursor=pointer]
+          - button "EN" [ref=f17e18] [cursor=pointer]
+        - button "Включить тёмную тему" [ref=f17e19] [cursor=pointer]
+      - link "Обсудить проект" [ref=f17e21] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f17e22]:
+    - region [ref=f17e24]:
+      - generic [ref=f17e25]:
+        - generic [ref=f17e26]:
+          - heading "Ваш сайт. Под ключ." [level=1] [ref=f17e27]:
+            - text: Ваш сайт.
+            - generic [ref=f17e28]: Под ключ.
+          - generic [ref=f17e29]:
+            - paragraph [ref=f17e30]: "Разрабатываю сайты для бизнеса: понятные услуги, реальные работы и простой путь к заявке. Лично веду проект от структуры до запуска."
+            - generic [ref=f17e31]:
+              - link "Обсудить проект" [ref=f17e32] [cursor=pointer]:
+                - /url: /contact
+                - text: Обсудить проект
+                - generic [aria-hidden] [ref=f17e33]: ↗
+              - link "Работы" [ref=f17e34] [cursor=pointer]:
+                - /url: "#work"
+                - text: Работы
+                - generic [aria-hidden] [ref=f17e35]: ↓
+        - generic [ref=f17e36]:
+          - paragraph [ref=f17e37]: Илья Кавалеуски · разработчик
+          - paragraph [ref=f17e38]: Структура, дизайн и разработка
+    - generic [ref=f17e40]:
+      - heading "С чего начнём?" [level=2] [ref=f17e41]
+      - paragraph [ref=f17e42]: Новый сайт, обновление существующего или инструмент для команды — выберите свою задачу.
+      - generic [ref=f17e43]:
+        - article [ref=f17e44]:
+          - heading "Нужен новый сайт" [level=3] [ref=f17e45]
+          - paragraph [ref=f17e46]: Представить услуги, показать работы и помочь клиенту связаться с вами.
+          - link "Сайты для бизнеса" [ref=f17e47] [cursor=pointer]:
+            - /url: /services/business-websites
+            - text: Сайты для бизнеса
+            - generic [aria-hidden] [ref=f17e48]: ↗
+        - article [ref=f17e49]:
+          - heading "Сайт пора обновить" [level=3] [ref=f17e50]
+          - paragraph [ref=f17e51]: Пересмотреть структуру, дизайн и мобильную версию существующего сайта.
+          - link "Редизайн сайта" [ref=f17e52] [cursor=pointer]:
+            - /url: /services/website-redesign
+            - text: Редизайн сайта
+            - generic [aria-hidden] [ref=f17e53]: ↗
+        - article [ref=f17e54]:
+          - heading "Нужен рабочий инструмент" [level=3] [ref=f17e55]
+          - paragraph [ref=f17e56]: Собрать задачи, данные и статусы в приложении под процессы вашей команды.
+          - link "Веб-приложения" [ref=f17e57] [cursor=pointer]:
+            - /url: /services/web-applications
+            - text: Веб-приложения
+            - generic [aria-hidden] [ref=f17e58]: ↗
+    - generic [ref=f17e60]:
+      - generic [ref=f17e61]:
+        - paragraph [ref=f17e62]: Демонстрация интерфейса · данные условные
+        - link "Работы" [ref=f17e63] [cursor=pointer]:
+          - /url: "#work"
+          - text: Работы
+          - generic [aria-hidden] [ref=f17e64]: ↓
+      - generic [ref=f17e68]:
+        - img "Интерактивный интерфейс управления проектами, анимированный и прокручиваемый внутри ноутбука" [ref=f17e69]:
+          - generic [aria-hidden] [ref=f17e70]:
+            - generic [ref=f17e71]:
+              - generic [ref=f17e72]: arcflow
+              - generic [ref=f17e73]:
+                - generic [ref=f17e74]: Обзор
+                - generic [ref=f17e75]: Процесс
+                - generic [ref=f17e76]: Сигналы
+              - generic [ref=f17e77]: система онлайн
+            - generic [ref=f17e78]:
+              - paragraph [ref=f17e79]: Интерактивная продуктовая демо
+              - heading [level=3] [ref=f17e80]: Сложная работа. Один ясный поток.
+              - paragraph [ref=f17e81]: Проекты, решения и обратная связь собраны в одной понятной системе.
+              - text: Открыть пространство
+            - generic [ref=f17e82]:
+              - generic [ref=f17e83]:
+                - text: Активные проекты
+                - strong [ref=f17e84]: "24"
+                - generic [ref=f17e85]: + 18%
+              - generic [ref=f17e86]:
+                - text: На проверке
+                - strong [ref=f17e87]: "06"
+                - generic [ref=f17e88]: 3 → 1
+              - generic [ref=f17e89]:
+                - text: Скорость команды
+                - strong [ref=f17e90]: 1.8×
+                - generic [ref=f17e91]: + 0.4
+            - generic [ref=f17e93]:
+              - generic [ref=f17e94]:
+                - paragraph [ref=f17e95]: Динамика
+                - heading [level=4] [ref=f17e96]: Ритм поставки
+              - generic [ref=f17e97]: последние 12 недель
+            - generic [ref=f17e112]:
+              - generic [ref=f17e113]: релиз готов
+              - generic [ref=f17e114]: макет согласован
+              - generic [ref=f17e115]: данные синхронизированы
+              - generic [ref=f17e116]: релиз готов
+              - generic [ref=f17e117]: макет согласован
+              - generic [ref=f17e118]: данные синхронизированы
+            - generic [ref=f17e119]:
+              - generic [ref=f17e120]:
+                - generic [ref=f17e121]:
+                  - paragraph [ref=f17e122]: Рабочий процесс
+                  - heading [level=4] [ref=f17e123]: От идеи до релиза
+                - generic [ref=f17e124]: обновляется в реальном времени
+              - generic [ref=f17e125]:
+                - generic [ref=f17e126]:
+                  - paragraph [ref=f17e127]: В работе
+                  - strong [ref=f17e129]: Исследование
+                  - strong [ref=f17e133]: Контент и структура
+                - generic [ref=f17e136]:
+                  - paragraph [ref=f17e137]: Проверка
+                  - strong [ref=f17e139]: Интерактивный прототип
+                - generic [ref=f17e142]:
+                  - paragraph [ref=f17e143]: Готово
+                  - strong [ref=f17e145]: Релиз v2.4
+            - generic [ref=f17e148]:
+              - generic [ref=f17e150]:
+                - paragraph [ref=f17e151]: Сигналы
+                - heading [level=4] [ref=f17e152]: Контекст не теряется
+              - generic [ref=f17e153]:
+                - generic [ref=f17e154]:
+                  - generic [ref=f17e155]: "01"
+                  - strong [ref=f17e156]: Приоритеты
+                  - paragraph [ref=f17e157]: Команда видит, что важно сейчас и почему.
+                - generic [ref=f17e158]:
+                  - generic [ref=f17e159]: "02"
+                  - strong [ref=f17e160]: Передача без потерь
+                  - paragraph [ref=f17e161]: Решения остаются рядом с задачей, а не в чатах.
+                - generic [ref=f17e162]:
+                  - generic [ref=f17e163]: "03"
+                  - strong [ref=f17e164]: Видимый прогресс
+                  - paragraph [ref=f17e165]: Темп понятен без лишних статусов и созвонов.
+            - generic [ref=f17e166]:
+              - heading [level=4] [ref=f17e167]: Работа движется, команда понимает зачем.
+              - generic [ref=f17e168]: Запустить процесс →
+        - generic [ref=f17e169]: ilyakav.
+      - generic [ref=f17e223]:
+        - generic [aria-hidden] [ref=f17e224]: 01 / 03
+        - heading "Всё начинается с ясной картины" [level=3] [ref=f17e225]
+        - paragraph [ref=f17e226]: Главный экран помогает понять, что происходит и куда двигаться дальше.
+    - region [ref=f17e227]:
+      - generic [ref=f17e228]:
+        - generic [ref=f17e229]:
+          - paragraph [ref=f17e230]: Избранные работы
+          - heading "Сайты для сервисного бизнеса" [level=2] [ref=f17e231]
+          - paragraph [ref=f17e232]: "Избранные проекты: сайт маркетолога, сайт бизнеса с нуля и редизайн с подготовкой к рекламе."
+        - generic [ref=f17e233]:
+          - 'link "Главный экран marianaleus.com на desktop Mariana Leus Стратегия, дизайн, разработка Сайт для performance-маркетолога: ясный оффер, доказательства результата и короткий путь к заявке. Разбор проекта" [ref=f17e234] [cursor=pointer]':
+            - /url: /case/marianaleus
+            - img "Главный экран marianaleus.com на desktop" [ref=f17e235]
+            - generic [ref=f17e236]:
+              - heading "Mariana Leus" [level=3] [ref=f17e237]
+              - generic [ref=f17e238]: Стратегия, дизайн, разработка
+              - paragraph [ref=f17e240]: "Сайт для performance-маркетолога: ясный оффер, доказательства результата и короткий путь к заявке."
+              - generic [ref=f17e241]:
+                - text: Разбор проекта
+                - generic [aria-hidden] [ref=f17e242]: ↗
+          - 'link "Первый экран: интерьер показывает продукт, а запрос расчёта задаёт следующий шаг. Skyline Stretch Ceilings Разработка с нуля React + Vite Сайт с нуля, который знакомит с натяжными потолками и интегрированным светом, показывает варианты и ведёт к запросу расчёта. Разбор проекта" [ref=f17e243] [cursor=pointer]':
+            - /url: /case/skyline-stretch-ceilings
+            - 'img "Первый экран: интерьер показывает продукт, а запрос расчёта задаёт следующий шаг." [ref=f17e244]'
+            - generic [ref=f17e245]:
+              - heading "Skyline Stretch Ceilings" [level=3] [ref=f17e246]
+              - generic [ref=f17e247]:
+                - generic [ref=f17e248]: Разработка с нуля
+                - generic [ref=f17e249]: React + Vite
+              - paragraph [ref=f17e250]: Сайт с нуля, который знакомит с натяжными потолками и интегрированным светом, показывает варианты и ведёт к запросу расчёта.
+              - generic [ref=f17e251]:
+                - text: Разбор проекта
+                - generic [aria-hidden] [ref=f17e252]: ↗
+          - 'link "Первый экран называет услугу и регион, рядом находится запрос расчёта. Maryna Cleaning Редизайн и подготовка к рекламе SendPulse Редизайн сайта клининговой компании в рамках работы с Google Ads: услуги, ориентиры по цене и заявка с деталями заказа. Разбор проекта" [ref=f17e253] [cursor=pointer]':
+            - /url: /case/maryna-cleaning
+            - img "Первый экран называет услугу и регион, рядом находится запрос расчёта." [ref=f17e254]
+            - generic [ref=f17e255]:
+              - heading "Maryna Cleaning" [level=3] [ref=f17e256]
+              - generic [ref=f17e257]:
+                - generic [ref=f17e258]: Редизайн и подготовка к рекламе
+                - generic [ref=f17e259]: SendPulse
+              - paragraph [ref=f17e260]: "Редизайн сайта клининговой компании в рамках работы с Google Ads: услуги, ориентиры по цене и заявка с деталями заказа."
+              - generic [ref=f17e261]:
+                - text: Разбор проекта
+                - generic [aria-hidden] [ref=f17e262]: ↗
+        - complementary "Другой проект с ограниченной подтверждённой зоной работ" [ref=f17e263]:
+          - paragraph [ref=f17e264]: Tile Expert Solutions — точный объём изменений не подтверждён. Подробности и ограничения описаны в кейсе.
+          - link "Tile Expert Solutions ↗" [ref=f17e265] [cursor=pointer]:
+            - /url: /case/tile-expert-solutions
+    - generic [ref=f17e267]:
+      - generic [ref=f17e268]:
+        - heading "Услуги" [level=2] [ref=f17e269]
+        - paragraph [ref=f17e270]: Сайты — от 1 500 €
+      - generic [ref=f17e271]:
+        - generic [ref=f17e272]:
+          - generic [ref=f17e273]:
+            - heading [level=3] [ref=f17e274]:
+              - button "Сайты для бизнеса" [pressed] [ref=f17e275] [cursor=pointer]
+            - paragraph [ref=f17e276]: Помогите человеку понять ваши услуги, увидеть примеры и обратиться, даже если вы сейчас не на связи.
+          - generic [ref=f17e277]:
+            - heading [level=3] [ref=f17e278]:
+              - button "Лендинги" [ref=f17e279] [cursor=pointer]
+            - paragraph [ref=f17e280]: "Одна страница, на которой человек понимает предложение и делает следующий шаг: заявку, запись или покупку."
+          - generic [ref=f17e281]:
+            - heading [level=3] [ref=f17e282]:
+              - button "Редизайн и существующие проекты" [ref=f17e283] [cursor=pointer]
+            - paragraph [ref=f17e284]: Сделаем существующий сайт понятнее и удобнее, сохранив то, что уже помогает вашему бизнесу.
+          - generic [ref=f17e285]:
+            - heading [level=3] [ref=f17e286]:
+              - button "Кастомные веб-приложения" [ref=f17e287] [cursor=pointer]
+            - paragraph [ref=f17e288]: Когда нужно не только рассказать о бизнесе, но и дать людям рабочий инструмент в браузере.
+          - generic [ref=f17e289]:
+            - heading [level=3] [ref=f17e290]:
+              - button "Десктопные приложения" [ref=f17e291] [cursor=pointer]
+            - paragraph [ref=f17e292]: Рабочий инструмент для задач, которые связаны с компьютером, локальными файлами или оборудованием.
+        - generic [ref=f17e294]:
+          - 'img "Иллюстрация сайта: страница архитектурной студии на ноутбуке" [ref=f17e296]'
+          - generic [ref=f17e297]:
+            - paragraph [ref=f17e298]: Структура, которая ведёт к заявке
+            - paragraph [ref=f17e299]: Несколько страниц, ясная навигация, один целевой шаг на каждой.
+            - paragraph [ref=f17e300]:
+              - text: от 2 500 €
+              - generic [ref=f17e301]: Обычно 4–6 недель · объём согласуем до старта
+            - link "Подробнее об услуге" [ref=f17e302] [cursor=pointer]:
+              - /url: /services/business-websites
+              - text: Подробнее об услуге
+              - generic [aria-hidden] [ref=f17e303]: ↗
+      - generic [ref=f17e304]:
+        - heading "Что можно подключить к сайту" [level=3] [ref=f17e305]
+        - paragraph [ref=f17e306]: Заявка — только начало. Свяжу сайт с сервисами, которыми пользуетесь вы и ваши клиенты.
+        - generic [ref=f17e307]:
+          - 'link "Иллюстрация чат-бота: выбор услуги и подтверждение записи на телефоне Telegram-боты Выбор услуги, ответы на частые вопросы и сбор заявок прямо в мессенджере. При необходимости — передача диалога человеку. Подробнее об услуге" [ref=f17e308] [cursor=pointer]':
+            - /url: /services/telegram-bots
+            - 'img "Иллюстрация чат-бота: выбор услуги и подтверждение записи на телефоне" [ref=f17e310]'
+            - heading "Telegram-боты" [level=4] [ref=f17e311]:
+              - text: Telegram-боты
+              - generic [aria-hidden] [ref=f17e312]: ↗
+            - paragraph [ref=f17e313]: Выбор услуги, ответы на частые вопросы и сбор заявок прямо в мессенджере. При необходимости — передача диалога человеку.
+            - generic [ref=f17e314]: Подробнее об услуге
+          - 'link "Иллюстрация автоматизации: заявки, уведомления и схема рабочего процесса Заявки и CRM Обращения с сайта — в вашу CRM или таблицу. Уведомления команде и статусы обработки без ручного переноса данных. Подробнее об услуге" [ref=f17e315] [cursor=pointer]':
+            - /url: /services/crm-automation
+            - 'img "Иллюстрация автоматизации: заявки, уведомления и схема рабочего процесса" [ref=f17e317]'
+            - heading "Заявки и CRM" [level=4] [ref=f17e318]:
+              - text: Заявки и CRM
+              - generic [aria-hidden] [ref=f17e319]: ↗
+            - paragraph [ref=f17e320]: Обращения с сайта — в вашу CRM или таблицу. Уведомления команде и статусы обработки без ручного переноса данных.
+            - generic [ref=f17e321]: Подробнее об услуге
+          - 'link "Иллюстрация онлайн-записи: календарь и выбор времени на телефоне Запись и оплата Клиент выбирает услугу и время, оплачивает и получает подтверждение. Подключение готового сервиса или своя логика записи. Подробнее об услуге" [ref=f17e322] [cursor=pointer]':
+            - /url: /services/booking-and-payments
+            - 'img "Иллюстрация онлайн-записи: календарь и выбор времени на телефоне" [ref=f17e324]'
+            - heading "Запись и оплата" [level=4] [ref=f17e325]:
+              - text: Запись и оплата
+              - generic [aria-hidden] [ref=f17e326]: ↗
+            - paragraph [ref=f17e327]: Клиент выбирает услугу и время, оплачивает и получает подтверждение. Подключение готового сервиса или своя логика записи.
+            - generic [ref=f17e328]: Подробнее об услуге
+        - paragraph [ref=f17e329]: Можно добавить к новому сайту или подключить к существующему. Объём и стоимость обсуждаем под ваш процесс.
+      - generic [ref=f17e330]:
+        - paragraph [ref=f17e331]: Расскажите о задаче — обсудим решение, сроки и стоимость.
+        - link "Обсудить проект" [ref=f17e332] [cursor=pointer]:
+          - /url: /contact#project-form
+    - generic [ref=f17e334]:
+      - generic [ref=f17e335]:
+        - generic [ref=f17e336]:
+          - heading "Один интерфейс. Любой экран." [level=2] [ref=f17e337]
+          - paragraph [ref=f17e338]: "На большом экране — полная картина: данные, задачи и нужные действия рядом."
+        - generic [ref=f17e340]:
+          - img "Адаптивный интерфейс управления продуктом, который перестраивается из десктопного вида в мобильный" [ref=f17e341]:
+            - generic [aria-hidden] [ref=f17e342]:
+              - complementary [ref=f17e343]:
+                - generic [ref=f17e344]: orbit
+                - paragraph [ref=f17e346]: Продуктовая команда
+                - navigation [ref=f17e347]:
+                  - generic [ref=f17e348]: Обзор
+                  - generic [ref=f17e349]: Проекты
+                  - generic [ref=f17e350]: Команда
+                - generic [ref=f17e351]:
+                  - generic [ref=f17e352]: ИК
+                  - generic [ref=f17e353]:
+                    - strong [ref=f17e354]: Илья
+                    - generic [ref=f17e355]: онлайн
+              - main [ref=f17e356]:
+                - generic [ref=f17e357]:
+                  - generic [ref=f17e358]: Поиск по пространству
+                  - generic [ref=f17e359]: + Новая задача
+                - generic [ref=f17e360]:
+                  - paragraph [ref=f17e361]: Рабочее пространство
+                  - heading [level=3] [ref=f17e362]: Доставка продукта
+                  - paragraph [ref=f17e363]: Проекты, темп и следующий шаг команды в одном месте.
+                  - generic [ref=f17e364]:
+                    - generic [ref=f17e365]:
+                      - generic [ref=f17e366]: Активные
+                      - strong [ref=f17e367]: "12"
+                    - generic [ref=f17e368]:
+                      - generic [ref=f17e369]: Завершено
+                      - strong [ref=f17e370]: "38"
+                    - generic [ref=f17e371]:
+                      - generic [ref=f17e372]: Темп
+                      - strong [ref=f17e373]: 1,8×
+                  - generic [ref=f17e374]:
+                    - heading [level=4] [ref=f17e375]: Активные проекты
+                    - generic [ref=f17e376]: Все →
+                  - generic [ref=f17e377]:
+                    - article [ref=f17e378]:
+                      - strong [ref=f17e379]: Новый checkout
+                      - generic [ref=f17e380]: Дизайн · Разработка
+                      - generic [ref=f17e382]: 72%
+                    - article [ref=f17e383]:
+                      - strong [ref=f17e384]: Клиентский портал
+                      - generic [ref=f17e385]: Система · Интеграции
+                      - generic [ref=f17e387]: 46%
+                  - generic [ref=f17e388]:
+                    - generic [ref=f17e389]: 10:30
+                    - generic [ref=f17e390]:
+                      - strong [ref=f17e391]: Синхронизация команды
+                      - generic [ref=f17e392]: Следующий созвон
+                    - generic [ref=f17e393]: онлайн
+          - generic [ref=f17e394]: десктоп 1440
+      - generic [ref=f17e396]:
+        - heading "Процесс" [level=2] [ref=f17e397]
+        - generic [ref=f17e398]:
+          - generic [ref=f17e399]:
+            - paragraph [ref=f17e400]: "01"
+            - heading "Погружение" [level=3] [ref=f17e401]
+            - paragraph [ref=f17e402]: Бизнес, аудитория, оффер, конкуренты.
+          - generic [ref=f17e403]:
+            - paragraph [ref=f17e404]: "02"
+            - heading "Структура" [level=3] [ref=f17e405]
+            - paragraph [ref=f17e406]: Порядок блоков, иерархия сообщений, точка решения.
+          - generic [ref=f17e407]:
+            - paragraph [ref=f17e408]: "03"
+            - heading "Дизайн" [level=3] [ref=f17e409]
+            - paragraph [ref=f17e410]: Визуальный язык, типографика, ключевые экраны.
+          - generic [ref=f17e411]:
+            - paragraph [ref=f17e412]: "04"
+            - heading "Разработка" [level=3] [ref=f17e413]
+            - paragraph [ref=f17e414]: Вёрстка, скорость, формы, интеграции.
+          - generic [ref=f17e415]:
+            - paragraph [ref=f17e416]: "05"
+            - heading "Запуск" [level=3] [ref=f17e417]
+            - paragraph [ref=f17e418]: Проверяем сайт, запускаем и передаём или берём на сопровождение.
+    - generic [ref=f17e420]:
+      - generic [ref=f17e421]:
+        - heading "Ваш сайт. Ваш формат работы." [level=2] [ref=f17e422]
+        - paragraph [ref=f17e423]: "Создаём сайт под ключ: структура, дизайн, разработка и запуск. После запуска вы выбираете, кто им занимается."
+      - generic [ref=f17e424]:
+        - article [ref=f17e425]:
+          - heading "Полная передача" [level=3] [ref=f17e426]
+          - paragraph [ref=f17e427]: Если хотите управлять сайтом сами или со своей командой.
+          - list [ref=f17e428]:
+            - listitem [ref=f17e429]: Передаём код, материалы проекта и доступы к сайту.
+            - listitem [ref=f17e430]: Объясняем, как устроен проект и как его обновлять.
+            - listitem [ref=f17e431]: Дальнейшие правки у нас доступны со скидкой для клиентов.
+          - paragraph [ref=f17e432]: Вы выбираете, кто обслуживает сайт. Обязательной подписки на наше сопровождение нет.
+        - article [ref=f17e433]:
+          - heading "Сопровождение по подписке" [level=3] [ref=f17e434]
+          - paragraph [ref=f17e435]: Если хотите заниматься бизнесом и оставить техническую часть нам.
+          - list [ref=f17e436]:
+            - listitem [ref=f17e437]: Берём на себя размещение и обслуживание в согласованном объёме.
+            - listitem [ref=f17e438]: Заранее фиксируем платёж, состав поддержки и порядок правок.
+            - listitem [ref=f17e439]: Позже можно перейти к полной передаче сайта по согласованным условиям.
+          - paragraph [ref=f17e440]: Есть кому поручить технические вопросы. Вам не нужно искать специалиста для каждого обращения.
+      - paragraph [ref=f17e441]: Сравнивайте не только цену запуска. Важно, что вы получаете на руки, кто помогает после запуска и можете ли вы сменить исполнителя. Эти условия обсуждаем заранее.
+      - paragraph [ref=f17e442]: "Стоимость подписки, её состав, условия передачи и размер скидки на правки фиксируем до старта. Домен, хостинг и сторонние сервисы учитываем отдельно: их платежи зависят от проекта."
+    - generic [ref=f17e445]:
+      - generic [ref=f17e446]:
+        - heading "Один контакт на весь проект" [level=2] [ref=f17e447]
+        - paragraph [ref=f17e448]: Я Илья, дизайнер и разработчик. Продумываю структуру, создаю интерфейс и пишу код. Вы видите промежуточный результат и знаете, к кому обратиться.
+        - paragraph [ref=f17e449]: Если задача требует других специалистов, согласуем их участие заранее. Координация остаётся на мне.
+        - link "Подробнее обо мне ↗" [ref=f17e450] [cursor=pointer]:
+          - /url: /about
+      - complementary [ref=f17e451]:
+        - heading "Нужна реклама после запуска?" [level=3] [ref=f17e452]
+        - paragraph [ref=f17e453]: Для Google Ads и Meta Ads подключаем Марьяну Леус. Я отвечаю за сайт, Марьяна за рекламные кампании. Объём и бюджет обсуждаем отдельно.
+        - link "Познакомиться с Марьяной ↗" [ref=f17e454] [cursor=pointer]:
+          - /url: https://marianaleus.com/
+    - generic [ref=f17e456]:
+      - generic [ref=f17e457]:
+        - heading "Вопросы перед стартом" [level=2] [ref=f17e458]
+        - paragraph [ref=f17e459]: Стоимость, сроки и что происходит после запуска.
+        - link "Спросить напрямую" [ref=f17e460] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f17e461]:
+        - generic [ref=f17e462]:
+          - button "Сколько стоит сайт?" [ref=f17e463] [cursor=pointer]
+          - paragraph [ref=f17e465]: Лендинг — от 1 500 €, сайт для бизнеса — от 2 500 €, кастомные приложения считаются под проект. Цену вы получаете фиксированной до старта работ.
+        - generic [ref=f17e466]:
+          - button "Сколько занимает проект?" [ref=f17e467] [cursor=pointer]
+          - paragraph [ref=f17e469]: Лендинг — обычно 2–3 недели, сайт для бизнеса — 4–6. Приложения зависят от объёма.
+        - generic [ref=f17e470]:
+          - button "Вы делаете и дизайн, и разработку?" [ref=f17e471] [cursor=pointer]
+          - paragraph [ref=f17e473]: Да. Продумываем структуру, готовим дизайн, разрабатываем и запускаем сайт. Дополнительных специалистов подключаем по согласованию.
+        - generic [ref=f17e474]:
+          - button "Можно передать вам существующий проект?" [ref=f17e475] [cursor=pointer]
+          - paragraph [ref=f17e477]: "Да — сайт на конструкторе, старый код или работу другого разработчика. Сначала разбираюсь и честно говорю: улучшать, переделывать или расширять."
+        - generic [ref=f17e478]:
+          - button "Кто будет управлять сайтом после запуска?" [ref=f17e479] [cursor=pointer]
+          - paragraph [ref=f17e481]: "Вы выбираете: полная передача кода и доступов или сопровождение по подписке с возможностью передачи позже. При полной передаче последующие правки у нас доступны со скидкой. Состав поддержки, условия передачи и скидку фиксируем до старта."
+        - generic [ref=f17e482]:
+          - button "Подойдёт для Google Ads и Meta Ads?" [ref=f17e483] [cursor=pointer]
+          - paragraph [ref=f17e485]: "Так он и планируется с самого начала: понятный оффер, быстрая загрузка, аналитика и события заявок, готовые к трафику."
+    - generic [ref=f17e488]:
+      - heading "Что должен делать ваш сайт?" [level=2] [ref=f17e489]
+      - paragraph [ref=f17e490]: Расскажите о бизнесе и задаче. Предложу подходящее решение, объём и стоимость.
+      - generic [ref=f17e491]:
+        - link "Обсудить проект" [ref=f17e492] [cursor=pointer]:
+          - /url: /contact
+        - link "covalski734@gmail.com" [ref=f17e493] [cursor=pointer]:
+          - /url: mailto:covalski734@gmail.com
+  - contentinfo [ref=f17e494]:
+    - generic [ref=f17e495]:
+      - generic [ref=f17e496]:
+        - generic [ref=f17e497]:
+          - paragraph [ref=f17e498]: Написать напрямую
+          - link "covalski734@gmail.com" [ref=f17e499] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=f17e502]: Обычно отвечаю в течение рабочего дня
+      - generic [ref=f17e503]:
+        - generic [ref=f17e504]:
+          - paragraph [ref=f17e505]: Сайт
+          - link "Работы" [ref=f17e506] [cursor=pointer]:
+            - /url: /#work
+          - link "Задачи" [ref=f17e507] [cursor=pointer]:
+            - /url: /#range
+          - link "Услуги" [ref=f17e508] [cursor=pointer]:
+            - /url: /#services
+          - link "Обо мне" [ref=f17e509] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f17e510]:
+          - paragraph [ref=f17e511]: Проекты
+          - link "marianaleus.com" [ref=f17e512] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Обсудить проект" [ref=f17e513] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f17e514]:
+          - paragraph [ref=f17e515]: Напрямую
+          - link "Telegram @ilyakav" [ref=f17e516] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=f17e517]: Польша · работаю по Европе
+        - generic [ref=f17e518]:
+          - paragraph [ref=f17e519]: Интерфейс
+          - generic [ref=f17e520]:
+            - button "RU" [pressed] [ref=f17e521] [cursor=pointer]
+            - button "UA" [ref=f17e522] [cursor=pointer]
+            - button "EN" [ref=f17e523] [cursor=pointer]
+          - button "Включить тёмную тему" [ref=f17e524] [cursor=pointer]: Сменить тему
+          - link "Наверх ↑" [ref=f17e525] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=f17e526]:
+        - button "Настройки cookies" [ref=f17e527] [cursor=pointer]
+        - link "Политика cookies" [ref=f17e528] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=f17e529]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Конфиденциальность" [ref=f17e530] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=f17e531]: Спроектировано и собрано тем, с кем вы будете общаться

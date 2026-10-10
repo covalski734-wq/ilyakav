@@ -1,0 +1,71 @@
+- generic [ref=f23e2]:
+  - link "К основному содержимому" [ref=f23e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f23e4]:
+    - generic [ref=f23e5]:
+      - link "ilyakav ." [ref=f23e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=f23e7]: .
+      - 'button "Меню: RU" [ref=f23e8] [cursor=pointer]':
+        - text: RU
+        - generic [aria-hidden] [ref=f23e9]: ⌄
+      - button "Меню" [ref=f23e10] [cursor=pointer]
+  - main [ref=f23e14]:
+    - generic [ref=f23e17]:
+      - generic [aria-hidden] [ref=f23e18]: "404"
+      - paragraph [ref=f23e19]: Ошибка 404
+      - heading "Такой страницы нет." [level=1] [ref=f23e20]
+      - paragraph [ref=f23e21]: Возможно, ссылка устарела или адрес набран с ошибкой. Вернитесь на главную или расскажите о своём проекте.
+      - generic [ref=f23e22]:
+        - link "На главную" [ref=f23e23] [cursor=pointer]:
+          - /url: /
+        - link "Начать проект" [ref=f23e24] [cursor=pointer]:
+          - /url: /contact
+  - contentinfo [ref=f23e25]:
+    - generic [ref=f23e26]:
+      - generic [ref=f23e27]:
+        - generic [ref=f23e28]:
+          - paragraph [ref=f23e29]: Написать напрямую
+          - link "covalski734@gmail.com" [ref=f23e30] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=f23e33]: Обычно отвечаю в течение рабочего дня
+      - generic [ref=f23e34]:
+        - generic [ref=f23e35]:
+          - paragraph [ref=f23e36]: Сайт
+          - link "Работы" [ref=f23e37] [cursor=pointer]:
+            - /url: /#work
+          - link "Задачи" [ref=f23e38] [cursor=pointer]:
+            - /url: /#range
+          - link "Услуги" [ref=f23e39] [cursor=pointer]:
+            - /url: /#services
+          - link "Обо мне" [ref=f23e40] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f23e41]:
+          - paragraph [ref=f23e42]: Проекты
+          - link "marianaleus.com" [ref=f23e43] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Обсудить проект" [ref=f23e44] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f23e45]:
+          - paragraph [ref=f23e46]: Напрямую
+          - link "Telegram @ilyakav" [ref=f23e47] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=f23e48]: Польша · работаю по Европе
+        - generic [ref=f23e49]:
+          - paragraph [ref=f23e50]: Интерфейс
+          - generic [ref=f23e51]:
+            - button "RU" [pressed] [ref=f23e52] [cursor=pointer]
+            - button "UA" [ref=f23e53] [cursor=pointer]
+            - button "EN" [ref=f23e54] [cursor=pointer]
+          - button "Включить тёмную тему" [ref=f23e55] [cursor=pointer]: Сменить тему
+          - link "Наверх ↑" [ref=f23e56] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=f23e57]:
+        - button "Настройки cookies" [ref=f23e58] [cursor=pointer]
+        - link "Политика cookies" [ref=f23e59] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=f23e60]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Конфиденциальность" [ref=f23e61] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=f23e62]: Спроектировано и собрано тем, с кем вы будете общаться

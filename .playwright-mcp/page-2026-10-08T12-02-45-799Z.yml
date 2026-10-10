@@ -1,0 +1,111 @@
+- generic [ref=f18e2]:
+  - link "До основного вмісту" [ref=f18e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f18e4]:
+    - generic [ref=f18e5]:
+      - link "ilyakav ." [ref=f18e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=f18e7]: .
+      - 'button "Меню: UA" [ref=f18e8] [cursor=pointer]':
+        - text: UA
+        - generic [aria-hidden] [ref=f18e9]: ⌄
+      - button "Меню" [ref=f18e10] [cursor=pointer]
+  - main [ref=f18e14]:
+    - generic [ref=f18e16]:
+      - heading "Розкажіть, що потрібно створити." [level=1] [ref=f18e17]
+      - generic [ref=f18e18]:
+        - paragraph [ref=f18e19]: Кількох речень достатньо. Я уточню деталі й запропоную наступний зрозумілий крок.
+        - paragraph [ref=f18e20]: Зазвичай відповідаю протягом робочого дня
+      - generic [ref=f18e22]:
+        - link "Telegram @ilyakav" [ref=f18e23] [cursor=pointer]:
+          - /url: https://t.me/ilyakav
+          - generic [ref=f18e24]: Telegram
+          - strong [ref=f18e25]: "@ilyakav"
+        - link "Email covalski734@gmail.com" [ref=f18e26] [cursor=pointer]:
+          - /url: mailto:covalski734@gmail.com
+          - generic [ref=f18e27]: Email
+          - strong [ref=f18e28]: covalski734@gmail.com
+    - generic [ref=f18e30]:
+      - generic [ref=f18e31]:
+        - heading "Коротко про проєкт" [level=2] [ref=f18e32]
+        - group [ref=f18e33]:
+          - generic [ref=f18e34]:
+            - generic [ref=f18e35]: Ваше ім'я
+            - textbox "Ваше ім'я" [ref=f18e36]:
+              - /placeholder: Як до вас звертатися?
+          - generic [ref=f18e37]:
+            - generic [ref=f18e38]: Email або Telegram
+            - textbox "Email або Telegram" [ref=f18e39]:
+              - /placeholder: Куди відповісти?
+          - generic [ref=f18e40]:
+            - generic [ref=f18e41]: Тип проєкту
+            - combobox "Тип проєкту" [ref=f18e42] [cursor=pointer]:
+              - option "Сайт для бізнесу" [selected]
+              - option "Лендинг"
+              - option "Вебзастосунок"
+              - option "Десктопний застосунок"
+              - option "Редизайн / наявний проєкт"
+              - option "Telegram-бот"
+              - option "Заявки / CRM / автоматизація"
+              - option "Онлайн-запис і оплата"
+              - option "Інше"
+          - generic [ref=f18e43]:
+            - generic [ref=f18e44]: Що потрібно зробити
+            - textbox "Що потрібно зробити" [ref=f18e45]:
+              - /placeholder: Завдання, аудиторія, строки й усе, що вже відомо.
+        - textbox [ref=f18e47]
+        - generic [ref=f18e48]:
+          - button "Надіслати заявку" [ref=f18e49] [cursor=pointer]
+          - paragraph [ref=f18e50]:
+            - text: Поля форми передаються через сервер сайту в мій Telegram для відповіді на звернення.
+            - link "Конфіденційність" [ref=f18e51] [cursor=pointer]:
+              - /url: /privacy
+      - text: ↗ ↗
+  - contentinfo [ref=f18e52]:
+    - generic [ref=f18e53]:
+      - generic [ref=f18e54]:
+        - generic [ref=f18e55]:
+          - paragraph [ref=f18e56]: Напишіть напряму
+          - link "covalski734@gmail.com" [ref=f18e57] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=f18e60]: Зазвичай відповідь протягом робочого дня
+      - generic [ref=f18e61]:
+        - generic [ref=f18e62]:
+          - paragraph [ref=f18e63]: Сайт
+          - link "Роботи" [ref=f18e64] [cursor=pointer]:
+            - /url: /#work
+          - link "Завдання" [ref=f18e65] [cursor=pointer]:
+            - /url: /#range
+          - link "Послуги" [ref=f18e66] [cursor=pointer]:
+            - /url: /#services
+          - link "Про мене" [ref=f18e67] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f18e68]:
+          - paragraph [ref=f18e69]: Проєкти
+          - link "marianaleus.com" [ref=f18e70] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Обговорити проєкт" [ref=f18e71] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f18e72]:
+          - paragraph [ref=f18e73]: Напряму
+          - link "Telegram @ilyakav" [ref=f18e74] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=f18e75]: Польща · працюю в Європі
+        - generic [ref=f18e76]:
+          - paragraph [ref=f18e77]: Інтерфейс
+          - generic [ref=f18e78]:
+            - button "RU" [ref=f18e79] [cursor=pointer]
+            - button "UA" [pressed] [ref=f18e80] [cursor=pointer]
+            - button "EN" [ref=f18e81] [cursor=pointer]
+          - button "Увімкнути темну тему" [ref=f18e82] [cursor=pointer]: Змінити тему
+          - link "Вгору ↑" [ref=f18e83] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=f18e84]:
+        - button "Налаштування cookies" [ref=f18e85] [cursor=pointer]
+        - link "Політика cookies" [ref=f18e86] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=f18e87]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Конфіденційність" [ref=f18e88] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=f18e89]: Спроєктовано й зібрано тим, з ким ви будете спілкуватися

@@ -1,0 +1,824 @@
+- generic [active] [ref=f27e1]:
+  - banner [ref=f27e2]:
+    - generic [ref=f27e3]: Аудит · 8 октября 2026 · без изменений сайта
+    - heading "Сайт как инструмент выбора и обращения" [level=1] [ref=f27e4]: Сайт как инструментвыбора и обращения
+    - paragraph [ref=f27e5]: 17 страниц, три языка, общие элементы и динамические состояния. Точные исходные строки, готовые варианты и причины каждого решения.
+    - generic [ref=f27e6]:
+      - link "Выводы и стратегия" [ref=f27e7] [cursor=pointer]:
+        - /url: REPORT.md
+      - link "Полный реестр Markdown" [ref=f27e8] [cursor=pointer]:
+        - /url: FULL-AUDIT.md
+      - link "Только изменения" [ref=f27e9] [cursor=pointer]:
+        - /url: CHANGES.md
+      - link "Неиспользуемые тексты" [ref=f27e10] [cursor=pointer]:
+        - /url: UNUSED-COPY.md
+      - link "Данные JSON" [ref=f27e11] [cursor=pointer]:
+        - /url: audit-data.json
+    - generic [ref=f27e12]:
+      - generic [ref=f27e13]:
+        - strong [ref=f27e14]: 7,1 → 8,2
+        - text: редакционная оценка системы
+      - generic [ref=f27e15]:
+        - strong [ref=f27e16]: "343"
+        - text: предлагаемых замен с учётом языков
+      - generic [ref=f27e17]:
+        - strong [ref=f27e18]: "1733"
+        - text: сохранённых строк
+      - generic [ref=f27e19]:
+        - strong [ref=f27e20]: "9"
+        - text: вариантов новых блоков
+    - paragraph [ref=f27e21]: Оценка новой версии — гипотеза качества коммуникации при выполнении рекомендаций по структуре. Это не измеренный рост конверсии. Исходный текст не исправляется внутри цитат.
+    - group [ref=f27e22]:
+      - generic "Прочитать выводы и методику" [ref=f27e23] [cursor=pointer]
+  - main [ref=f27e24]:
+    - heading "Сравнение текстов" [level=2] [ref=f27e25]
+    - paragraph [ref=f27e26]: По умолчанию показаны рекомендации. Выберите «Все решения», чтобы увидеть сохранённые блоки. Архив содержит неиспользуемые строки и не входит в оценку видимого сайта.
+    - generic [ref=f27e27]:
+      - searchbox "Поиск по тексту, ключу или URL" [ref=f27e28]
+      - combobox "Язык" [ref=f27e29]:
+        - option "Все языки" [selected]
+        - option "RU"
+        - option "UA"
+        - option "EN"
+        - option "Общее"
+      - combobox "Страница" [ref=f27e30]:
+        - option "Все страницы" [selected]
+        - option "CRM и автоматизация"
+        - option "Cookies и согласие"
+        - option "SEO и метаданные"
+        - option "Telegram-боты"
+        - option "Веб-приложения"
+        - option "Главная"
+        - option "Главная / FAQ"
+        - option "Главная / FAQ; также страница сайта для бизнеса"
+        - option "Запись и оплата"
+        - option "Кейс Mariana Leus"
+        - option "Кейс Mariana Leus / после решений, перед финальным CTA"
+        - option "Кейс Maryna Cleaning"
+        - option "Кейс Skyline Stretch Ceilings"
+        - option "Кейс Tile Expert Solutions"
+        - option "Контакты"
+        - option "Конфиденциальность"
+        - option "Лендинги"
+        - option "Обо мне"
+        - option "Общие элементы"
+        - option "Общие элементы кейсов"
+        - option "Общие элементы услуг"
+        - option "После запуска / владение"
+        - option "Приложения Windows"
+        - option "Редизайн"
+        - option "Сайты для бизнеса"
+        - option "Страница 404"
+      - combobox "Решение" [ref=f27e31]:
+        - option "Рекомендации" [selected]
+        - option "Все решения"
+        - option "Изменить"
+        - option "Сохранить"
+        - option "Добавить"
+        - option "Архив"
+      - combobox "Приоритет" [ref=f27e32]:
+        - option "Все приоритеты" [selected]
+        - option "P1"
+        - option "P2"
+        - option "P3"
+    - paragraph [ref=f27e33]: "Найдено: 352 · 1–35"
+    - generic [ref=f27e34]:
+      - article [ref=f27e35]:
+        - paragraph [ref=f27e36]:
+          - generic [ref=f27e37]: RU
+          - generic [ref=f27e38]: Изменить
+          - generic [ref=f27e39]: P1
+        - heading "SEO и метаданные · homeTitle" [level=2] [ref=f27e40]
+        - paragraph [ref=f27e41]:
+          - link "https://ilyakav.com/" [ref=f27e42] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e43]:
+          - code [ref=f27e44]: main.meta.homeTitle
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e45]: Метаданные / служебная строка, не видимый блок
+        - generic [ref=f27e46]:
+          - generic [ref=f27e47]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e48]
+            - generic [ref=f27e49]: ilyakav. — Сайты, которые приносят клиентов
+          - generic [ref=f27e50]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e51]
+            - generic [ref=f27e52]: Разработка сайтов для бизнеса — ilyakav.
+        - paragraph [ref=f27e53]: Заменяет обещание привлечения клиентов без условий на поисково понятное название услуги. Коммерческую пользу раскрывает описание.
+      - article [ref=f27e54]:
+        - paragraph [ref=f27e55]:
+          - generic [ref=f27e56]: RU
+          - generic [ref=f27e57]: Изменить
+          - generic [ref=f27e58]: P1
+        - heading "SEO и метаданные · homeDescription" [level=2] [ref=f27e59]
+        - paragraph [ref=f27e60]:
+          - link "https://ilyakav.com/" [ref=f27e61] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e62]:
+          - code [ref=f27e63]: main.meta.homeDescription
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e64]: Метаданные / служебная строка, не видимый блок
+        - generic [ref=f27e65]:
+          - generic [ref=f27e66]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e67]
+            - generic [ref=f27e68]: Сайты и приложения под ключ. Дизайн, разработка и запуск, полная передача или сопровождение по подписке.
+          - generic [ref=f27e69]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e70]
+            - generic [ref=f27e71]: Разрабатываю сайты, которые помогают клиентам разобраться в услугах, оценить ваши работы и оставить заявку. Лично веду проект от структуры до запуска.
+        - paragraph [ref=f27e72]: Добавляет механизм ценности и личную ответственность вместо перечня этапов. Сохраняет релевантность разработке сайтов.
+      - article [ref=f27e73]:
+        - paragraph [ref=f27e74]:
+          - generic [ref=f27e75]: RU
+          - generic [ref=f27e76]: Изменить
+          - generic [ref=f27e77]: P1
+        - heading "SEO и метаданные · contactDescription" [level=2] [ref=f27e78]
+        - paragraph [ref=f27e79]:
+          - link "https://ilyakav.com/contact/" [ref=f27e80] [cursor=pointer]:
+            - /url: https://ilyakav.com/contact/
+        - paragraph [ref=f27e81]:
+          - code [ref=f27e82]: main.meta.contactDescription
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e83]: Метаданные / служебная строка, не видимый блок
+        - generic [ref=f27e84]:
+          - generic [ref=f27e85]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e86]
+            - generic [ref=f27e87]: Расскажите Илье, что нужно построить, и получите понятный ответ в течение рабочего дня.
+          - generic [ref=f27e88]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e89]
+            - generic [ref=f27e90]: Расскажите о бизнесе и задаче. Илья уточнит детали и предложит следующий шаг. Обычно ответ — в течение рабочего дня.
+        - paragraph [ref=f27e91]: Согласует срок ответа с осторожной формулировкой «обычно» на странице, убирает безусловное обещание.
+      - article [ref=f27e92]:
+        - paragraph [ref=f27e93]:
+          - generic [ref=f27e94]: RU
+          - generic [ref=f27e95]: Изменить
+          - generic [ref=f27e96]: P2
+        - heading "SEO и метаданные · aboutDescription" [level=2] [ref=f27e97]
+        - paragraph [ref=f27e98]:
+          - link "https://ilyakav.com/about/" [ref=f27e99] [cursor=pointer]:
+            - /url: https://ilyakav.com/about/
+        - paragraph [ref=f27e100]:
+          - code [ref=f27e101]: main.meta.aboutDescription
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e102]: Метаданные / служебная строка, не видимый блок
+        - generic [ref=f27e103]:
+          - generic [ref=f27e104]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e105]
+            - generic [ref=f27e106]: "Илья Кавалеуски — независимый разработчик: стратегия, дизайн, фронтенд и кастомные приложения для бизнеса."
+          - generic [ref=f27e107]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e108]
+            - generic [ref=f27e109]: Илья Кавалеуски — дизайнер и разработчик в Польше. Сайты и приложения для бизнеса, личное ведение проекта от первой задачи до запуска.
+        - paragraph [ref=f27e110]: Объясняет преимущество специалиста простым языком; сохраняет имя, географию и услуги.
+      - article [ref=f27e111]:
+        - paragraph [ref=f27e112]:
+          - generic [ref=f27e113]: RU
+          - generic [ref=f27e114]: Изменить
+          - generic [ref=f27e115]: P1
+        - heading "Главная · hero" [level=2] [ref=f27e116]
+        - paragraph [ref=f27e117]:
+          - link "https://ilyakav.com/#top" [ref=f27e118] [cursor=pointer]:
+            - /url: https://ilyakav.com/#top
+        - paragraph [ref=f27e119]:
+          - code [ref=f27e120]: main.hero.mobileLead
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e121]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e122]:
+          - generic [ref=f27e123]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e124]
+            - generic [ref=f27e125]: Сайты для бизнеса с понятным предложением и простым путём к заявке. Лично веду проект до запуска.
+          - generic [ref=f27e126]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e127]
+            - generic [ref=f27e128]: Помогаю клиентам понять ваши услуги, оценить работы и связаться с вами. Лично разрабатываю сайт от структуры до запуска.
+        - paragraph [ref=f27e129]: Сохраняет пользу и личную ответственность в сокращённой мобильной версии; не сводит её к лозунгу.
+      - article [ref=f27e130]:
+        - paragraph [ref=f27e131]:
+          - generic [ref=f27e132]: RU
+          - generic [ref=f27e133]: Изменить
+          - generic [ref=f27e134]: P1
+        - heading "Главная · hero" [level=2] [ref=f27e135]
+        - paragraph [ref=f27e136]:
+          - link "https://ilyakav.com/#top" [ref=f27e137] [cursor=pointer]:
+            - /url: https://ilyakav.com/#top
+        - paragraph [ref=f27e138]:
+          - code [ref=f27e139]: main.hero.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e140]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e141]:
+          - generic [ref=f27e142]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e143]
+            - generic [ref=f27e144]: Ваш сайт.
+          - generic [ref=f27e145]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e146]
+            - generic [ref=f27e147]: Сайт, который
+        - paragraph [ref=f27e148]: "Читать вместе со второй строкой заголовка: на первом экране появляется причина интересоваться сайтом, а не только способ производства."
+      - article [ref=f27e149]:
+        - paragraph [ref=f27e150]:
+          - generic [ref=f27e151]: RU
+          - generic [ref=f27e152]: Изменить
+          - generic [ref=f27e153]: P1
+        - heading "Главная · hero" [level=2] [ref=f27e154]
+        - paragraph [ref=f27e155]:
+          - link "https://ilyakav.com/#top" [ref=f27e156] [cursor=pointer]:
+            - /url: https://ilyakav.com/#top
+        - paragraph [ref=f27e157]:
+          - code [ref=f27e158]: main.hero.lead
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e159]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e160]:
+          - generic [ref=f27e161]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e162]
+            - generic [ref=f27e163]: "Разрабатываю сайты для бизнеса: понятные услуги, реальные работы и простой путь к заявке. Лично веду проект от структуры до запуска."
+          - generic [ref=f27e164]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e165]
+            - generic [ref=f27e166]: Разрабатываю сайты, на которых легко понять ваши услуги, оценить работы и оставить заявку. Лично веду проект от структуры и дизайна до запуска.
+        - paragraph [ref=f27e167]: Раскрывает три шага решения клиента и сохраняет личное ведение. Новая версия точнее, но сама по себе не заменяет доказательства в кейсах.
+      - article [ref=f27e168]:
+        - paragraph [ref=f27e169]:
+          - generic [ref=f27e170]: RU
+          - generic [ref=f27e171]: Изменить
+          - generic [ref=f27e172]: P1
+        - heading "Главная · hero" [level=2] [ref=f27e173]
+        - paragraph [ref=f27e174]:
+          - link "https://ilyakav.com/#top" [ref=f27e175] [cursor=pointer]:
+            - /url: https://ilyakav.com/#top
+        - paragraph [ref=f27e176]:
+          - code [ref=f27e177]: main.hero.titleAccent
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e178]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e179]:
+          - generic [ref=f27e180]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e181]
+            - generic [ref=f27e182]: Под ключ.
+          - generic [ref=f27e183]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e184]
+            - generic [ref=f27e185]: помогает выбрать вас.
+        - paragraph [ref=f27e186]: Связывает сайт с выбором исполнителя. «Помогает» описывает роль сайта и не гарантирует заявки. Заголовок нужно проверить по переносам при внедрении.
+      - article [ref=f27e187]:
+        - paragraph [ref=f27e188]:
+          - generic [ref=f27e189]: RU
+          - generic [ref=f27e190]: Изменить
+          - generic [ref=f27e191]: P2
+        - heading "Главная · hero" [level=2] [ref=f27e192]
+        - paragraph [ref=f27e193]:
+          - link "https://ilyakav.com/#top" [ref=f27e194] [cursor=pointer]:
+            - /url: https://ilyakav.com/#top
+        - paragraph [ref=f27e195]:
+          - code [ref=f27e196]: main.hero.signature
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e197]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e198]:
+          - generic [ref=f27e199]:
+            - heading "Старый текст · 8/10" [level=3] [ref=f27e200]
+            - generic [ref=f27e201]: Илья Кавалеуски · разработчик
+          - generic [ref=f27e202]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e203]
+            - generic [ref=f27e204]: Илья Кавалеуски · дизайнер и разработчик
+        - paragraph [ref=f27e205]: Уточняет обе роли, уже подтверждённые на сайте. Согласует подпись с обещанием полного цикла.
+      - article [ref=f27e206]:
+        - paragraph [ref=f27e207]:
+          - generic [ref=f27e208]: RU
+          - generic [ref=f27e209]: Изменить
+          - generic [ref=f27e210]: P2
+        - heading "Главная · laptop / chapters / 0" [level=2] [ref=f27e211]
+        - paragraph [ref=f27e212]:
+          - link "https://ilyakav.com/" [ref=f27e213] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e214]:
+          - code [ref=f27e215]: main.laptop.chapters.0.body
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e216]: Текст демонстрации / сменяемого состояния; сверён с компонентом
+        - generic [ref=f27e217]:
+          - generic [ref=f27e218]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e219]
+            - generic [ref=f27e220]: Главный экран помогает понять, что происходит и куда двигаться дальше.
+          - generic [ref=f27e221]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e222]
+            - generic [ref=f27e223]: Обзор задач и статусов помогает команде понять, что происходит, без поиска по разным перепискам.
+        - paragraph [ref=f27e224]: Объясняет, какую ручную работу сокращает обзор; соответствует показанному интерфейсу.
+      - article [ref=f27e225]:
+        - paragraph [ref=f27e226]:
+          - generic [ref=f27e227]: RU
+          - generic [ref=f27e228]: Изменить
+          - generic [ref=f27e229]: P2
+        - heading "Главная · laptop / demo / hero" [level=2] [ref=f27e230]
+        - paragraph [ref=f27e231]:
+          - link "https://ilyakav.com/" [ref=f27e232] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e233]:
+          - code [ref=f27e234]: main.laptop.demo.hero.eyebrow
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e235]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e236]:
+          - generic [ref=f27e237]:
+            - heading "Старый текст · 5/10" [level=3] [ref=f27e238]
+            - generic [ref=f27e239]: Интерактивная продуктовая демо
+          - generic [ref=f27e240]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e241]
+            - generic [ref=f27e242]: Демонстрация интерфейса
+        - paragraph [ref=f27e243]: Исправляет неестественную фразу «продуктовая демо» и не создаёт впечатления, что все нарисованные элементы являются рабочими кнопками.
+      - article [ref=f27e244]:
+        - paragraph [ref=f27e245]:
+          - generic [ref=f27e246]: RU
+          - generic [ref=f27e247]: Изменить
+          - generic [ref=f27e248]: P2
+        - heading "Главная · laptop / demo / hero" [level=2] [ref=f27e249]
+        - paragraph [ref=f27e250]:
+          - link "https://ilyakav.com/" [ref=f27e251] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e252]:
+          - code [ref=f27e253]: main.laptop.demo.hero.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e254]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e255]:
+          - generic [ref=f27e256]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e257]
+            - generic [ref=f27e258]: Сложная работа. Один ясный поток.
+          - generic [ref=f27e259]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e260]
+            - generic [ref=f27e261]: Задачи и решения в одном месте.
+        - paragraph [ref=f27e262]: Заменяет абстрактный «поток» предметным содержимым демонстрации. Речь об иллюстрации, не о клиентском результате.
+      - article [ref=f27e263]:
+        - paragraph [ref=f27e264]:
+          - generic [ref=f27e265]: RU
+          - generic [ref=f27e266]: Изменить
+          - generic [ref=f27e267]: P2
+        - heading "Главная · laptop / demo / overview" [level=2] [ref=f27e268]
+        - paragraph [ref=f27e269]:
+          - link "https://ilyakav.com/" [ref=f27e270] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e271]:
+          - code [ref=f27e272]: main.laptop.demo.overview.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e273]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e274]:
+          - generic [ref=f27e275]:
+            - heading "Старый текст · 5/10" [level=3] [ref=f27e276]
+            - generic [ref=f27e277]: Ритм поставки
+          - generic [ref=f27e278]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e279]
+            - generic [ref=f27e280]: Ход работы
+        - paragraph [ref=f27e281]: Убирает продуктовый жаргон, понятнее владельцу сервисного бизнеса.
+      - article [ref=f27e282]:
+        - paragraph [ref=f27e283]:
+          - generic [ref=f27e284]: RU
+          - generic [ref=f27e285]: Изменить
+          - generic [ref=f27e286]: P2
+        - heading "Главная · laptop / demo / signals / items / handoff" [level=2] [ref=f27e287]
+        - paragraph [ref=f27e288]:
+          - link "https://ilyakav.com/" [ref=f27e289] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e290]:
+          - code [ref=f27e291]: main.laptop.demo.signals.items.handoff.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e292]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e293]:
+          - generic [ref=f27e294]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e295]
+            - generic [ref=f27e296]: Передача без потерь
+          - generic [ref=f27e297]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e298]
+            - generic [ref=f27e299]: Решения рядом с задачей
+        - paragraph [ref=f27e300]: Снимает абсолютное обещание «без потерь» и называет демонстрируемую функцию.
+      - article [ref=f27e301]:
+        - paragraph [ref=f27e302]:
+          - generic [ref=f27e303]: RU
+          - generic [ref=f27e304]: Изменить
+          - generic [ref=f27e305]: P2
+        - heading "Главная · morph" [level=2] [ref=f27e306]
+        - paragraph [ref=f27e307]:
+          - link "https://ilyakav.com/#responsive-demo" [ref=f27e308] [cursor=pointer]:
+            - /url: https://ilyakav.com/#responsive-demo
+        - paragraph [ref=f27e309]:
+          - code [ref=f27e310]: main.morph.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e311]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e312]:
+          - generic [ref=f27e313]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e314]
+            - generic [ref=f27e315]: Один интерфейс. Любой экран.
+          - generic [ref=f27e316]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e317]
+            - generic [ref=f27e318]: Удобно с компьютера и телефона.
+        - paragraph [ref=f27e319]: Переводит свойство адаптивности в удобство человека. Вместо абсолютного «любой экран» называет показанные устройства.
+      - article [ref=f27e320]:
+        - paragraph [ref=f27e321]:
+          - generic [ref=f27e322]: RU
+          - generic [ref=f27e323]: Изменить
+          - generic [ref=f27e324]: P1
+        - heading "Главная · morph" [level=2] [ref=f27e325]
+        - paragraph [ref=f27e326]:
+          - link "https://ilyakav.com/#responsive-demo" [ref=f27e327] [cursor=pointer]:
+            - /url: https://ilyakav.com/#responsive-demo
+        - paragraph [ref=f27e328]:
+          - code [ref=f27e329]: main.morph.desktopCopy
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e330]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e331]:
+          - generic [ref=f27e332]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e333]
+            - generic [ref=f27e334]: "На большом экране — полная картина: данные, задачи и нужные действия рядом."
+          - generic [ref=f27e335]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e336]
+            - generic [ref=f27e337]: На большом экране удобно сравнивать данные и видеть задачи целиком. Здесь показан пример интерфейса с условными данными.
+        - paragraph [ref=f27e338]: Уточняет пользу и маркирует условные показатели 1.8×; не позволяет спутать их с доказанным ростом эффективности.
+      - article [ref=f27e339]:
+        - paragraph [ref=f27e340]:
+          - generic [ref=f27e341]: RU
+          - generic [ref=f27e342]: Изменить
+          - generic [ref=f27e343]: P1
+        - heading "Главная · morph" [level=2] [ref=f27e344]
+        - paragraph [ref=f27e345]:
+          - link "https://ilyakav.com/#responsive-demo" [ref=f27e346] [cursor=pointer]:
+            - /url: https://ilyakav.com/#responsive-demo
+        - paragraph [ref=f27e347]:
+          - code [ref=f27e348]: main.morph.mobileCopy
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e349]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e350]:
+          - generic [ref=f27e351]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e352]
+            - generic [ref=f27e353]: "На телефоне главные действия остаются под рукой: удобная навигация, понятные карточки и кнопки под палец."
+          - generic [ref=f27e354]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e355]
+            - generic [ref=f27e356]: На телефоне легко найти нужное действие и нажать кнопку. Данные в этой демонстрации условные.
+        - paragraph [ref=f27e357]: Сохраняет язык пользы и пометку о демонстрации в мобильном состоянии.
+      - article [ref=f27e358]:
+        - paragraph [ref=f27e359]:
+          - generic [ref=f27e360]: RU
+          - generic [ref=f27e361]: Изменить
+          - generic [ref=f27e362]: P2
+        - heading "Главная · morph / demo" [level=2] [ref=f27e363]
+        - paragraph [ref=f27e364]:
+          - link "https://ilyakav.com/#responsive-demo" [ref=f27e365] [cursor=pointer]:
+            - /url: https://ilyakav.com/#responsive-demo
+        - paragraph [ref=f27e366]:
+          - code [ref=f27e367]: main.morph.demo.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e368]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e369]:
+          - generic [ref=f27e370]:
+            - heading "Старый текст · 5/10" [level=3] [ref=f27e371]
+            - generic [ref=f27e372]: Доставка продукта
+          - generic [ref=f27e373]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e374]
+            - generic [ref=f27e375]: Работа над проектом
+        - paragraph [ref=f27e376]: Исправляет буквальную «доставку продукта»; функциональное название понятнее.
+      - article [ref=f27e377]:
+        - paragraph [ref=f27e378]:
+          - generic [ref=f27e379]: RU
+          - generic [ref=f27e380]: Изменить
+          - generic [ref=f27e381]: P2
+        - heading "Главная · morph / demo / projects / items / checkout" [level=2] [ref=f27e382]
+        - paragraph [ref=f27e383]:
+          - link "https://ilyakav.com/#responsive-demo" [ref=f27e384] [cursor=pointer]:
+            - /url: https://ilyakav.com/#responsive-demo
+        - paragraph [ref=f27e385]:
+          - code [ref=f27e386]: main.morph.demo.projects.items.checkout.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e387]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e388]:
+          - generic [ref=f27e389]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e390]
+            - generic [ref=f27e391]: Новый checkout
+          - generic [ref=f27e392]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e393]
+            - generic [ref=f27e394]: Оформление заказа
+        - paragraph [ref=f27e395]: В RU/UA убирает необъяснённый checkout; в EN сохраняет понятное название примера.
+      - article [ref=f27e396]:
+        - paragraph [ref=f27e397]:
+          - generic [ref=f27e398]: RU
+          - generic [ref=f27e399]: Изменить
+          - generic [ref=f27e400]: P2
+        - heading "Главная · morph / demo / next" [level=2] [ref=f27e401]
+        - paragraph [ref=f27e402]:
+          - link "https://ilyakav.com/#responsive-demo" [ref=f27e403] [cursor=pointer]:
+            - /url: https://ilyakav.com/#responsive-demo
+        - paragraph [ref=f27e404]:
+          - code [ref=f27e405]: main.morph.demo.next.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e406]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e407]:
+          - generic [ref=f27e408]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e409]
+            - generic [ref=f27e410]: Синхронизация команды
+          - generic [ref=f27e411]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e412]
+            - generic [ref=f27e413]: Встреча команды
+        - paragraph [ref=f27e414]: Заменяет кальку «синхронизация» простым названием события без изменения содержания.
+      - article [ref=f27e415]:
+        - paragraph [ref=f27e416]:
+          - generic [ref=f27e417]: RU
+          - generic [ref=f27e418]: Изменить
+          - generic [ref=f27e419]: P1
+        - heading "Главная · range" [level=2] [ref=f27e420]
+        - paragraph [ref=f27e421]:
+          - link "https://ilyakav.com/#range" [ref=f27e422] [cursor=pointer]:
+            - /url: https://ilyakav.com/#range
+        - paragraph [ref=f27e423]:
+          - code [ref=f27e424]: main.range.lead
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e425]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e426]:
+          - generic [ref=f27e427]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e428]
+            - generic [ref=f27e429]: Новый сайт, обновление существующего или инструмент для команды — выберите свою задачу.
+          - generic [ref=f27e430]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e431]
+            - generic [ref=f27e432]: Начинаете с соцсетей, обновляете сайт или упрощаете работу команды? Выберите ситуацию, которая ближе к вашей.
+        - paragraph [ref=f27e433]: Добавляет узнаваемый сценарий бизнеса в соцсетях, сохраняя три существующих маршрута и не обещая самостоятельного трафика.
+      - article [ref=f27e434]:
+        - paragraph [ref=f27e435]:
+          - generic [ref=f27e436]: RU
+          - generic [ref=f27e437]: Изменить
+          - generic [ref=f27e438]: P2
+        - heading "Главная · services / items / site" [level=2] [ref=f27e439]
+        - paragraph [ref=f27e440]:
+          - link "https://ilyakav.com/#services" [ref=f27e441] [cursor=pointer]:
+            - /url: https://ilyakav.com/#services
+        - paragraph [ref=f27e442]:
+          - code [ref=f27e443]: main.services.items.site.previewTitle
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e444]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e445]:
+          - generic [ref=f27e446]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e447]
+            - generic [ref=f27e448]: Структура, которая ведёт к заявке
+          - generic [ref=f27e449]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e450]
+            - generic [ref=f27e451]: От знакомства с услугой к обращению
+        - paragraph [ref=f27e452]: Обозначает путь посетителя вместо обещания, что сама структура обязательно приводит заявку.
+      - article [ref=f27e453]:
+        - paragraph [ref=f27e454]:
+          - generic [ref=f27e455]: RU
+          - generic [ref=f27e456]: Изменить
+          - generic [ref=f27e457]: P2
+        - heading "Главная · services / items / site" [level=2] [ref=f27e458]
+        - paragraph [ref=f27e459]:
+          - link "https://ilyakav.com/#services" [ref=f27e460] [cursor=pointer]:
+            - /url: https://ilyakav.com/#services
+        - paragraph [ref=f27e461]:
+          - code [ref=f27e462]: main.services.items.site.previewNote
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e463]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e464]:
+          - generic [ref=f27e465]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e466]
+            - generic [ref=f27e467]: Несколько страниц, ясная навигация, один целевой шаг на каждой.
+          - generic [ref=f27e468]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e469]
+            - generic [ref=f27e470]: Услуги, примеры работ и условия помогают выбрать подходящее решение и задать вопрос.
+        - paragraph [ref=f27e471]: Показывает содержание, благодаря которому работает структура, вместо технического количества страниц.
+      - article [ref=f27e472]:
+        - paragraph [ref=f27e473]:
+          - generic [ref=f27e474]: RU
+          - generic [ref=f27e475]: Изменить
+          - generic [ref=f27e476]: P2
+        - heading "Главная · services / items / landing" [level=2] [ref=f27e477]
+        - paragraph [ref=f27e478]:
+          - link "https://ilyakav.com/#services" [ref=f27e479] [cursor=pointer]:
+            - /url: https://ilyakav.com/#services
+        - paragraph [ref=f27e480]:
+          - code [ref=f27e481]: main.services.items.landing.previewNote
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e482]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e483]:
+          - generic [ref=f27e484]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e485]
+            - generic [ref=f27e486]: "Собирается под конкретную кампанию: оффер, доверие, форма."
+          - generic [ref=f27e487]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e488]
+            - generic [ref=f27e489]: Предложение из рекламы, условия, подтверждения и форма — на одной странице.
+        - paragraph [ref=f27e490]: Раскрывает связку с рекламой и заменяет непонятный «оффер» конкретной информацией.
+      - article [ref=f27e491]:
+        - paragraph [ref=f27e492]:
+          - generic [ref=f27e493]: RU
+          - generic [ref=f27e494]: Изменить
+          - generic [ref=f27e495]: P2
+        - heading "Главная · services / items / app" [level=2] [ref=f27e496]
+        - paragraph [ref=f27e497]:
+          - link "https://ilyakav.com/#services" [ref=f27e498] [cursor=pointer]:
+            - /url: https://ilyakav.com/#services
+        - paragraph [ref=f27e499]:
+          - code [ref=f27e500]: main.services.items.app.previewTitle
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e501]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e502]:
+          - generic [ref=f27e503]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e504]
+            - generic [ref=f27e505]: Кабинеты, данные, логика
+          - generic [ref=f27e506]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e507]
+            - generic [ref=f27e508]: Заказы и документы в одном месте
+        - paragraph [ref=f27e509]: Заменяет технические сущности «кабинеты, данные, логика» узнаваемым рабочим результатом.
+      - article [ref=f27e510]:
+        - paragraph [ref=f27e511]:
+          - generic [ref=f27e512]: RU
+          - generic [ref=f27e513]: Изменить
+          - generic [ref=f27e514]: P2
+        - heading "Главная · services / items / app" [level=2] [ref=f27e515]
+        - paragraph [ref=f27e516]:
+          - link "https://ilyakav.com/#services" [ref=f27e517] [cursor=pointer]:
+            - /url: https://ilyakav.com/#services
+        - paragraph [ref=f27e518]:
+          - code [ref=f27e519]: main.services.items.app.previewNote
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e520]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e521]:
+          - generic [ref=f27e522]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e523]
+            - generic [ref=f27e524]: "Когда сайта мало: учёт, роли, интеграции, внутренние процессы."
+          - generic [ref=f27e525]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e526]
+            - generic [ref=f27e527]: Клиенты проверяют статус, сотрудники обновляют данные, руководитель видит ход работы.
+        - paragraph [ref=f27e528]: Показывает назначение ролей на примере, уже раскрытом на странице услуги.
+      - article [ref=f27e529]:
+        - paragraph [ref=f27e530]:
+          - generic [ref=f27e531]: RU
+          - generic [ref=f27e532]: Изменить
+          - generic [ref=f27e533]: P2
+        - heading "Главная · services / items / desktop" [level=2] [ref=f27e534]
+        - paragraph [ref=f27e535]:
+          - link "https://ilyakav.com/#services" [ref=f27e536] [cursor=pointer]:
+            - /url: https://ilyakav.com/#services
+        - paragraph [ref=f27e537]:
+          - code [ref=f27e538]: main.services.items.desktop.previewNote
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e539]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e540]:
+          - generic [ref=f27e541]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e542]
+            - generic [ref=f27e543]: Приложение для Windows, когда процесс живёт не в браузере.
+          - generic [ref=f27e544]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e545]
+            - generic [ref=f27e546]: Приложение для Windows, которое объединяет работу с локальными файлами, данными или оборудованием.
+        - paragraph [ref=f27e547]: Объясняет причину выбора десктопа; противопоставление «внутри компании / в браузере» было логически слабым.
+      - article [ref=f27e548]:
+        - paragraph [ref=f27e549]:
+          - generic [ref=f27e550]: RU
+          - generic [ref=f27e551]: Изменить
+          - generic [ref=f27e552]: P2
+        - heading "Главная · process / steps / discover" [level=2] [ref=f27e553]
+        - paragraph [ref=f27e554]:
+          - link "https://ilyakav.com/" [ref=f27e555] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e556]:
+          - code [ref=f27e557]: main.process.steps.discover.title
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e558]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e559]:
+          - generic [ref=f27e560]:
+            - heading "Старый текст · 7/10" [level=3] [ref=f27e561]
+            - generic [ref=f27e562]: Погружение
+          - generic [ref=f27e563]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e564]
+            - generic [ref=f27e565]: Задача бизнеса
+        - paragraph [ref=f27e566]: Называет результат первого этапа понятнее, чем «погружение».
+      - article [ref=f27e567]:
+        - paragraph [ref=f27e568]:
+          - generic [ref=f27e569]: RU
+          - generic [ref=f27e570]: Изменить
+          - generic [ref=f27e571]: P1
+        - heading "Главная · process / steps / discover" [level=2] [ref=f27e572]
+        - paragraph [ref=f27e573]:
+          - link "https://ilyakav.com/" [ref=f27e574] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e575]:
+          - code [ref=f27e576]: main.process.steps.discover.desc
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e577]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e578]:
+          - generic [ref=f27e579]:
+            - heading "Старый текст · 5/10" [level=3] [ref=f27e580]
+            - generic [ref=f27e581]: Бизнес, аудитория, оффер, конкуренты.
+          - generic [ref=f27e582]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e583]
+            - generic [ref=f27e584]: Разбираемся, кто ваши клиенты, что им важно и какое действие должен поддерживать сайт.
+        - paragraph [ref=f27e585]: Переводит список маркетинговых терминов в понятные вопросы клиента.
+      - article [ref=f27e586]:
+        - paragraph [ref=f27e587]:
+          - generic [ref=f27e588]: RU
+          - generic [ref=f27e589]: Изменить
+          - generic [ref=f27e590]: P1
+        - heading "Главная · process / steps / structure" [level=2] [ref=f27e591]
+        - paragraph [ref=f27e592]:
+          - link "https://ilyakav.com/" [ref=f27e593] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e594]:
+          - code [ref=f27e595]: main.process.steps.structure.desc
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e596]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e597]:
+          - generic [ref=f27e598]:
+            - heading "Старый текст · 5/10" [level=3] [ref=f27e599]
+            - generic [ref=f27e600]: Порядок блоков, иерархия сообщений, точка решения.
+          - generic [ref=f27e601]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e602]
+            - generic [ref=f27e603]: Выстраиваю страницы так, чтобы посетитель понял предложение, нашёл ответы и смог обратиться.
+        - paragraph [ref=f27e604]: Убирает «иерархию сообщений» и «точку решения», объясняет назначение структуры.
+      - article [ref=f27e605]:
+        - paragraph [ref=f27e606]:
+          - generic [ref=f27e607]: RU
+          - generic [ref=f27e608]: Изменить
+          - generic [ref=f27e609]: P1
+        - heading "Главная · process / steps / design" [level=2] [ref=f27e610]
+        - paragraph [ref=f27e611]:
+          - link "https://ilyakav.com/" [ref=f27e612] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e613]:
+          - code [ref=f27e614]: main.process.steps.design.desc
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e615]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e616]:
+          - generic [ref=f27e617]:
+            - heading "Старый текст · 5/10" [level=3] [ref=f27e618]
+            - generic [ref=f27e619]: Визуальный язык, типографика, ключевые экраны.
+          - generic [ref=f27e620]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e621]
+            - generic [ref=f27e622]: Создаю дизайн, в котором услуги, работы и следующий шаг легко заметить с любого из согласованных устройств.
+        - paragraph [ref=f27e623]: Вместо типографики как самоцели — читаемость, ориентирование и видимость действия.
+      - article [ref=f27e624]:
+        - paragraph [ref=f27e625]:
+          - generic [ref=f27e626]: RU
+          - generic [ref=f27e627]: Изменить
+          - generic [ref=f27e628]: P1
+        - heading "Главная · process / steps / build" [level=2] [ref=f27e629]
+        - paragraph [ref=f27e630]:
+          - link "https://ilyakav.com/" [ref=f27e631] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e632]:
+          - code [ref=f27e633]: main.process.steps.build.desc
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e634]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e635]:
+          - generic [ref=f27e636]:
+            - heading "Старый текст · 6/10" [level=3] [ref=f27e637]
+            - generic [ref=f27e638]: Вёрстка, скорость, формы, интеграции.
+          - generic [ref=f27e639]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e640]
+            - generic [ref=f27e641]: Разрабатываю страницы, формы и согласованные подключения, проверяю работу на телефоне и компьютере.
+        - paragraph [ref=f27e642]: Показывает, что получит и сможет использовать клиент, не обещая новых услуг.
+      - article [ref=f27e643]:
+        - paragraph [ref=f27e644]:
+          - generic [ref=f27e645]: RU
+          - generic [ref=f27e646]: Изменить
+          - generic [ref=f27e647]: P2
+        - heading "Главная · process / steps / launch" [level=2] [ref=f27e648]
+        - paragraph [ref=f27e649]:
+          - link "https://ilyakav.com/" [ref=f27e650] [cursor=pointer]:
+            - /url: https://ilyakav.com/
+        - paragraph [ref=f27e651]:
+          - code [ref=f27e652]: main.process.steps.launch.desc
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e653]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e654]:
+          - generic [ref=f27e655]:
+            - heading "Старый текст · 8/10" [level=3] [ref=f27e656]
+            - generic [ref=f27e657]: Проверяем сайт, запускаем и передаём или берём на сопровождение.
+          - generic [ref=f27e658]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e659]
+            - generic [ref=f27e660]: Проверяем ключевые действия, запускаем сайт и передаём доступы или начинаем согласованное сопровождение.
+        - paragraph [ref=f27e661]: Чётче обозначает завершение и дальнейшую ответственность; оба варианта после запуска сохраняются.
+      - article [ref=f27e662]:
+        - paragraph [ref=f27e663]:
+          - generic [ref=f27e664]: RU
+          - generic [ref=f27e665]: Изменить
+          - generic [ref=f27e666]: P1
+        - heading "Главная · faq / items / price" [level=2] [ref=f27e667]
+        - paragraph [ref=f27e668]:
+          - link "https://ilyakav.com/#faq" [ref=f27e669] [cursor=pointer]:
+            - /url: https://ilyakav.com/#faq
+        - paragraph [ref=f27e670]:
+          - code [ref=f27e671]: main.faq.items.price.a
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e672]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e673]:
+          - generic [ref=f27e674]:
+            - heading "Старый текст · 8/10" [level=3] [ref=f27e675]
+            - generic [ref=f27e676]: Лендинг — от 1 500 €, сайт для бизнеса — от 2 500 €, кастомные приложения считаются под проект. Цену вы получаете фиксированной до старта работ.
+          - generic [ref=f27e677]:
+            - heading "Новый текст · 9/10" [level=3] [ref=f27e678]
+            - generic [ref=f27e679]: Лендинг — от 1 500 €, сайт для бизнеса — от 2 500 €. Приложения оцениваю индивидуально. До начала работ согласуем объём и фиксированную стоимость.
+        - paragraph [ref=f27e680]: Сохраняет цены, привязывает фиксированную стоимость к объёму; EN получает естественный формат валюты.
+      - article [ref=f27e681]:
+        - paragraph [ref=f27e682]:
+          - generic [ref=f27e683]: RU
+          - generic [ref=f27e684]: Изменить
+          - generic [ref=f27e685]: P2
+        - heading "Главная · faq / items / time" [level=2] [ref=f27e686]
+        - paragraph [ref=f27e687]:
+          - link "https://ilyakav.com/#faq" [ref=f27e688] [cursor=pointer]:
+            - /url: https://ilyakav.com/#faq
+        - paragraph [ref=f27e689]:
+          - code [ref=f27e690]: main.faq.items.time.a
+          - text: · src/i18n/locales/ru.json
+        - paragraph [ref=f27e691]: Совпадает со снимком работающего сайта
+        - generic [ref=f27e692]:
+          - generic [ref=f27e693]:
+            - heading "Старый текст · 8/10" [level=3] [ref=f27e694]
+            - generic [ref=f27e695]: Лендинг — обычно 2–3 недели, сайт для бизнеса — 4–6. Приложения зависят от объёма.
+          - generic [ref=f27e696]:
+            - heading "Новый текст · 8/10" [level=3] [ref=f27e697]
+            - generic [ref=f27e698]: Лендинг обычно занимает 2–3 недели, сайт для бизнеса — 4–6 недель. Для приложения срок зависит от согласованного объёма.
+        - paragraph [ref=f27e699]: Исправляет обрывочное предложение, оставляет реалистичную оговорку «обычно».
+    - generic [ref=f27e700]:
+      - button "← Назад" [disabled] [ref=f27e701] [cursor=pointer]
+      - generic [ref=f27e702]: 1 / 11
+      - button "Далее →" [ref=f27e703] [cursor=pointer]

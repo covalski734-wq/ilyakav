@@ -597,7 +597,6 @@
       "briefPlaceholder": "The task, audience, timing and anything you already know.",
       "submit": "Send the brief",
       "privacyNote": "Form fields pass through the website server to my Telegram so I can respond to your inquiry.",
-      "emailSubject": "New project — {{name}}",
       "types": {
         "site": "Business website",
         "landing": "Landing page",
@@ -801,5 +800,28 @@
     "copyright": "© 2026 Ilya Kavaleuski · ilyakav.com",
     "madeBy": "Designed and built by the person you will be talking to",
     "privacy": "Privacy"
+  },
+  "emailDraft": {
+    "project": {
+      "subject": "New project enquiry",
+      "typePlaceholder": "[website, app, bot or automation]",
+      "body": "Hello Ilya,\n\nI would like to discuss a project.\n\nMy name: [name]\nBusiness and audience: [a little about the company and customers]\nWhat I need: [the task and desired outcome]\nProject type: {{type}}\nPreferred timeline: [if known]\nBudget range: [if decided]\nLinks and materials: [if available]\n\nPlease let me know what the next steps could be. Thank you!"
+    },
+    "service": {
+      "subject": "Service enquiry: {{type}}",
+      "body": "Hello Ilya,\n\nI am interested in your {{type}} service.\n\nMy name: [name]\nAbout the business: [company and audience]\nTask and desired outcome: [a brief description]\nWhat is already available: [website, system, materials or links]\nTimeline and budget: [if known]\n\nCould you help define the scope and suggest the next step? Thank you!"
+    },
+    "privacy": {
+      "subject": "Personal data enquiry — ilyakav.com",
+      "body": "Hello Ilya,\n\nI am contacting you about the processing of personal data on ilyakav.com.\n\nMy question or request: [describe what you would like clarified or changed]\nRelevant context: [for example, the date of a form submission, if it helps locate the enquiry]\n\nPlease let me know how to proceed. Thank you!"
+    },
+    "cookies": {
+      "subject": "Cookies and consent settings enquiry — ilyakav.com",
+      "body": "Hello Ilya,\n\nI have a question about cookies or consent settings on ilyakav.com.\n\nQuestion or issue: [description]\nPage and steps: [where and when the question arose]\nBrowser and device: [if this is a technical issue]\n\nThank you for your help!"
+    },
+    "form": {
+      "subject": "New project: {{type}} — {{name}}",
+      "body": "Hello Ilya,\n\nI am sending my project details by email.\n\nMy name: {{name}}\nContact details: {{contact}}\nProject type: {{type}}\n\nWhat I need:\n{{brief}}\n\nI would be happy to discuss the details and next steps. Thank you!"
+    }
   }
 }

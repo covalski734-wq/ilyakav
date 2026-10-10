@@ -1,0 +1,109 @@
+- generic [ref=f4e2]:
+  - link "К основному содержимому" [ref=f4e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - link "ilyakav ." [ref=f4e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=f4e7]: .
+      - navigation [ref=f4e8]:
+        - link "Работы" [ref=f4e9] [cursor=pointer]:
+          - /url: /#work
+        - link "Задачи" [ref=f4e10] [cursor=pointer]:
+          - /url: /#range
+        - link "Услуги" [ref=f4e11] [cursor=pointer]:
+          - /url: /#services
+        - link "Обо мне" [ref=f4e12] [cursor=pointer]:
+          - /url: /about
+        - link "Контакты" [ref=f4e13] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f4e14]:
+        - generic [ref=f4e15]:
+          - button "RU" [pressed] [ref=f4e16] [cursor=pointer]
+          - button "UA" [ref=f4e17] [cursor=pointer]
+          - button "EN" [ref=f4e18] [cursor=pointer]
+        - button "Включить тёмную тему" [ref=f4e19] [cursor=pointer]
+      - link "Обсудить проект" [ref=f4e21] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f4e22]:
+    - article [ref=f4e23]:
+      - generic [ref=f4e24]:
+        - heading "Политика cookies" [level=1] [ref=f4e25]
+        - paragraph [ref=f4e26]: Политика описывает cookies и аналогичное хранение данных в браузере на этом сайте. Обновлено 8 октября 2026 года.
+        - button "Настройки cookies" [ref=f4e27] [cursor=pointer]
+        - generic [ref=f4e28]:
+          - heading "Что хранится в браузере" [level=2] [ref=f4e29]
+          - paragraph [ref=f4e30]: ilyakav-consent хранит выбор категорий, версию согласия и дату в localStorage. Сайт принимает этот выбор 180 дней, затем спрашивает снова; само localStorage не имеет автоматического срока удаления. ilyakav-lang и ilyakav-theme сохраняют язык и тему до очистки данных сайта. Эти записи управляются сайтом и не являются рекламными идентификаторами.
+        - generic [ref=f4e31]:
+          - heading "Необходимые" [level=2] [ref=f4e32]
+          - paragraph [ref=f4e33]: Сохраняют выбор согласия, язык и тему. Нужны для работы этих функций.
+          - heading "Аналитика" [level=2] [ref=f4e34]
+          - paragraph [ref=f4e35]: Просмотры страниц, нажатия на кнопки связи и успешная отправка формы. Содержимое формы не передаётся.
+          - heading "Маркетинг" [level=2] [ref=f4e36]
+          - paragraph [ref=f4e37]: Измерение и персонализация рекламы, включая хранение и использование рекламных данных. Рекламные сервисы сейчас не подключены.
+        - generic [ref=f4e38]:
+          - heading "Необязательные сервисы" [level=2] [ref=f4e39]
+          - paragraph [ref=f4e40]: В проверенном проекте нет идентификаторов Google Analytics, Google Ads или Meta Pixel. По умолчанию необязательные сервисы не подключены. Интеграция поддерживает Google Tag Manager, но перед публикацией контейнера нужно проверить его поставщиков, cookies и сроки хранения. Эти сведения требуют подтверждения и не представлены здесь как действующие cookies.
+        - generic [ref=f4e41]:
+          - heading "Другие внешние запросы" [level=2] [ref=f4e42]
+          - paragraph [ref=f4e43]: Сайт размещён на Cloudflare и загружает Google Fonts. При этих запросах могут передаваться технические данные, например IP-адрес и сведения о браузере; отказ от аналитики не отключает хостинг и шрифты. В кейсе Mariana Leus по действию посетителя может загружаться демонстрация marianaleus.com. Внешний сайт самостоятельно управляет своим хранением данных. Его поставщиков и хранилища необходимо проверить отдельно.
+        - generic [ref=f4e44]:
+          - heading "Изменение и отзыв согласия" [level=2] [ref=f4e45]
+          - paragraph [ref=f4e46]: "Откройте «Настройки cookies» в футере. «Отклонить все» оставляет только необходимое хранение. Отзыв прекращает новые необязательные события и удаляет распознаваемые доступные cookies аналитики и рекламы этого домена, если они есть. Если скрипты уже загружены, страница обновляется для остановки их таймеров. Это не удаляет ранее переданные данные и cookies других доменов: используйте настройки данных сайтов в браузере и обращайтесь к соответствующему поставщику для удаления данных."
+          - button "Настройки cookies" [ref=f4e47] [cursor=pointer]
+        - generic [ref=f4e48]:
+          - heading "Сведения для подтверждения" [level=2] [ref=f4e49]
+          - paragraph [ref=f4e50]: Перед подключением поставщика нужно подтвердить юридическое имя и адрес оператора, поставщиков и точный список cookies, сроки хранения, цели, международную передачу и правовые основания. Существенные изменения требуют новой версии согласия. Техническая реализация не является юридическим заключением.
+          - link "covalski734@gmail.com" [ref=f4e51] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+          - text: ·
+          - link "Конфиденциальность" [ref=f4e52] [cursor=pointer]:
+            - /url: /privacy
+  - contentinfo [ref=f4e53]:
+    - generic [ref=f4e54]:
+      - generic [ref=f4e55]:
+        - generic [ref=f4e56]:
+          - paragraph [ref=f4e57]: Написать напрямую
+          - link "covalski734@gmail.com" [ref=f4e58] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=f4e61]: Обычно отвечаю в течение рабочего дня
+      - generic [ref=f4e62]:
+        - generic [ref=f4e63]:
+          - paragraph [ref=f4e64]: Сайт
+          - link "Работы" [ref=f4e65] [cursor=pointer]:
+            - /url: /#work
+          - link "Задачи" [ref=f4e66] [cursor=pointer]:
+            - /url: /#range
+          - link "Услуги" [ref=f4e67] [cursor=pointer]:
+            - /url: /#services
+          - link "Обо мне" [ref=f4e68] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f4e69]:
+          - paragraph [ref=f4e70]: Проекты
+          - link "marianaleus.com" [ref=f4e71] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Обсудить проект" [ref=f4e72] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f4e73]:
+          - paragraph [ref=f4e74]: Напрямую
+          - link "Telegram @ilyakav" [ref=f4e75] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=f4e76]: Польша · работаю по Европе
+        - generic [ref=f4e77]:
+          - paragraph [ref=f4e78]: Интерфейс
+          - generic [ref=f4e79]:
+            - button "RU" [pressed] [ref=f4e80] [cursor=pointer]
+            - button "UA" [ref=f4e81] [cursor=pointer]
+            - button "EN" [ref=f4e82] [cursor=pointer]
+          - button "Включить тёмную тему" [ref=f4e83] [cursor=pointer]: Сменить тему
+          - link "Наверх ↑" [ref=f4e84] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=f4e85]:
+        - button "Настройки cookies" [ref=f4e86] [cursor=pointer]
+        - link "Политика cookies" [ref=f4e87] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=f4e88]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Конфиденциальность" [ref=f4e89] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=f4e90]: Спроектировано и собрано тем, с кем вы будете общаться

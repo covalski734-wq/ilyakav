@@ -1,0 +1,187 @@
+- generic [ref=f1e2]:
+  - link "К основному содержимому" [ref=f1e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - link "ilyakav ." [ref=f1e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=f1e7]: .
+      - navigation [ref=f1e8]:
+        - link "Работы" [ref=f1e9] [cursor=pointer]:
+          - /url: /#work
+        - link "Задачи" [ref=f1e10] [cursor=pointer]:
+          - /url: /#range
+        - link "Услуги" [ref=f1e11] [cursor=pointer]:
+          - /url: /#services
+        - link "Обо мне" [ref=f1e12] [cursor=pointer]:
+          - /url: /about
+        - link "Контакты" [ref=f1e13] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f1e14]:
+        - generic [ref=f1e15]:
+          - button "RU" [pressed] [ref=f1e16] [cursor=pointer]
+          - button "UA" [ref=f1e17] [cursor=pointer]
+          - button "EN" [ref=f1e18] [cursor=pointer]
+        - button "Включить тёмную тему" [ref=f1e19] [cursor=pointer]
+      - link "Обсудить проект" [ref=f1e21] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f1e22]:
+    - generic [ref=f1e24]:
+      - heading "От бизнес-задачи до работающего цифрового продукта." [level=1] [ref=f1e26]
+      - generic [ref=f1e27]:
+        - paragraph [ref=f1e28]: Соединяю стратегию, дизайн и разработку, чтобы сайт или приложение не просто выглядели цельно, а помогали человеку понять предложение и сделать следующий шаг.
+        - paragraph [ref=f1e29]: Лично веду проект от первого разговора до запуска. Часть продуктовой работы конфиденциальна, но о своей роли и принятых решениях могу рассказать без нарушения NDA.
+    - generic [ref=f1e31]:
+      - generic [ref=f1e32]:
+        - heading "Сначала задача. Затем интерфейс и код." [level=2] [ref=f1e34]
+        - generic [ref=f1e35]:
+          - paragraph [ref=f1e36]: Мне важно понять, зачем продукт нужен бизнесу и что должен сделать его пользователь.
+          - paragraph [ref=f1e37]: Я разбираюсь в контексте, формулирую направление, проектирую структуру и довожу её до работающей реализации. Это позволяет не разрывать замысел между стратегией, макетом и разработкой и не усложнять решение без необходимости.
+      - generic [ref=f1e38]:
+        - paragraph [ref=f1e39]: Моя роль
+        - paragraph [ref=f1e40]: Разобраться в задаче, превратить её в ясную систему и довести до работающего результата.
+    - generic [ref=f1e42]:
+      - generic [ref=f1e43]:
+        - heading "Что остаётся неизменным в каждом проекте." [level=2] [ref=f1e45]
+        - paragraph [ref=f1e46]: Решения могут быть разными, но критерии хорошей работы — нет.
+      - generic [ref=f1e47]:
+        - article [ref=f1e48]:
+          - generic [aria-hidden] [ref=f1e49]: "01"
+          - generic [ref=f1e50]:
+            - heading "Ясность важнее эффектности" [level=3] [ref=f1e51]
+            - paragraph [ref=f1e52]: Пользователь должен быстро понять, где он находится, что ему предлагают и что делать дальше.
+        - article [ref=f1e53]:
+          - generic [aria-hidden] [ref=f1e54]: "02"
+          - generic [ref=f1e55]:
+            - heading "У каждого решения есть задача" [level=3] [ref=f1e56]
+            - paragraph [ref=f1e57]: Структура, текст, анимация и технология появляются не ради самих себя, а ради конкретного результата.
+        - article [ref=f1e58]:
+          - generic [aria-hidden] [ref=f1e59]: "03"
+          - generic [ref=f1e60]:
+            - heading "Ответственность не теряется между ролями" [level=3] [ref=f1e61]
+            - paragraph [ref=f1e62]: Я лично держу в фокусе общую картину и остаюсь основной точкой контакта на протяжении проекта.
+        - article [ref=f1e63]:
+          - generic [aria-hidden] [ref=f1e64]: "04"
+          - generic [ref=f1e65]:
+            - heading "Результат должен жить после запуска" [level=3] [ref=f1e66]
+            - paragraph [ref=f1e67]: Закладываю понятную структуру и разумный технический запас, чтобы продукт можно было поддерживать и развивать.
+    - generic [ref=f1e69]:
+      - generic [ref=f1e70]:
+        - heading "Несколько дисциплин — одна цельная работа." [level=2] [ref=f1e72]
+        - paragraph [ref=f1e73]: Могу провести проект через ключевые этапы без потери контекста между ними.
+      - generic [ref=f1e74]:
+        - article [ref=f1e75]:
+          - generic [aria-hidden] [ref=f1e76]: "01"
+          - heading "Стратегия и структура" [level=3] [ref=f1e77]
+          - paragraph [ref=f1e78]: Задача бизнеса, аудитория, предложение, пользовательский путь и приоритеты продукта.
+        - article [ref=f1e79]:
+          - generic [aria-hidden] [ref=f1e80]: "02"
+          - heading "Дизайн интерфейса" [level=3] [ref=f1e81]
+          - paragraph [ref=f1e82]: Визуальная система, типографика, адаптивные состояния и понятное взаимодействие на разных экранах.
+        - article [ref=f1e83]:
+          - generic [aria-hidden] [ref=f1e84]: "03"
+          - heading "Фронтенд-разработка" [level=3] [ref=f1e85]
+          - paragraph [ref=f1e86]: Адаптивная реализация, анимации, производительность, доступность и интеграция с нужными сервисами.
+        - article [ref=f1e87]:
+          - generic [aria-hidden] [ref=f1e88]: "04"
+          - heading "Кастомные приложения" [level=3] [ref=f1e89]
+          - paragraph [ref=f1e90]: Интерфейсы с кабинетами, данными, ролями, интеграциями и бизнес-логикой, когда обычного сайта недостаточно.
+    - generic [ref=f1e93]:
+      - generic [ref=f1e94]:
+        - heading "Лично, но не в одиночку любой ценой." [level=2] [ref=f1e95]
+        - paragraph [ref=f1e96]: Состав работы зависит от задачи, а не от желания искусственно увеличить команду.
+      - generic [ref=f1e97]:
+        - article [ref=f1e98]:
+          - paragraph [ref=f1e99]: Когда достаточно одного специалиста
+          - generic [ref=f1e100]:
+            - heading "Я веду и выполняю проект лично" [level=3] [ref=f1e101]
+            - paragraph [ref=f1e102]: Для сайтов и сфокусированных интерфейсов я могу закрыть стратегию, дизайн и фронтенд самостоятельно. Вы напрямую общаетесь с человеком, который принимает решения и собирает продукт.
+        - article [ref=f1e103]:
+          - paragraph [ref=f1e104]: Когда проекту нужна дополнительная глубина
+          - generic [ref=f1e105]:
+            - heading "Подключаю проверенных специалистов" [level=3] [ref=f1e106]
+            - paragraph [ref=f1e107]: Если нужны отдельная бэкенд-разработка, сложная инфраструктура или другая специализация, я собираю подходящий состав и продолжаю отвечать за целостность проекта и коммуникацию.
+    - generic [ref=f1e109]:
+      - generic [ref=f1e110]:
+        - heading "Пять этапов от контекста до запуска." [level=2] [ref=f1e112]
+        - paragraph [ref=f1e113]: У каждого этапа есть понятный результат, на который опирается следующий.
+      - list [ref=f1e114]:
+        - listitem [ref=f1e115]:
+          - generic [aria-hidden] [ref=f1e116]: "01"
+          - generic [ref=f1e117]:
+            - heading "Контекст" [level=3] [ref=f1e118]
+            - paragraph [ref=f1e119]: Разбираем бизнес, аудиторию, предложение, ограничения и критерии успешного результата.
+        - listitem [ref=f1e120]:
+          - generic [aria-hidden] [ref=f1e121]: "02"
+          - generic [ref=f1e122]:
+            - heading "Направление" [level=3] [ref=f1e123]
+            - paragraph [ref=f1e124]: Определяем структуру, приоритетные сценарии и визуальный принцип до детальной отрисовки.
+        - listitem [ref=f1e125]:
+          - generic [aria-hidden] [ref=f1e126]: "03"
+          - generic [ref=f1e127]:
+            - heading "Сборка" [level=3] [ref=f1e128]
+            - paragraph [ref=f1e129]: Проектирую интерфейс и превращаю согласованное решение в адаптивный работающий продукт.
+        - listitem [ref=f1e130]:
+          - generic [aria-hidden] [ref=f1e131]: "04"
+          - generic [ref=f1e132]:
+            - heading "Доработка" [level=3] [ref=f1e133]
+            - paragraph [ref=f1e134]: Проверяем реальные состояния, контент, разные экраны и детали взаимодействия, устраняем слабые места.
+        - listitem [ref=f1e135]:
+          - generic [aria-hidden] [ref=f1e136]: "05"
+          - generic [ref=f1e137]:
+            - heading "Запуск" [level=3] [ref=f1e138]
+            - paragraph [ref=f1e139]: Готовим домен, окружение и необходимые интеграции, проверяем финальную версию и передаём доступы.
+    - generic [ref=f1e141]:
+      - heading "Есть задача, которую стоит разобрать?" [level=2] [ref=f1e143]
+      - generic [ref=f1e144]:
+        - paragraph [ref=f1e145]: Опишите её в нескольких предложениях. Я уточню контекст и предложу понятный следующий шаг.
+        - link "Обсудить проект" [ref=f1e146] [cursor=pointer]:
+          - /url: /contact
+  - contentinfo [ref=f1e147]:
+    - generic [ref=f1e148]:
+      - generic [ref=f1e149]:
+        - generic [ref=f1e150]:
+          - paragraph [ref=f1e151]: Написать напрямую
+          - link "covalski734@gmail.com" [ref=f1e152] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=f1e155]: Обычно отвечаю в течение рабочего дня
+      - generic [ref=f1e156]:
+        - generic [ref=f1e157]:
+          - paragraph [ref=f1e158]: Сайт
+          - link "Работы" [ref=f1e159] [cursor=pointer]:
+            - /url: /#work
+          - link "Задачи" [ref=f1e160] [cursor=pointer]:
+            - /url: /#range
+          - link "Услуги" [ref=f1e161] [cursor=pointer]:
+            - /url: /#services
+          - link "Обо мне" [ref=f1e162] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f1e163]:
+          - paragraph [ref=f1e164]: Проекты
+          - link "marianaleus.com" [ref=f1e165] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Обсудить проект" [ref=f1e166] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f1e167]:
+          - paragraph [ref=f1e168]: Напрямую
+          - link "Telegram @ilyakav" [ref=f1e169] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=f1e170]: Польша · работаю по Европе
+        - generic [ref=f1e171]:
+          - paragraph [ref=f1e172]: Интерфейс
+          - generic [ref=f1e173]:
+            - button "RU" [pressed] [ref=f1e174] [cursor=pointer]
+            - button "UA" [ref=f1e175] [cursor=pointer]
+            - button "EN" [ref=f1e176] [cursor=pointer]
+          - button "Включить тёмную тему" [ref=f1e177] [cursor=pointer]: Сменить тему
+          - link "Наверх ↑" [ref=f1e178] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=f1e179]:
+        - button "Настройки cookies" [ref=f1e180] [cursor=pointer]
+        - link "Политика cookies" [ref=f1e181] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=f1e182]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Конфиденциальность" [ref=f1e183] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=f1e184]: Спроектировано и собрано тем, с кем вы будете общаться

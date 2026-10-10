@@ -1,3 +1,4 @@
+import { contactMailto, type MailDraft } from '../lib/mailto'
 import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { useTranslation } from 'react-i18next'
@@ -427,7 +428,7 @@ export function ContactPage() {
   const directRef = useReveal<HTMLElement>({ y: 34, delay: 0.12 })
 
   const [status, setStatus] = useState<Status>('idle')
-  const [mailDraft, setMailDraft] = useState('')
+  const [mailDraft, setMailDraft] = useState<MailDraft | undefined>()
   const [initialType, setInitialType] = useState<ProjectType>('site')
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get('type')
@@ -448,7 +449,6 @@ export function ContactPage() {
     const brief = String(data.get('brief') ?? '').trim()
     const rawType = String(data.get('type') ?? 'other')
     const type = isProjectType(rawType) ? rawType : 'other'
-    const typeLabel = t(`contact.form.types.${type}` as const)
     const validation = validateContact({ name, contact, brief, type })
     setErrors(validation.errors)
     if (!validation.valid) {
@@ -460,18 +460,7 @@ export function ContactPage() {
 
     // A ready-made mail draft is kept aside so a failed send still has a way
     // out instead of losing everything the visitor typed.
-    const subject = t('contact.form.emailSubject', { name })
-    const body = [
-      `${t('contact.form.nameLabel')}: ${name}`,
-      `${t('contact.form.contactLabel')}: ${contact}`,
-      `${t('contact.form.typeLabel')}: ${typeLabel}`,
-      '',
-      `${t('contact.form.briefLabel')}:`,
-      brief,
-    ].join('\n')
-    setMailDraft(
-      `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-    )
+    setMailDraft({ name, contact, type, brief })
 
     busy.current = true
     setStatus('sending')
@@ -535,7 +524,7 @@ export function ContactPage() {
                 <span>{t('contact.direct.telegram')}</span>
                 <strong>{SITE.telegram.handle}</strong>
               </QuickLink>
-              <QuickLink href={`mailto:${SITE.email}`}>
+              <QuickLink href={contactMailto(t, { type: initialType })}>
                 <span>{t('contact.direct.email')}</span>
                 <strong>{SITE.email}</strong>
               </QuickLink>
@@ -636,7 +625,7 @@ export function ContactPage() {
                 <ResultBody>{t('contact.form.errorBody')}</ResultBody>
                 <ResultLinks>
                   <a href={SITE.telegram.url}>{SITE.telegram.handle}</a>
-                  <a href={mailDraft}>{t('contact.form.errorMailAction')}</a>
+                  <a href={contactMailto(t, { draft: mailDraft })}>{t('contact.form.errorMailAction')}</a>
                 </ResultLinks>
               </Result>
             )}
@@ -647,7 +636,7 @@ export function ContactPage() {
             <DirectLead>{t('contact.direct.lead')}</DirectLead>
 
             <DirectLinks>
-              <DirectLink href={`mailto:${SITE.email}`}>
+              <DirectLink href={contactMailto(t, { type: initialType })}>
                 <span>{t('contact.direct.email')}</span>
                 <span>{SITE.email}</span>
               </DirectLink>

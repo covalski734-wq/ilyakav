@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+import { contactMailto } from '../lib/mailto'
 import styled from 'styled-components'
 import { Container, SectionTitle } from '../components/ui/primitives'
 import { useConsentText } from '../components/consentText'
@@ -12,6 +14,7 @@ const Content = styled.article`
 `
 export function CookiePage() {
   const text = useConsentText()
+  const { t } = useTranslation()
   return <Content id="top"><Container>
     <SectionTitle as="h1">{text.policy}</SectionTitle><p>{text.policyIntro}</p>
     <ModalButton onClick={openCookieSettings}>{text.settings}</ModalButton>
@@ -20,6 +23,6 @@ export function CookiePage() {
     <section><h2>{text.optional}</h2><p>{gtmConfigured ? text.enabledBody : text.optionalBody}</p></section>
     <section><h2>{text.external}</h2><p>{text.externalBody}</p></section>
     <section><h2>{text.withdrawal}</h2><p>{text.withdrawalBody}</p><ModalButton onClick={openCookieSettings}>{text.settings}</ModalButton></section>
-    <section><h2>{text.review}</h2><p>{text.reviewBody}</p><a href={`mailto:${SITE.email}`}>{SITE.email}</a> · <a href="/privacy">{text.privacy}</a></section>
+    <section><h2>{text.review}</h2><p>{text.reviewBody}</p><a href={contactMailto(t, { scenario: 'cookies' })}>{SITE.email}</a> · <a href="/privacy">{text.privacy}</a></section>
   </Container></Content>
 }

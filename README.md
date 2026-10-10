@@ -77,7 +77,48 @@ Responses are JSON with `Cache-Control: no-store`:
 
 The hidden `company` honeypot returns an inert success without contacting Telegram. No parse_mode is used; visitor input is plain text. The frontend has a 15-second timeout, prevents duplicate pending sends, shows field errors, and retains all input after delivery errors. Success appears only when an HTTP success response also contains `ok: true`. Direct Telegram and an email draft remain available on failure.
 
-## Cloudflare deployment
+## Cloudflare Pages deployment
+
+The contact form works on Pages through `functions/api/contact.ts`, which exposes
+`/api/contact` and reuses the Telegram handler from `worker/index.ts`. Pages builds
+the root `functions/` directory separately from the static `dist/` output.
+
+For the existing Pages project:
+
+1. Set the repository root as the project root, build command `npm run build`, and
+   build output directory `dist`.
+2. In **Workers & Pages → your Pages project → Settings → Variables and Secrets**,
+   add `TELEGRAM_BOT_TOKEN` (the token from @BotFather) as a secret and
+   `TELEGRAM_CHAT_ID` (the destination user/group/channel ID). Set them for
+   Production, and separately for Preview if preview submissions are needed.
+   Never prefix these names with `VITE_` or put their values in source files.
+3. Open the bot in Telegram and press Start for a private chat, or add the bot to
+   the destination group/channel with permission to send messages.
+4. Redeploy the Pages project after saving the secrets. Deploy through the Git
+   integration or run `npm run pages:deploy -- --project-name YOUR_PAGES_PROJECT`
+   from the repository root. Dashboard drag-and-drop uploads do not build the
+   `functions/` directory.
+
+`wrangler.jsonc` remains the configuration for the optional standalone Workers
+deployment below. It has no `pages_build_output_dir`, so Pages ignores that file
+and uses the Pages project settings; Wrangler may print a warning about this.
+Pages serves static HTML using its own URL handling; the standalone Worker's
+HTML routing and redirects are not used by Pages.
+
+Local checks: `npm run pages:check` compiles the Pages function without deploying;
+`npm run pages:preview` builds and serves the actual Pages app locally. An ignored
+`.dev.vars` file can supply the two Telegram variables for manual local testing.
+`npm run dev` runs only Vite and does not run the API.
+
+After deployment, `GET /api/contact` should return JSON with status 405 (not HTML),
+and a valid form submission should deliver a Telegram message. A 503 means the
+Telegram variables are missing; a 502 means Telegram rejected the request or did
+not respond. Automated tests mock Telegram and do not send messages.
+
+See [Pages Functions deployment](https://developers.cloudflare.com/pages/functions/get-started/)
+and [secrets and bindings](https://developers.cloudflare.com/pages/functions/bindings/).
+
+## Cloudflare Workers deployment (alternative)
 
 The authoritative configuration is `wrangler.jsonc`: `main: worker/index.ts`, `assets.directory: dist`, `assets.binding: ASSETS`, `run_worker_first: true`, `not_found_handling: none`, `html_handling: none`.
 

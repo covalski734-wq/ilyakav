@@ -1,3 +1,4 @@
+import { contactMailto } from '../lib/mailto'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
@@ -542,7 +543,7 @@ export function PrivacyPage() {
                 {t('privacyPage.controller.title')}
               </ContactTitle>
               <ContactBody>{t('privacyPage.controller.body')}</ContactBody>
-              <ContactLink href={`mailto:${SITE.email}`}>
+              <ContactLink href={contactMailto(t, { scenario: 'privacy' })}>
                 <span>{t('privacyPage.controller.emailLabel')}</span>
                 <span>{SITE.email}</span>
               </ContactLink>

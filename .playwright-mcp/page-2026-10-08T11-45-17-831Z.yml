@@ -1,0 +1,474 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "ilyakav ." [ref=e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=e7]: .
+      - navigation [ref=e8]:
+        - link "Work" [ref=e9] [cursor=pointer]:
+          - /url: /#work
+        - link "Your needs" [ref=e10] [cursor=pointer]:
+          - /url: /#range
+        - link "Services" [ref=e11] [cursor=pointer]:
+          - /url: /#services
+        - link "About" [ref=e12] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e13] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - button "RU" [ref=e16] [cursor=pointer]
+          - button "UA" [ref=e17] [cursor=pointer]
+          - button "EN" [pressed] [ref=e18] [cursor=pointer]
+        - button "Switch to dark theme" [ref=e19] [cursor=pointer]
+      - link "Let’s talk" [ref=e21] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=e22]:
+    - region [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - heading "Your website. Built to work." [level=1] [ref=e27]:
+            - text: Your website.
+            - generic [ref=e28]: Built to work.
+          - generic [ref=e29]:
+            - paragraph [ref=e30]: I build business websites with clear services, real work and a simple way to enquire. I handle your project personally, from structure to launch.
+            - generic [ref=e31]:
+              - link "Let’s talk" [ref=e32] [cursor=pointer]:
+                - /url: /contact
+                - text: Let’s talk
+                - generic [aria-hidden] [ref=e33]: ↗
+              - link "Work" [ref=e34] [cursor=pointer]:
+                - /url: "#work"
+                - text: Work
+                - generic [aria-hidden] [ref=e35]: ↓
+        - generic [ref=e36]:
+          - paragraph [ref=e37]: Ilya Kavaleuski · developer
+          - paragraph [ref=e38]: Structure, design & development
+    - generic [ref=e40]:
+      - heading "Where do we start?" [level=2] [ref=e41]
+      - paragraph [ref=e42]: A new website, an update to your current one or a tool for your team — start with what you need.
+      - generic [ref=e43]:
+        - article [ref=e44]:
+          - heading "I need a new website" [level=3] [ref=e45]
+          - paragraph [ref=e46]: Present your services, show your work and help customers get in touch.
+          - link "Business websites" [ref=e47] [cursor=pointer]:
+            - /url: /services/business-websites
+            - text: Business websites
+            - generic [aria-hidden] [ref=e48]: ↗
+        - article [ref=e49]:
+          - heading "My website needs an update" [level=3] [ref=e50]
+          - paragraph [ref=e51]: Rethink the structure, design and mobile experience of your existing site.
+          - link "Website redesign" [ref=e52] [cursor=pointer]:
+            - /url: /services/website-redesign
+            - text: Website redesign
+            - generic [aria-hidden] [ref=e53]: ↗
+        - article [ref=e54]:
+          - heading "I need a tool for my team" [level=3] [ref=e55]
+          - paragraph [ref=e56]: Bring tasks, data and statuses into an application built around your workflow.
+          - link "Web applications" [ref=e57] [cursor=pointer]:
+            - /url: /services/web-applications
+            - text: Web applications
+            - generic [aria-hidden] [ref=e58]: ↗
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - paragraph [ref=e62]: Interface demonstration · sample data
+        - link "Work" [ref=e63] [cursor=pointer]:
+          - /url: "#work"
+          - text: Work
+          - generic [aria-hidden] [ref=e64]: ↓
+      - generic [ref=e68]:
+        - img "An animated project management interface scrolling inside a laptop" [ref=e69]:
+          - generic [aria-hidden] [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: arcflow
+              - generic [ref=e73]:
+                - generic [ref=e74]: Overview
+                - generic [ref=e75]: Workflow
+                - generic [ref=e76]: Signals
+              - generic [ref=e77]: system live
+            - generic [ref=e78]:
+              - paragraph [ref=e79]: Interactive product demo
+              - heading [level=3] [ref=e80]: Complex work. One clear flow.
+              - paragraph [ref=e81]: Projects, decisions and feedback brought together in one understandable system.
+              - text: Open workspace
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - text: Active projects
+                - strong [ref=e84]: "24"
+                - generic [ref=e85]: + 18%
+              - generic [ref=e86]:
+                - text: In review
+                - strong [ref=e87]: "06"
+                - generic [ref=e88]: 3 → 1
+              - generic [ref=e89]:
+                - text: Team velocity
+                - strong [ref=e90]: 1.8×
+                - generic [ref=e91]: + 0.4
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - paragraph [ref=e95]: Momentum
+                - heading [level=4] [ref=e96]: Delivery rhythm
+              - generic [ref=e97]: last 12 weeks
+            - generic [ref=e112]:
+              - generic [ref=e113]: release ready
+              - generic [ref=e114]: design approved
+              - generic [ref=e115]: data synchronized
+              - generic [ref=e116]: release ready
+              - generic [ref=e117]: design approved
+              - generic [ref=e118]: data synchronized
+            - generic [ref=e119]:
+              - generic [ref=e120]:
+                - generic [ref=e121]:
+                  - paragraph [ref=e122]: Workflow
+                  - heading [level=4] [ref=e123]: From idea to release
+                - generic [ref=e124]: updates in real time
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - paragraph [ref=e127]: In progress
+                  - strong [ref=e129]: Discovery
+                  - strong [ref=e133]: Content & structure
+                - generic [ref=e136]:
+                  - paragraph [ref=e137]: Review
+                  - strong [ref=e139]: Interactive prototype
+                - generic [ref=e142]:
+                  - paragraph [ref=e143]: Ready
+                  - strong [ref=e145]: Release v2.4
+            - generic [ref=e148]:
+              - generic [ref=e150]:
+                - paragraph [ref=e151]: Signals
+                - heading [level=4] [ref=e152]: Context stays attached
+              - generic [ref=e153]:
+                - generic [ref=e154]:
+                  - generic [ref=e155]: "01"
+                  - strong [ref=e156]: Priorities
+                  - paragraph [ref=e157]: The team sees what matters now and why.
+                - generic [ref=e158]:
+                  - generic [ref=e159]: "02"
+                  - strong [ref=e160]: Lossless handoff
+                  - paragraph [ref=e161]: Decisions stay with the work instead of disappearing into chat.
+                - generic [ref=e162]:
+                  - generic [ref=e163]: "03"
+                  - strong [ref=e164]: Visible progress
+                  - paragraph [ref=e165]: Momentum is clear without extra status calls.
+            - generic [ref=e166]:
+              - heading [level=4] [ref=e167]: Work moves. The team knows why.
+              - generic [ref=e168]: Start the flow →
+        - generic [ref=e169]: ilyakav.
+      - generic [ref=e223]:
+        - generic [aria-hidden] [ref=e224]: 01 / 03
+        - heading "Start with a clear picture" [level=3] [ref=e225]
+        - paragraph [ref=e226]: An overview helps your team see what is happening and where to go next.
+    - region [ref=e227]:
+      - generic [ref=e228]:
+        - generic [ref=e229]:
+          - paragraph [ref=e230]: Selected work
+          - heading "Websites for service businesses" [level=2] [ref=e231]
+          - paragraph [ref=e232]: "Selected projects: a website for a marketer, a business website built from scratch, and a redesign prepared for advertising."
+        - generic [ref=e233]:
+          - 'link "Desktop view of the marianaleus.com homepage Mariana Leus Strategy, design, development A website for a performance marketer: a clear offer, proof of results and a short path to an enquiry. Explore the project" [ref=e234] [cursor=pointer]':
+            - /url: /case/marianaleus
+            - img "Desktop view of the marianaleus.com homepage" [ref=e235]
+            - generic [ref=e236]:
+              - heading "Mariana Leus" [level=3] [ref=e237]
+              - generic [ref=e238]: Strategy, design, development
+              - paragraph [ref=e240]: "A website for a performance marketer: a clear offer, proof of results and a short path to an enquiry."
+              - generic [ref=e241]:
+                - text: Explore the project
+                - generic [aria-hidden] [ref=e242]: ↗
+          - link "The opening screen shows the product in an interior and makes an estimate the next step. Skyline Stretch Ceilings Development from scratch React + Vite A website built from scratch to introduce stretch ceilings and integrated lighting, present the options and invite estimate requests. Explore the project" [ref=e243] [cursor=pointer]:
+            - /url: /case/skyline-stretch-ceilings
+            - img "The opening screen shows the product in an interior and makes an estimate the next step." [ref=e244]
+            - generic [ref=e245]:
+              - heading "Skyline Stretch Ceilings" [level=3] [ref=e246]
+              - generic [ref=e247]:
+                - generic [ref=e248]: Development from scratch
+                - generic [ref=e249]: React + Vite
+              - paragraph [ref=e250]: A website built from scratch to introduce stretch ceilings and integrated lighting, present the options and invite estimate requests.
+              - generic [ref=e251]:
+                - text: Explore the project
+                - generic [aria-hidden] [ref=e252]: ↗
+          - link "The opening names the service and region alongside an estimate request. Maryna Cleaning Redesign and preparation for ads SendPulse A cleaning website redesigned as part of Google Ads work, with services, starting prices and an enquiry form that captures job details. Explore the project" [ref=e253] [cursor=pointer]:
+            - /url: /case/maryna-cleaning
+            - img "The opening names the service and region alongside an estimate request." [ref=e254]
+            - generic [ref=e255]:
+              - heading "Maryna Cleaning" [level=3] [ref=e256]
+              - generic [ref=e257]:
+                - generic [ref=e258]: Redesign and preparation for ads
+                - generic [ref=e259]: SendPulse
+              - paragraph [ref=e260]: A cleaning website redesigned as part of Google Ads work, with services, starting prices and an enquiry form that captures job details.
+              - generic [ref=e261]:
+                - text: Explore the project
+                - generic [aria-hidden] [ref=e262]: ↗
+        - complementary "Another project with a limited confirmed scope" [ref=e263]:
+          - paragraph [ref=e264]: Tile Expert Solutions — the exact changes are unconfirmed. See the case for details and limitations.
+          - link "Tile Expert Solutions ↗" [ref=e265] [cursor=pointer]:
+            - /url: /case/tile-expert-solutions
+    - generic [ref=e267]:
+      - generic [ref=e268]:
+        - heading "Services" [level=2] [ref=e269]
+        - paragraph [ref=e270]: Websites from €1,500
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - heading [level=3] [ref=e274]:
+              - button "Business websites" [pressed] [ref=e275] [cursor=pointer]
+            - paragraph [ref=e276]: Help people understand your services, see your work and enquire, even when you are unavailable.
+          - generic [ref=e277]:
+            - heading [level=3] [ref=e278]:
+              - button "Landing pages" [ref=e279] [cursor=pointer]
+            - paragraph [ref=e280]: "One page that helps people understand the offer and take the next step: enquire, book or buy."
+          - generic [ref=e281]:
+            - heading [level=3] [ref=e282]:
+              - button "Redesign & existing projects" [ref=e283] [cursor=pointer]
+            - paragraph [ref=e284]: Make your existing website clearer and easier to use, keeping what already serves your business.
+          - generic [ref=e285]:
+            - heading [level=3] [ref=e286]:
+              - button "Custom web applications" [ref=e287] [cursor=pointer]
+            - paragraph [ref=e288]: When you need to give people a working tool in their browser, beyond a description of your business.
+          - generic [ref=e289]:
+            - heading [level=3] [ref=e290]:
+              - button "Desktop software" [ref=e291] [cursor=pointer]
+            - paragraph [ref=e292]: A working tool for tasks tied to a computer, local files or equipment.
+        - generic [ref=e294]:
+          - 'img "Website concept: an architecture studio website on a laptop" [ref=e296]'
+          - generic [ref=e297]:
+            - paragraph [ref=e298]: Structure that leads to a request
+            - paragraph [ref=e299]: A few pages, clear navigation, one target step on each.
+            - paragraph [ref=e300]:
+              - text: from €2,500
+              - generic [ref=e301]: Usually 4–6 weeks · scope agreed before we start
+            - link "Explore this service" [ref=e302] [cursor=pointer]:
+              - /url: /services/business-websites
+              - text: Explore this service
+              - generic [aria-hidden] [ref=e303]: ↗
+      - generic [ref=e304]:
+        - heading "What your website can connect to" [level=3] [ref=e305]
+        - paragraph [ref=e306]: An inquiry is just the start. I connect your website to the services you and your clients use.
+        - generic [ref=e307]:
+          - 'link "Chatbot concept: service selection and booking confirmation on a phone Telegram bots Service selection, answers to common questions, and inquiries in a messenger. Hand the conversation to a person when needed. Explore this service" [ref=e308] [cursor=pointer]':
+            - /url: /services/telegram-bots
+            - 'img "Chatbot concept: service selection and booking confirmation on a phone" [ref=e310]'
+            - heading "Telegram bots" [level=4] [ref=e311]:
+              - text: Telegram bots
+              - generic [aria-hidden] [ref=e312]: ↗
+            - paragraph [ref=e313]: Service selection, answers to common questions, and inquiries in a messenger. Hand the conversation to a person when needed.
+            - generic [ref=e314]: Explore this service
+          - 'link "Automation concept: inquiries, notifications and a workflow sketch Inquiries & CRM Send website inquiries to your CRM or spreadsheet. Notify the team and track progress without copying data by hand. Explore this service" [ref=e315] [cursor=pointer]':
+            - /url: /services/crm-automation
+            - 'img "Automation concept: inquiries, notifications and a workflow sketch" [ref=e317]'
+            - heading "Inquiries & CRM" [level=4] [ref=e318]:
+              - text: Inquiries & CRM
+              - generic [aria-hidden] [ref=e319]: ↗
+            - paragraph [ref=e320]: Send website inquiries to your CRM or spreadsheet. Notify the team and track progress without copying data by hand.
+            - generic [ref=e321]: Explore this service
+          - 'link "Online booking concept: a calendar and available times on a phone Booking & payments Clients choose a service and time, pay, and receive confirmation. Connect an existing service or build custom booking logic. Explore this service" [ref=e322] [cursor=pointer]':
+            - /url: /services/booking-and-payments
+            - 'img "Online booking concept: a calendar and available times on a phone" [ref=e324]'
+            - heading "Booking & payments" [level=4] [ref=e325]:
+              - text: Booking & payments
+              - generic [aria-hidden] [ref=e326]: ↗
+            - paragraph [ref=e327]: Clients choose a service and time, pay, and receive confirmation. Connect an existing service or build custom booking logic.
+            - generic [ref=e328]: Explore this service
+        - paragraph [ref=e329]: Available for a new website or your existing one. Scope and cost depend on your workflow.
+      - generic [ref=e330]:
+        - paragraph [ref=e331]: Tell me about your project. We’ll discuss the approach, timing and cost.
+        - link "Let’s talk" [ref=e332] [cursor=pointer]:
+          - /url: /contact#project-form
+    - generic [ref=e334]:
+      - generic [ref=e335]:
+        - generic [ref=e336]:
+          - heading "One interface. Any screen." [level=2] [ref=e337]
+          - paragraph [ref=e338]: "On a large screen, see the full picture: data, tasks, and useful actions together."
+        - generic [ref=e340]:
+          - img "A responsive product management interface rebuilding from desktop to mobile" [ref=e341]:
+            - generic [aria-hidden] [ref=e342]:
+              - complementary [ref=e343]:
+                - generic [ref=e344]: orbit
+                - paragraph [ref=e346]: Product team
+                - navigation [ref=e347]:
+                  - generic [ref=e348]: Overview
+                  - generic [ref=e349]: Projects
+                  - generic [ref=e350]: Team
+                - generic [ref=e351]:
+                  - generic [ref=e352]: IK
+                  - generic [ref=e353]:
+                    - strong [ref=e354]: Ilya
+                    - generic [ref=e355]: online
+              - main [ref=e356]:
+                - generic [ref=e357]:
+                  - generic [ref=e358]: Search workspace
+                  - generic [ref=e359]: + New task
+                - generic [ref=e360]:
+                  - paragraph [ref=e361]: Workspace
+                  - heading [level=3] [ref=e362]: Product delivery
+                  - paragraph [ref=e363]: Projects, pace and the team's next step in one place.
+                  - generic [ref=e364]:
+                    - generic [ref=e365]:
+                      - generic [ref=e366]: Active
+                      - strong [ref=e367]: "12"
+                    - generic [ref=e368]:
+                      - generic [ref=e369]: Completed
+                      - strong [ref=e370]: "38"
+                    - generic [ref=e371]:
+                      - generic [ref=e372]: Velocity
+                      - strong [ref=e373]: 1.8×
+                  - generic [ref=e374]:
+                    - heading [level=4] [ref=e375]: Active projects
+                    - generic [ref=e376]: View all →
+                  - generic [ref=e377]:
+                    - article [ref=e378]:
+                      - strong [ref=e379]: New checkout
+                      - generic [ref=e380]: Design · Development
+                      - generic [ref=e382]: 72%
+                    - article [ref=e383]:
+                      - strong [ref=e384]: Client portal
+                      - generic [ref=e385]: System · Integrations
+                      - generic [ref=e387]: 46%
+                  - generic [ref=e388]:
+                    - generic [ref=e389]: 10:30
+                    - generic [ref=e390]:
+                      - strong [ref=e391]: Team sync
+                      - generic [ref=e392]: Next call
+                    - generic [ref=e393]: online
+          - generic [ref=e394]: desktop 1440
+      - generic [ref=e396]:
+        - heading "Process" [level=2] [ref=e397]
+        - generic [ref=e398]:
+          - generic [ref=e399]:
+            - paragraph [ref=e400]: "01"
+            - heading "Discover" [level=3] [ref=e401]
+            - paragraph [ref=e402]: Business, audience, offer, competitors.
+          - generic [ref=e403]:
+            - paragraph [ref=e404]: "02"
+            - heading "Structure" [level=3] [ref=e405]
+            - paragraph [ref=e406]: Block order, message hierarchy, the decision point.
+          - generic [ref=e407]:
+            - paragraph [ref=e408]: "03"
+            - heading "Design" [level=3] [ref=e409]
+            - paragraph [ref=e410]: Visual language, typography, key screens.
+          - generic [ref=e411]:
+            - paragraph [ref=e412]: "04"
+            - heading "Build" [level=3] [ref=e413]
+            - paragraph [ref=e414]: Development, speed, forms, integrations.
+          - generic [ref=e415]:
+            - paragraph [ref=e416]: "05"
+            - heading "Launch" [level=3] [ref=e417]
+            - paragraph [ref=e418]: Check and launch the site, then hand it over or provide ongoing support.
+    - generic [ref=e420]:
+      - generic [ref=e421]:
+        - heading "Your website. Your choice of support." [level=2] [ref=e422]
+        - paragraph [ref=e423]: We build your website from planning and design through development and launch. Then you choose who looks after it.
+      - generic [ref=e424]:
+        - article [ref=e425]:
+          - heading "Full handover" [level=3] [ref=e426]
+          - paragraph [ref=e427]: For managing the website yourself or with your own team.
+          - list [ref=e428]:
+            - listitem [ref=e429]: Receive the code, project materials and website access.
+            - listitem [ref=e430]: Get an explanation of how the project works and how to update it.
+            - listitem [ref=e431]: Return to us for future changes at a client discount.
+          - paragraph [ref=e432]: You choose who maintains the website. There is no compulsory subscription to our support.
+        - article [ref=e433]:
+          - heading "Ongoing subscription" [level=3] [ref=e434]
+          - paragraph [ref=e435]: For focusing on your business while we handle the technical side.
+          - list [ref=e436]:
+            - listitem [ref=e437]: We handle hosting and maintenance within an agreed scope.
+            - listitem [ref=e438]: The recurring fee, support coverage and change process are agreed upfront.
+            - listitem [ref=e439]: You can move to a full handover later under the agreed terms.
+          - paragraph [ref=e440]: You have someone to turn to for technical questions, without finding a new specialist for each request.
+      - paragraph [ref=e441]: "Compare more than the launch price: what you receive, who helps afterwards and whether you can change providers. We discuss those terms upfront."
+      - paragraph [ref=e442]: We agree the subscription price, coverage, handover terms and discount on changes before starting. Domain, hosting and third-party service charges are considered separately and depend on the project.
+    - generic [ref=e445]:
+      - generic [ref=e446]:
+        - heading "One contact throughout the project" [level=2] [ref=e447]
+        - paragraph [ref=e448]: I’m Ilya, a designer and developer. I plan the structure, design the interface and write the code. You see work in progress and know who to contact.
+        - paragraph [ref=e449]: If the project needs other specialists, we agree their involvement in advance. I handle the coordination.
+        - link "More about how I work ↗" [ref=e450] [cursor=pointer]:
+          - /url: /about
+      - complementary [ref=e451]:
+        - heading "Need advertising after launch?" [level=3] [ref=e452]
+        - paragraph [ref=e453]: For Google Ads and Meta Ads, we can bring in Mariana Leus. I handle the website and Mariana manages the campaigns. Scope and budget are discussed separately.
+        - link "Meet Mariana ↗" [ref=e454] [cursor=pointer]:
+          - /url: https://marianaleus.com/
+    - generic [ref=e456]:
+      - generic [ref=e457]:
+        - heading "Questions before we start" [level=2] [ref=e458]
+        - paragraph [ref=e459]: Costs, timelines and what happens after launch.
+        - link "Ask me directly" [ref=e460] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e461]:
+        - generic [ref=e462]:
+          - button "How much does a website cost?" [ref=e463] [cursor=pointer]
+          - paragraph [ref=e465]: Landing pages start from 1 500 €, business sites from 2 500 €, custom applications are quoted per project. You get a fixed price before the work starts.
+        - generic [ref=e466]:
+          - button "How long does a project take?" [ref=e467] [cursor=pointer]
+          - paragraph [ref=e469]: A landing page usually 2–3 weeks, a business site 4–6. Applications depend on scope.
+        - generic [ref=e470]:
+          - button "Do you handle both design and development?" [ref=e471] [cursor=pointer]
+          - paragraph [ref=e473]: Yes. We plan the structure, design, develop and launch the website. Any additional specialists are agreed in advance.
+        - generic [ref=e474]:
+          - button "Can you take over an existing project?" [ref=e475] [cursor=pointer]
+          - paragraph [ref=e477]: Yes — a builder site, old code or work left by another developer. I review it first and say honestly whether to improve, rebuild or extend.
+        - generic [ref=e478]:
+          - button "Who manages the website after launch?" [ref=e479] [cursor=pointer]
+          - paragraph [ref=e481]: Choose a full handover of code and access, or a support subscription with the option to take over later. After a full handover, you can return to us for changes at a client discount. Support coverage, handover terms and the discount are agreed before we start.
+        - generic [ref=e482]:
+          - button "Can it be used with Google or Meta Ads?" [ref=e483] [cursor=pointer]
+          - paragraph [ref=e485]: "That is how it is planned from the start: clear offer, fast load, analytics and lead events ready for traffic."
+    - generic [ref=e488]:
+      - heading "What should your website do?" [level=2] [ref=e489]
+      - paragraph [ref=e490]: Tell me about your business and the task. I’ll suggest an appropriate solution, scope and cost.
+      - generic [ref=e491]:
+        - link "Let’s talk" [ref=e492] [cursor=pointer]:
+          - /url: /contact
+        - link "covalski734@gmail.com" [ref=e493] [cursor=pointer]:
+          - /url: mailto:covalski734@gmail.com
+  - contentinfo [ref=e494]:
+    - generic [ref=e495]:
+      - generic [ref=e496]:
+        - generic [ref=e497]:
+          - paragraph [ref=e498]: Write directly
+          - link "covalski734@gmail.com" [ref=e499] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=e502]: Usually a reply within one working day
+      - generic [ref=e503]:
+        - generic [ref=e504]:
+          - paragraph [ref=e505]: Site
+          - link "Work" [ref=e506] [cursor=pointer]:
+            - /url: /#work
+          - link "Your needs" [ref=e507] [cursor=pointer]:
+            - /url: /#range
+          - link "Services" [ref=e508] [cursor=pointer]:
+            - /url: /#services
+          - link "About" [ref=e509] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=e510]:
+          - paragraph [ref=e511]: Projects
+          - link "marianaleus.com" [ref=e512] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Let’s talk" [ref=e513] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e514]:
+          - paragraph [ref=e515]: Direct
+          - link "Telegram @ilyakav" [ref=e516] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=e517]: Poland · working across Europe
+        - generic [ref=e518]:
+          - paragraph [ref=e519]: Interface
+          - generic [ref=e520]:
+            - button "RU" [ref=e521] [cursor=pointer]
+            - button "UA" [ref=e522] [cursor=pointer]
+            - button "EN" [pressed] [ref=e523] [cursor=pointer]
+          - button "Switch to dark theme" [ref=e524] [cursor=pointer]: Switch theme
+          - link "Back to top ↑" [ref=e525] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=e526]:
+        - button "Cookie Settings" [ref=e527] [cursor=pointer]
+        - link "Cookie Policy" [ref=e528] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=e529]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Privacy" [ref=e530] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=e531]: Designed and built by the person you will be talking to

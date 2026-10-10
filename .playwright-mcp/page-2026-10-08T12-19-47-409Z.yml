@@ -1,0 +1,223 @@
+- generic [ref=f25e2]:
+  - link "До основного вмісту" [ref=f25e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f25e4]:
+    - generic [ref=f25e5]:
+      - link "ilyakav ." [ref=f25e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=f25e7]: .
+      - navigation [ref=f25e8]:
+        - link "Роботи" [ref=f25e9] [cursor=pointer]:
+          - /url: /#work
+        - link "Завдання" [ref=f25e10] [cursor=pointer]:
+          - /url: /#range
+        - link "Послуги" [ref=f25e11] [cursor=pointer]:
+          - /url: /#services
+        - link "Про мене" [ref=f25e12] [cursor=pointer]:
+          - /url: /about
+        - link "Контакти" [ref=f25e13] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f25e14]:
+        - generic [ref=f25e15]:
+          - button "RU" [ref=f25e16] [cursor=pointer]
+          - button "UA" [pressed] [ref=f25e17] [cursor=pointer]
+          - button "EN" [ref=f25e18] [cursor=pointer]
+        - button "Увімкнути темну тему" [ref=f25e19] [cursor=pointer]
+      - link "Обговорити проєкт" [ref=f25e21] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f25e22]:
+    - generic [ref=f25e24]:
+      - paragraph [ref=f25e25]: Веброзробка · кейс
+      - generic [ref=f25e26]:
+        - heading "Skyline Stretch Ceilings" [level=1] [ref=f25e27]
+        - generic [ref=f25e28]:
+          - paragraph [ref=f25e29]: Сайт із нуля, який знайомить із натяжними стелями та інтегрованим світлом, показує варіанти й веде до запиту розрахунку.
+          - generic [ref=f25e30]:
+            - link "Відкрити Skyline Stretch Ceilings у новій вкладці" [ref=f25e31] [cursor=pointer]:
+              - /url: https://skylineceilings.ca/
+              - text: Відкрити сайт ↗
+            - link "Усі роботи" [ref=f25e32] [cursor=pointer]:
+              - /url: /#work
+      - generic [ref=f25e33]:
+        - generic [ref=f25e34]:
+          - term [ref=f25e35]: Ніша
+          - definition [ref=f25e36]: Натяжні стелі та освітлення
+        - generic [ref=f25e37]:
+          - term [ref=f25e38]: Географія
+          - definition [ref=f25e39]: Ванкувер, Канада
+        - generic [ref=f25e40]:
+          - term [ref=f25e41]: Формат роботи
+          - definition [ref=f25e42]: Розробка з нуля
+        - generic [ref=f25e43]:
+          - term [ref=f25e44]: Технології / платформа
+          - definition [ref=f25e45]: React + Vite
+    - generic [ref=f25e47]:
+      - 'figure "Перший екран: інтер’єр показує продукт, а запит розрахунку задає наступний крок." [ref=f25e48]':
+        - 'link "Відкрити зображення: Перший екран: інтер’єр показує продукт, а запит розрахунку задає наступний крок." [ref=f25e49] [cursor=pointer]':
+          - /url: /media/cases/skyline/desktop.webp
+          - 'img "Skyline Stretch Ceilings. Перший екран: інтер’єр показує продукт, а запит розрахунку задає наступний крок." [ref=f25e50]'
+      - paragraph [ref=f25e52]: Скриншоти чинних сайтів · 5 жовтня 2026. Публічні версії можуть змінюватися після завершення робіт.
+    - generic [ref=f25e55]:
+      - generic [ref=f25e56]:
+        - heading "Контекст бізнесу" [level=2] [ref=f25e57]
+        - paragraph [ref=f25e58]: "Клієнт хотів перевірити попит на продукт, новий для його цільової аудиторії в Канаді. Людині, яка раніше не стикалася з натяжними стелями, недостатньо назви послуги: потрібно побачити результат і зрозуміти, як стеля поєднується з освітленням та наявним інтер’єром."
+      - generic [ref=f25e59]:
+        - heading "Завдання проєкту" [level=2] [ref=f25e60]
+        - paragraph [ref=f25e61]: Створити сайт, який пояснює продукт, допомагає порівняти варіанти й дає зрозумілий спосіб запросити розрахунок. До звернення відвідувачу важливо розібратися в матеріалі, оцінити вигляд і зрозуміти, що відбуватиметься вдома під час монтажу.
+    - generic [ref=f25e63]:
+      - heading "Від знайомства до звернення" [level=2] [ref=f25e64]
+      - list [ref=f25e65]:
+        - listitem [ref=f25e66]:
+          - generic [aria-hidden] [ref=f25e67]: 01 →
+          - text: Побачити стелю в інтер’єрі
+        - listitem [ref=f25e68]:
+          - generic [aria-hidden] [ref=f25e69]: 02 →
+          - text: Обрати оздоблення та світло
+        - listitem [ref=f25e70]:
+          - generic [aria-hidden] [ref=f25e71]: 03 →
+          - text: Розібратися в монтажі
+        - listitem [ref=f25e72]:
+          - generic [aria-hidden] [ref=f25e73]: 04 →
+          - text: Запросити розрахунок
+    - generic [ref=f25e75]:
+      - heading "Як працює структура" [level=2] [ref=f25e76]
+      - generic [ref=f25e77]:
+        - article [ref=f25e78]:
+          - paragraph [aria-hidden] [ref=f25e79]: "01"
+          - heading "Спочатку інтер’єр, потім пояснення" [level=3] [ref=f25e80]
+          - paragraph [ref=f25e81]: Велика фотографія на першому екрані показує спільний ефект стелі та світла. Наступний блок пояснює будову натяжної системи. Відвідувач пов’язує незнайомий термін зі зрозумілим результатом, а компанія отримує місце для презентації продукту до особистої консультації.
+        - article [ref=f25e82]:
+          - paragraph [aria-hidden] [ref=f25e83]: "02"
+          - heading "Варіанти замість абстрактної обіцянки" [level=3] [ref=f25e84]
+          - paragraph [ref=f25e85]: Картки глянцевих і світлопрозорих стель, світлових ліній та інших рішень дозволяють порівняти характер оздоблення. Короткі описи пов’язують вигляд із застосуванням у приміщенні. На момент звернення людині простіше назвати варіант, який її зацікавив.
+        - article [ref=f25e86]:
+          - paragraph [aria-hidden] [ref=f25e87]: "03"
+          - heading "Роботи в реальному просторі" [level=3] [ref=f25e88]
+          - paragraph [ref=f25e89]: Галерея показує стелі в житлових і комерційних інтер’єрах. Тут можна оцінити масштаб, геометрію світла та поєднання з обстановкою. Фотографія стає конкретною відправною точкою для розмови про власний проєкт.
+    - generic [ref=f25e91]:
+      - generic [ref=f25e92]:
+        - heading "Показати те, що людина обирає" [level=2] [ref=f25e93]
+        - paragraph [ref=f25e94]: "Каталог відповідає на запитання «яка стеля мені підходить», а галерея показує, як обрана ідея виглядає в кімнаті. Ці блоки доповнюють один одного: перший допомагає назвати рішення, другий дозволяє уявити його у себе."
+      - generic [ref=f25e95]:
+        - figure "Варіанти оздоблення та світла допомагають перейти від загального інтересу до конкретного вподобання." [ref=f25e96]:
+          - 'link "Відкрити зображення: Варіанти оздоблення та світла допомагають перейти від загального інтересу до конкретного вподобання." [ref=f25e97] [cursor=pointer]':
+            - /url: /media/cases/skyline/services.webp
+            - img "Skyline Stretch Ceilings. Варіанти оздоблення та світла допомагають перейти від загального інтересу до конкретного вподобання." [ref=f25e98]
+        - figure "Галерея пов’язує геометрію стелі та освітлення з житловими й комерційними просторами." [ref=f25e100]:
+          - 'link "Відкрити зображення: Галерея пов’язує геометрію стелі та освітлення з житловими й комерційними просторами." [ref=f25e101] [cursor=pointer]':
+            - /url: /media/cases/skyline/projects.webp
+            - img "Skyline Stretch Ceilings. Галерея пов’язує геометрію стелі та освітлення з житловими й комерційними просторами." [ref=f25e102]
+    - generic [ref=f25e106]:
+      - article [ref=f25e107]:
+        - paragraph [aria-hidden] [ref=f25e108]: "04"
+        - heading "Монтаж як зрозуміла послідовність" [level=3] [ref=f25e109]
+        - paragraph [ref=f25e110]: "Окреме пояснення встановлення та етапи від консультації до приймання відповідають на різні запитання: як змінюється приміщення і як організована співпраця. Така структура допомагає підготуватися до замірів та обговорення строків, а компанії заздалегідь пояснити порядок роботи."
+      - article [ref=f25e111]:
+        - paragraph [aria-hidden] [ref=f25e112]: "05"
+        - heading "FAQ перед рішенням про звернення" [level=3] [ref=f25e113]
+        - paragraph [ref=f25e114]: Запитання про вигляд, втрату висоти, догляд і строки розкривають деталі, які складно передати фотографією. Відвідувач може самостійно уточнити базові умови й перейти до розмови про свою кімнату. Конкретні властивості та умови все одно потрібно перевірити для обраної системи.
+      - article [ref=f25e115]:
+        - paragraph [aria-hidden] [ref=f25e116]: "06"
+        - heading "Розрахунок через WhatsApp" [level=3] [ref=f25e117]
+        - paragraph [ref=f25e118]: Заклики запросити розрахунок ведуть у WhatsApp; на сайті також є форма. Чат дозволяє описати приміщення та додати фотографії у звичному інтерфейсі. Для бізнесу це початок предметного діалогу про площу, освітлення й побажання, а не спроба призначити однакову ціну всім проєктам.
+    - generic [ref=f25e121]:
+      - generic [ref=f25e122]:
+        - heading "Наступний крок із телефона" [level=2] [ref=f25e123]
+        - paragraph [ref=f25e124]: На телефоні знайомство починається з того самого продукту та помітного запиту розрахунку. Відвідувач може продовжити читання або перейти до обговорення, коли інформації вже достатньо. Унизу доступні форма й посилання на WhatsApp, тому після перегляду не потрібно повертатися до початку сторінки.
+      - generic [ref=f25e125]:
+        - figure "Мобільний перший екран зберігає візуальну презентацію та перехід до розрахунку." [ref=f25e126]:
+          - 'link "Відкрити зображення: Мобільний перший екран зберігає візуальну презентацію та перехід до розрахунку." [ref=f25e127] [cursor=pointer]':
+            - /url: /media/cases/skyline/mobile.webp
+            - img "Skyline Stretch Ceilings. Мобільний перший екран зберігає візуальну презентацію та перехід до розрахунку." [ref=f25e128]
+        - figure "Форма запиту й WhatsApp дають два способи почати обговорення приміщення." [ref=f25e130]:
+          - 'link "Відкрити зображення: Форма запиту й WhatsApp дають два способи почати обговорення приміщення." [ref=f25e131] [cursor=pointer]':
+            - /url: /media/cases/skyline/contact.webp
+            - img "Skyline Stretch Ceilings. Форма запиту й WhatsApp дають два способи почати обговорення приміщення." [ref=f25e132]
+    - generic [ref=f25e136]:
+      - generic [ref=f25e137]:
+        - heading "Що отримав бізнес" [level=2] [ref=f25e138]
+        - paragraph [ref=f25e139]: "Бізнес отримав чинний сайт на React + Vite: презентацію стель та освітлення, приклади застосування, пояснення монтажу й способи збирати звернення. Це інструмент для перевірки інтересу до пропозиції та обговорення конкретних приміщень."
+      - paragraph [ref=f25e140]: Дані про кількість заявок, продажі та конверсію не надані. Сам запуск сайту не доводить, що попит був підтверджений.
+    - generic [ref=f25e142]:
+      - heading "Інші кейси" [level=2] [ref=f25e143]
+      - generic [ref=f25e144]:
+        - 'link "Головний екран marianaleus.com на desktop Mariana Leus Стратегія, дизайн, розробка Сайт для performance-маркетолога: чіткий офер, докази результату й короткий шлях до заявки. Розбір проєкту" [ref=f25e145] [cursor=pointer]':
+          - /url: /case/marianaleus
+          - img "Головний екран marianaleus.com на desktop" [ref=f25e146]
+          - generic [ref=f25e147]:
+            - heading "Mariana Leus" [level=3] [ref=f25e148]
+            - generic [ref=f25e149]: Стратегія, дизайн, розробка
+            - paragraph [ref=f25e151]: "Сайт для performance-маркетолога: чіткий офер, докази результату й короткий шлях до заявки."
+            - generic [ref=f25e152]:
+              - text: Розбір проєкту
+              - generic [aria-hidden] [ref=f25e153]: ↗
+        - 'link "Перший екран називає послугу та регіон, поруч розташований запит розрахунку. Maryna Cleaning Редизайн і підготовка до реклами SendPulse Редизайн сайту клінінгової компанії в межах роботи з Google Ads: послуги, цінові орієнтири та заявка з деталями замовлення. Розбір проєкту" [ref=f25e154] [cursor=pointer]':
+          - /url: /case/maryna-cleaning
+          - img "Перший екран називає послугу та регіон, поруч розташований запит розрахунку." [ref=f25e155]
+          - generic [ref=f25e156]:
+            - heading "Maryna Cleaning" [level=3] [ref=f25e157]
+            - generic [ref=f25e158]:
+              - generic [ref=f25e159]: Редизайн і підготовка до реклами
+              - generic [ref=f25e160]: SendPulse
+            - paragraph [ref=f25e161]: "Редизайн сайту клінінгової компанії в межах роботи з Google Ads: послуги, цінові орієнтири та заявка з деталями замовлення."
+            - generic [ref=f25e162]:
+              - text: Розбір проєкту
+              - generic [aria-hidden] [ref=f25e163]: ↗
+      - generic [ref=f25e164]:
+        - link "marianaleus.com ↗" [ref=f25e165] [cursor=pointer]:
+          - /url: /case/marianaleus
+        - link "Усі роботи" [ref=f25e166] [cursor=pointer]:
+          - /url: /#work
+    - generic [ref=f25e168]:
+      - heading "Обговоримо ваш сайт?" [level=2] [ref=f25e169]
+      - paragraph [ref=f25e170]: Розкажіть про послугу, аудиторію та завдання. Обговоримо, яка структура допоможе відвідувачам розібратися в пропозиції та звернутися.
+      - link "Обговорити схожий проєкт" [ref=f25e172] [cursor=pointer]:
+        - /url: /contact
+  - contentinfo [ref=f25e173]:
+    - generic [ref=f25e174]:
+      - generic [ref=f25e175]:
+        - generic [ref=f25e176]:
+          - paragraph [ref=f25e177]: Напишіть напряму
+          - link "covalski734@gmail.com" [ref=f25e178] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=f25e181]: Зазвичай відповідь протягом робочого дня
+      - generic [ref=f25e182]:
+        - generic [ref=f25e183]:
+          - paragraph [ref=f25e184]: Сайт
+          - link "Роботи" [ref=f25e185] [cursor=pointer]:
+            - /url: /#work
+          - link "Завдання" [ref=f25e186] [cursor=pointer]:
+            - /url: /#range
+          - link "Послуги" [ref=f25e187] [cursor=pointer]:
+            - /url: /#services
+          - link "Про мене" [ref=f25e188] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f25e189]:
+          - paragraph [ref=f25e190]: Проєкти
+          - link "marianaleus.com" [ref=f25e191] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Обговорити проєкт" [ref=f25e192] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f25e193]:
+          - paragraph [ref=f25e194]: Напряму
+          - link "Telegram @ilyakav" [ref=f25e195] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=f25e196]: Польща · працюю в Європі
+        - generic [ref=f25e197]:
+          - paragraph [ref=f25e198]: Інтерфейс
+          - generic [ref=f25e199]:
+            - button "RU" [ref=f25e200] [cursor=pointer]
+            - button "UA" [pressed] [ref=f25e201] [cursor=pointer]
+            - button "EN" [ref=f25e202] [cursor=pointer]
+          - button "Увімкнути темну тему" [ref=f25e203] [cursor=pointer]: Змінити тему
+          - link "Вгору ↑" [ref=f25e204] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=f25e205]:
+        - button "Налаштування cookies" [ref=f25e206] [cursor=pointer]
+        - link "Політика cookies" [ref=f25e207] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=f25e208]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Конфіденційність" [ref=f25e209] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=f25e210]: Спроєктовано й зібрано тим, з ким ви будете спілкуватися

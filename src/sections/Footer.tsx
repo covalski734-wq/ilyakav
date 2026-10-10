@@ -1,3 +1,4 @@
+import { contactMailto, mailContextForPath } from '../lib/mailto'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
@@ -182,7 +183,7 @@ export function Footer({ pathname }: { pathname: string }) {
         <Top ref={topRef}>
           <div>
             <DirectLabel>{t('footer.writeDirect')}</DirectLabel>
-            <MailLink href={`mailto:${SITE.email}`}>{SITE.email}</MailLink>
+            <MailLink href={contactMailto(t, mailContextForPath(pathname))}>{SITE.email}</MailLink>
           </div>
           <Availability>
             <Pulse />

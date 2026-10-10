@@ -1,0 +1,154 @@
+- generic [ref=f20e2]:
+  - link "Skip to main content" [ref=f20e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f20e4]:
+    - generic [ref=f20e5]:
+      - link "ilyakav ." [ref=f20e6] [cursor=pointer]:
+        - /url: /#top
+        - text: ilyakav
+        - generic [ref=f20e7]: .
+      - 'button "Menu: EN" [ref=f20e8] [cursor=pointer]':
+        - text: EN
+        - generic [aria-hidden] [ref=f20e9]: ⌄
+      - button "Menu" [ref=f20e10] [cursor=pointer]
+  - main [ref=f20e14]:
+    - generic [ref=f20e16]:
+      - paragraph [ref=f20e17]: From brief to launch
+      - heading "A complete website for your business" [level=1] [ref=f20e18]
+      - paragraph [ref=f20e19]: Help people understand your services, see your work and enquire, even when you are unavailable.
+      - generic [ref=f20e20]:
+        - link "Discuss this service" [ref=f20e21] [cursor=pointer]:
+          - /url: /contact?type=site#project-form
+        - link "All services" [ref=f20e22] [cursor=pointer]:
+          - /url: /#services
+      - paragraph [ref=f20e23]:
+        - text: from €2,500
+        - generic [ref=f20e24]: Usually 4–6 weeks · scope agreed before we start
+        - generic [ref=f20e25]: The starting price is a guide. The final quote depends on the agreed scope described below. Domain, hosting and third-party service charges are considered separately.
+    - generic [ref=f20e28]:
+      - generic [ref=f20e29]:
+        - heading "The problem it solves" [level=2] [ref=f20e30]
+        - paragraph [ref=f20e31]: A recommendation or an ad can introduce someone to your business, but they still need to decide. A website gives them space to compare services, check terms, see examples and send a request. You spend less time repeating the basics in every conversation.
+        - heading "When it makes sense" [level=3] [ref=f20e32]
+        - paragraph [ref=f20e33]: You offer several services, customers ask similar questions, and their decision depends on examples, pricing or an explanation of the process.
+      - 'img "Website concept: an architecture studio website on a laptop" [ref=f20e34]'
+    - generic [ref=f20e36]:
+      - heading "What the work includes" [level=2] [ref=f20e37]
+      - list [ref=f20e38]:
+        - listitem [ref=f20e39]:
+          - generic [aria-hidden] [ref=f20e40]: "01"
+          - text: Page structure based on your services and customer questions.
+        - listitem [ref=f20e41]:
+          - generic [aria-hidden] [ref=f20e42]: "02"
+          - text: Design and development for phones and computers.
+        - listitem [ref=f20e43]:
+          - generic [aria-hidden] [ref=f20e44]: "03"
+          - text: Content, forms and integrations within the agreed scope.
+        - listitem [ref=f20e45]:
+          - generic [aria-hidden] [ref=f20e46]: "04"
+          - text: Checks, launch and your chosen support or handover arrangement.
+    - generic [ref=f20e49]:
+      - generic [ref=f20e50]:
+        - heading "How it works in practice" [level=2] [ref=f20e51]
+        - paragraph [ref=f20e52]: For a renovation company, visitors choose the type of work, look at similar properties and describe their room. The enquiry comes with context for a conversation about an estimate.
+        - navigation [ref=f20e53]:
+          - link "Skyline Stretch Ceilings ↗" [ref=f20e54] [cursor=pointer]:
+            - /url: /case/skyline-stretch-ceilings
+          - link "Mariana Leus ↗" [ref=f20e55] [cursor=pointer]:
+            - /url: /case/marianaleus
+      - generic [ref=f20e56]:
+        - heading "Before you decide" [level=2] [ref=f20e57]
+        - paragraph [ref=f20e58]: A website helps you respond to interest in your business, but does not create visitor traffic on its own. Traffic sources are discussed separately. For a single offer, a landing page may be enough.
+    - generic [ref=f20e60]:
+      - generic [ref=f20e61]:
+        - heading "Your website. Your choice of support." [level=2] [ref=f20e62]
+        - paragraph [ref=f20e63]: We build your website from planning and design through development and launch. Then you choose who looks after it.
+      - generic [ref=f20e64]:
+        - article [ref=f20e65]:
+          - heading "Full handover" [level=3] [ref=f20e66]
+          - paragraph [ref=f20e67]: For managing the website yourself or with your own team.
+          - list [ref=f20e68]:
+            - listitem [ref=f20e69]: Receive the code, project materials and website access.
+            - listitem [ref=f20e70]: Get an explanation of how the project works and how to update it.
+            - listitem [ref=f20e71]: Return to us for future changes at a client discount.
+          - paragraph [ref=f20e72]: You choose who maintains the website. There is no compulsory subscription to our support.
+        - article [ref=f20e73]:
+          - heading "Ongoing subscription" [level=3] [ref=f20e74]
+          - paragraph [ref=f20e75]: For focusing on your business while we handle the technical side.
+          - list [ref=f20e76]:
+            - listitem [ref=f20e77]: We handle hosting and maintenance within an agreed scope.
+            - listitem [ref=f20e78]: The recurring fee, support coverage and change process are agreed upfront.
+            - listitem [ref=f20e79]: You can move to a full handover later under the agreed terms.
+          - paragraph [ref=f20e80]: You have someone to turn to for technical questions, without finding a new specialist for each request.
+      - paragraph [ref=f20e81]: "Compare more than the launch price: what you receive, who helps afterwards and whether you can change providers. We discuss those terms upfront."
+      - paragraph [ref=f20e82]: We agree the subscription price, coverage, handover terms and discount on changes before starting. Domain, hosting and third-party service charges are considered separately and depend on the project.
+    - generic [ref=f20e84]:
+      - generic [ref=f20e85]:
+        - heading "Start with your situation" [level=2] [ref=f20e86]
+        - paragraph [ref=f20e87]: Tell me how customers find you or how your team works today. I’ll suggest a suitable scope and explain the cost and timeline.
+      - link "Discuss this service" [ref=f20e89] [cursor=pointer]:
+        - /url: /contact?type=site#project-form
+    - generic [ref=f20e91]:
+      - heading "Other solutions" [level=2] [ref=f20e92]
+      - navigation "Other solutions" [ref=f20e93]:
+        - link "A landing page for one clear offer ↗" [ref=f20e94] [cursor=pointer]:
+          - /url: /services/landing-pages
+        - link "Website redesign and improvements ↗" [ref=f20e95] [cursor=pointer]:
+          - /url: /services/website-redesign
+        - link "A web application for your workflow ↗" [ref=f20e96] [cursor=pointer]:
+          - /url: /services/web-applications
+        - link "A Windows application for your team ↗" [ref=f20e97] [cursor=pointer]:
+          - /url: /services/desktop-applications
+        - link "A Telegram bot for enquiries and answers ↗" [ref=f20e98] [cursor=pointer]:
+          - /url: /services/telegram-bots
+        - link "Connect enquiries to your CRM ↗" [ref=f20e99] [cursor=pointer]:
+          - /url: /services/crm-automation
+        - link "Online booking and payments ↗" [ref=f20e100] [cursor=pointer]:
+          - /url: /services/booking-and-payments
+  - contentinfo [ref=f20e101]:
+    - generic [ref=f20e102]:
+      - generic [ref=f20e103]:
+        - generic [ref=f20e104]:
+          - paragraph [ref=f20e105]: Write directly
+          - link "covalski734@gmail.com" [ref=f20e106] [cursor=pointer]:
+            - /url: mailto:covalski734@gmail.com
+        - paragraph [ref=f20e109]: Usually a reply within one working day
+      - generic [ref=f20e110]:
+        - generic [ref=f20e111]:
+          - paragraph [ref=f20e112]: Site
+          - link "Work" [ref=f20e113] [cursor=pointer]:
+            - /url: /#work
+          - link "Your needs" [ref=f20e114] [cursor=pointer]:
+            - /url: /#range
+          - link "Services" [ref=f20e115] [cursor=pointer]:
+            - /url: /#services
+          - link "About" [ref=f20e116] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=f20e117]:
+          - paragraph [ref=f20e118]: Projects
+          - link "marianaleus.com" [ref=f20e119] [cursor=pointer]:
+            - /url: /case/marianaleus
+          - link "Let’s talk" [ref=f20e120] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f20e121]:
+          - paragraph [ref=f20e122]: Direct
+          - link "Telegram @ilyakav" [ref=f20e123] [cursor=pointer]:
+            - /url: https://t.me/ilyakav
+          - paragraph [ref=f20e124]: Poland · working across Europe
+        - generic [ref=f20e125]:
+          - paragraph [ref=f20e126]: Interface
+          - generic [ref=f20e127]:
+            - button "RU" [ref=f20e128] [cursor=pointer]
+            - button "UA" [ref=f20e129] [cursor=pointer]
+            - button "EN" [pressed] [ref=f20e130] [cursor=pointer]
+          - button "Switch to dark theme" [ref=f20e131] [cursor=pointer]: Switch theme
+          - link "Back to top ↑" [ref=f20e132] [cursor=pointer]:
+            - /url: "#top"
+      - generic [ref=f20e133]:
+        - button "Cookie Settings" [ref=f20e134] [cursor=pointer]
+        - link "Cookie Policy" [ref=f20e135] [cursor=pointer]:
+          - /url: /cookies
+        - paragraph [ref=f20e136]: © 2026 Ilya Kavaleuski · ilyakav.com
+        - link "Privacy" [ref=f20e137] [cursor=pointer]:
+          - /url: /privacy
+        - paragraph [ref=f20e138]: Designed and built by the person you will be talking to

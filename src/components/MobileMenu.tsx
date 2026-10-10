@@ -1,3 +1,4 @@
+import { contactMailto, mailContextForPath } from '../lib/mailto'
 import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
@@ -209,7 +210,7 @@ export function MobileMenu({ pathname, open, onClose }: Props) {
       </Links>
 
       <Contacts>
-        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        <a href={contactMailto(t, mailContextForPath(pathname))}>{SITE.email}</a>
         <a href={SITE.telegram.url}>Telegram {SITE.telegram.handle}</a>
       </Contacts>
 

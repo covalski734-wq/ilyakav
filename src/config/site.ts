@@ -2,7 +2,7 @@
  * Single source of truth for contacts and cross-page links.
  */
 export const SITE = {
-  email: 'covalski734@gmail.com',
+  email: 'hello@ilyakav.com',
   telegram: { handle: '@ilyakav', url: 'https://t.me/ilyakav' },
   flagship: 'marianaleus.com',
   advertisingPartner: { name: 'Mariana Leus', url: 'https://marianaleus.com/' },
