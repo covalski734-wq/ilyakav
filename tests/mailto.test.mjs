@@ -20,7 +20,7 @@ test('all email scenarios and project types encode and localize correctly in RU,
     for (const context of [{}, { scenario: 'privacy' }, { scenario: 'cookies' }, { draft }, ...PROJECT_TYPES.map(type => ({ type }))]) {
       const href = contactMailto(i18n.t.bind(i18n), context)
       const url = new URL(href)
-      assert.equal(url.pathname, 'hello@ilyakav.com')
+      assert.equal(url.pathname, 'contact@ilyakav.com')
       assert.deepEqual([...url.searchParams.keys()], ['subject', 'body'])
       const subject = url.searchParams.get('subject')
       const body = url.searchParams.get('body')
@@ -28,7 +28,7 @@ test('all email scenarios and project types encode and localize correctly in RU,
       assert.ok(body.startsWith(greetings[lang]))
       assert.ok(body.includes('\n\n'))
       assert.doesNotMatch(subject + body, /\{\{|emailDraft\.|\?{3}/)
-      assert.equal(href, `mailto:hello@ilyakav.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
+      assert.equal(href, `mailto:contact@ilyakav.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`)
       if (context.type || context.draft) assert.ok(body.includes(i18n.t(`contact.form.types.${context.type ?? draft.type}`)))
       if (context.draft) {
         for (const value of [draft.name, draft.contact, draft.brief]) assert.ok(body.includes(value))
