@@ -11,6 +11,7 @@ export async function loadPage(pathname: string): Promise<ComponentType> {
     case '/privacy': return (await import('./pages/PrivacyPage')).PrivacyPage
     case '/cookies': return (await import('./pages/CookiePage')).CookiePage
     case '/case/marianaleus': return (await import('./pages/MarianaleusCasePage')).MarianaleusCasePage
+    case '/case/silent-clean': return (await import('./pages/SilentCleanCasePage')).SilentCleanCasePage
   }
   const service = SERVICE_IDS.find(id => servicePath(id) === path)
   if (service) {

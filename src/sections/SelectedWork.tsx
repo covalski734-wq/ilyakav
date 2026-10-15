@@ -15,11 +15,6 @@ const Head = styled.div`
   > p:last-child { max-width: 62ch; color: ${({ theme }) => theme.colors.textDim}; font-size: 18px; }
 `
 
-const Secondary = styled.aside`
-  margin-top: 32px; padding-top: 24px; border-top: 1px solid ${({ theme }) => theme.colors.line};
-  p { max-width: 72ch; color: ${({ theme }) => theme.colors.textDim}; }
-  a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px; font-weight: 600; }
-`
 export function SelectedWork() {
   const { t } = useTranslation()
   return <Wrapper id="work" aria-labelledby="selected-work-title">
@@ -29,7 +24,7 @@ export function SelectedWork() {
         <SectionTitle id="selected-work-title">{t('webCases.portfolio')}</SectionTitle>
         <p>{t('webCases.portfolioLead')}</p>
       </Head>
-      <CaseCards /><Secondary aria-label={t('webCases.secondary')}><p>{t('webCases.secondaryLead')}</p><a href="/case/tile-expert-solutions">Tile Expert Solutions ↗</a></Secondary>
+      <CaseCards />
     </Container>
   </Wrapper>
 }

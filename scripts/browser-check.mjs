@@ -5,12 +5,12 @@ import { PUBLIC_PATHS } from '../shared/routes.ts'
 const base = process.env.TEST_BASE_URL ?? 'http://127.0.0.1:8787'
 const output = process.env.TEST_OUTPUT_DIR ?? 'artifacts/verification-2026-10-07'
 await mkdir(output, { recursive: true })
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || undefined })
 const results = [], failures = []
 const widths = [360,390,430,1000,1020,1021,1050,1100,1280,1366,1440,1920]
 const record = (condition, message) => { if (!condition) failures.push(message) }
 try {
-  await Promise.all(['ru','uk','en'].map(async language => {
+  for (const language of ['ru','uk','en']) {
     const context = await browser.newContext({ locale: language, reducedMotion: 'reduce' })
     await context.addInitScript(lang => localStorage.setItem('ilyakav-lang', lang), language)
     const page = await context.newPage()
@@ -72,7 +72,7 @@ try {
     }
     record(errors.length === 0, `${language} browser errors: ${errors.join('; ')}`)
     await context.close()
-  }))
+  }
 
   // Real HTTP routing and SEO assets, without sending a valid lead.
   for (const [path, status, type] of [['/robots.txt',200,'text/plain'],['/sitemap.xml',200,'xml'],['/api/contact',405,'application/json'],['/random-page-that-does-not-exist',404,'text/html']]) {

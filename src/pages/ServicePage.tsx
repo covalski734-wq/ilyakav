@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Container, Eyebrow, PrimaryButton, Section, SectionTitle } from '../components/ui/primitives'
 import { SERVICE_IDS, SERVICE_PAGES, servicePath, type ServiceId } from '../config/services'
 import { Ownership } from '../sections/Ownership'
+import { LaptopScene } from '../sections/LaptopScene'
 import { ROUTES } from '../config/site'
 
 const Hero = styled(Section)`
@@ -69,6 +70,7 @@ export function ServicePage({ id }: { id: ServiceId }) {
       {id === 'site' && <Related><a href="/case/skyline-stretch-ceilings">Skyline Stretch Ceilings ↗</a><a href="/case/marianaleus">Mariana Leus ↗</a></Related>}</Copy>
       <Copy><SectionTitle>{t('offering.honest')}</SectionTitle><p>{page.limit}</p></Copy>
     </Grid></Container></Section>
+    {id === 'app' && <LaptopScene />}
     {['site','landing','redesign'].includes(id) && <Ownership />}
     <Tint><Container><Copy><SectionTitle>{t('offering.next')}</SectionTitle><p>{t('offering.nextBody')}</p></Copy><Actions><PrimaryButton href={`${ROUTES.contact}?type=${SERVICE_PAGES[id].type}#project-form`}>{t('offering.discuss')}</PrimaryButton></Actions></Container></Tint>
     <Section><Container><SectionTitle>{t('offering.related')}</SectionTitle><Related aria-label={t('offering.related')}>{SERVICE_IDS.filter(key => key !== id).map(key => <a key={key} href={servicePath(key)}>{t(`offering.pages.${key}.title`)} ↗</a>)}</Related></Container></Section>

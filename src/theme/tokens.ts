@@ -15,7 +15,7 @@ const shared = {
   layout: {
     maxWidth: '1440px',
     pagePadding: 'clamp(18px, 4vw, 56px)',
-    sectionPadding: 'clamp(56px, 8vw, 120px)',
+    sectionPadding: 'clamp(40px, 5vw, 72px)',
   },
 } as const
 

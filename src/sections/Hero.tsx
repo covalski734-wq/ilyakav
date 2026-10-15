@@ -78,19 +78,19 @@ const Title = styled.h1`
   grid-row: 1;
   align-self: end;
   padding-bottom: 28px;
-  max-width: 11ch;
-  font-size: clamp(54px, 6.45vw, 98px);
+  max-width: 20ch;
+  font-size: clamp(40px, 4.2vw, 64px);
   font-weight: 550;
   line-height: 1.035;
   letter-spacing: -.065em;
   text-wrap: initial;
   span { display: block; color: ${({ theme }) => theme.mode === 'light' ? theme.colors.accentInk : '#b8b1ff'}; }
-  @media (max-width: 1000px) and (min-width: 761px) { font-size: clamp(48px, 6.5vw, 65px); }
+  @media (max-width: 1000px) and (min-width: 761px) { font-size: clamp(36px, 4.4vw, 44px); }
   @media (max-width: 760px) {
     grid-row: 1;
     padding-bottom: 0;
     max-width: none;
-    font-size: clamp(38px, 10.8vw, 62px);
+    font-size: clamp(32px, 8.2vw, 48px);
     line-height: 1.08;
     letter-spacing: -.045em;
   }
@@ -175,6 +175,14 @@ const Foot = styled.div`
   @media (max-height: 600px) and (min-width: 761px) and (max-width: 1020px) { display: none; }
 `
 
+const Fit = styled.p`
+  margin-top: 14px;
+  max-width: 58ch;
+  font-size: 14px;
+  line-height: 1.55;
+  color: ${({ theme }) => theme.colors.textDim};
+`
+
 export function Hero() {
   const { t } = useTranslation()
   const track = useRef<HTMLDivElement>(null)
@@ -222,9 +230,10 @@ export function Hero() {
         <Title id="hero-heading">{t('hero.title')}<span>{t('hero.titleAccent')}</span></Title>
         <Details>
           <Lead><span data-desktop-copy>{t('hero.lead')}</span><span data-mobile-copy>{t('hero.mobileLead')}</span></Lead>
+          <Fit>{t('hero.fit')}</Fit>
           <Actions>
             <PrimaryButton href={ROUTES.contact}>{t('actions.startProject')}<span aria-hidden="true">↗</span></PrimaryButton>
-            <More href={`#${SECTION_IDS.work}`}>{t('nav.work')}<span aria-hidden="true">↓</span></More>
+            <More href={`#${SECTION_IDS.work}`}>{t('hero.workLink')}<span aria-hidden="true">↓</span></More>
           </Actions>
         </Details>
         <HeroRibbon />

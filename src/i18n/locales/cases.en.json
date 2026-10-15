@@ -1,7 +1,7 @@
 {
   "eyebrow": "Web development · case study",
-  "portfolio": "Websites for service businesses",
-  "portfolioLead": "Selected projects: a website for a marketer, a business website built from scratch, and a redesign prepared for advertising.",
+  "portfolio": "Websites that reflect the quality of your business",
+  "portfolioLead": "Every business has strengths. My job is to bring them out through design, content and intuitive interactions, so the website makes a professional impression, builds trust and helps attract customers.",
   "read": "Explore the project",
   "back": "All work",
   "visit": "Visit website ↗",
@@ -26,12 +26,12 @@
   "projects": {
     "skyline": {
       "title": "Skyline Stretch Ceilings",
-      "summary": "A website built from scratch to introduce stretch ceilings and integrated lighting, present the options and invite estimate requests.",
+      "summary": "A modern website with a premium aesthetic that introduces Canadian customers to stretch ceilings and integrated lighting, showcases design possibilities, and highlights the company’s expertise.",
       "industry": "Stretch ceilings and lighting",
       "location": "Vancouver, Canada",
       "scope": "Development from scratch",
       "technology": "React + Vite",
-      "context": "The client wanted to test demand for a product unfamiliar to their target audience in Canada. A service name alone cannot explain stretch ceilings to someone encountering them for the first time. They need to see the result and understand how the ceiling works with lighting and an existing interior.",
+      "context": "The company was reaching a Canadian audience with a product that was still unfamiliar to many potential customers. The website needed to present stretch ceilings as a modern interior solution, with premium finishes, integrated lighting, and a variety of design possibilities. The aim was to help visitors imagine the result in their own space and interest them in discussing a project.",
       "task": "Build a website that explains the product, helps people compare options and provides a clear way to request an estimate. Before making contact, visitors need to understand the material, assess its appearance and know what installation will involve in their home.",
       "note": "",
       "journey": [
@@ -42,52 +42,55 @@
       ],
       "solutions": [
         {
-          "title": "An interior first, an explanation next",
-          "body": "A large opening photograph shows the combined effect of the ceiling and lighting. The following section explains the tensioned system. Visitors can connect an unfamiliar term with a visible result, while the business gains a place to introduce the product before a personal consultation."
+          "title": "Design that draws attention",
+          "body": "A large opening photograph shows the combined effect of the ceiling and lighting. The following section explains the tensioned system."
         },
         {
-          "title": "Options people can compare",
-          "body": "Cards for glossy and translucent ceilings, light lines and other treatments make the finishes easier to compare. Short descriptions connect their appearance with uses in a room. By the time visitors enquire, they have a way to describe the option that interests them."
+          "title": "Different solutions for different interiors",
+          "body": "Cards for glossy and translucent ceilings, light lines and other treatments make the finishes easier to compare."
         },
         {
           "title": "Work shown in context",
-          "body": "The gallery presents ceilings in residential and commercial interiors. Visitors can judge scale, lighting geometry and the relationship with the furnishings. A photograph becomes a concrete starting point for a conversation about their own space."
+          "body": "The gallery presents ceilings in residential and commercial interiors. Visitors can judge scale, lighting geometry and the relationship with the furnishings."
         },
         {
-          "title": "A clear installation sequence",
-          "body": "The installation explanation and the steps from consultation to handover answer separate questions: what changes in the room and how the working relationship is organised. This helps visitors prepare for measurements and scheduling, while giving the company a way to explain the process upfront."
+          "title": "A clear installation process",
+          "body": "The website explains how stretch ceilings are installed, from consultation to the finished result. This helps customers prepare for the work and feel more confident before placing an order."
         },
         {
-          "title": "Questions before the enquiry",
-          "body": "The FAQ covers appearance, loss of ceiling height, maintenance and timing, details that a photograph cannot explain. Visitors can check the basics before discussing their own room. Specific properties and conditions still need to be confirmed for the chosen system."
+          "title": "FAQs that help customers decide",
+          "body": "This section explains materials, lighting, maintenance, and installation. Customers can find answers to the main questions in advance."
         },
         {
-          "title": "An estimate through WhatsApp",
-          "body": "Estimate calls to action lead to WhatsApp, with a form also available on the site. Chat lets visitors describe a room and share photographs in a familiar interface. For the business, this starts a practical discussion about dimensions, lighting and preferences instead of applying one price to every project."
+          "title": "An easy way to request an estimate",
+          "body": "Customers can get in touch through WhatsApp or the website form, describe their room, and share photographs. This makes it easier to introduce the project and start a consultation."
         }
       ],
       "galleryBody": "The catalogue helps answer which ceiling might suit a visitor, while the gallery shows how an idea looks in a room. The two sections work together: one helps people name an option, the other helps them imagine it in their own space.",
-      "mobileBody": "On a phone, the introduction retains the product and a visible estimate request. Visitors can keep reading or start a conversation when they have enough information. A form and WhatsApp link at the bottom let them take the next step without returning to the top.",
-      "outcome": "The business received a live React + Vite website presenting ceilings and lighting, examples of their use, installation guidance and ways to collect enquiries. It provides a tool for exploring interest in the offer and discussing specific spaces.",
-      "resultNote": "Enquiry, sales and conversion data were not provided. Launching the website alone does not establish that demand was validated.",
+      "mobileBody": "The mobile version retains the website’s style and visual appeal. Customers can explore interior solutions, learn about their benefits, and easily request an estimate.",
+      "outcome": "The company received a modern website with a premium visual presentation, introducing stretch ceilings and integrated lighting to a Canadian audience. It provides a professional online presence and a starting point for introducing potential customers to a product that is new to them.",
+      "resultNote": "Actual enquiry and sales figures were not provided, so the website’s commercial results are not assessed.",
       "captions": {
-        "desktop": "The opening screen shows the product in an interior and makes an estimate the next step.",
+        "desktop": "The opening screen shows the product in an interior.",
         "services": "Finish and lighting options help turn general interest into a specific preference.",
         "projects": "The gallery connects ceiling geometry and lighting with residential and commercial spaces.",
         "mobile": "The mobile opening retains the visual introduction and the estimate call to action.",
         "contact": "The estimate form and WhatsApp offer two ways to start discussing a room."
-      }
+      },
+      "solutionsTitle": "How the website makes an unfamiliar product a desirable solution",
+      "mobileTitle": "Good looks and ease of use, even on a smartphone",
+      "ctaBody": "Let’s create a website that reflects the quality of your business, presents your services effectively, and helps potential customers see their value."
     },
     "maryna": {
       "title": "Maryna Cleaning",
-      "summary": "A cleaning website redesigned as part of Google Ads work, with services, starting prices and an enquiry form that captures job details.",
+      "summary": "We updated the cleaning company’s website for Google Ads so visitors arriving from an ad could immediately find the right service, see indicative pricing and work results, and submit an enquiry.",
       "industry": "Cleaning services",
       "location": "Niagara Region, Canada",
       "scope": "Redesign and preparation for ads",
       "technology": "SendPulse",
-      "context": "The website was updated as part of combined website and Google Ads work. A visitor arriving from an ad needs to match the offer to a practical need: regular cleaning, a deep clean or a move, whether the company covers their area and what budget to expect.",
-      "task": "Make the offer clear before an enquiry: show services, coverage, starting rates and a way to get in touch. The form needs enough information for the company to follow up with pricing and availability.",
-      "note": "The redesign formed part of work on the website and Google Ads. The owner's feedback below concerns the whole engagement and does not measure the website's individual effect.",
+      "context": "People arriving from an ad already have a specific need: regular cleaning, deep cleaning, preparing a home for a move, or another service. The website needs to answer their main questions quickly: is the service available, does the company cover my area, roughly how much does it cost, and can I trust this company with my home?",
+      "task": "Update the website so a click from an ad leads to answers. Show the services, coverage area, starting rates, and ways to get in touch. The form needs to collect enough information for the company to confirm pricing and availability.",
+      "note": "The redesign was part of the work on the website and Google Ads.",
       "journey": [
         "Check the service and area",
         "Understand starting prices",
@@ -96,41 +99,49 @@
       ],
       "solutions": [
         {
-          "title": "Services for different situations",
-          "body": "Regular cleaning, deep cleaning, moving and commercial spaces have separate entries. Visitors can recognise their situation in a name and short description. The business can receive an enquiry with a service already selected and continue by clarifying its scope."
+          "title": "Each service has its own place",
+          "body": "Regular, deep, move-out, and commercial cleaning are presented separately. Customers can quickly find what they need without unnecessary searching."
         },
         {
-          "title": "Coverage before contact",
-          "body": "Niagara Region appears at the start of the page alongside coverage information. Visitors do not have to find an address in the footer to assess whether the offer is relevant. The area or postal code field then allows the company to check a specific location."
+          "title": "The service area is clear from the start",
+          "body": "Visitors can see the coverage area before filling out an enquiry. They can quickly check whether the company is right for them."
         },
         {
-          "title": "Starting rates with context",
-          "body": "Hourly rates give visitors a budgeting reference. An explanation that final pricing depends on size, condition and cleaning type distinguishes a starting rate from a complete estimate. It also explains why the company needs more details before quoting."
+          "title": "Clear pricing before getting in touch",
+          "body": "Pricing without unpleasant surprises. We showed starting rates and explained what determines the final cost, helping customers plan their budget in advance."
         },
         {
-          "title": "Results and reviews serve different purposes",
-          "body": "Cleaning photographs let visitors look at surfaces and the extent of the work, while published reviews add other customers' experiences. Together they provide more context for a decision than a general promise of cleanliness. These materials concern cleaning, not website development."
+          "title": "Real work and reviews build trust",
+          "body": "Before-and-after photographs show the quality of the cleaning, while reviews help customers feel confident in their choice."
         },
         {
-          "title": "Answers to practical questions",
-          "body": "The FAQ addresses equipment, whether the owner must be home, duration and what the service includes. This helps visitors plan a first booking and understand what they need to arrange. The company can then focus its conversation on the particular property."
+          "title": "Answers before the first enquiry",
+          "body": "The FAQ brings together information about the cleaning process, products, duration, and other details customers usually ask about before booking."
         },
         {
-          "title": "A form with useful job details",
-          "body": "Phone number, area, service type, bedrooms and bathrooms, pets and notes provide a basis for an initial assessment. Visitors do not have to compose a request from scratch. The company receives contact information and the details needed to discuss price and availability."
+          "title": "An enquiry with the details of the future booking",
+          "body": "Customers specify the service, area, and property details. The company receives the information needed for an initial estimate and follow-up."
         }
       ],
-      "galleryBody": "Services and rates answer practical questions, while photographs help visitors assess the work. Moving between these materials supports the decision from choosing a cleaning service to understanding what its result might look like.",
-      "mobileBody": "The mobile version lets visitors check the offer and request cleaning from their phone. Labelled fields explain which details are useful for an estimate. Notes leave room for unusual requirements, while contact information lets the company continue the conversation.",
-      "outcome": "The business received an updated SendPulse website for advertising traffic. In her feedback on the combined website and Google Ads work, the owner reported that after two months Google advertising brought orders almost daily and paid for itself. She also highlighted the website rework, attentiveness and responsibility.",
+      "galleryBody": "Visitors can explore services, starting prices, and real work results in one place, without searching social media or calling about every detail. This helps them form a first impression of the company and move towards booking with greater confidence.",
+      "mobileBody": "We adapted the website for mobile devices so customers can browse services, assess the offer, and submit an enquiry without unnecessary difficulty.",
+      "outcome": "Maryna Cleaning received an updated website with a modern design, real cleaning results, and a convenient enquiry form. The company now has a complete destination for Google Ads traffic, where potential customers can get to know the business, assess service quality, and request a cleaning. The owner also praised the combined work on the website and advertising, mentioning regular bookings, attention to detail, and a responsible approach to the project.",
       "resultNote": "This is the owner's assessment of the combined engagement. There is no data to isolate the redesign's contribution, independently verify advertising returns or calculate website conversion.",
       "captions": {
         "desktop": "The opening names the service and region alongside an estimate request.",
-        "services": "Service cards help visitors choose a cleaning type and see a starting price.",
-        "projects": "The results section shows specific examples of surfaces being cleaned.",
+        "services": "Services and starting prices let customers see the available options immediately.",
+        "projects": "Before-and-after photos provide visible evidence of the quality of the work.",
         "mobile": "The offer and service area are visible on the first mobile screen.",
         "contact": "The form captures contact information, location and property details for a follow-up estimate."
-      }
+      },
+      "solutionsTitle": "What customers need before making an enquiry",
+      "galleryTitle": "A website that helps customers choose",
+      "mobileTitle": "Easy to book from a phone",
+      "outcomeTitle": "A website that presents the company at a new level",
+      "ctaEyebrow": "Your project could be next",
+      "ctaTitle": "Does your business need a website that helps attract customers?",
+      "ctaBody": "Tell me about your business and your goals. We’ll discuss the website you need, what to plan for, and how to prepare it for promotion.",
+      "cta": "Discuss my project →"
     },
     "tile": {
       "title": "Tile Expert Solutions",
@@ -188,5 +199,14 @@
     }
   },
   "secondary": "Another project with a limited confirmed scope",
-  "secondaryLead": "Tile Expert Solutions — the exact changes are unconfirmed. See the case for details and limitations."
+  "secondaryLead": "Tile Expert Solutions — the exact changes are unconfirmed. See the case for details and limitations.",
+  "silent": {
+    "scope": "Redesign and improvements",
+    "summary": "A redesign and improvements to a cleaning company’s WordPress website, refreshing how the business, its services and quote enquiries are presented.",
+    "context": "A cleaning company serving Toronto and the GTA. The website presents cleaning services, examples of work, reviews and a quote enquiry form.",
+    "work": "My work covered redesigning and improving the existing WordPress website. This page shows its current public version.",
+    "desktopAlt": "Silent Clean website homepage",
+    "mobileAlt": "Silent Clean mobile website",
+    "captureNote": "Website screenshots captured on October 13, 2026. The public version may change after the work is completed."
+  }
 }

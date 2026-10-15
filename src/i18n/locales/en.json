@@ -39,11 +39,11 @@
     "themeToDark": "Switch to dark theme"
   },
   "hero": {
-    "mobileLead": "Business websites with a clear offer and a simple way to enquire. I handle your project personally through launch.",
+    "mobileLead": "I build business websites that make it easy to understand your services, explore your work and get in touch. I personally handle the project from structure and design to launch.",
     "badge": "Ilya Kavaleuski · design & development",
-    "title": "Your website.",
-    "lead": "I build business websites with clear services, real work and a simple way to enquire. I handle your project personally, from structure to launch.",
-    "titleAccent": "Built to work.",
+    "title": "A website that helps",
+    "lead": "I build business websites that make it easy to understand your services, explore your work and get in touch. I personally handle the project from structure and design to launch.",
+    "titleAccent": "your customers choose you.",
     "note": "Tell me about your project. We’ll discuss the approach, timing and cost.",
     "signature": "Ilya Kavaleuski · developer",
     "explore": "What I can build",
@@ -85,7 +85,9 @@
     },
     "projectLink": "View my work — the Mariana Leus website",
     "projectAlt": "The Mariana Leus website I developed, shown on desktop",
-    "projectNote": "My work: structure, design and development"
+    "projectNote": "My work: structure, design and development",
+    "fit": "For businesses that mainly use social media, have outgrown their current website or are preparing to advertise.",
+    "workLink": "View my work"
   },
   "laptop": {
     "chapters": [
@@ -290,29 +292,29 @@
   },
   "services": {
     "title": "Services",
-    "priceFrom": "Websites from €1,500",
+    "priceFrom": "Quoted individually based on scope and complexity",
     "items": {
       "site": {
         "title": "Business websites",
-        "desc": "Strategy, design and custom development for businesses that need a strong presence.",
+        "desc": "Present your services professionally, showcase your company’s strengths and make it easy for customers to get in touch. Your website supports your reputation even when you’re busy.",
         "tag": "business website",
-        "previewTitle": "Structure that leads to a request",
-        "previewNote": "A few pages, clear navigation, one target step on each.",
-        "price": "from €2,500",
+        "previewTitle": "A website that presents your business professionally",
+        "previewNote": "Thoughtful structure, modern design, clear services and an easy way to get in touch. Everything a potential customer needs to evaluate your company and take the next step.",
+        "price": "Quoted individually based on scope and complexity",
         "timing": "Usually 4–6 weeks · scope agreed before we start"
       },
       "landing": {
         "title": "Landing pages",
-        "desc": "Pages built around ad campaigns and lead generation — one offer, one action.",
+        "desc": "One page for a specific service or offer. It focuses visitors’ attention and guides them towards an enquiry, booking or purchase.",
         "tag": "landing page",
         "previewTitle": "One page, one decision",
         "previewNote": "Built for a specific campaign: offer, trust, form.",
-        "price": "from €1,500",
+        "price": "Quoted individually based on scope and complexity",
         "timing": "Usually 2–3 weeks · scope agreed before we start"
       },
       "redesign": {
         "title": "Redesign & existing projects",
-        "desc": "You do not have to start over — a builder site, old code or work left by another developer can be improved, rebuilt or extended.",
+        "desc": "Refresh an outdated look, improve how your services are presented and make the website easier to use. As your business grows, your website should reflect its quality.",
         "tag": "before / after",
         "previewTitle": "Not always from scratch",
         "previewNote": "I review what exists and say honestly: improve, rebuild or extend.",
@@ -321,7 +323,7 @@
       },
       "app": {
         "title": "Custom web applications",
-        "desc": "Customer portals, documents, order statuses, and internal tools built around your business processes.",
+        "desc": "An online tool built around your processes: customer portals, internal systems, order management and other solutions beyond the limits of ready-made builders.",
         "tag": "web application",
         "previewTitle": "Accounts, data, logic",
         "previewNote": "When a site is not enough: records, roles, integrations, workflows.",
@@ -330,7 +332,7 @@
       },
       "desktop": {
         "title": "Desktop software",
-        "desc": "When the work happens inside the company rather than in a browser.",
+        "desc": "Software developed for the specific needs of your team.",
         "tag": "desktop",
         "previewTitle": "A tool inside the company",
         "previewNote": "A Windows application when the process does not live in a browser.",
@@ -340,13 +342,13 @@
     },
     "discuss": "Discuss this project",
     "extensions": {
-      "title": "What your website can connect to",
-      "lead": "An inquiry is just the start. I connect your website to the services you and your clients use.",
+      "title": "More possibilities for your business",
+      "lead": "Connect your website to tools for enquiries, bookings and payments, fitting the processes your company already uses.",
       "note": "Available for a new website or your existing one. Scope and cost depend on your workflow.",
       "items": {
         "bot": {
           "title": "Telegram bots",
-          "desc": "Service selection, answers to common questions, and inquiries in a messenger. Hand the conversation to a person when needed."
+          "desc": "Answers to common questions, service selection and enquiry collection without constant staff involvement. Customers get the information they need sooner, while your team spends less time on repetitive messages."
         },
         "automation": {
           "title": "Inquiries & CRM",
@@ -382,33 +384,34 @@
     "partner": {
       "role": "Advertising partner",
       "body": "When a project needs advertising, Mariana joins in. I handle the website and technical work; she handles the campaign launch. We agree on the scope around your needs.",
-      "link": "Meet Mariana"
+      "link": "Learn about advertising"
     }
   },
   "process": {
     "title": "Process",
     "steps": {
       "discover": {
-        "title": "Discover",
-        "desc": "Business, audience, offer, competitors."
+        "title": "Getting to know your business",
+        "desc": "We discuss your services, customers, competitors and what the website needs to do."
       },
       "structure": {
-        "title": "Structure",
-        "desc": "Block order, message hierarchy, the decision point."
+        "title": "Planning the website",
+        "desc": "We define the pages, content and how visitors will find the information they need."
       },
       "design": {
         "title": "Design",
-        "desc": "Visual language, typography, key screens."
+        "desc": "We show you how the website will look and agree on key decisions before development."
       },
       "build": {
-        "title": "Build",
-        "desc": "Development, speed, forms, integrations."
+        "title": "Development",
+        "desc": "We turn the design into a working website and set up forms and the integrations you need."
       },
       "launch": {
         "title": "Launch",
-        "desc": "Check and launch the site, then hand it over or provide ongoing support."
+        "desc": "We check the website, publish it and hand it over to you or continue with support."
       }
-    }
+    },
+    "lead": "We work in stages, so you know where the project stands, what is ready and what happens next."
   },
   "about": {
     "portraitNote": "portrait — Ilya (drop a photo here)",
@@ -422,125 +425,67 @@
   "aboutPage": {
     "hero": {
       "eyebrow": "Independent designer & developer",
-      "title": "I turn business problems into clear digital products.",
-      "lead": "Strategy, design and development stay connected from the first question to the final release.",
-      "note": "Some of my product work is confidential. I can still explain my role, decisions and process without breaking an NDA."
+      "title": "Hi, I’m Ilya. I build websites that help businesses look professional and connect with customers.",
+      "lead": "I design and develop websites for businesses. I help turn a company’s services, ideas and needs into a clear digital product — from the initial structure to the finished website.",
+      "note": "I combine technical experience with an understanding of how people choose services, evaluate companies and decide to get in touch."
     },
     "positioning": {
       "eyebrow": "How I work",
-      "title": "One person who understands the whole product.",
-      "lead": "A website works better when its message, interface and code are shaped around the same goal.",
-      "body": "I work across strategy, structure, visual design and frontend development. That gives you one accountable partner, fewer handovers and decisions that make sense both for the business and for the people using the product.",
-      "statementLabel": "My role",
-      "statement": "Make the complex clear, then build it properly."
-    },
-    "principles": {
-      "eyebrow": "Principles",
-      "title": "What guides every decision.",
-      "lead": "Good work is not defined by decoration or technical complexity. It is defined by what the product helps someone understand and do.",
-      "items": {
-        "clarity": {
-          "index": "01",
-          "title": "Clarity before polish",
-          "body": "The offer, hierarchy and next step need to be understandable before visual detail can make them stronger."
-        },
-        "purpose": {
-          "index": "02",
-          "title": "Every element earns its place",
-          "body": "A section, interaction or animation stays only when it supports comprehension, trust or action."
-        },
-        "ownership": {
-          "index": "03",
-          "title": "Personal ownership",
-          "body": "I stay close to the work, explain trade-offs clearly and remain responsible for how the pieces fit together."
-        },
-        "longevity": {
-          "index": "04",
-          "title": "Built beyond launch",
-          "body": "The result should be maintainable, adaptable and useful after the first campaign or release is over."
-        }
-      }
+      "title": "A little about my experience",
+      "lead": "From programming to complete business websites",
+      "body": "My technical background spans frontend development, interface design and web applications. I work with React, Angular and TypeScript, and also have experience with backend development.",
+      "statementLabel": "My approach",
+      "statement": "I don’t start with a beautiful screen. I start with the problem it needs to solve.",
+      "portraitAlt": "Ilya wearing a black hat, a light T-shirt and a backpack"
     },
     "capabilities": {
       "eyebrow": "Capabilities",
       "title": "From the first idea to a working product.",
-      "lead": "The scope can be a focused marketing page or a custom application with real business logic.",
+      "lead": "I can handle the whole project or help with a specific stage if the brief is already defined.",
       "items": {
         "strategy": {
           "index": "01",
-          "title": "Strategy & structure",
-          "body": "Clarifying the audience, offer, priorities and customer path before deciding what the interface should contain."
+          "title": "Structure and UX",
+          "body": "A clear path from discovering your company to getting in touch"
         },
         "design": {
           "index": "02",
-          "title": "Product & web design",
-          "body": "Creating a visual system and responsive experience that make the message easier to understand and trust."
+          "title": "Interface design",
+          "body": "A visual presence that reflects the quality of your business"
         },
         "frontend": {
           "index": "03",
           "title": "Frontend development",
-          "body": "Turning the design into a fast, accessible interface with considered motion and reliable behaviour across screens."
+          "body": "A fast, responsive website with the functionality you need"
         },
         "customApps": {
           "index": "04",
-          "title": "Custom applications",
-          "body": "Building products with accounts, data, integrations and workflows when a conventional website is not enough."
+          "title": "Integrations",
+          "body": "Connecting forms, CRM, Telegram, booking and other services"
         }
-      }
+      },
+      "workLink": "View my work"
     },
     "collaboration": {
       "eyebrow": "Collaboration",
-      "title": "Independent by default. Expanded when the work requires it.",
-      "lead": "You always have one clear point of contact, while the delivery model follows the real needs of the project.",
+      "title": "I work on your project personally, bringing in a team when needed.",
       "solo": {
         "label": "Direct",
-        "title": "I handle focused projects personally.",
-        "body": "For strategy, design and frontend work, I stay hands-on from discovery through launch. Communication is direct and decisions move quickly."
+        "body": "I handle the structure, design and frontend development myself. You speak directly with the specialist building your website, rather than through an account manager."
       },
       "network": {
         "label": "Specialists",
-        "title": "Trusted expertise joins when needed.",
-        "body": "For deeper backend, infrastructure, desktop or growth work, I bring in trusted specialists and continue to own the overall direction."
-      }
-    },
-    "process": {
-      "eyebrow": "Process",
-      "title": "Five steps, with room to think.",
-      "lead": "The details change with every project, but the logic stays transparent from start to finish.",
-      "items": {
-        "context": {
-          "index": "01",
-          "title": "Understand the context",
-          "body": "We define the business goal, audience, constraints and what success should look like."
-        },
-        "direction": {
-          "index": "02",
-          "title": "Set the direction",
-          "body": "I shape the offer, information structure and core experience before committing to visual detail."
-        },
-        "build": {
-          "index": "03",
-          "title": "Design and build",
-          "body": "The visual system and implementation develop together, keeping ideas grounded in a responsive working product."
-        },
-        "refine": {
-          "index": "04",
-          "title": "Review and refine",
-          "body": "We test the important flows, resolve edge cases and improve the details that affect understanding and use."
-        },
-        "launch": {
-          "index": "05",
-          "title": "Launch and hand over",
-          "body": "The product goes live with the necessary access, documentation and a clear path for future changes."
-        }
+        "body": "When a project needs additional expertise, I bring in the right specialists and coordinate their work. I remain your single point of contact."
       }
     },
     "finalCta": {
       "eyebrow": "Have a project in mind?",
-      "title": "Let’s make the next step clear.",
-      "lead": "Tell me what you are trying to build or improve. I will come back with practical questions and an honest direction.",
+      "title": "Tell me what kind of website your business needs",
+      "lead": "Describe your idea or show me your existing website. I’ll look into what you need, ask the right questions and suggest the next step.",
       "button": "Start a project"
-    }
+    },
+    "projectsTitle": "Projects I’ve worked on",
+    "allProjects": "All projects"
   },
   "faq": {
     "title": "Questions before we start",
@@ -548,23 +493,23 @@
     "items": {
       "price": {
         "q": "How much does a website cost?",
-        "a": "Landing pages start from 1 500 €, business sites from 2 500 €, custom applications are quoted per project. You get a fixed price before the work starts."
+        "a": "Each project is quoted individually based on its scope and complexity. We agree and confirm the scope of work and cost before work begins."
       },
       "time": {
         "q": "How long does a project take?",
-        "a": "A landing page usually 2–3 weeks, a business site 4–6. Applications depend on scope."
+        "a": "A landing page usually takes 2–3 weeks, and a multi-page website 4–6 weeks. The timeline depends on the scope of work and whether the content is ready. We agree on the stages and an estimated launch date before starting."
       },
       "scope": {
         "q": "Do you handle both design and development?",
         "a": "Yes. We plan the structure, design, develop and launch the website. Any additional specialists are agreed in advance."
       },
       "existing": {
-        "q": "Can you take over an existing project?",
-        "a": "Yes — a builder site, old code or work left by another developer. I review it first and say honestly whether to improve, rebuild or extend."
+        "q": "Can you update my existing website?",
+        "a": "Yes. I can improve its design, structure, usability and functionality. First, we assess its current state and decide whether an update, an extension or a rebuild makes the most sense."
       },
       "ownership": {
         "q": "Who manages the website after launch?",
-        "a": "Choose a full handover of code and access, or a support subscription with the option to take over later. After a full handover, you can return to us for changes at a client discount. Support coverage, handover terms and the discount are agreed before we start."
+        "a": "You can receive the project and access details to manage it yourself, or choose technical support. We discuss the arrangement before work begins so that all terms are clear."
       },
       "ads": {
         "q": "Can it be used with Google or Meta Ads?",
@@ -577,26 +522,26 @@
     "text": "Real quotes appear here as clients write them — nothing invented, and no stand-in praise in the meantime."
   },
   "finalCta": {
-    "title": "What should your website do?",
-    "lead": "Tell me about your business and the task. I’ll suggest an appropriate solution, scope and cost."
+    "title": "Let’s discuss a website for your business",
+    "lead": "Tell me what your company does and what you’d like to change or create. I’ll suggest a suitable website format, explain the timeline and give you an idea of the cost."
   },
   "contact": {
     "eyebrow": "Open for new projects",
-    "title": "Tell me what needs building.",
-    "lead": "A few sentences are enough. I will clarify the details and suggest a clear next step.",
+    "title": "Let’s discuss your project",
+    "lead": "Need a new website, a redesign or additional features? I’ll help you find the right solution and outline the cost and timeline.",
     "replyNote": "Usually a reply within one working day",
     "form": {
       "title": "A short project brief",
-      "lead": "Four fields — it lands in my Telegram and I reply within a working day.",
+      "lead": "Need a new website, a redesign or additional features? I’ll help you find the right solution and outline the cost and timeline.",
       "nameLabel": "Your name",
       "namePlaceholder": "How should I address you?",
       "contactLabel": "Email or Telegram",
       "contactPlaceholder": "Where should I reply?",
-      "typeLabel": "Project type",
-      "briefLabel": "What needs to be done",
-      "briefPlaceholder": "The task, audience, timing and anything you already know.",
+      "typeLabel": "What are you interested in?",
+      "briefLabel": "A brief description",
+      "briefPlaceholder": "What does your business do? What would you like to create or improve? If you have a website, please include a link.",
       "submit": "Send the brief",
-      "privacyNote": "Form fields pass through the website server to my Telegram so I can respond to your inquiry.",
+      "privacyNote": "I’ll use your details to respond to your enquiry.",
       "types": {
         "site": "Business website",
         "landing": "Landing page",
@@ -609,8 +554,8 @@
         "booking": "Online booking and payments"
       },
       "sending": "Sending…",
-      "sentTitle": "Brief sent.",
-      "sentBody": "Thank you — I will read it and come back to you within a working day.",
+      "sentTitle": "Your enquiry has been sent!",
+      "sentBody": "Thank you for getting in touch! I’ll review your enquiry and reply within one business day.",
       "errorTitle": "Could not send it.",
       "errorBody": "Something is off with the network or the sending service. Reach me directly instead:",
       "errorMailAction": "Open it in your mail app",
@@ -623,8 +568,8 @@
       }
     },
     "direct": {
-      "title": "Prefer writing directly?",
-      "lead": "Use whichever channel is easiest. No formal brief required.",
+      "title": "You can also message me directly",
+      "lead": "If you’d rather skip the form, send me a message on Telegram or by email. Feel free to include your website link or a short description of your idea.",
       "email": "Email",
       "telegram": "Telegram",
       "phone": "Phone"
@@ -635,7 +580,7 @@
     "hero": {
       "eyebrow": "01 / flagship case",
       "title": "Mariana Leus",
-      "lead": "A website for a performance marketer: a clear offer, proof of results and a short path to an enquiry."
+      "lead": "A website that highlights a marketer’s expertise, presents her experience and results convincingly, and helps potential clients get in touch."
     },
     "actions": {
       "openLive": "Open live website",
@@ -646,7 +591,7 @@
       "industryLabel": "Industry",
       "industryValue": "Performance marketing",
       "locationLabel": "Location",
-      "locationValue": "Warsaw, Poland",
+      "locationValue": "Poznań, Poland",
       "scopeLabel": "Scope",
       "scopeValue": "Strategy, design, development",
       "yearLabel": "Year",
@@ -654,33 +599,33 @@
     },
     "story": {
       "eyebrow": "Context",
-      "title": "Not a brochure, but a working point of entry.",
-      "lead": "A visitor arrives from an ad or a recommendation and should understand the specialism, see proof and choose a next step within seconds."
+      "title": "A website that builds trust from the first visit",
+      "lead": "The website needs to make a strong first impression and help potential clients understand why this specialist is the right person to contact."
     },
     "problem": {
       "eyebrow": "Challenge",
-      "title": "Turn several services into one convincing story.",
-      "body": "Mariana works across several disciplines and markets. The site needed to avoid feeling like an agency catalogue while keeping a personal, expert voice."
+      "title": "Bring different services together into a strong personal brand",
+      "body": "Mariana works across several areas of marketing and different markets. The aim was to present her services as a coherent expert offering, highlight her individual approach, and preserve the sense of working with her personally."
     },
     "approach": {
       "eyebrow": "Approach",
-      "title": "One offer leads through the whole page.",
-      "body": "The flow starts with the outcome, then moves through services, real cases, testimonials and the form. Every block answers the client's next question."
+      "title": "From a first impression to confidence in the choice",
+      "body": "We structured the website to introduce potential clients to Mariana’s expertise step by step: understand the value of her services, see examples of her work, find evidence of her experience, and easily start a conversation about working together."
     },
     "solutions": {
       "eyebrow": "Solutions",
-      "title": "Three foundations for conversion.",
-      "lead": "The structure does not decorate the offer — it helps people decide sooner.",
+      "title": "Three reasons to trust the specialist",
+      "lead": "A strong website goes beyond beautiful design. It explains the value of the services clearly and demonstrates expertise through real examples.",
       "items": {
         "message": {
           "index": "01",
-          "title": "An offer that needs no decoding",
-          "body": "The first screen states the business outcome instead of listing advertising tools."
+          "title": "The value of the services is clear at a glance",
+          "body": "Visitors immediately see what Mariana does, how her work can benefit their business, and why it is worth learning more."
         },
         "trust": {
           "index": "02",
-          "title": "Trust built with facts",
-          "body": "Cases, working figures and testimonials appear before the visitor is asked to submit an enquiry."
+          "title": "Expertise backed by results",
+          "body": "Project examples and work results help visitors assess the specialist’s experience and build trust before the first conversation."
         },
         "conversion": {
           "index": "03",
@@ -691,8 +636,8 @@
     },
     "preview": {
       "eyebrow": "Responsive / live",
-      "title": "One website in two real viewport sizes.",
-      "lead": "The captured view stays stable, while live mode lets you check the real animation and responsive behaviour.",
+      "title": "A professional presence on any screen",
+      "lead": "The website retains its style, clear structure, and ease of use on both computers and smartphones. Explore both versions to see the design, details, and smooth interactions.",
       "modeGroupLabel": "Preview mode",
       "screenshot": "Captured view",
       "openLiveMobile": "Open website",
@@ -707,9 +652,10 @@
     },
     "finalCta": {
       "eyebrow": "Next project",
-      "title": "Your website can work as one coherent system too.",
-      "lead": "We will begin with the task, the offer and the customer path — before drawing the first page."
-    }
+      "title": "Your business deserves a website that makes a strong impression",
+      "lead": "I’ll showcase your strengths, highlight your expertise, and build a website that helps clients understand your services and choose you with confidence."
+    },
+    "cardScope": "Personal brand · Built from scratch"
   },
   "notFound": {
     "eyebrow": "Error 404",
@@ -793,7 +739,7 @@
     "writeDirect": "Write directly",
     "replyNote": "Usually a reply within one working day",
     "colSite": "Site",
-    "colProjects": "Projects",
+    "colProjects": "Partners",
     "colDirect": "Direct",
     "colInterface": "Interface",
     "location": "Poland · working across Europe",

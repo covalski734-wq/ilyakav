@@ -792,7 +792,7 @@ export function LaptopScene() {
         <SceneHeader $still={still} data-caption>
           <ChapterIndex aria-hidden="true">01</ChapterIndex>
           <Caption>{t('laptop.caption')}</Caption>
-          <a href="#work">{t('nav.work')} <span aria-hidden="true">↓</span></a>
+          <a href="/#work">{t('nav.work')} <span aria-hidden="true">↗</span></a>
         </SceneHeader>
 
         <Perspective>

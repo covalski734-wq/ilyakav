@@ -12,42 +12,33 @@
   "discuss": "Discuss this service",
   "related": "Other solutions",
   "ownership": {
-    "title": "Your website. Your choice of support.",
-    "lead": "We build your website from planning and design through development and launch. Then you choose who looks after it.",
+    "title": "Your website stays yours. Support is your choice.",
+    "lead": "After launch, you decide how to manage the website: look after it yourself or leave the technical side to me.",
     "full": {
       "title": "Full handover",
-      "for": "For managing the website yourself or with your own team.",
-      "items": [
-        "Receive the code, project materials and website access.",
-        "Get an explanation of how the project works and how to update it.",
-        "Return to us for future changes at a client discount."
-      ],
-      "benefit": "You choose who maintains the website. There is no compulsory subscription to our support."
+      "for": "For those who want to manage the website themselves or with their own team.",
+      "benefit": "No mandatory subscription to my services.",
+      "body": "You receive the code, project materials and access details. I explain how everything works and what you need to keep it updated."
     },
     "managed": {
-      "title": "Ongoing subscription",
-      "for": "For focusing on your business while we handle the technical side.",
-      "items": [
-        "We handle hosting and maintenance within an agreed scope.",
-        "The recurring fee, support coverage and change process are agreed upfront.",
-        "You can move to a full handover later under the agreed terms."
-      ],
-      "benefit": "You have someone to turn to for technical questions, without finding a new specialist for each request."
+      "title": "Technical support",
+      "for": "For those who want to focus on their business and leave technical matters to a specialist.",
+      "benefit": "We agree on the cost and scope of support in advance.",
+      "body": "I help with hosting, maintenance and technical questions within the agreed support scope."
     },
-    "note": "We agree the subscription price, coverage, handover terms and discount on changes before starting. Domain, hosting and third-party service charges are considered separately and depend on the project.",
-    "value": "Compare more than the launch price: what you receive, who helps afterwards and whether you can change providers. We discuss those terms upfront."
+    "note": "We discuss the support arrangement, scope, cost and handover terms before work begins. Domain, hosting and third-party service charges are considered separately and depend on the project."
   },
   "team": {
-    "title": "One contact throughout the project",
-    "body": "I’m Ilya, a designer and developer. I plan the structure, design the interface and write the code. You see work in progress and know who to contact.",
+    "title": "No need to find a separate designer and developer",
+    "body": "I handle the whole website process, from structure and design to development and launch. You speak directly with me, see work in progress and know who to contact with questions.",
     "support": "If the project needs other specialists, we agree their involvement in advance. I handle the coordination.",
     "partnerTitle": "Need advertising after launch?",
-    "partnerBody": "For Google Ads and Meta Ads, we can bring in Mariana Leus. I handle the website and Mariana manages the campaigns. Scope and budget are discussed separately."
+    "partnerBody": "Your website can be prepared for Google Ads or Meta Ads from the outset. I work with marketer Mariana Leus on campaign setup and management. Campaign requirements can be agreed before launch."
   },
   "pages": {
     "site": {
       "title": "A complete website for your business",
-      "lead": "Help people understand your services, see your work and enquire, even when you are unavailable.",
+      "lead": "Present your services professionally, showcase your company’s strengths and make it easy for customers to get in touch. Your website supports your reputation even when you’re busy.",
       "why": "A recommendation or an ad can introduce someone to your business, but they still need to decide. A website gives them space to compare services, check terms, see examples and send a request. You spend less time repeating the basics in every conversation.",
       "fit": "You offer several services, customers ask similar questions, and their decision depends on examples, pricing or an explanation of the process.",
       "includes": [
@@ -61,7 +52,7 @@
     },
     "landing": {
       "title": "A landing page for one clear offer",
-      "lead": "One page that helps people understand the offer and take the next step: enquire, book or buy.",
+      "lead": "One page for a specific service or offer. It focuses visitors’ attention and guides them towards an enquiry, booking or purchase.",
       "why": "After clicking an ad, visitors expect to find the service it promised. A landing page brings the description, terms, examples and answers together. They do not have to explore multiple sections to decide whether it suits them.",
       "fit": "You are launching a service, a separate campaign or an event, or want to explore interest in a new offer.",
       "includes": [
@@ -75,7 +66,7 @@
     },
     "redesign": {
       "title": "Website redesign and improvements",
-      "lead": "Make your existing website clearer and easier to use, keeping what already serves your business.",
+      "lead": "Refresh an outdated look, improve how your services are presented and make the website easier to use. As your business grows, your website should reflect its quality.",
       "why": "Small mobile text, hard-to-find services or a broken form can make contacting you difficult. We start with specific obstacles and check what can be improved in the current project.",
       "fit": "You already have a website, but the offer has changed, the mobile experience is outdated or pages need work before advertising starts.",
       "includes": [
@@ -89,7 +80,7 @@
     },
     "app": {
       "title": "A web application for your workflow",
-      "lead": "When you need to give people a working tool in their browser, beyond a description of your business.",
+      "lead": "An online tool built around your processes: customer portals, internal systems, order management and other solutions beyond the limits of ready-made builders.",
       "why": "Requests, documents and statuses can get lost across spreadsheets and messages. An application connects them to an order and gives each person useful actions: customers check progress, staff update records and managers see the work.",
       "fit": "You have a recurring process, different user roles and information that needs to stay in one place and be kept up to date.",
       "includes": [
@@ -103,7 +94,7 @@
     },
     "desktop": {
       "title": "A Windows application for your team",
-      "lead": "A working tool for tasks tied to a computer, local files or equipment.",
+      "lead": "Software developed for the specific needs of your team.",
       "why": "Some operations are awkward in a browser: processing local files, working with devices or meeting internal access requirements. A desktop application can bring those actions into a clear workflow at a workstation.",
       "fit": "Your process depends on Windows, local data, equipment or operation without a continuous internet connection.",
       "includes": [
@@ -117,7 +108,7 @@
     },
     "bot": {
       "title": "A Telegram bot for enquiries and answers",
-      "lead": "Let customers choose a service and share details in a place where they already like to communicate.",
+      "lead": "Answers to common questions, service selection and enquiry collection without constant staff involvement. Customers get the information they need sooner, while your team spends less time on repetitive messages.",
       "why": "Repeated questions take time, while unstructured messages often miss order details. A bot asks questions step by step, presents choices and passes the collected enquiry to you or your system.",
       "fit": "Your customers use Telegram and you have a clear selection, booking or initial information-gathering process.",
       "includes": [
@@ -160,13 +151,13 @@
   },
   "goals": [
     {
-      "title": "I need a new website",
-      "body": "Present your services, show your work and help customers get in touch.",
+      "title": "Take your business to the next level",
+      "body": "I create a professional website that highlights the value of your services, builds trust in your brand and helps turn visitors into customers.",
       "action": "Business websites"
     },
     {
-      "title": "My website needs an update",
-      "body": "Rethink the structure, design and mobile experience of your existing site.",
+      "title": "Your business has grown. Let’s update your website.",
+      "body": "Modern design, a compelling presentation of your services and an easy enquiry process help make a stronger impression and keep potential customers engaged.",
       "action": "Website redesign"
     },
     {
@@ -175,6 +166,6 @@
       "action": "Web applications"
     }
   ],
-  "priceNote": "The starting price is a guide. The final quote depends on the agreed scope described below. Domain, hosting and third-party service charges are considered separately.",
+  "priceNote": "The cost depends on the agreed scope and complexity. Domain, hosting and third-party services are charged separately.",
   "individualEstimate": "Cost and timeline are determined after reviewing the task."
 }

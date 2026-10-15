@@ -843,9 +843,6 @@ export function MarianaleusCasePage() {
                 <PrimaryAction href={ROUTES.contact}>
                   {t('caseMariana.actions.startProject')}
                 </PrimaryAction>
-                <HeroSecondaryAction href={liveUrl} target="_blank" rel="noreferrer">
-                  {t('caseMariana.actions.openLive')}
-                </HeroSecondaryAction>
               </Actions>
             </div>
           </FinalGrid>

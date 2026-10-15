@@ -6,8 +6,9 @@ import { caseImage, WEB_CASES, type WebCaseId } from '../config/cases'
 const Grid = styled.div<{ $related: boolean }>`
   display: grid;
   grid-template-columns: repeat(${({ $related }) => $related ? 2 : 3}, minmax(0, 1fr));
+  &:has(> a:nth-child(4)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   gap: clamp(16px, 2.4vw, 28px);
-  @media (max-width: 1000px) { grid-template-columns: 1fr; }
+  @media (max-width: 1000px) { &, &:has(> a:nth-child(4)) { grid-template-columns: 1fr; } }
 `
 const Item = styled.a`
   display: flex;
@@ -48,13 +49,13 @@ const Read = styled.span`
   justify-content: space-between;
 `
 
-export function CaseCards({ exclude }: { exclude?: WebCaseId }) {
+export function CaseCards({ exclude, compact = false }: { exclude?: WebCaseId; compact?: boolean }) {
   const { t } = useTranslation()
   return <Grid $related={!!exclude}>
     {(['mariana', 'skyline', 'maryna'] as const).filter(id => id !== exclude).map(id => {
       if (id === 'mariana') return <Item href={ROUTES.caseMarianaleus} key={id}>
         <img src="/media/marianaleus-desktop.jpg" alt={t('caseMariana.preview.desktopAlt')} width={1440} height={1000} loading="lazy" decoding="async" />
-        <Body><h3>{t('caseMariana.hero.title')}</h3><Tags><span>{t('caseMariana.facts.scopeValue')}</span></Tags><p>{t('caseMariana.hero.lead')}</p><Read>{t('webCases.read')}<span aria-hidden="true">↗</span></Read></Body>
+        <Body><h3>{t('caseMariana.hero.title')}</h3><Tags><span>{t('caseMariana.cardScope')}</span></Tags><p>{t('caseMariana.hero.lead')}</p><Read>{t('webCases.read')}<span aria-hidden="true">↗</span></Read></Body>
       </Item>
       const project = t(`webCases.projects.${id}`, { returnObjects: true })
       return <Item href={WEB_CASES[id].path} key={id}>
@@ -67,5 +68,9 @@ export function CaseCards({ exclude }: { exclude?: WebCaseId }) {
         </Body>
       </Item>
     })}
+    {!compact && <Item href="/case/silent-clean">
+      <img src="/media/cases/silent/desktop.webp" alt={t('webCases.silent.desktopAlt')} width={1440} height={960} loading="lazy" decoding="async" />
+      <Body><h3>Silent Clean</h3><Tags><span>{t('webCases.silent.scope')}</span><span>WordPress</span></Tags><p>{t('webCases.silent.summary')}</p><Read>{t('webCases.read')}<span aria-hidden="true">↗</span></Read></Body>
+    </Item>}
   </Grid>
 }

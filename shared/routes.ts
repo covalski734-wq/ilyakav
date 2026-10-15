@@ -1,6 +1,6 @@
 export const PUBLIC_PATHS = [
   '/', '/about', '/contact', '/privacy', '/cookies', '/case/marianaleus',
-  '/case/skyline-stretch-ceilings', '/case/maryna-cleaning', '/case/tile-expert-solutions',
+  '/case/skyline-stretch-ceilings', '/case/maryna-cleaning', '/case/tile-expert-solutions', '/case/silent-clean',
   '/services/business-websites', '/services/landing-pages', '/services/website-redesign',
   '/services/web-applications', '/services/desktop-applications', '/services/telegram-bots',
   '/services/crm-automation', '/services/booking-and-payments',

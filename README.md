@@ -23,11 +23,30 @@ npx playwright install chromium
 npm run test:browser
 ```
 
+If using an installed Chrome instead of Playwright's bundled Chromium, set
+`PLAYWRIGHT_CHANNEL=chrome` (PowerShell: `$env:PLAYWRIGHT_CHANNEL='chrome'`).
+Browser route checks run sequentially to keep memory use bounded.
+
+The October 13 editorial changes have an additional local check:
+`node scripts/handoff-check.mjs`. It covers RU/UK/EN, both themes, mobile and
+desktop layouts, project images, work links, FAQ and mocked form outcomes.
+Screenshots and results are written to `artifacts/verification-2026-10-13/handoff/`.
+
+The supplied portrait original is `photo_2026-09-05_12-16-01.jpg` at the repository
+root and is not served. Run `node scripts/prepare-portrait.mjs` to regenerate its
+480px and 768px WebP derivatives. This only resizes and compresses the image.
+
+For the follow-up screenshot edits, run `node scripts/editorial-check.mjs`.
+It checks the home page, Silent Clean case and web-app service in RU/UK/EN,
+light/dark themes and mobile/desktop widths. Evidence is saved under
+`artifacts/verification-2026-10-13/editorial/`.
+`scripts/capture-silent-clean.mjs` captures the public site without submitting forms.
+
 `TEST_BASE_URL` can override `http://127.0.0.1:8787`. Run browser tests against a local test instance. They test an invalid API request and intercept valid form submissions; they never intentionally send a real Telegram message. Evidence goes to `artifacts/verification-2026-10-07/`.
 
 ## Static generation and routes
 
-`src/routes.tsx` dynamically imports the requested page. Home demos are in the HomePage chunk and are not loaded by direct contact, privacy, service or case visits. Shared React, i18n resources and animation utilities remain common.
+`src/routes.tsx` dynamically imports the requested page. The laptop demonstration is on the web-app service page; the home page presents real projects before the remaining responsive demo. Home code is not loaded by direct contact, privacy, service or case visits. Shared React, i18n resources and animation utilities remain common.
 
 `src/entry-server.tsx` renders each route with React and `ServerStyleSheet`. `scripts/prerender.mjs` combines that markup, its CSS and metadata with Vite's client entry. The temporary server bundle lives in `.ssg/`; only `dist/` is deployed. No browser is needed to generate HTML.
 
@@ -35,13 +54,14 @@ npm run test:browser
 
 - `/`, `/about`, `/contact`, `/privacy`
 - `/case/marianaleus`, `/case/skyline-stretch-ceilings`, `/case/maryna-cleaning`, `/case/tile-expert-solutions`
+- `/case/silent-clean` — redesign and improvements to the WordPress site, with real desktop/mobile captures.
 - `/services/business-websites`, `/services/landing-pages`, `/services/website-redesign`, `/services/web-applications`, `/services/desktop-applications`, `/services/telegram-bots`, `/services/crm-automation`, `/services/booking-and-payments`
 
 To add a page, update the manifest, dynamic loader and metadata mapping, then rebuild and run tests. Each route gets `dist/<route>/index.html`; the root gets `dist/index.html`. `dist/404.html` contains the existing 404 design and noindex metadata.
 
 `worker/index.ts` maps public URLs explicitly to these files. Public URLs have no trailing slash except `/`; trailing slashes and public `index.html` aliases redirect with 308. Query parameters are preserved by redirects and excluded from canonical URLs. Unknown routes return the 404 page with HTTP 404. There is no SPA fallback. Static asset HTML handling is disabled so it cannot add conflicting slash redirects.
 
-The build generates a real `robots.txt` (plain text, public indexing allowed, `/api/` disallowed) and `sitemap.xml` containing exactly the 16 public URLs. No query strings, API or 404 URLs are listed. Each page has its own title, description, canonical, Open Graph and Twitter Card tags. The social preview is a simple brand graphic at `public/brand/social-card.png`.
+The build generates a real `robots.txt` (plain text, public indexing allowed, `/api/` disallowed) and `sitemap.xml` containing the public URLs from the route manifest. No query strings, API or 404 URLs are listed. Each page has its own title, description, canonical, Open Graph and Twitter Card tags. The social preview is a simple brand graphic at `public/brand/social-card.png`.
 
 ## Language, theme and hydration
 

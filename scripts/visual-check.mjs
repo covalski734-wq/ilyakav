@@ -5,7 +5,7 @@ import assert from 'node:assert/strict'
 const base = process.env.TEST_BASE_URL ?? 'http://127.0.0.1:8787'
 const output = process.env.TEST_OUTPUT_DIR ?? 'artifacts/verification-2026-10-07'
 await mkdir(output, {recursive:true})
-const browser = await chromium.launch({headless:true})
+const browser = await chromium.launch({headless:true, channel:process.env.PLAYWRIGHT_CHANNEL || undefined})
 const contrast = [], layout = [], bundles = []
 try {
   for (const theme of ['light','dark']) {
@@ -43,11 +43,11 @@ try {
     const measurements=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,workY:document.querySelector('#work').getBoundingClientRect().top+scrollY,servicesY:document.querySelector('#services').getBoundingClientRect().top+scrollY,demos:[...document.querySelectorAll('[class*="LaptopScene__Stage"], [class*="MorphScene__Stage"]')].map(element=>element.getBoundingClientRect().top+scrollY)}))
     layout.push(measurements)
     assert.ok(measurements.scrollWidth<=width+1)
-    assert.ok(measurements.demos[0]<measurements.workY&&measurements.workY<measurements.servicesY&&measurements.servicesY<measurements.demos[1])
-    assert.equal(await page.locator('#capabilities [data-sticky-scene]').evaluate(e=>getComputedStyle(e).position),'sticky')
+    assert.ok(measurements.workY<measurements.servicesY&&measurements.servicesY<measurements.demos[0])
+    assert.equal(await page.locator('[class*="LaptopScene__Stage"]').count(),0,'Application demo belongs on the web-app service page')
     assert.equal(await page.locator('.pin-spacer').count(),0,'Scenes must not inject JS pin spacers')
     if(width===390||width===1440){
-      for(const scene of ['LaptopScene','MorphScene']){
+      for(const scene of ['MorphScene']){
         await page.locator(`[class*="${scene}__Stage"]`).evaluate(element=>window.scrollTo({top:element.getBoundingClientRect().top+scrollY+innerHeight*.6,behavior:'instant'}))
         await page.waitForTimeout(1000)
         await page.screenshot({path:`${output}/${scene}-${width}.png`})

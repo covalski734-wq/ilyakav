@@ -613,7 +613,8 @@ export function ContactPage() {
             </FormFooter>
 
             {status === 'sent' && (
-              <Result role="status">
+              <Result role="status" aria-live="polite" aria-atomic="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m7 12 3 3 7-7" /></svg>
                 <ResultTitle>{t('contact.form.sentTitle')}</ResultTitle>
                 <ResultBody>{t('contact.form.sentBody')}</ResultBody>
               </Result>

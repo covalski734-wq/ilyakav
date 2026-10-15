@@ -4,7 +4,7 @@ import { Container, Section, SectionTitle } from '../components/ui/primitives'
 import { servicePath } from '../config/services'
 
 const Wrapper = styled(Section)`
-  padding-block: clamp(48px, 6vw, 88px);
+  padding-block: clamp(36px, 4vw, 56px);
 `
 
 const Lead = styled.p`

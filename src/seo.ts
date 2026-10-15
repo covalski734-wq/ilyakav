@@ -9,8 +9,8 @@ export function pageMeta(t: TFunction, pathname: string) {
   const keys: Record<string, 'home' | 'about' | 'contact' | 'privacy' | 'cookies' | 'case' | 'notFound'> = { '/': 'home', '/about': 'about', '/contact': 'contact', '/privacy': 'privacy', '/cookies': 'cookies', '/case/marianaleus': 'case' }
   const key = keys[path] ?? 'notFound'
   return {
-    title: service ? `${t(`offering.pages.${service}.title`)} | ilyakav` : project ? `${t(`webCases.projects.${project}.title`)} | ilyakav` : t(`meta.${key}Title`),
-    description: service ? t(`offering.pages.${service}.lead`) : project ? t(`webCases.projects.${project}.summary`) : t(`meta.${key}Description`),
+    title: path === '/case/silent-clean' ? 'Silent Clean | ilyakav' : service ? `${t(`offering.pages.${service}.title`)} | ilyakav` : project ? `${t(`webCases.projects.${project}.title`)} | ilyakav` : t(`meta.${key}Title`),
+    description: path === '/case/silent-clean' ? t('webCases.silent.summary') : service ? t(`offering.pages.${service}.lead`) : project ? t(`webCases.projects.${project}.summary`) : t(`meta.${key}Description`),
     canonical: SITE_ORIGIN + path,
     image: SITE_ORIGIN + '/brand/social-card.png',
     indexable: isPublicPath(path),

@@ -20,10 +20,8 @@ const Choice = styled.article`
   padding: clamp(24px, 3.5vw, 44px);
   h3 { font-size: clamp(25px, 3vw, 38px); line-height: 1.1; letter-spacing: -.035em; }
   p { margin-top: 16px; color: ${({ theme }) => theme.colors.textDim}; }
-  ul { margin: 24px 0; padding-left: 20px; }
-  li { padding-left: 4px; margin: 12px 0; }
-  li::marker { color: ${({ theme }) => theme.colors.accent}; }
-  p:last-child { border-top: 1px solid ${({ theme }) => theme.colors.line}; padding-top: 20px; color: ${({ theme }) => theme.colors.text}; }
+  p[data-body] { border-top: 1px solid ${({ theme }) => theme.colors.line}; padding-top: 20px; color: ${({ theme }) => theme.colors.text}; }
+  p:last-child { font-size: 14px; }
 `
 const Note = styled.p`
   max-width: 95ch;
@@ -37,9 +35,8 @@ export function Ownership() {
     <Intro><SectionTitle>{t('offering.ownership.title')}</SectionTitle><p>{t('offering.ownership.lead')}</p></Intro>
     <Choices>{(['full','managed'] as const).map(key => {
       const choice = t(`offering.ownership.${key}`, { returnObjects: true })
-      return <Choice key={key}><h3>{choice.title}</h3><p>{choice.for}</p><ul>{choice.items.map(item => <li key={item}>{item}</li>)}</ul><p>{choice.benefit}</p></Choice>
+      return <Choice key={key}><h3>{choice.title}</h3><p>{choice.for}</p><p data-body>{choice.body}</p><p>{choice.benefit}</p></Choice>
     })}</Choices>
-    <Note>{t('offering.ownership.value')}</Note>
     <Note>{t('offering.ownership.note')}</Note>
   </Container></Section>
 }

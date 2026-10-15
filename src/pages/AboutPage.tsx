@@ -2,12 +2,11 @@ import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 
 import { Container, Eyebrow } from '../components/ui/primitives'
+import { CaseCards } from '../components/CaseCards'
 import { ROUTES } from '../config/site'
 import { useReveal } from '../hooks/useReveal'
 
-const PRINCIPLES = ['clarity', 'purpose', 'ownership', 'longevity'] as const
 const CAPABILITIES = ['strategy', 'design', 'frontend', 'customApps'] as const
-const PROCESS_STEPS = ['context', 'direction', 'build', 'refine', 'launch'] as const
 
 const AboutHero = styled.section`
   position: relative;
@@ -102,23 +101,23 @@ const HeroMain = styled.div``
 const HeroTitle = styled.h1`
   overflow-wrap: anywhere;
   hyphens: manual;
-  max-width: 12ch;
+  max-width: 25ch;
   font-family: ${({ theme }) => theme.fonts.display};
-  font-size: clamp(52px, 9.4vw, 140px);
+  font-size: clamp(38px, 5.6vw, 80px);
   font-weight: 680;
-  line-height: 0.88;
+  line-height: 1.05;
   letter-spacing: -0.07em;
 
   @media (max-width: 430px) {
-    font-size: clamp(48px, 15vw, 66px);
-    line-height: 0.91;
+    font-size: clamp(34px, 8.5vw, 42px);
+    line-height: 1.08;
     letter-spacing: -0.062em;
   }
 
   @media (max-height: 600px) and (max-width: 1020px) {
-    max-width: 15ch;
-    font-size: clamp(42px, 6.6vw, 58px);
-    line-height: 0.91;
+    max-width: 25ch;
+    font-size: clamp(34px, 4.6vw, 50px);
+    line-height: 1.08;
     letter-spacing: -0.055em;
   }
 `
@@ -190,14 +189,6 @@ const PositioningTitle = styled(SectionTitle)`
 
 const PositioningCopy = styled.div``
 
-const PositioningLead = styled.p`
-  max-width: 47ch;
-  font-size: clamp(23px, 3vw, 42px);
-  font-weight: 570;
-  line-height: 1.12;
-  letter-spacing: -0.035em;
-`
-
 const BodyCopy = styled.p`
   max-width: 58ch;
   margin-top: clamp(20px, 3vw, 34px);
@@ -234,10 +225,6 @@ const StatementText = styled.p`
   letter-spacing: -0.048em;
 `
 
-const PrinciplesSection = styled(BaseSection)`
-  background: ${({ theme }) => theme.colors.surface2};
-`
-
 const SplitHead = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
@@ -259,49 +246,11 @@ const SectionLead = styled.p`
   line-height: 1.62;
 `
 
-const PrinciplesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(12px, 1.7vw, 20px);
-
-  @media (max-width: 680px) {
-    grid-template-columns: 1fr;
-  }
-`
-
-const PrincipleCard = styled.article`
-  min-height: clamp(280px, 29vw, 400px);
-  padding: clamp(26px, 4vw, 48px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 52px;
-  border: 1px solid ${({ theme }) => theme.colors.line};
-  border-radius: ${({ theme }) => theme.radii.xl};
-  background: ${({ theme }) => theme.colors.surface};
-`
-
 const ItemIndex = styled.span`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 12px;
   font-weight: 600;
   color: ${({ theme }) => (theme.mode === 'dark' ? '#aaa5ff' : theme.colors.accent)};
-`
-
-const ItemTitle = styled.h3`
-  max-width: 17ch;
-  margin-bottom: 14px;
-  font-size: clamp(25px, 2.6vw, 38px);
-  font-weight: 620;
-  line-height: 1.05;
-  letter-spacing: -0.037em;
-`
-
-const ItemBody = styled.p`
-  max-width: 45ch;
-  color: ${({ theme }) => theme.colors.textDim};
-  font-size: 16px;
-  line-height: 1.6;
 `
 
 const CapabilitiesSection = styled(BaseSection)`
@@ -374,22 +323,18 @@ const CollaborationIntro = styled.div`
   }
 `
 
-const CollaborationLead = styled(SectionLead)`
-  margin-top: 24px;
-`
-
 const ModelCards = styled.div`
   display: grid;
   gap: 14px;
 `
 
 const ModelCard = styled.article<{ $accent?: boolean }>`
-  min-height: clamp(300px, 32vw, 440px);
+  min-height: 0;
   padding: clamp(28px, 4vw, 52px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 60px;
+  gap: 24px;
   border: 1px solid ${({ $accent, theme }) => ($accent ? 'transparent' : theme.colors.line)};
   border-radius: ${({ theme }) => theme.radii.xl};
   background: ${({ $accent, theme }) => ($accent ? theme.colors.accent : theme.colors.surface)};
@@ -400,15 +345,6 @@ const ModelLabel = styled(Eyebrow)<{ $accent?: boolean }>`
   color: ${({ $accent, theme }) => ($accent ? '#fff' : theme.colors.textDim)};
 `
 
-const ModelTitle = styled.h3`
-  max-width: 15ch;
-  margin-bottom: 18px;
-  font-size: clamp(29px, 3.5vw, 50px);
-  font-weight: 630;
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-`
-
 const ModelBody = styled.p`
   max-width: 47ch;
   font-size: clamp(16px, 1.2vw, 18px);
@@ -416,80 +352,8 @@ const ModelBody = styled.p`
   opacity: 1;
 `
 
-const ProcessSection = styled(BaseSection)`
+const ProjectsSection = styled(BaseSection)`
   background: ${({ theme }) => theme.colors.surface2};
-`
-
-const ProcessList = styled.ol`
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  margin: clamp(44px, 7vw, 82px) 0 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid ${({ theme }) => theme.colors.line};
-
-  @media (max-width: 1050px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @media (max-width: 620px) {
-    grid-template-columns: 1fr;
-  }
-`
-
-const ProcessStep = styled.li`
-  min-height: 330px;
-  padding: clamp(25px, 3vw, 38px) clamp(18px, 2.5vw, 32px) 30px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 48px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.line};
-
-  &:not(:first-child) {
-    padding-left: clamp(18px, 2.5vw, 32px);
-    border-left: 1px solid ${({ theme }) => theme.colors.line};
-  }
-
-  @media (max-width: 1050px) {
-    &:nth-child(3),
-    &:nth-child(5) {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    &:last-child {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 620px) {
-    min-height: 250px;
-    padding-right: 0;
-
-    &:not(:first-child) {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    &:last-child {
-      grid-column: auto;
-    }
-  }
-`
-
-const StepTitle = styled.h3`
-  margin-bottom: 13px;
-  font-size: clamp(23px, 2vw, 30px);
-  font-weight: 620;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-`
-
-const StepBody = styled.p`
-  color: ${({ theme }) => theme.colors.textDim};
-  font-size: 15px;
-  line-height: 1.58;
 `
 
 const FinalSection = styled.section`
@@ -572,6 +436,32 @@ const FinalButton = styled.a`
   ${buttonStyles};
 `
 
+const Portrait = styled.img`
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin-top: 24px;
+  border-radius: ${({ theme }) => theme.radii.xl};
+`
+
+const ProjectsTitle = styled(SectionTitle)`
+  max-width: 24ch;
+  margin-bottom: 36px;
+`
+
+const WorkLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  margin-top: 28px;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+`
+
 export function AboutPage() {
   const { t } = useTranslation()
 
@@ -586,16 +476,6 @@ export function AboutPage() {
     y: 24,
   })
   const statementRef = useReveal<HTMLDivElement>({ y: 28, scale: 0.985 })
-  const principlesHeadRef = useReveal<HTMLDivElement>({
-    children: true,
-    stagger: 0.1,
-    y: 22,
-  })
-  const principlesRef = useReveal<HTMLDivElement>({
-    children: true,
-    stagger: 0.09,
-    y: 26,
-  })
   const capabilitiesHeadRef = useReveal<HTMLDivElement>({
     children: true,
     stagger: 0.1,
@@ -615,16 +495,6 @@ export function AboutPage() {
     children: true,
     stagger: 0.12,
     y: 28,
-  })
-  const processHeadRef = useReveal<HTMLDivElement>({
-    children: true,
-    stagger: 0.1,
-    y: 22,
-  })
-  const processRef = useReveal<HTMLOListElement>({
-    children: true,
-    stagger: 0.08,
-    y: 22,
   })
   const finalRef = useReveal<HTMLDivElement>({
     children: true,
@@ -651,10 +521,11 @@ export function AboutPage() {
         <Container>
           <EditorialHead ref={positioningRef}>
             <div>
-              <PositioningTitle>{t('aboutPage.positioning.title')}</PositioningTitle>
+              <Eyebrow>{t('aboutPage.positioning.title')}</Eyebrow>
+              <Portrait src="/media/ilya-portrait-768.webp" srcSet="/media/ilya-portrait-480.webp 480w, /media/ilya-portrait-768.webp 768w" sizes="(max-width: 760px) 90vw, 32vw" width={768} height={1024} alt={t('aboutPage.positioning.portraitAlt')} loading="lazy" decoding="async" />
             </div>
             <PositioningCopy>
-              <PositioningLead>{t('aboutPage.positioning.lead')}</PositioningLead>
+              <PositioningTitle>{t('aboutPage.positioning.lead')}</PositioningTitle>
               <BodyCopy>{t('aboutPage.positioning.body')}</BodyCopy>
             </PositioningCopy>
           </EditorialHead>
@@ -666,30 +537,6 @@ export function AboutPage() {
         </Container>
       </BaseSection>
 
-      <PrinciplesSection>
-        <Container>
-          <SplitHead ref={principlesHeadRef}>
-            <div>
-              <SectionTitle>{t('aboutPage.principles.title')}</SectionTitle>
-            </div>
-            <SectionLead>{t('aboutPage.principles.lead')}</SectionLead>
-          </SplitHead>
-
-          <PrinciplesGrid ref={principlesRef}>
-            {PRINCIPLES.map((principle) => (
-              <PrincipleCard key={principle}>
-                <ItemIndex aria-hidden="true">
-                  {t(`aboutPage.principles.items.${principle}.index`)}
-                </ItemIndex>
-                <div>
-                  <ItemTitle>{t(`aboutPage.principles.items.${principle}.title`)}</ItemTitle>
-                  <ItemBody>{t(`aboutPage.principles.items.${principle}.body`)}</ItemBody>
-                </div>
-              </PrincipleCard>
-            ))}
-          </PrinciplesGrid>
-        </Container>
-      </PrinciplesSection>
 
       <CapabilitiesSection>
         <Container>
@@ -715,6 +562,7 @@ export function AboutPage() {
               </CapabilityRow>
             ))}
           </CapabilitiesList>
+          <WorkLink href="/#work">{t('aboutPage.capabilities.workLink')} <span aria-hidden="true">→</span></WorkLink>
         </Container>
       </CapabilitiesSection>
 
@@ -723,14 +571,12 @@ export function AboutPage() {
           <CollaborationGrid>
             <CollaborationIntro ref={collaborationIntroRef}>
               <SectionTitle>{t('aboutPage.collaboration.title')}</SectionTitle>
-              <CollaborationLead>{t('aboutPage.collaboration.lead')}</CollaborationLead>
             </CollaborationIntro>
 
             <ModelCards ref={modelRef}>
               <ModelCard $accent>
                 <ModelLabel $accent>{t('aboutPage.collaboration.solo.label')}</ModelLabel>
                 <div>
-                  <ModelTitle>{t('aboutPage.collaboration.solo.title')}</ModelTitle>
                   <ModelBody>{t('aboutPage.collaboration.solo.body')}</ModelBody>
                 </div>
               </ModelCard>
@@ -738,7 +584,6 @@ export function AboutPage() {
               <ModelCard>
                 <ModelLabel>{t('aboutPage.collaboration.network.label')}</ModelLabel>
                 <div>
-                  <ModelTitle>{t('aboutPage.collaboration.network.title')}</ModelTitle>
                   <ModelBody>{t('aboutPage.collaboration.network.body')}</ModelBody>
                 </div>
               </ModelCard>
@@ -747,30 +592,13 @@ export function AboutPage() {
         </Container>
       </CollaborationSection>
 
-      <ProcessSection>
+      <ProjectsSection>
         <Container>
-          <SplitHead ref={processHeadRef}>
-            <div>
-              <SectionTitle>{t('aboutPage.process.title')}</SectionTitle>
-            </div>
-            <SectionLead>{t('aboutPage.process.lead')}</SectionLead>
-          </SplitHead>
-
-          <ProcessList ref={processRef}>
-            {PROCESS_STEPS.map((step) => (
-              <ProcessStep key={step}>
-                <ItemIndex aria-hidden="true">
-                  {t(`aboutPage.process.items.${step}.index`)}
-                </ItemIndex>
-                <div>
-                  <StepTitle>{t(`aboutPage.process.items.${step}.title`)}</StepTitle>
-                  <StepBody>{t(`aboutPage.process.items.${step}.body`)}</StepBody>
-                </div>
-              </ProcessStep>
-            ))}
-          </ProcessList>
+          <ProjectsTitle>{t('aboutPage.projectsTitle')}</ProjectsTitle>
+          <CaseCards compact />
+          <WorkLink href="/#work">{t('aboutPage.allProjects')} <span aria-hidden="true">→</span></WorkLink>
         </Container>
-      </ProcessSection>
+      </ProjectsSection>
 
       <FinalSection>
         <FinalGrid ref={finalRef}>

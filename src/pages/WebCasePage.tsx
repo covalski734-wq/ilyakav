@@ -171,7 +171,7 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
         <Facts>{(['industry', 'location', 'scope', 'technology'] as const).map(key => <div key={key}><dt>{t(`webCases.${key}`)}</dt><dd>{project[key]}</dd></div>)}</Facts>
       </Container>
     </Hero>
-    <LeadSection><Container>{screenshot('desktop', true)}<Note>{t('webCases.captureNote')}</Note></Container></LeadSection>
+    <LeadSection><Container>{screenshot('desktop', true)}{id !== 'skyline' && <Note>{t('webCases.captureNote')}</Note>}</Container></LeadSection>
     <Section><Container>
       <Split>
         <Copy><SectionTitle>{t('webCases.context')}</SectionTitle><p>{project.context}</p></Copy>
@@ -179,25 +179,25 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
       </Split>
       {project.note && <Note>{project.note}</Note>}
     </Container></Section>
-    <Tinted><Container>
+    {id !== 'maryna' && <Tinted><Container>
       <SectionTitle>{t('webCases.journey')}</SectionTitle>
       <Journey>{project.journey.map((step, index) => <li key={step}><span aria-hidden="true">0{index + 1} →</span>{step}</li>)}</Journey>
-    </Container></Tinted>
+    </Container></Tinted>}
     <Section><Container>
-      <SectionTitle>{t('webCases.solutions')}</SectionTitle>
+      <SectionTitle>{id === 'tile' ? t('webCases.solutions') : t(`webCases.projects.${id}.solutionsTitle`)}</SectionTitle>
       {solutions(0, 3)}
     </Container></Section>
     <Tinted><Container>
-      <Copy><SectionTitle>{t('webCases.gallery')}</SectionTitle><p>{project.galleryBody}</p></Copy>
+      <Copy><SectionTitle>{id === 'maryna' ? t('webCases.projects.maryna.galleryTitle') : t('webCases.gallery')}</SectionTitle><p>{project.galleryBody}</p></Copy>
       <Gallery>{screenshot('services')}{screenshot('projects')}</Gallery>
     </Container></Tinted>
     <Section><Container>{solutions(3, 6)}</Container></Section>
     <Tinted><Container><MobileGrid>
-      <Copy><SectionTitle>{t('webCases.mobile')}</SectionTitle><p>{project.mobileBody}</p></Copy>
+      <Copy><SectionTitle>{id === 'tile' ? t('webCases.mobile') : t(`webCases.projects.${id}.mobileTitle`)}</SectionTitle><p>{project.mobileBody}</p></Copy>
       <Phones>{screenshot('mobile')}{screenshot('contact')}</Phones>
     </MobileGrid></Container></Tinted>
     <Section><Container><Result>
-      <Copy><SectionTitle>{t('webCases.outcome')}</SectionTitle><p>{project.outcome}</p></Copy>
+      <Copy><SectionTitle>{id === 'maryna' ? t('webCases.projects.maryna.outcomeTitle') : t('webCases.outcome')}</SectionTitle><p>{project.outcome}</p></Copy>
       <Note>{project.resultNote}</Note>
     </Result></Container></Section>
     <Section><Container>
@@ -205,10 +205,11 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
       <CaseCards exclude={id} />
       <Actions><a href={ROUTES.caseMarianaleus}>marianaleus.com ↗</a><a href="/#work">{t('webCases.back')}</a></Actions>
     </Container></Section>
-    <Cta><Container>
-      <SectionTitle>{t('webCases.ctaTitle')}</SectionTitle>
-      <p>{t('webCases.ctaBody')}</p>
-      <Actions><PrimaryButton href={ROUTES.contact}>{t('webCases.cta')}</PrimaryButton></Actions>
+    <Cta style={id === 'maryna' ? { background: '#272a2f', color: '#f7f8fa' } : undefined}><Container>
+      {id === 'maryna' && <Eyebrow style={{ color: '#c4c8ce' }}>{t('webCases.projects.maryna.ctaEyebrow')}</Eyebrow>}
+      <SectionTitle>{id === 'maryna' ? t('webCases.projects.maryna.ctaTitle') : t('webCases.ctaTitle')}</SectionTitle>
+      <p style={id === 'maryna' ? { color: '#c4c8ce' } : undefined}>{id === 'tile' ? t('webCases.ctaBody') : t(`webCases.projects.${id}.ctaBody`)}</p>
+      <Actions><PrimaryButton href={ROUTES.contact}>{id === 'maryna' ? t('webCases.projects.maryna.cta') : t('webCases.cta')}</PrimaryButton></Actions>
     </Container></Cta>
   </>
 }

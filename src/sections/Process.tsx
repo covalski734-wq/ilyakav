@@ -12,7 +12,14 @@ const Wrapper = styled.section`
 `
 
 const Title = styled(SectionTitle)`
-  margin-bottom: clamp(26px, 4vw, 48px);
+  margin-bottom: 18px;
+`
+
+const Lead = styled.p`
+  max-width: 65ch;
+  margin-bottom: 28px;
+  color: ${({ theme }) => theme.colors.onDeepDim};
+  font-size: 18px;
 `
 
 const Step = styled.div`
@@ -63,6 +70,7 @@ export function Process() {
     <Wrapper>
       <Container>
         <Title ref={titleRef}>{t('process.title')}</Title>
+        <Lead>{t('process.lead')}</Lead>
 
         <Steps ref={gridRef} $min="240px" $cols={5}>
           {STEPS.map((key, index) => (
