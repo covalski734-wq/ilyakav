@@ -1,4 +1,9 @@
 {
+  "homeCaseCards": {
+    "mariana": "A professional website that highlights the marketer’s expertise, demonstrates the value of her work, and helps potential clients take the first step towards working together with greater confidence.",
+    "skyline": "A website that introduces the Canadian market to modern stretch ceilings, showcases the benefits of premium interior solutions, and helps customers see their value and submit an enquiry through the site.",
+    "maryna": "An updated website that better reflects the cleaning company’s professionalism, helps customers assess its services faster, and makes it easier to submit an enquiry after clicking an ad."
+  },
   "meta": {
     "brand": "ilyakav",
     "name": "Ilya Kavaleuski",
@@ -355,8 +360,8 @@
           "desc": "Send website inquiries to your CRM or spreadsheet. Notify the team and track progress without copying data by hand."
         },
         "booking": {
-          "title": "Booking & payments",
-          "desc": "Clients choose a service and time, pay, and receive confirmation. Connect an existing service or build custom booking logic."
+          "title": "More possibilities for your business",
+          "desc": "We’ll connect your website to tools for managing enquiries, bookings, and payments. Everything fits into the processes your company already uses."
         }
       }
     },
@@ -513,7 +518,7 @@
       },
       "ads": {
         "q": "Can it be used with Google or Meta Ads?",
-        "a": "That is how it is planned from the start: clear offer, fast load, analytics and lead events ready for traffic."
+        "a": "Yes. During development, I account for the requirements of advertising landing pages: speed, a mobile-friendly layout, a clear offer, and easy-to-use forms. If needed, we’ll plan for analytics and enquiry tracking."
       }
     }
   },
@@ -541,7 +546,7 @@
       "briefLabel": "A brief description",
       "briefPlaceholder": "What does your business do? What would you like to create or improve? If you have a website, please include a link.",
       "submit": "Send the brief",
-      "privacyNote": "I’ll use your details to respond to your enquiry.",
+      "privacyNote": "I’ll use your details to reply.",
       "types": {
         "site": "Business website",
         "landing": "Landing page",

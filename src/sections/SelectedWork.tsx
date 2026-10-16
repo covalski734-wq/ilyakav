@@ -24,7 +24,7 @@ export function SelectedWork() {
         <SectionTitle id="selected-work-title">{t('webCases.portfolio')}</SectionTitle>
         <p>{t('webCases.portfolioLead')}</p>
       </Head>
-      <CaseCards />
+      <CaseCards home />
     </Container>
   </Wrapper>
 }
