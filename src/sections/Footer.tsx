@@ -6,7 +6,6 @@ import { NAV_LINKS, ROUTES, SECTION_IDS, SITE } from '../config/site'
 import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import { useTheme } from '../theme/ThemeContext'
 import { breathe } from '../theme/GlobalStyle'
-import { useReveal } from '../hooks/useReveal'
 import { openCookieSettings } from '../lib/consent'
 import { useConsentText } from '../components/consentText'
 
@@ -171,16 +170,11 @@ export function Footer({ pathname }: { pathname: string }) {
   const consentText = useConsentText()
   const { t } = useTranslation()
   const { toggleTheme, mode } = useTheme()
-  const topRef = useReveal<HTMLDivElement>({ children: true, stagger: 0.12 })
-  const columnsRef = useReveal<HTMLDivElement>({
-    children: true,
-    stagger: 0.08,
-  })
 
   return (
     <Wrapper>
       <Inner>
-        <Top ref={topRef}>
+        <Top>
           <div>
             <DirectLabel>{t('footer.writeDirect')}</DirectLabel>
             <MailLink href={contactMailto(t, mailContextForPath(pathname))}>{SITE.email}</MailLink>
@@ -191,7 +185,7 @@ export function Footer({ pathname }: { pathname: string }) {
           </Availability>
         </Top>
 
-        <Columns ref={columnsRef}>
+        <Columns>
           <Column>
             <ColumnLabel>{t('footer.colSite')}</ColumnLabel>
             {SITE_LINKS.map((link) => (

@@ -87,6 +87,15 @@ const Journey = styled.ol`
   @media (max-width: 700px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (max-width: 360px) { grid-template-columns: 1fr; }
 `
+const Testimonial = styled.figure`
+  margin: 30px 0 0;
+  padding: clamp(22px, 3vw, 36px);
+  border-left: 3px solid ${({ theme }) => theme.colors.accent};
+  background: ${({ theme }) => theme.colors.surface2};
+  border-radius: 0 ${({ theme }) => theme.radii.md} ${({ theme }) => theme.radii.md} 0;
+  blockquote { margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.75; color: ${({ theme }) => theme.colors.text}; }
+  figcaption { margin-top: 18px; font-size: 14px; line-height: 1.6; color: ${({ theme }) => theme.colors.textDim}; }
+`
 const Solutions = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -198,7 +207,10 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
     </MobileGrid></Container></Tinted>
     <Section><Container><Result>
       <Copy><SectionTitle>{id === 'maryna' ? t('webCases.projects.maryna.outcomeTitle') : t('webCases.outcome')}</SectionTitle><p>{project.outcome}</p></Copy>
-      <Note>{project.resultNote}</Note>
+      {id === 'maryna' ? <Testimonial>
+        <blockquote>{t('webCases.projects.maryna.testimonial.quote')}</blockquote>
+        <figcaption>{t('webCases.projects.maryna.testimonial.attribution')}</figcaption>
+      </Testimonial> : <Note>{project.resultNote}</Note>}
     </Result></Container></Section>
     <Section><Container>
       <Heading>{t('webCases.related')}</Heading>
