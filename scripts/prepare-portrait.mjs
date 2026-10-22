@@ -2,7 +2,7 @@ import { chromium } from 'playwright'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 
 // Preserve the supplied original in the repository; only these derivatives are served.
-const source = await readFile(new URL('../photo_2026-09-05_12-16-01.jpg', import.meta.url))
+const source = await readFile(new URL('../IMG_6395.JPG', import.meta.url))
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || undefined })
 try {
   const page = await browser.newPage()

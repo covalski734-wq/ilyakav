@@ -52,7 +52,7 @@ const Read = styled.span`
 export function CaseCards({ exclude, compact = false, home = false }: { exclude?: WebCaseId; compact?: boolean; home?: boolean }) {
   const { t } = useTranslation()
   return <Grid $related={!!exclude}>
-    {(['mariana', 'skyline', 'maryna'] as const).filter(id => id !== exclude).map(id => {
+    {(['mariana', 'skyline', 'maryna', 'silent'] as const).filter(id => id !== exclude && !(compact && id === 'silent')).map(id => {
       if (id === 'mariana') return <Item href={ROUTES.caseMarianaleus} key={id}>
         <img src="/media/marianaleus-desktop.jpg" alt={t('caseMariana.preview.desktopAlt')} width={1440} height={1000} loading="lazy" decoding="async" />
         <Body><h3>{t('caseMariana.hero.title')}</h3><Tags><span>{t('caseMariana.cardScope')}</span></Tags><p>{t(home ? 'homeCaseCards.mariana' : 'caseMariana.hero.lead')}</p><Read>{t('webCases.read')}<span aria-hidden="true">↗</span></Read></Body>
@@ -68,9 +68,5 @@ export function CaseCards({ exclude, compact = false, home = false }: { exclude?
         </Body>
       </Item>
     })}
-    {!compact && <Item href="/case/silent-clean">
-      <img src="/media/cases/silent/desktop.webp" alt={t('webCases.silent.desktopAlt')} width={1440} height={960} loading="lazy" decoding="async" />
-      <Body><h3>Silent Clean</h3><Tags><span>{t('webCases.silent.scope')}</span><span>WordPress</span></Tags><p>{t('webCases.silent.summary')}</p><Read>{t('webCases.read')}<span aria-hidden="true">↗</span></Read></Body>
-    </Item>}
   </Grid>
 }

@@ -2,6 +2,7 @@ export const WEB_CASES = {
   skyline: { path: '/case/skyline-stretch-ceilings', url: 'https://skylineceilings.ca/' },
   maryna: { path: '/case/maryna-cleaning', url: 'https://marynacleaning.com/' },
   tile: { path: '/case/tile-expert-solutions', url: 'https://tileexpertsolutions.com/' },
+  silent: { path: '/case/silent-clean', url: 'https://silentclean.ca/' },
 } as const
 
 export type WebCaseId = keyof typeof WEB_CASES

@@ -2,7 +2,8 @@
   "homeCaseCards": {
     "mariana": "A professional website that highlights the marketer’s expertise, demonstrates the value of her work, and helps potential clients take the first step towards working together with greater confidence.",
     "skyline": "A website that introduces the Canadian market to modern stretch ceilings, showcases the benefits of premium interior solutions, and helps customers see their value and submit an enquiry through the site.",
-    "maryna": "An updated website that better reflects the cleaning company’s professionalism, helps customers assess its services faster, and makes it easier to submit an enquiry after clicking an ad."
+    "maryna": "An updated website that better reflects the cleaning company’s professionalism, helps customers assess its services faster, and makes it easier to submit an enquiry after clicking an ad.",
+    "silent": "A refined website for a Toronto cleaning company: sharper photos, faster loading, a discount for new clients and error-free copy."
   },
   "meta": {
     "brand": "ilyakav",
@@ -438,10 +439,29 @@
       "eyebrow": "How I work",
       "title": "A little about my experience",
       "lead": "From programming to complete business websites",
-      "body": "My technical background spans frontend development, interface design and web applications. I work with React, Angular and TypeScript, and also have experience with backend development.",
       "statementLabel": "My approach",
       "statement": "I don’t start with a beautiful screen. I start with the problem it needs to solve.",
-      "portraitAlt": "Ilya wearing a black hat, a light T-shirt and a backpack"
+      "portraitAlt": "Ilya smiling on a street in an old European city",
+      "paragraphs": [
+        "My path in web development began with programming and building interfaces for web applications. I work with React, Angular and TypeScript, and have experience on both the frontend and the backend of projects.",
+        "Over time I moved into building websites for businesses, where design and technical execution matter, but so do how easy the site is for customers to use and whether it helps the company win new enquiries.",
+        "Experience with marketing helps me understand how people arrive on a website, what makes them decide to get in touch, and why even a beautiful design does not always deliver results. Today I help businesses build modern websites — from structure and design to development, analytics and integrations — working with clients in Canada, the US and Europe."
+      ],
+      "facts": [
+        {
+          "title": "Development background",
+          "body": "From web apps to business websites"
+        },
+        {
+          "title": "Marketing awareness",
+          "body": "UX, conversion and analytics"
+        },
+        {
+          "title": "International projects",
+          "body": "Canada, the US and Europe"
+        }
+      ],
+      "linkedin": "View my LinkedIn"
     },
     "capabilities": {
       "eyebrow": "Capabilities",
@@ -747,7 +767,7 @@
     "colProjects": "Partners",
     "colDirect": "Direct",
     "colInterface": "Interface",
-    "location": "Poland · working across Europe",
+    "location": "Poland · working with Europe, Canada and the US",
     "copyright": "© 2026 Ilya Kavaleuski · ilyakav.com",
     "madeBy": "Designed and built by the person you will be talking to",
     "privacy": "Privacy"

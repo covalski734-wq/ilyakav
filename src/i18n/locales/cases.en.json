@@ -21,7 +21,6 @@
   "ctaTitle": "Let's discuss your website",
   "ctaBody": "Tell us about your service, audience and goals. We can discuss a structure that helps visitors understand your offer and get in touch.",
   "cta": "Discuss a similar project",
-  "captureNote": "Screenshots of the live websites · 5 October 2026. Public versions may change after our work is completed.",
   "imageLink": "Open image",
   "projects": {
     "skyline": {
@@ -200,17 +199,70 @@
         "mobile": "The mobile opening of the contractor's current website.",
         "contact": "Name, phone, ZIP code and project type give the estimate conversation a starting point."
       }
+    },
+    "silent": {
+      "title": "Silent Clean",
+      "summary": "Redesign and refinement of a Toronto cleaning company’s WordPress website. We improved the photos and loading speed, fixed visual and copy errors, and added a discount for new clients so the site matches the level of a premium service.",
+      "industry": "Cleaning services",
+      "location": "Toronto & GTA, Canada",
+      "scope": "Redesign and refinement",
+      "technology": "WordPress",
+      "context": "Silent Clean offers regular and deep cleaning, move-in/move-out and post-renovation cleaning, and commercial cleaning across Toronto and the GTA. The company positions itself as a premium service. People trust cleaners with their homes and often judge them by their first impression of the website, so the site has to live up to that standard.",
+      "task": "The website was already live but did not reflect the company’s level: the photos looked untidy and loaded slowly, the layout had visual flaws, and the copy contained many errors. The goal was to bring the site to a standard that inspires trust and give new clients an extra reason to book their first cleaning.",
+      "note": "",
+      "journey": [
+        "See the level of service",
+        "Choose a service and rate",
+        "Get a first-cleaning discount",
+        "Submit a request"
+      ],
+      "solutions": [
+        {
+          "title": "Photos that show quality",
+          "body": "We improved the photos on the site so they look sharper and cleaner, and optimised their size at the same time, so pages load faster, especially on mobile data."
+        },
+        {
+          "title": "A discount for new clients",
+          "body": "We added a 10% discount on the first regular cleaning of 3 hours or more, and on deep and move-in/move-out cleaning of 5 hours or more. The offer appears on the first screen and on the service cards, giving visitors a reason to book now."
+        },
+        {
+          "title": "No visual flaws",
+          "body": "We fixed visual errors that created a poor impression and did not fit the company’s premium positioning. The pages now look consistent and tidy on both desktop and mobile."
+        },
+        {
+          "title": "Copy without errors",
+          "body": "The site’s copy had a great many mistakes. We proofread and corrected it so the service descriptions read professionally: for clients, errors on a website are one of the first signs of carelessness."
+        },
+        {
+          "title": "Services and rates in one place",
+          "body": "Five types of cleaning are presented as separate cards with a short description, an hourly rate and a booking button. The service area and the note that HST is added to the invoice sit right beside them."
+        },
+        {
+          "title": "Several ways to get in touch",
+          "body": "Phone, WhatsApp, email and a booking form. In the form, clients specify the type of cleaning, number of rooms, pets and preferred date, so the company has everything it needs for a quote."
+        }
+      ],
+      "galleryBody": "The service cards show rates and discounts at a glance, while before-and-after photos let visitors judge the quality of the cleaning before they book. Here the improved, optimised photos work towards what matters most — trust in the company.",
+      "mobileBody": "The mobile version shows the offer and the discount on the very first screen. Calling, messaging on WhatsApp or sending a request takes a single tap.",
+      "outcome": "Silent Clean now has a tidy website free of copy errors and visual flaws, with sharp photos and faster loading. The discount gives new clients an extra incentive to get in touch for the first time, and the refreshed presentation underlines the company’s premium positioning.",
+      "resultNote": "",
+      "captions": {
+        "desktop": "First screen: the service, the region and the way to request a quote.",
+        "services": "Service cards with rates and a 10% discount for new clients.",
+        "projects": "Before-and-after photos show the quality of the cleaning.",
+        "mobile": "The mobile first screen with the first-cleaning discount.",
+        "contact": "Phone, WhatsApp and email — getting in touch takes one tap."
+      },
+      "solutionsTitle": "What we changed on the website",
+      "galleryTitle": "Services and results",
+      "mobileTitle": "Tidy on a phone, too",
+      "outcomeTitle": "A website that matches the level of service",
+      "ctaEyebrow": "Your project could be next",
+      "ctaTitle": "Does your website also have flaws that put clients off?",
+      "ctaBody": "Tell me about your website and business. We will look at what is stopping it from making the right impression and decide what to fix first.",
+      "cta": "Discuss my project →"
     }
   },
   "secondary": "Another project with a limited confirmed scope",
-  "secondaryLead": "Tile Expert Solutions — the exact changes are unconfirmed. See the case for details and limitations.",
-  "silent": {
-    "scope": "Redesign and improvements",
-    "summary": "A redesign and improvements to a cleaning company’s WordPress website, refreshing how the business, its services and quote enquiries are presented.",
-    "context": "A cleaning company serving Toronto and the GTA. The website presents cleaning services, examples of work, reviews and a quote enquiry form.",
-    "work": "My work covered redesigning and improving the existing WordPress website. This page shows its current public version.",
-    "desktopAlt": "Silent Clean website homepage",
-    "mobileAlt": "Silent Clean mobile website",
-    "captureNote": "Website screenshots captured on October 13, 2026. The public version may change after the work is completed."
-  }
+  "secondaryLead": "Tile Expert Solutions — the exact changes are unconfirmed. See the case for details and limitations."
 }

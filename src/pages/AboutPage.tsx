@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 import { Container, Eyebrow } from '../components/ui/primitives'
 import { CaseCards } from '../components/CaseCards'
-import { ROUTES } from '../config/site'
+import { ROUTES, SITE } from '../config/site'
 import { useReveal } from '../hooks/useReveal'
 
 const CAPABILITIES = ['strategy', 'design', 'frontend', 'customApps'] as const
@@ -195,6 +195,40 @@ const BodyCopy = styled.p`
   color: ${({ theme }) => theme.colors.textDim};
   font-size: clamp(16px, 1.35vw, 19px);
   line-height: 1.68;
+
+  & + & {
+    margin-top: 16px;
+  }
+`
+
+const Facts = styled.dl`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  max-width: 760px;
+
+  > div {
+    padding-top: 16px;
+    border-top: 1px solid ${({ theme }) => theme.colors.line};
+  }
+
+  dt {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: ${({ theme }) => theme.colors.textDim};
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 `
 
 const PositioningStatement = styled.div`
@@ -526,7 +560,11 @@ export function AboutPage() {
             </div>
             <PositioningCopy>
               <PositioningTitle>{t('aboutPage.positioning.lead')}</PositioningTitle>
-              <BodyCopy>{t('aboutPage.positioning.body')}</BodyCopy>
+              {t('aboutPage.positioning.paragraphs', { returnObjects: true }).map(paragraph => <BodyCopy key={paragraph}>{paragraph}</BodyCopy>)}
+              <Facts>
+                {t('aboutPage.positioning.facts', { returnObjects: true }).map(fact => <div key={fact.title}><dt>{fact.title}</dt><dd>{fact.body}</dd></div>)}
+              </Facts>
+              <WorkLink href={SITE.linkedin} target="_blank" rel="noopener noreferrer">{t('aboutPage.positioning.linkedin')} <span aria-hidden="true">↗</span></WorkLink>
             </PositioningCopy>
           </EditorialHead>
 

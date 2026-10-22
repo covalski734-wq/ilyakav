@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { Container, Eyebrow, PrimaryButton, Section, SectionTitle } from '../components/ui/primitives'
 import { CaseCards } from '../components/CaseCards'
-import { caseImage, WEB_CASES, type WebCaseId } from '../config/cases'
+import { caseImage, type WebCaseId } from '../config/cases'
 import { ROUTES } from '../config/site'
 
 const Hero = styled(Section)`
@@ -135,6 +135,7 @@ const Phones = styled.div`
   @media (max-width: 460px) { grid-template-columns: 1fr; max-width: 310px; > :last-child { margin-top: 20px; } }
 `
 const Result = styled.div`
+  ${Copy} > p { max-width: none; }
   padding: clamp(28px, 5vw, 70px);
   border: 1px solid ${({ theme }) => theme.colors.line};
   background: ${({ theme }) => theme.colors.surface};
@@ -149,7 +150,8 @@ const Cta = styled(Tinted)`
 export function WebCasePage({ id }: { id: WebCaseId }) {
   const { t } = useTranslation()
   const project = t(`webCases.projects.${id}`, { returnObjects: true })
-  const website = WEB_CASES[id]
+  // Cases told as a story (custom section titles, dark CTA) rather than a structural audit.
+  const editorial = id === 'maryna' || id === 'silent'
   const screenshot = (name: keyof typeof project.captions, eager = false) => {
     const mobile = name === 'mobile' || name === 'contact'
     return <Figure>
@@ -173,14 +175,13 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
         <HeroGrid>
           <h1>{project.title}</h1>
           <div><p>{project.summary}</p><Actions>
-            <PrimaryButton href={website.url} target="_blank" rel="noopener noreferrer" aria-label={t('webCases.visitAria', { name: project.title })}>{t('webCases.visit')}</PrimaryButton>
             <a href="/#work">{t('webCases.back')}</a>
           </Actions></div>
         </HeroGrid>
         <Facts>{(['industry', 'location', 'scope', 'technology'] as const).map(key => <div key={key}><dt>{t(`webCases.${key}`)}</dt><dd>{project[key]}</dd></div>)}</Facts>
       </Container>
     </Hero>
-    <LeadSection><Container>{screenshot('desktop', true)}{id !== 'skyline' && <Note>{t('webCases.captureNote')}</Note>}</Container></LeadSection>
+    <LeadSection><Container>{screenshot('desktop', true)}</Container></LeadSection>
     <Section><Container>
       <Split>
         <Copy><SectionTitle>{t('webCases.context')}</SectionTitle><p>{project.context}</p></Copy>
@@ -188,7 +189,7 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
       </Split>
       {project.note && <Note>{project.note}</Note>}
     </Container></Section>
-    {id !== 'maryna' && <Tinted><Container>
+    {!editorial && <Tinted><Container>
       <SectionTitle>{t('webCases.journey')}</SectionTitle>
       <Journey>{project.journey.map((step, index) => <li key={step}><span aria-hidden="true">0{index + 1} →</span>{step}</li>)}</Journey>
     </Container></Tinted>}
@@ -197,7 +198,7 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
       {solutions(0, 3)}
     </Container></Section>
     <Tinted><Container>
-      <Copy><SectionTitle>{id === 'maryna' ? t('webCases.projects.maryna.galleryTitle') : t('webCases.gallery')}</SectionTitle><p>{project.galleryBody}</p></Copy>
+      <Copy><SectionTitle>{editorial ? t(`webCases.projects.${id}.galleryTitle`) : t('webCases.gallery')}</SectionTitle><p>{project.galleryBody}</p></Copy>
       <Gallery>{screenshot('services')}{screenshot('projects')}</Gallery>
     </Container></Tinted>
     <Section><Container>{solutions(3, 6)}</Container></Section>
@@ -206,22 +207,22 @@ export function WebCasePage({ id }: { id: WebCaseId }) {
       <Phones>{screenshot('mobile')}{screenshot('contact')}</Phones>
     </MobileGrid></Container></Tinted>
     <Section><Container><Result>
-      <Copy><SectionTitle>{id === 'maryna' ? t('webCases.projects.maryna.outcomeTitle') : t('webCases.outcome')}</SectionTitle><p>{project.outcome}</p></Copy>
+      <Copy><SectionTitle>{editorial ? t(`webCases.projects.${id}.outcomeTitle`) : t('webCases.outcome')}</SectionTitle><p>{project.outcome}</p></Copy>
       {id === 'maryna' ? <Testimonial>
         <blockquote>{t('webCases.projects.maryna.testimonial.quote')}</blockquote>
         <figcaption>{t('webCases.projects.maryna.testimonial.attribution')}</figcaption>
-      </Testimonial> : <Note>{project.resultNote}</Note>}
+      </Testimonial> : project.resultNote && <Note>{project.resultNote}</Note>}
     </Result></Container></Section>
     <Section><Container>
       <Heading>{t('webCases.related')}</Heading>
       <CaseCards exclude={id} />
       <Actions><a href={ROUTES.caseMarianaleus}>marianaleus.com ↗</a><a href="/#work">{t('webCases.back')}</a></Actions>
     </Container></Section>
-    <Cta style={id === 'maryna' ? { background: '#272a2f', color: '#f7f8fa' } : undefined}><Container>
-      {id === 'maryna' && <Eyebrow style={{ color: '#c4c8ce' }}>{t('webCases.projects.maryna.ctaEyebrow')}</Eyebrow>}
-      <SectionTitle>{id === 'maryna' ? t('webCases.projects.maryna.ctaTitle') : t('webCases.ctaTitle')}</SectionTitle>
-      <p style={id === 'maryna' ? { color: '#c4c8ce' } : undefined}>{id === 'tile' ? t('webCases.ctaBody') : t(`webCases.projects.${id}.ctaBody`)}</p>
-      <Actions><PrimaryButton href={ROUTES.contact}>{id === 'maryna' ? t('webCases.projects.maryna.cta') : t('webCases.cta')}</PrimaryButton></Actions>
+    <Cta style={editorial ? { background: '#272a2f', color: '#f7f8fa' } : undefined}><Container>
+      {editorial && <Eyebrow style={{ color: '#c4c8ce' }}>{t(`webCases.projects.${id}.ctaEyebrow`)}</Eyebrow>}
+      <SectionTitle>{editorial ? t(`webCases.projects.${id}.ctaTitle`) : t('webCases.ctaTitle')}</SectionTitle>
+      <p style={editorial ? { color: '#c4c8ce' } : undefined}>{id === 'tile' ? t('webCases.ctaBody') : t(`webCases.projects.${id}.ctaBody`)}</p>
+      <Actions><PrimaryButton href={ROUTES.contact}>{editorial ? t(`webCases.projects.${id}.cta`) : t('webCases.cta')}</PrimaryButton></Actions>
     </Container></Cta>
   </>
 }

@@ -4,6 +4,7 @@
 export const SITE = {
   email: 'contact@ilyakav.com',
   telegram: { handle: '@ilyakav', url: 'https://t.me/ilyakav' },
+  linkedin: 'https://www.linkedin.com/in/ilya-kovalevsky-9709011b9/',
   flagship: 'marianaleus.com',
   advertisingPartner: { name: 'Mariana Leus', url: 'https://marianaleus.com/' },
 } as const

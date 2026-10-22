@@ -204,6 +204,7 @@ export function Footer({ pathname }: { pathname: string }) {
           <Column>
             <ColumnLabel>{t('footer.colDirect')}</ColumnLabel>
             <a href={SITE.telegram.url}>Telegram {SITE.telegram.handle}</a>
+            <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <Muted>{t('footer.location')}</Muted>
           </Column>
 
