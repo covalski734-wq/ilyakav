@@ -15,18 +15,18 @@ const cyan: Color = [26, 202, 245], blue: Color = [67, 76, 246]
 const cross = (a: Point, b: Point): Point => ({ x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x })
 const subtract = (a: Point, b: Point): Point => ({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z })
 
-// A zero-thickness sheet. Depth controls which stretch passes over another;
-// it does not turn the ribbon into a tube. All cuts share the same source frame.
+// Give each band its own depth lane throughout the morph. Flatten only after
+// the contours have reached the logo, so moving sheets never cut one another.
 export function ribbonSurface(edges: RibbonEdges[], progress: number, time: number): RibbonFace[] {
   const bands = ribbonBands(edges, progress, time)
-  const flatten = smooth(.35, .92, progress)
+  const flatten = smooth(.96, 1, progress)
   const material = 1 - smooth(.55, .96, progress)
   const brand = smooth(.4, .98, progress)
   const rows = bands.map((band, part) => band.left.map((left, i) => {
     const right = band.right[i], u = band.u[i], t = .25 + u * Math.PI * 2 + time * .35
     const center = { x: (left.x + right.x) / 2, y: (left.y + right.y) / 2 }
-    const z = mix(86 * Math.sin(3 * t), part * 1.5, flatten)
-    const tilt = 26 * Math.sin(u * Math.PI * 4 + .25 + .15 * Math.sin(time)) * (1 - flatten)
+    const z = mix((part - 1.5) * 120 + 24 * Math.sin(3 * t), part * 1.5, flatten)
+    const tilt = 12 * Math.sin(u * Math.PI * 4 + .25 + .15 * Math.sin(time)) * (1 - flatten)
     return { left: { ...left, z: z - tilt }, right: { ...right, z: z + tilt }, center: { ...center, z }, u }
   }))
   const allRows = rows.flat()

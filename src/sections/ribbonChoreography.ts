@@ -68,15 +68,22 @@ export function ribbonBands(edges:RibbonEdges[],progress:number,time:number):Rib
     })
     const heading=(points:RibbonPoint[],j:number)=>angle(points[Math.max(0,j-1)],points[Math.min(count-1,j+1)])
     const left:RibbonPoint[]=[],right:RibbonPoint[]=[],parameters:number[]=[]
+    let previousNormal:number|undefined,previousTarget:number|undefined
     for(let j=0;j<count;j++){
       const u=lerp(cuts[index],cuts[index+1],j/(count-1))
       parameters.push(u)
       const sourceWidth=width(u,time)
       const sourceHeading=angle(spiral(u-.0001,time),spiral(u+.0001,time))+rotation
-      const normal=lerp(sourceHeading,near(heading(centers,j),sourceHeading),straighten)-Math.PI/2
+      const rawNormal=lerp(sourceHeading,near(heading(centers,j),sourceHeading),straighten)-Math.PI/2
+      const normal=near(rawNormal,previousNormal??rawNormal)
       const targetX=(edge.right[j].x-edge.left[j].x)/2
       const targetY=(edge.right[j].y-edge.left[j].y)/2
-      const materialAngle=lerp(normal,near(Math.atan2(targetY,targetX),normal),straighten)
+      // Unwrap along the whole strip: independent shortest-angle choices can
+      // flip adjacent rows in opposite directions and tear the visible edge.
+      const targetAngle=near(Math.atan2(targetY,targetX),previousTarget??normal)
+      previousNormal=normal
+      previousTarget=targetAngle
+      const materialAngle=lerp(normal,targetAngle,straighten)
       const materialWidth=lerp(sourceWidth,Math.hypot(targetX,targetY),straighten)
       const dx=Math.cos(materialAngle)*materialWidth
       const dy=Math.sin(materialAngle)*materialWidth

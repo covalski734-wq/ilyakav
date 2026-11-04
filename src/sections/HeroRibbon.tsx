@@ -51,15 +51,14 @@ export function HeroRibbon() {
   const reduced=usePrefersReducedMotion()
   useIsomorphicLayoutEffect(()=>{
     const element=root.current
-    const track=element?.closest<HTMLElement>('[data-hero-track]')
-    if(!element||!track||reduced)return
+    if(!element||reduced)return
     const canvas=element.querySelector('canvas')!
     const logo=element.querySelector('svg')!
     const edges=ribbonEdgePaths.map(([left,right])=>({left:sample(left),right:sample(right)}))
     const renderer=createRibbonSurfaceRenderer(canvas,edges)
     if(!renderer)return
     const state={progress:0}
-    let idleFrame=0,lastTime=0,phase=0,visible=false,lost=false
+    let idleFrame=0,lastTime=0,phase=0,elapsed=0,visible=false,lost=false
     const draw=()=>{
       if(lost)return
       const fade=Math.max(0,Math.min(1,(state.progress-.96)/.025))
@@ -69,12 +68,20 @@ export function HeroRibbon() {
       logo.style.opacity=String(fade)
       renderer.draw(state.progress,phase)
     }
-    const canIdle=()=>!lost&&visible&&!document.hidden&&state.progress<=.01
+    const canIdle=()=>!lost&&visible&&!document.hidden
     const tick=(time:number)=>{
       idleFrame=0
       if(!canIdle()){lastTime=0;return}
       if(!lastTime||time-lastTime>=32){
-        if(lastTime)phase+=Math.min(time-lastTime,80)*.0007
+        if(lastTime){
+          const delta=Math.min(time-lastTime,80)
+          elapsed=(elapsed+delta)%14000
+          phase+=delta*.00035
+        }
+        // A quiet opening, a smooth assembly, a logo hold, then a soft return.
+        const cycle=elapsed/1000
+        const ease=(value:number)=>(1-Math.cos(Math.PI*value))/2
+        state.progress=cycle<2?0:cycle<6?ease((cycle-2)/4):cycle<8?1:cycle<12?1-ease((cycle-8)/4):0
         lastTime=time;draw()
       }
       idleFrame=requestAnimationFrame(tick)
@@ -98,15 +105,7 @@ export function HeroRibbon() {
       gsap.fromTo(element.querySelector('[data-ribbon-stage]'),
         {autoAlpha:0,y:20,scale:.96},
         {autoAlpha:1,y:0,scale:1,duration:.75,ease:'power2.out',transformOrigin:'50% 50%'})
-      gsap.to(state,{
-        progress:1,ease:'none',onUpdate:()=>{draw();sync()},
-        scrollTrigger:{
-          trigger:track,
-          start:()=>`top top-=${Number(track.dataset.scrollLead||0)}`,
-          end:()=>`+=${Number(track.dataset.scrollDistance||window.innerHeight)+Number(track.dataset.scrollFinish||0)}`,
-          scrub:.35,refreshPriority:10,invalidateOnRefresh:true,
-        },
-      })
+
     },element)
     return ()=>{
       context.revert();observer.disconnect();cancelAnimationFrame(idleFrame)

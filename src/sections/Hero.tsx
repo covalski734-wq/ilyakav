@@ -1,34 +1,23 @@
-import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
-import { useRef } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { ROUTES, SECTION_IDS } from '../config/site'
 import { Container, PrimaryButton } from '../components/ui/primitives'
 import { HeroRibbon } from './HeroRibbon'
-import { ScrollTrigger } from '../lib/gsap'
-import { usePrefersReducedMotion } from '../hooks/useMediaQuery'
-import { getHeroScrollLayout } from './heroScrollLayout'
 
-// The scroll runway belongs to document layout, rather than a dynamically
-// inserted pin spacer. Following pinned sections always measure its full height.
 const Track = styled.div`
   position: relative;
-  height: 175svh;
   margin-top: calc(-92px - env(safe-area-inset-top));
   @media (max-width: 760px) {
-    height: 140svh;
     margin-top: calc(-78px - env(safe-area-inset-top));
   }
   @media (max-height: 600px) and (max-width: 1020px) {
     height: auto;
     margin-top: calc(-78px - env(safe-area-inset-top));
   }
-  @media (prefers-reduced-motion: reduce) { height: auto; }
 `
 
 const Wrapper = styled.section`
-  position: sticky;
-  top: 0;
+  position: relative;
   isolation: isolate;
   overflow: hidden;
   min-height: 100svh;
@@ -185,46 +174,8 @@ const Fit = styled.p`
 
 export function Hero() {
   const { t } = useTranslation()
-  const track = useRef<HTMLDivElement>(null)
-  const scene = useRef<HTMLElement>(null)
-  const reduced = usePrefersReducedMotion()
-  useIsomorphicLayoutEffect(() => {
-    const outer = track.current, inner = scene.current
-    if (!outer || !inner) return
-    let frame = 0, disposed = false
-    const measure = () => {
-      if (disposed) return
-      // 100svh stays stable when a phone's address bar expands/collapses.
-      const viewport = parseFloat(getComputedStyle(inner).minHeight) || document.documentElement.clientHeight
-      const height = inner.offsetHeight
-      const compact = window.matchMedia('(max-width: 760px), (max-height: 600px) and (max-width: 1020px)').matches
-      const layout = getHeroScrollLayout(viewport, height, compact, reduced)
-      const nextHeight = `${layout.trackHeight}px`
-      if (outer.style.height !== nextHeight || outer.dataset.scrollLead !== String(layout.lead) || outer.dataset.scrollDistance !== String(layout.distance) || outer.dataset.scrollFinish !== String(layout.finish)) {
-        outer.style.height = nextHeight
-        outer.dataset.scrollDistance = String(layout.distance)
-        outer.dataset.scrollFinish = String(layout.finish)
-        outer.dataset.scrollLead = String(layout.lead)
-        inner.style.top = `${-layout.lead}px`
-        inner.style.position = layout.sticky ? 'sticky' : 'relative'
-        cancelAnimationFrame(frame)
-        frame = requestAnimationFrame(() => ScrollTrigger.refresh())
-      }
-    }
-    measure()
-    const observer = new ResizeObserver(measure)
-    observer.observe(inner)
-    window.addEventListener('resize', measure)
-    document.fonts.ready.then(measure)
-    return () => {
-      disposed = true
-      cancelAnimationFrame(frame)
-      observer.disconnect()
-      window.removeEventListener('resize', measure)
-    }
-  }, [reduced])
-  return <Track ref={track} id={SECTION_IDS.top} data-hero-track>
-    <Wrapper ref={scene} aria-labelledby="hero-heading">
+  return <Track id={SECTION_IDS.top} data-hero-track>
+    <Wrapper aria-labelledby="hero-heading">
     <Container>
       <Layout>
         <Title id="hero-heading">{t('hero.title')}<span>{t('hero.titleAccent')}</span></Title>
