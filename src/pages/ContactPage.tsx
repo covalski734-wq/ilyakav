@@ -525,8 +525,7 @@ export function ContactPage() {
                 <strong>{SITE.telegram.handle}</strong>
               </QuickLink>
               <QuickLink href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">
-                <span>WhatsApp</span>
-                <strong>{SITE.whatsapp.number}</strong>
+                <strong>WhatsApp</strong>
               </QuickLink>
               <QuickLink href={contactMailto(t, { type: initialType })}>
                 <span>{t('contact.direct.email')}</span>
@@ -652,7 +651,6 @@ export function ContactPage() {
               </DirectLink>
               <DirectLink href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">
                 <span>WhatsApp</span>
-                <span>{SITE.whatsapp.number}</span>
               </DirectLink>
             </DirectLinks>
           </Direct>

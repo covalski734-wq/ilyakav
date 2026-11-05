@@ -212,7 +212,7 @@ export function MobileMenu({ pathname, open, onClose }: Props) {
       <Contacts>
         <a href={contactMailto(t, mailContextForPath(pathname))}>{SITE.email}</a>
         <a href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">Telegram {SITE.telegram.handle}</a>
-            <a href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">WhatsApp {SITE.whatsapp.number}</a>
+            <a href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </Contacts>
 
       {/* these controls stay put: only navigation and the backdrop close the menu */}

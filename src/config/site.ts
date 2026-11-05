@@ -3,7 +3,7 @@
  */
 export const SITE = {
   email: 'contact@ilyakav.com',
-  whatsapp: { number: '+48 572 197 330', url: 'https://wa.me/48572197330' },
+  whatsapp: { url: 'https://wa.me/48572197330' },
   telegram: { handle: '@ilyakav', url: 'https://t.me/ilyakav' },
   linkedin: 'https://www.linkedin.com/in/ilya-kovalevsky-9709011b9/',
   flagship: 'marianaleus.com',
