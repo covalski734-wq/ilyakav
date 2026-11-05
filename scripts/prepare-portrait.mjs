@@ -2,7 +2,7 @@ import { chromium } from 'playwright'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 
 // Preserve the supplied original in the repository; only these derivatives are served.
-const source = await readFile(new URL('../IMG_6395.JPG', import.meta.url))
+const source = await readFile(new URL('../IMG_2298.JPG', import.meta.url))
 const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || undefined })
 try {
   const page = await browser.newPage()
@@ -18,7 +18,7 @@ try {
       canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height)
       return canvas.toDataURL('image/webp', 0.82).split(',')[1]
     }, { source: source.toString('base64'), width })
-    await writeFile(new URL(`../public/media/ilya-portrait-${width}.webp`, import.meta.url), Buffer.from(data, 'base64'))
+    await writeFile(new URL(`../public/media/ilya-portrait-2026-11-${width}.webp`, import.meta.url), Buffer.from(data, 'base64'))
   }
 } finally {
   await browser.close()

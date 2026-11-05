@@ -32,7 +32,7 @@ The October 13 editorial changes have an additional local check:
 desktop layouts, project images, work links, FAQ and mocked form outcomes.
 Screenshots and results are written to `artifacts/verification-2026-10-13/handoff/`.
 
-The supplied portrait original is `photo_2026-09-05_12-16-01.jpg` at the repository
+The supplied portrait original is `IMG_2298.JPG` at the repository
 root and is not served. Run `node scripts/prepare-portrait.mjs` to regenerate its
 480px and 768px WebP derivatives. This only resizes and compresses the image.
 

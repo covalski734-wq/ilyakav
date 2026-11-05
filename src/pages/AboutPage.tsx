@@ -484,6 +484,25 @@ const ProjectsTitle = styled(SectionTitle)`
   margin-bottom: 36px;
 `
 
+const ExperienceNote = styled.p`
+  max-width: 420px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid ${({ theme }) => theme.colors.line};
+  color: ${({ theme }) => theme.colors.textDim};
+  font-size: 15px;
+  line-height: 1.5;
+
+  strong {
+    display: block;
+    margin-bottom: 4px;
+    color: ${({ theme }) => theme.colors.text};
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 650;
+    letter-spacing: -0.04em;
+  }
+`
+
 const WorkLink = styled.a`
   display: inline-flex;
   align-items: center;
@@ -556,7 +575,11 @@ export function AboutPage() {
           <EditorialHead ref={positioningRef}>
             <div>
               <Eyebrow>{t('aboutPage.positioning.title')}</Eyebrow>
-              <Portrait src="/media/ilya-portrait-768.webp" srcSet="/media/ilya-portrait-480.webp 480w, /media/ilya-portrait-768.webp 768w" sizes="(max-width: 760px) 90vw, 32vw" width={768} height={1024} alt={t('aboutPage.positioning.portraitAlt')} loading="lazy" decoding="async" />
+              <Portrait src="/media/ilya-portrait-2026-11-768.webp" srcSet="/media/ilya-portrait-2026-11-480.webp 480w, /media/ilya-portrait-2026-11-768.webp 768w" sizes="(max-width: 760px) 90vw, 32vw" width={768} height={1024} alt={t('aboutPage.experience.portraitAlt')} loading="lazy" decoding="async" />
+              <ExperienceNote>
+                <strong>{t('aboutPage.experience.duration')}</strong>
+                {t('aboutPage.experience.label')}
+              </ExperienceNote>
             </div>
             <PositioningCopy>
               <PositioningTitle>{t('aboutPage.positioning.lead')}</PositioningTitle>

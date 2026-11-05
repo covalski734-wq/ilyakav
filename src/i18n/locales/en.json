@@ -429,6 +429,11 @@
     "more": "More about how I work"
   },
   "aboutPage": {
+    "experience": {
+      "duration": "6 years",
+      "label": "in development — from web applications to business websites",
+      "portraitAlt": "Ilya sitting at a table with greenery in the background"
+    },
     "hero": {
       "eyebrow": "Independent designer & developer",
       "title": "Hi, I’m Ilya. I build websites that help businesses look professional and connect with customers.",
