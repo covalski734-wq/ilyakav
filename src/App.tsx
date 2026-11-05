@@ -8,6 +8,7 @@ import { restoreLanguage } from './i18n'
 import { pageMeta, updateMeta } from './seo'
 import { CookieConsent } from './components/CookieConsent'
 import { ImageLightbox } from './components/ImageLightbox'
+import { SITE } from './config/site'
 import { trackEvent, trackPage } from './lib/consent'
 
 const SkipLink = styled.a`
@@ -29,7 +30,8 @@ export function App({ pathname, Page }: { pathname: string; Page: ComponentType 
       const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null
       if (!link) return
       if (link.pathname === '/contact' && link.origin === location.origin) trackEvent('cta_click', 'contact')
-      else if (link.href.startsWith('https://t.me/ilyakav')) trackEvent('cta_click', 'telegram')
+      else if (link.href === SITE.telegram.url) trackEvent('cta_click', 'telegram')
+      else if (link.href === SITE.whatsapp.url) trackEvent('cta_click', 'whatsapp')
       else if (link.protocol === 'mailto:') trackEvent('cta_click', 'email')
     }
     document.addEventListener('click', click, true)

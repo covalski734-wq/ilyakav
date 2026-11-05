@@ -1,6 +1,6 @@
 # ilyakav.com
 
-React 18 + Vite + TypeScript, styled-components, i18next (RU / UK / EN), GSAP. The production site combines generated HTML with a Cloudflare Worker for routing and the contact API. The existing GTM container loads asynchronously from the HTML head; application analytics events wait for cookie consent; see docs/consent.md for event and tag configuration.
+React 18 + Vite + TypeScript, styled-components, i18next (RU / UK / EN), GSAP. The production site combines generated HTML with a Cloudflare Worker for routing and the contact API. The existing GTM container loads asynchronously from the HTML head; application events include the current consent state even when cookies are declined; see docs/consent.md for event and tag configuration.
 
 ## Local development and checks
 

@@ -1,47 +1,27 @@
 # Consent and analytics integration
 
-## Current state
+## Runtime behavior
 
-The existing site container `GTM-TKPFHC7B` loads asynchronously from the HTML head, before React starts. Vite inserts the head scripts at the `gtm-head` marker. The small external `/gtm-init.js` sets denied defaults before GTM executes and works with the existing CSP. `VITE_GTM_ID` can override it at build time; an explicitly empty value disables GTM. No Google Ads or Meta Pixel has been added. Existing contact delivery is unchanged. Do not add a second GTM snippet, GA4 loader or noscript tracking iframe.
+GTM-TKPFHC7B loads asynchronously from the beginning of the HTML head, before React. Vite replaces the gtm-head marker with an external consent initializer and GTM script. VITE_GTM_ID overrides the container; an explicitly empty value disables it.
 
-The frontend queues Google's supported on-page consent commands before loading GTM. All four v2 signals default to denied. Necessary state is local only. The container loads immediately; application analytics events remain gated by Analytics consent. Tag-level consent checks in GTM must still be configured. If necessary container functions are introduced later, audit them and separate their initialization from optional tag triggers; do not simply make analytics fire on All Pages.
+The CSP-compatible /gtm-init.js queues denied defaults for analytics_storage, ad_storage, ad_user_data and ad_personalization before gtm.js. The application restores a valid saved choice and sends consent updates before application events. No choice, rejection, invalid or expired storage means denied, never granted.
 
-References: [Google's Basic implementation, including GTM](https://developers.google.com/tag-platform/security/guides/consent?consentmode=basic), [consent debugging](https://developers.google.com/tag-platform/security/guides/consent-debugging). Commands are issued in site code, not GTM Custom HTML. This implementation does not use GTM Consent APIs or a custom template. Do not add a second consent default tag. If migrating to a template later, use `setDefaultConsentState` on Consent Initialization and `updateConsentState` through the supported template API.
+All existing application events reach dataLayer regardless of consent: page_view, cta_click and generate_lead. Each carries consent_analytics and consent_marketing. CTA actions are contact, telegram, whatsapp and email. generate_lead uses contact_form and fires only after the API confirms success. Page views are deduplicated; changing consent neither reloads the page nor replays events.
 
-## Manual GTM/GA4 configuration — required before enabling the ID
+Events contain only allowlisted actions, sanitized page paths and consent flags. Form values, raw mailto URLs, phone numbers and message bodies are excluded. Withdrawal updates Google's consent signals and clears recognized accessible optional first-party cookies. Expired consent is checked before events and when the tab resumes. Consent version 2 reflects the move from blocked events to measurement without cookies; prior choices are renewed.
 
-1. Audit the existing account/container, if one exists outside this repository. Export a backup. Confirm the actual GA4 stream. Set only that container's ID in `.env.local`/build environment; no direct GA4 ID is needed here.
-2. Enable Consent Overview. **Built-in consent checks alone are insufficient for Basic mode**: they can permit cookieless pings. Every analytics tag must also require `analytics_storage`; every advertising tag must require `ad_storage`, `ad_user_data` and `ad_personalization`. Meta does not automatically obey Google's signals: require Marketing consent in its trigger and consent checks before adding it.
-3. Create Data Layer variables `consent_analytics`, `consent_marketing`, `page_path`, `page_location`, `page_referrer` and `action`. `consent_updated` runs after the on-page consent update and carries category booleans. Never use this event itself as a conversion.
-4. Initialize the single Google tag only on `page_view` with `consent_analytics` equal to true (and the additional consent requirement). Set it once per page; use tag sequencing to initialize it before the GA4 event tag if necessary. Set `send_page_view=false`. Disable enhanced measurement's page/history changes, outbound clicks and form interactions to avoid duplicate/automatic events. Disable user-provided data collection, enhanced conversions and Google Signals unless explicitly reviewed and documented.
-5. One GA4 event tag accepts the exact custom events `page_view`, `cta_click`, `generate_lead`, with Analytics consent required. Do not also attach generic click/form/All Pages tags for these events. `action` is an enum: contact, telegram, email, contact_form. A lead event fires only after `/api/contact` confirms `ok:true`, not on a failed submit. Set a conversion/key event only on the existing agreed business event, not both click and successful lead for the same goal.
-6. Set Google tag/event parameters `page_location` to a sanitized origin + allowlisted path, `page_referrer` to an empty string, and `page_title` to an approved static title or omit it. The application deliberately excludes URL query/hash, raw link text, names, email, phone and form contents. Do not enable URL passthrough or read form DOM fields in GTM. Audit vendor automatic collection as well as dataLayer.
-7. On a later Marketing grant, advertising tags must trigger on `consent_updated` (Marketing true) as well as their consent-gated conversion event where applicable. If a container was already loaded with only Marketing, analytics still initializes on the first subsequent consented `page_view`. The adapter never replays denied interactions.
-8. Before Google Ads or Meta is introduced, inventory providers/cookies/retention, update policy and `CONSENT_VERSION`, add vendor-specific cleanup/stop behavior and precise CSP endpoints. There is intentionally no Ads/Meta network allowlist or pixel today. The current CSP permits only the Google loader and GA4 collection endpoints; don't broaden it with wildcards or unsafe-inline. Preview's additional origins may require a separate staging-only CSP.
+## Required GTM container configuration
 
-## Storage and withdrawal
+The repository does not configure or publish the private GTM container. To use advanced Consent Mode:
 
-`ilyakav-consent` contains `{version, chosenAt, analytics, marketing}`. The application validity period is explicitly 180 days, not a claimed legal requirement or a vendor cookie lifetime. localStorage itself does not expire; invalid/expired/malformed/future-dated choices are rejected. Change `CONSENT_VERSION` when purposes/providers materially change. Language/theme keys retain their existing behavior.
+1. Use Google tags with built-in consent checks. Remove the previous consent_analytics=true trigger filter and additional analytics_storage requirement on those Google measurement tags if they should send cookieless measurements while denied. Do not force consent to granted. Third-party tags without built-in consent support still require explicit appropriate consent checks.
+2. Initialize the Google tag once on page_view, with send_page_view=false. Use sequencing before GA4 event tags if needed. Forward page_view, cta_click and generate_lead via Custom Event triggers. Avoid duplicate automatic page views, outbound clicks or form events.
+3. For email, filter cta_click by the Data Layer variable action=email; for WhatsApp use action=whatsapp. Pass action as an event parameter. Do not send Click URL: mailto links can contain draft form data.
+4. Use sanitized page_location, page_path and empty page_referrer from the event. Do not enable user-provided data collection or enhanced conversions from form fields.
+5. In Preview, verify events both before a choice and after reject/accept/withdrawal, and verify consent signals separately. Inspect GA4/network requests to confirm Google tags respect denied storage. Seeing a dataLayer event alone does not prove delivery to GA4.
 
-Preferences synchronize across tabs. Withdrawal updates consent immediately, blocks the event gateway and removes accessible first-party `_ga*`, `_gid`, `_gat*`, `_gcl_*`, `_fbp`, `_fbc` cookies on the current/root path and parent-domain variants. These are **cleanup patterns for possible future/previous tags, not an assertion that these cookies currently exist**. Third-party-domain, HttpOnly and unrelated-path cookies cannot all be deleted by this script. Browser site-data controls and provider deletion requests remain relevant. Loaded tags are stopped by a document reload after a downgrade. No reload is needed while no container is loaded. If storage fails, the user sees an explanation; for already-loaded tags a fail-closed reset URL prevents restoring a stale grant.
+Without consent, supported Google tags can send limited cookieless pings; this does not provide the same user/session attribution as consented measurement. See [Google Consent Mode](https://developers.google.com/tag-platform/security/concepts/consent-mode).
 
-The adapter is framework independent, browser-initialized and SSR-safe; React only renders controls. A future Next.js client boundary can initialize it once and call `trackPage` on pathname changes. Never initialize it in shared server request state.
+## Verification
 
-## Published-site acceptance checks
-
-- New profile: all four signals denied before the early GTM request; no application analytics events before a choice. Verify that container tags obey their additional consent requirements. Font/hosting requests are separate and documented.
-- Accept, reject, Analytics only, Marketing only; reload and navigate real routes. Confirm additional consent checks prevent cookieless requests for denied categories even if GTM is loaded for the other category.
-- In GTM Preview/Tag Assistant confirm default precedes update and tag initialization, all four signals match controls, initialization occurs once, and consent update enables only intended tags. Inspect tags that did NOT fire too.
-- GA4 DebugView: one page_view per navigation, one CTA per click and one lead only per confirmed delivery. No query/hash/form values, automatic duplicate events or PII in requests.
-- Withdraw in the same and another tab. Verify cookie cleanup, reload, no subsequent denied requests and no new optional cookies. Test returning after version bump and expiry.
-- Desktop/mobile keyboard, Escape, focus return, settings link, rejected third-party scripts, blocked localStorage; inspect CSP console errors. Check real iOS Safari and Android Chrome.
-
-Local tests verify head script order, consent initialization, and event gating. They cannot certify the contents of a private GTM container or replace published Tag Assistant/GA4 checks.
-
-## Legal confirmation required
-
-Confirm controller legal name/address, vendor inventory (including any Cloudflare edge injection outside source control), cookie lifetimes from actual configuration, GA4 retention, purposes, recipients, transfers and legal bases. Review whether selected language/theme storage qualifies for the intended necessary exemption. Confirm the 180-day consent renewal policy. Review Google Fonts and the voluntarily loaded external Mariana demo separately. No GDPR compliance guarantee is made.
-
-## Email click tracking
-
-Email links emit the custom event `cta_click` with `action: email` after Analytics consent. In GTM, use a Custom Event trigger for `cta_click` filtered by the Data Layer variable `action` equal to `email`, and pass `action` to the GA4 event tag. Verify this event in Preview after accepting Analytics cookies. Do not also attach a generic link-click tag to the same conversion. The mailto URL includes a draft subject/body, so do not send the raw Click URL to analytics. The site does not need to open a mail client successfully for the click event to be queued.
+Tests cover early head load order, denied defaults, page deduplication, CTA and successful-lead events across consent choices, and no replay on updates. The live GTM tag configuration and vendor behavior must be checked separately in Tag Assistant.

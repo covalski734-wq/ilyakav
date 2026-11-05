@@ -524,6 +524,10 @@ export function ContactPage() {
                 <span>{t('contact.direct.telegram')}</span>
                 <strong>{SITE.telegram.handle}</strong>
               </QuickLink>
+              <QuickLink href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">
+                <span>WhatsApp</span>
+                <strong>{SITE.whatsapp.number}</strong>
+              </QuickLink>
               <QuickLink href={contactMailto(t, { type: initialType })}>
                 <span>{t('contact.direct.email')}</span>
                 <strong>{SITE.email}</strong>
@@ -626,6 +630,7 @@ export function ContactPage() {
                 <ResultBody>{t('contact.form.errorBody')}</ResultBody>
                 <ResultLinks>
                   <a href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">{SITE.telegram.handle}</a>
+                  <a href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                   <a href={contactMailto(t, { draft: mailDraft })}>{t('contact.form.errorMailAction')}</a>
                 </ResultLinks>
               </Result>
@@ -644,6 +649,10 @@ export function ContactPage() {
               <DirectLink href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">
                 <span>{t('contact.direct.telegram')}</span>
                 <span>{SITE.telegram.handle}</span>
+              </DirectLink>
+              <DirectLink href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">
+                <span>WhatsApp</span>
+                <span>{SITE.whatsapp.number}</span>
               </DirectLink>
             </DirectLinks>
           </Direct>

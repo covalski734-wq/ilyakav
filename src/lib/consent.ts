@@ -1,7 +1,7 @@
 import { PUBLIC_PATHS } from '../../shared/routes.ts'
 /** Browser-only adapter. Keep this module independent of React/router for SSR migrations. */
 export const CONSENT_KEY = 'ilyakav-consent'
-export const CONSENT_VERSION = 1 // Bump whenever processing purposes or providers materially change.
+export const CONSENT_VERSION = 2 // Bump whenever processing purposes or providers materially change.
 export const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000
 export type Choice = { analytics: boolean; marketing: boolean }
 export type Consent = Choice & { version: number; chosenAt: string }
@@ -36,7 +36,7 @@ function update(choice: Choice) {
   push({ event: 'consent_updated', consent_analytics: choice.analytics, consent_marketing: choice.marketing })
 }
 function loadContainer() {
-  if (!gtmConfigured || containerLoaded || !(state?.analytics || state?.marketing)) return
+  if (!gtmConfigured || containerLoaded) return
   containerLoaded = true
   // Fallback for documents without the early head loader.
   if (document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${configId}"]`)) return
@@ -60,20 +60,12 @@ export function clearOptionalCookies(choice: Choice) {
 }
 function readStored() { try { return parseConsent(localStorage.getItem(CONSENT_KEY)) } catch { return null } }
 function apply(next: Consent | null) {
-  const previous = state
   state = next
   const choice = next ?? denied
   update(choice)
   clearOptionalCookies(choice)
   listeners.forEach(listener => listener())
-  // Loaded third-party code cannot be unloaded safely. Reset the document on withdrawal
-  // to stop timers/listeners, including tags not controlled by our event gateway.
-  if (containerLoaded && ((previous?.analytics && !choice.analytics) || (previous?.marketing && !choice.marketing))) {
-    location.reload()
-    return
-  }
   loadContainer()
-  if (choice.analytics) trackPage(location.pathname)
 }
 export function initConsent() {
   if (initialized || typeof window === 'undefined') return
@@ -105,15 +97,25 @@ export function saveConsent(choice: Choice): boolean {
 }
 export function openCookieSettings() { window.dispatchEvent(new Event('cookie-settings')) }
 /** Explicit allowlist: never accept form values, full URLs, query strings or link text. */
-export function trackEvent(event: 'cta_click' | 'generate_lead', action: 'contact' | 'telegram' | 'email' | 'contact_form') {
-  if (!state?.analytics || !gtmConfigured || !parseConsent(JSON.stringify(state))) return
+export function trackEvent(event: 'cta_click' | 'generate_lead', action: 'contact' | 'telegram' | 'whatsapp' | 'email' | 'contact_form') {
+  if (!prepareEvent()) return
   const path = safePath(location.pathname)
-  push({ event, action, page_path: path, page_location: location.origin + path, page_referrer: '' })
+  push({ event, action, ...eventConsent(), page_path: path, page_location: location.origin + path, page_referrer: '' })
 }
 function safePath(path: string) { return PUBLIC_PATHS.includes(path as typeof PUBLIC_PATHS[number]) ? path : '/404' }
 export function trackPage(path: string) {
   const safe = safePath(path)
-  if (!state?.analytics || !gtmConfigured || lastPage === safe || !parseConsent(JSON.stringify(state))) return
+  if (!prepareEvent() || lastPage === safe) return
   lastPage = safe
-  push({ event: 'page_view', page_path: safe, page_location: location.origin + safe, page_referrer: '' })
+  push({ event: 'page_view', ...eventConsent(), page_path: safe, page_location: location.origin + safe, page_referrer: '' })
+}
+
+function prepareEvent() {
+  if (typeof window === 'undefined' || !gtmConfigured) return false
+  initConsent()
+  if (state && !parseConsent(JSON.stringify(state))) apply(null)
+  return true
+}
+function eventConsent() {
+  return { consent_analytics: state?.analytics ?? false, consent_marketing: state?.marketing ?? false }
 }

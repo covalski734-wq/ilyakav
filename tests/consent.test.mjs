@@ -22,8 +22,8 @@ test('all four v2 signals map independently to analytics and marketing',()=>{
 })
 
 
-test('existing container and email events respect analytics consent', async () => {
- const {initConsent,saveConsent,trackEvent}=await import('../src/lib/consent.ts')
+test('events flow before consent, after acceptance and after withdrawal without replay', async () => {
+ const {initConsent,saveConsent,trackEvent,trackPage}=await import('../src/lib/consent.ts')
  const scripts=[]
  const previous={}
  for(const key of ['window','document','location','localStorage'])previous[key]=Object.getOwnPropertyDescriptor(globalThis,key)
@@ -36,16 +36,30 @@ test('existing container and email events respect analytics consent', async () =
  try {
   for(const [key,value] of Object.entries(mock))Object.defineProperty(globalThis,key,{value,configurable:true})
   initConsent()
-  trackEvent('cta_click','email')
-  assert.equal(scripts.length,0)
-  assert.equal(window.dataLayer.filter(item=>item.event==='cta_click').length,0)
-  saveConsent({analytics:true,marketing:false})
   assert.equal(scripts.length,1)
   assert.equal(scripts[0].src,'https://www.googletagmanager.com/gtm.js?id=GTM-TKPFHC7B')
-  trackEvent('cta_click','email')
-  assert.deepEqual(window.dataLayer.filter(item=>item.event==='cta_click'),[{
-   event:'cta_click',action:'email',page_path:'/contact',page_location:'https://ilyakav.com/contact',page_referrer:''
-  }])
+  const events=()=>window.dataLayer.filter(item=>['page_view','cta_click','generate_lead'].includes(item.event))
+  trackPage('/contact'); trackPage('/contact')
+  assert.equal(events().length,1)
+  assert.equal(events()[0].consent_analytics,false)
+  for(const choice of [null,{analytics:false,marketing:false},{analytics:true,marketing:false},{analytics:true,marketing:true},{analytics:false,marketing:false}]) {
+   const count=events().length
+   if(choice)saveConsent(choice)
+   assert.equal(events().length,count,'consent changes must not replay page views')
+   for(const action of ['email','telegram','whatsapp','contact'])trackEvent('cta_click',action)
+   trackEvent('generate_lead','contact_form')
+   assert.equal(events().length,count+5)
+   for(const event of events().slice(count)) {
+    assert.equal(event.consent_analytics,choice?.analytics??false)
+    assert.equal(event.consent_marketing,choice?.marketing??false)
+    assert.equal(event.page_location,'https://ilyakav.com/contact')
+    assert.equal(event.page_referrer,'')
+    assert.equal('link_url' in event,false)
+   }
+   const updates=window.dataLayer.filter(item=>item[0]==='consent'&&item[1]==='update')
+   assert.equal(updates.at(-1)[2].analytics_storage,choice?.analytics?'granted':'denied')
+  }
+  assert.equal(scripts.length,1)
  } finally {
   for(const key of Object.keys(mock)) {
    if(previous[key])Object.defineProperty(globalThis,key,previous[key])

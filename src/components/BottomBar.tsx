@@ -30,7 +30,7 @@ const Bar = styled.div<{ $visible: boolean }>`
     display: flex;
   }
 
-  /* A fixed two-button bar consumes too much of a short landscape viewport;
+  /* A fixed action bar consumes too much of a short landscape viewport;
      the same actions remain available in the mobile menu. */
   @media (max-height: 600px) and (orientation: landscape) {
     display: none;
@@ -39,19 +39,19 @@ const Bar = styled.div<{ $visible: boolean }>`
 
 const Primary = styled.a`
   flex: 1;
-  padding: 15px 20px;
+  padding: 15px 12px;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
 `
 
 const Secondary = styled.a`
-  padding: 15px 20px;
+  padding: 15px 10px;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   background: rgba(0, 0, 0, 0.14);
 `
 
@@ -72,6 +72,7 @@ export function BottomBar() {
     <Bar $visible={visible} aria-hidden={!visible} data-bottom-bar>
       <Primary href={ROUTES.contact}>{t('actions.startProject')}</Primary>
       <Secondary href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">Telegram</Secondary>
+      <Secondary href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">WhatsApp</Secondary>
     </Bar>
   )
 }
