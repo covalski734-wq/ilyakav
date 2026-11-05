@@ -520,7 +520,7 @@ export function ContactPage() {
 
           <QuickContacts>
             <QuickList>
-              <QuickLink href={SITE.telegram.url}>
+              <QuickLink href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">
                 <span>{t('contact.direct.telegram')}</span>
                 <strong>{SITE.telegram.handle}</strong>
               </QuickLink>
@@ -625,7 +625,7 @@ export function ContactPage() {
                 <ResultTitle>{t('contact.form.errorTitle')}</ResultTitle>
                 <ResultBody>{t('contact.form.errorBody')}</ResultBody>
                 <ResultLinks>
-                  <a href={SITE.telegram.url}>{SITE.telegram.handle}</a>
+                  <a href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">{SITE.telegram.handle}</a>
                   <a href={contactMailto(t, { draft: mailDraft })}>{t('contact.form.errorMailAction')}</a>
                 </ResultLinks>
               </Result>
@@ -641,7 +641,7 @@ export function ContactPage() {
                 <span>{t('contact.direct.email')}</span>
                 <span>{SITE.email}</span>
               </DirectLink>
-              <DirectLink href={SITE.telegram.url}>
+              <DirectLink href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">
                 <span>{t('contact.direct.telegram')}</span>
                 <span>{SITE.telegram.handle}</span>
               </DirectLink>

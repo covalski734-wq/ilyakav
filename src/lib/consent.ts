@@ -12,7 +12,8 @@ let initialized = false
 let containerLoaded = false
 let lastPage = ''
 const listeners = new Set<() => void>()
-const configId = import.meta.env?.VITE_GTM_ID?.trim() ?? ''
+// An explicit empty build variable disables the existing site container.
+const configId = (import.meta.env?.VITE_GTM_ID ?? 'GTM-TKPFHC7B').trim()
 export const gtmConfigured = /^GTM-[A-Z0-9]+$/.test(configId)
 const browser = () => window as ConsentWindow
 export function parseConsent(raw: string | null, now = Date.now()): Consent | null {
@@ -37,7 +38,7 @@ function update(choice: Choice) {
 function loadContainer() {
   if (!gtmConfigured || containerLoaded || !(state?.analytics || state?.marketing)) return
   containerLoaded = true
-  // The default and restored/current update are queued BEFORE gtm.js.
+  // Fallback for documents without the early head loader.
   if (document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${configId}"]`)) return
   push({ 'gtm.start': Date.now(), event: 'gtm.js' })
   const script = document.createElement('script')
@@ -77,9 +78,10 @@ function apply(next: Consent | null) {
 export function initConsent() {
   if (initialized || typeof window === 'undefined') return
   initialized = true
+  containerLoaded = gtmConfigured && !!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${configId}"]`)
   browser().dataLayer ??= []
   browser().gtag ??= command
-  browser().gtag!('consent', 'default', consentSignals(denied))
+  if (!containerLoaded) browser().gtag!('consent', 'default', consentSignals(denied))
   browser().gtag!('set', 'ads_data_redaction', true)
   browser().gtag!('set', 'url_passthrough', false)
   state = new URLSearchParams(location.search).has('consent-reset') ? null : readStored()

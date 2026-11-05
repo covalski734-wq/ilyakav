@@ -71,7 +71,7 @@ export function BottomBar() {
   return (
     <Bar $visible={visible} aria-hidden={!visible} data-bottom-bar>
       <Primary href={ROUTES.contact}>{t('actions.startProject')}</Primary>
-      <Secondary href={SITE.telegram.url}>Telegram</Secondary>
+      <Secondary href={SITE.telegram.url} target="_blank" rel="noopener noreferrer">Telegram</Secondary>
     </Bar>
   )
 }

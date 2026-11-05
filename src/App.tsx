@@ -26,14 +26,14 @@ export function App({ pathname, Page }: { pathname: string; Page: ComponentType 
   useEffect(() => { trackPage(pathname) }, [pathname])
   useEffect(() => {
     const click = (event: MouseEvent) => {
-      const link = (event.target as Element).closest<HTMLAnchorElement>('a[href]')
+      const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null
       if (!link) return
       if (link.pathname === '/contact' && link.origin === location.origin) trackEvent('cta_click', 'contact')
       else if (link.href.startsWith('https://t.me/ilyakav')) trackEvent('cta_click', 'telegram')
       else if (link.protocol === 'mailto:') trackEvent('cta_click', 'email')
     }
-    document.addEventListener('click', click)
-    return () => document.removeEventListener('click', click)
+    document.addEventListener('click', click, true)
+    return () => document.removeEventListener('click', click, true)
   }, [])
   useEffect(() => { updateMeta(pageMeta(t, pathname)) }, [i18n.resolvedLanguage, pathname, t])
   return <>
