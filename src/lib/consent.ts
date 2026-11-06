@@ -102,7 +102,10 @@ export function trackEvent(event: 'cta_click' | 'generate_lead', action: 'contac
   const path = safePath(location.pathname)
   push({ event, action, ...eventConsent(), page_path: path, page_location: location.origin + path, page_referrer: '' })
 }
-function safePath(path: string) { return PUBLIC_PATHS.includes(path as typeof PUBLIC_PATHS[number]) ? path : '/404' }
+function safePath(path: string) {
+  const normalized = path.replace(/\/+$/, '') || '/'
+  return PUBLIC_PATHS.includes(normalized as typeof PUBLIC_PATHS[number]) ? normalized : '/404'
+}
 export function trackPage(path: string) {
   const safe = safePath(path)
   if (!prepareEvent() || lastPage === safe) return

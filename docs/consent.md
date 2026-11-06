@@ -25,3 +25,9 @@ Without consent, supported Google tags can send limited cookieless pings; this d
 ## Verification
 
 Tests cover early head load order, denied defaults, page deduplication, CTA and successful-lead events across consent choices, and no replay on updates. The live GTM tag configuration and vendor behavior must be checked separately in Tag Assistant.
+
+## Meta Pixel CSP
+
+The CSP allows connect.facebook.net for the Pixel library, www.facebook.com for image/connection requests, and the exact SHA-256 hash of the GTM-compiled base Pixel 1076328401949671 observed on the published site. It does not enable arbitrary inline JavaScript or eval. Editing the Custom HTML tag can change the compiled hash and requires re-verification. Other Custom HTML event tags need their own verified hashes or a CSP-compatible template.
+
+Before deploying this allowance, configure the base Pixel and Meta event tags to require Marketing consent. The current base snippet attempts to run before consent; merely permitting it in CSP would allow that attempt to succeed. Use consent_updated with consent_marketing=true for initialization after consent, initialize once per document, and check consent on subsequent events. Also handle withdrawal for an already-loaded Pixel. Google Consent Mode does not automatically control Meta. Do not use the noscript tracking image to bypass the consent decision. Container settings are not managed by this repository.

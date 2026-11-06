@@ -30,7 +30,7 @@ test('events flow before consent, after acceptance and after withdrawal without 
  const mock={
   window:{addEventListener(){}},
   document:{cookie:'',querySelector(){return null},createElement(){return {}},head:{append(script){scripts.push(script)}},addEventListener(){}},
-  location:{hostname:'ilyakav.com',origin:'https://ilyakav.com',pathname:'/contact',protocol:'https:',search:''},
+  location:{hostname:'ilyakav.com',origin:'https://ilyakav.com',pathname:'/contact/',protocol:'https:',search:''},
   localStorage:{getItem(){return null},setItem(){}}
  }
  try {
@@ -39,7 +39,7 @@ test('events flow before consent, after acceptance and after withdrawal without 
   assert.equal(scripts.length,1)
   assert.equal(scripts[0].src,'https://www.googletagmanager.com/gtm.js?id=GTM-TKPFHC7B')
   const events=()=>window.dataLayer.filter(item=>['page_view','cta_click','generate_lead'].includes(item.event))
-  trackPage('/contact'); trackPage('/contact')
+  trackPage('/contact/'); trackPage('/contact')
   assert.equal(events().length,1)
   assert.equal(events()[0].consent_analytics,false)
   for(const choice of [null,{analytics:false,marketing:false},{analytics:true,marketing:false},{analytics:true,marketing:true},{analytics:false,marketing:false}]) {
