@@ -164,3 +164,9 @@ Attach `ilyakav.com` to this Worker in **Workers & Pages → ilyakav → Setting
 ## Content boundaries
 
 Mariana, Skyline and Maryna are the three main portfolio projects. Tile remains available as a secondary case with the existing scope disclaimer. Maryna's combined advertising/site evidence and Skyline's limitations are preserved. Starting prices remain indicative: no fixed page counts, revision counts or delivery guarantees have been invented. Telegram bots, CRM and booking receive individual estimates. Analytics, new photographs, testimonials and unverified results are not added.
+
+### Analytics verification
+
+GTM Custom HTML tags use the per-response nonce CSP from Pages middleware / Worker. Deploy Functions with the static build; static-only uploads cannot apply this header. The early bootstrap synchronizes Google and Meta consent, while GTM owns the event tags. See [consent integration](docs/consent.md). Run `node scripts/analytics-check.mjs` against a local `npm run preview` to exercise real vendor libraries with all measurement requests intercepted.
+
+Use `npm run test:consent` for the consent interface, `npm run test:analytics-config` for isolated provider-disabled builds, and `npm run audit:marketing` for actual vendor conversion behavior. The latter currently detects known defects in the published GTM form/email triggers; a passing site build does not imply those external settings are fixed. See [marketing audit and release acceptance](docs/marketing-readiness.md), including the safe actual-export repair tool. The runtime/UI boundaries and project configuration needed for reuse are documented in [consent integration](docs/consent.md#reusing-the-system).

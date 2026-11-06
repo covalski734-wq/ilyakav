@@ -1,5 +1,6 @@
 import { validateContact, MAX_BODY_BYTES } from '../shared/contact.ts'
 import { isPublicPath, normalizePath } from '../shared/routes.ts'
+import { applyHtmlSecurity } from '../shared/htmlSecurity.ts'
 
 export type Env = {
   TELEGRAM_BOT_TOKEN?: string
@@ -74,14 +75,14 @@ export default {
     }
     if (isPublicPath(path)) {
       url.pathname = path === '/' ? '/index.html' : `${path}/index.html`
-      return env.ASSETS.fetch(new Request(url, request))
+      return applyHtmlSecurity(await env.ASSETS.fetch(new Request(url, request)))
     }
     const asset = await env.ASSETS.fetch(request)
-    if (asset.status !== 404 && path !== '/404.html') return asset
+    if (asset.status !== 404 && path !== '/404.html') return applyHtmlSecurity(asset)
     url.pathname = '/404.html'
     const page = await env.ASSETS.fetch(new Request(url, request))
     const headers = new Headers(page.headers)
     headers.set('x-robots-tag', 'noindex')
-    return new Response(request.method === 'HEAD' ? null : page.body, { status: 404, headers })
+    return applyHtmlSecurity(new Response(request.method === 'HEAD' ? null : page.body, { status: 404, headers }))
   },
 }

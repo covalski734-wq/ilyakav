@@ -447,6 +447,7 @@ export function ContactPage() {
     const name = String(data.get('name') ?? '').trim()
     const contact = String(data.get('contact') ?? '').trim()
     const brief = String(data.get('brief') ?? '').trim()
+    const company = String(data.get('company') ?? '')
     const rawType = String(data.get('type') ?? 'other')
     const type = isProjectType(rawType) ? rawType : 'other'
     const validation = validateContact({ name, contact, brief, type })
@@ -477,7 +478,7 @@ export function ContactPage() {
           contact,
           type,
           brief,
-          company: String(data.get('company') ?? ''),
+          company,
         }),
       })
 
@@ -497,7 +498,8 @@ export function ContactPage() {
         throw new Error('Unconfirmed delivery')
       }
 
-      trackEvent('generate_lead', 'contact_form')
+      // The API also returns inert success for the spam trap; it is not a lead.
+      if (!company.trim()) trackEvent('generate_lead', 'contact_form')
       form.reset()
       setStatus('sent')
     } catch {

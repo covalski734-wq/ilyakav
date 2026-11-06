@@ -1,17 +1,21 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
+export function analyticsHeadScripts(gtmId: string, metaEnabled = true): string {
+  if (!/^GTM-[A-Z0-9]+$/.test(gtmId)) return ''
+  return `<script src="/gtm-init.js" data-meta-enabled="${metaEnabled}"></script>\n    <script id="ilyakav-gtm" async src="https://www.googletagmanager.com/gtm.js?id=${gtmId}"></script>`
+}
+
 export default defineConfig(({ mode }) => {
-  const gtmId = (loadEnv(mode, '.', 'VITE_').VITE_GTM_ID ?? 'GTM-TKPFHC7B').trim()
+  const env = loadEnv(mode, '.', 'VITE_')
+  const gtmId = (env.VITE_GTM_ID ?? 'GTM-TKPFHC7B').trim()
+  const metaEnabled = (env.VITE_META_ENABLED ?? 'true').trim().toLowerCase() !== 'false'
   return {
   plugins: [
     {
       name: 'early-gtm',
       transformIndexHtml(html) {
-        const scripts = /^GTM-[A-Z0-9]+$/.test(gtmId)
-          ? `<script src="/gtm-init.js"></script>\n    <script id="ilyakav-gtm" async src="https://www.googletagmanager.com/gtm.js?id=${gtmId}"></script>`
-          : ''
-        return html.replace('<!-- gtm-head -->', scripts)
+        return html.replace('<!-- gtm-head -->', analyticsHeadScripts(gtmId, metaEnabled))
       },
     },
     react({

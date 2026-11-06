@@ -6,14 +6,21 @@ export const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000
 export type Choice = { analytics: boolean; marketing: boolean }
 export type Consent = Choice & { version: number; chosenAt: string }
 export const denied: Choice = { analytics: false, marketing: false }
-type ConsentWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void }
+type ConsentWindow = Window & {
+  dataLayer?: unknown[]
+  gtag?: (...args: unknown[]) => void
+  fbq?: (...args: unknown[]) => void
+  __ilyakavSetMetaConsent?: (granted: boolean) => void
+}
 let state: Consent | null = null
 let initialized = false
 let containerLoaded = false
 let lastPage = ''
+let expiryTimer: number | undefined
 const listeners = new Set<() => void>()
 // An explicit empty build variable disables the existing site container.
 const configId = (import.meta.env?.VITE_GTM_ID ?? 'GTM-TKPFHC7B').trim()
+const metaEnabled = (import.meta.env?.VITE_META_ENABLED ?? 'true').trim().toLowerCase() !== 'false'
 export const gtmConfigured = /^GTM-[A-Z0-9]+$/.test(configId)
 const browser = () => window as ConsentWindow
 export function parseConsent(raw: string | null, now = Date.now()): Consent | null {
@@ -33,6 +40,8 @@ function push(value: unknown) { browser().dataLayer!.push(value) }
 function command(..._args: unknown[]) { push(arguments) }
 function update(choice: Choice) {
   browser().gtag!('consent', 'update', consentSignals(choice))
+  if (browser().__ilyakavSetMetaConsent) browser().__ilyakavSetMetaConsent!(choice.marketing)
+  else browser().fbq?.('consent', metaEnabled && choice.marketing ? 'grant' : 'revoke')
   push({ event: 'consent_updated', consent_analytics: choice.analytics, consent_marketing: choice.marketing })
 }
 function loadContainer() {
@@ -58,9 +67,34 @@ export function clearOptionalCookies(choice: Choice) {
   for (const name of names) for (const domain of domains) for (const path of paths)
     document.cookie = `${name}=; Max-Age=0; path=${path}${domain ? `; domain=${domain}` : ''}; SameSite=Lax${location.protocol === 'https:' ? '; Secure' : ''}`
 }
-function readStored() { try { return parseConsent(localStorage.getItem(CONSENT_KEY)) } catch { return null } }
+function readStored() {
+  try {
+    const stored = parseConsent(localStorage.getItem(CONSENT_KEY))
+    if (stored && (stored.analytics || stored.marketing)) {
+      // A saved grant is trusted only while storage can also record withdrawal.
+      // Keep this necessary, temporary probe in sync with the early head loader.
+      const probeKey = CONSENT_KEY + '-storage-probe'
+      localStorage.setItem(probeKey, '1')
+      localStorage.removeItem(probeKey)
+    }
+    return stored
+  } catch { return null }
+}
+function scheduleExpiry() {
+  if (expiryTimer !== undefined) window.clearTimeout(expiryTimer)
+  expiryTimer = undefined
+  if (!state) return
+  const remaining = Date.parse(state.chosenAt) + CONSENT_MAX_AGE - Date.now()
+  // Browser timers have a signed 32-bit delay limit; renew long waits in chunks.
+  expiryTimer = window.setTimeout(() => {
+    expiryTimer = undefined
+    if (state && !parseConsent(JSON.stringify(state))) apply(null)
+    else scheduleExpiry()
+  }, Math.max(0, Math.min(remaining, 2 ** 31 - 1)))
+}
 function apply(next: Consent | null) {
   state = next
+  scheduleExpiry()
   const choice = next ?? denied
   update(choice)
   clearOptionalCookies(choice)
@@ -77,6 +111,7 @@ export function initConsent() {
   browser().gtag!('set', 'ads_data_redaction', true)
   browser().gtag!('set', 'url_passthrough', false)
   state = new URLSearchParams(location.search).has('consent-reset') ? null : readStored()
+  scheduleExpiry()
   update(state ?? denied)
   clearOptionalCookies(state ?? denied)
   loadContainer()
@@ -89,9 +124,17 @@ export function saveConsent(choice: Choice): boolean {
   const next = { analytics: choice.analytics === true, marketing: choice.marketing === true, version: CONSENT_VERSION, chosenAt: new Date().toISOString() }
   let persisted = true
   try { localStorage.setItem(CONSENT_KEY, JSON.stringify(next)) } catch { persisted = false }
-  // If storage is blocked, a reload must fail closed instead of restoring a stale grant.
-  if (!persisted && containerLoaded) { state = next; update(denied); clearOptionalCookies(denied); location.replace(location.pathname + '?consent-reset=1'); return false }
-  if (persisted && new URLSearchParams(location.search).has('consent-reset')) history.replaceState(null, '', location.pathname + location.hash)
+  if (!persisted) {
+    // Keep the explicit choice in memory without interrupting this page. Remove
+    // stale storage when possible; restoration rejects grants in read-only storage.
+    try { localStorage.removeItem(CONSENT_KEY) } catch { /* The restore probe fails closed. */ }
+  }
+  if (persisted && new URLSearchParams(location.search).has('consent-reset')) {
+    const params = new URLSearchParams(location.search)
+    params.delete('consent-reset')
+    const search = params.toString()
+    history.replaceState(null, '', location.pathname + (search ? '?' + search : '') + location.hash)
+  }
   apply(next)
   return persisted
 }
