@@ -39,6 +39,8 @@ export async function handleContact(request: Request, env: Pick<Env, 'TELEGRAM_B
   if (typeof payload.company === 'string' && payload.company.trim()) return json({ ok: true }, 200)
   const { data, errors, valid } = validateContact(payload)
   if (!valid) return json({ error: 'validation_failed', fields: errors }, 422)
+  // Deterministic failure for testing the form's server-error flow without sending a lead.
+  if (data.contact.toLowerCase().endsWith('@test.com')) return json({ error: 'test_submission_rejected' }, 400)
   if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return json({ error: 'unconfigured' }, 503)
   const text = ['Новая заявка с сайта', '', `Имя: ${data.name}`, `Связь: ${data.contact}`, `Тип: ${data.type}`, '', data.brief].join('\n')
   const controller = new AbortController()

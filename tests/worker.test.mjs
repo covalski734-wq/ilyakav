@@ -17,6 +17,21 @@ test('API rejects methods, origins, unsupported bodies and invalid fields before
   assert.equal((await worker.fetch(req(valid), env)).status, 503)
   assert.equal((await worker.fetch(req({ ...valid, contact: '@valid_name' }), env)).status, 503)
 })
+test('test.com emails return 400 without sending a Telegram message', async t => {
+  const mock = t.mock.method(globalThis, 'fetch', async () => Response.json({ ok: true }))
+  const configured = { ...env, TELEGRAM_BOT_TOKEN: 'test-only', TELEGRAM_CHAT_ID: 'test-only' }
+  for (const contact of ['qa@test.com', ' QA+tag@TEST.COM ']) {
+    const response = await worker.fetch(req({ ...valid, contact }), configured)
+    assert.equal(response.status, 400)
+    assert.deepEqual(await response.json(), { error: 'test_submission_rejected' })
+  }
+  assert.equal(mock.mock.callCount(), 0)
+  for (const contact of ['qa@sub.test.com', 'qa@not-test.com', '@test_user']) {
+    assert.equal((await worker.fetch(req({ ...valid, contact }), configured)).status, 200)
+  }
+  assert.equal(mock.mock.callCount(), 3)
+})
+
 test('body size is enforced with and without Content-Length', async () => {
   const huge = 'x'.repeat(MAX_BODY_BYTES + 1)
   assert.equal((await worker.fetch(req(huge), env)).status, 413)

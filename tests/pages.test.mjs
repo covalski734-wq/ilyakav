@@ -12,6 +12,7 @@ test('Pages contact route handles methods, validation, secrets and Telegram deli
   assert.equal((await onRequest({ request: new Request(url), env: {} })).status, 405)
   assert.equal((await onRequest({ request: post({}), env: {} })).status, 422)
   assert.equal((await onRequest({ request: post(payload), env: {} })).status, 503)
+  assert.equal((await onRequest({ request: post({ ...payload, contact: 'qa@test.com' }), env: {} })).status, 400)
   const env = { TELEGRAM_BOT_TOKEN: 'test-token', TELEGRAM_CHAT_ID: 'test-chat' }
   const mock = t.mock.method(globalThis, 'fetch', async (target, options) => {
     assert.equal(target, 'https://api.telegram.org/bottest-token/sendMessage')
