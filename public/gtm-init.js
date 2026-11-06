@@ -44,14 +44,9 @@
     var loadMeta = !window.fbq;
     if (loadMeta) {
       var fbq = window.fbq = function () {
-        // Preserve explicit GTM events without letting Meta infer button/form
-        // events from page text or mailto drafts. GTM remains the source of IDs.
-        if (arguments[0] === 'init') dispatchMeta(['set', 'autoConfig', false, String(arguments[1])]);
-        dispatchMeta(arguments);
-      };
-      var dispatchMeta = function (args) {
-        if (fbq.callMethod) fbq.callMethod.apply(fbq, args);
-        else fbq.queue.push(args);
+        // Event configuration belongs to the GTM container. Only bridge consent.
+        if (fbq.callMethod) fbq.callMethod.apply(fbq, arguments);
+        else fbq.queue.push(arguments);
       };
       if (!window._fbq) window._fbq = fbq;
       fbq.push = fbq;

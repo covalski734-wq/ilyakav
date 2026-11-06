@@ -1,5 +1,15 @@
 # Marketing readiness audit — 6 November 2026
 
+## Current scope — website compatibility only
+
+The owner clarified that the marketer owns tags, triggers and automatic event settings. The proposed replacement JSON and its import recommendation are withdrawn. Do not import `GTM-TKPFHC7B_workspace7_fixed.json` as part of these website fixes. No live GTM edits or publication were performed. The file and transformer are historical local artifacts, not dependencies of the application or deployment.
+
+The website no longer injects `autoConfig=false`; it forwards the marketer's Meta settings unchanged while retaining early library loading, consent handling and application events. The earlier automatic metadata observation below is information for the marketer, not a site-side override.
+
+The new site deployment was confirmed at 12:05 UTC: nonce CSP, consent bootstrap and no-transform are live. A subsequent screenshot exposed a missing `https://ad.doubleclick.net` image source for Google's fallback transport. The local fix adds that exact origin to img-src (connect-src already permits it). Synthetic browser checks reproduced the failure under the live policy and success with this addition; Meta script loading is already allowed by the live CSP. `ERR_BLOCKED_BY_CLIENT` and the chrome-extension eval policy are separate browser-side restrictions. Site compatibility checks do not assert that the marketer's conversion mapping is approved or that private advertising accounts received events.
+
+## Historical broader audit and withdrawn proposal
+
 This is an audit of the local application with the published GTM container `GTM-TKPFHC7B`, GA4 destination `G-ZWJKT1GYSL`, and Meta Pixel `1076328401949671`. It is not a declaration that production or the private advertising accounts have passed acceptance.
 
 Final local results: 30 unit tests passed; all 16 consent UI scenarios passed on both Worker and actual Pages middleware; actual-library consent/click checks passed in normal, delayed, and blocked modes. Separate compiled GTM-disabled and Meta-disabled builds passed. The unchanged published GTM passed only 22 of 30 marketing checks: it counted five form conversions for one confirmed success and missed email events. A test-only simulation of the proposed GTM repair passed all 30 checks. That simulation is not a published container or a validated server import.
@@ -45,9 +55,9 @@ npm run test:analytics-config
 - `TEST_BASE_URL` selects a local preview. `TEST_DOCUMENT_PATH=/contact/index.html` supports the analytics check against Pages CLI configurations that expose explicit HTML paths.
 - Browser artifacts go into ignored `artifacts/` directories. Requests to collectors are intercepted; passing tests proves client-side dispatch, not receipt or attribution inside advertising accounts.
 
-For diagnosis only, `GTM_REPAIR_FIXTURE=true` makes `audit:marketing` model the reviewed trigger changes inside an isolated browser. This mode is marked `simulated-repair-not-published` in its report and refuses an unexpected published container version. The normal audit must pass against the real repaired container before release; the fixture must never replace that check.
+For diagnosis only, `GTM_REPAIR_FIXTURE=true` models the earlier proposed trigger changes in an isolated browser. It is marked `simulated-repair-not-published` and refuses an unexpected container version. Those tag-level expectations belong to the historical audit, not the website compatibility acceptance.
 
-## Repairing the existing GTM configuration
+## Withdrawn GTM repair proposal — historical record only
 
 The helper requires an actual format-2 export of this container. It refuses a different container, changed tag ownership, ambiguous rules, or an existing output filename. It retains unrelated configuration and generates a separate file; it never publishes anything. The supplied `GTM-TKPFHC7B_workspace7.json` export (6 November 2026, 11:55:27 UTC) was successfully processed into `GTM-TKPFHC7B_workspace7_fixed.json` at the repository root. Six existing tags changed, one Meta email tag was added, along with two triggers and one variable; nothing was deleted. Original source content was preserved. Reference integrity, unique IDs/names, and repeat-operation stability passed; the change report is `artifacts/marketing-audit/workspace7-repair.json`.
 
@@ -55,12 +65,12 @@ The helper requires an actual format-2 export of this container. It refuses a di
 npm run repair:gtm -- ACTUAL-EXPORT.json NEW-REPAIRED-EXPORT.json
 ```
 
-Review the printed change report and the import preview in a new GTM workspace. Retarget the existing tags, rather than duplicating them. The source export is preserved. The transformer has structural regression tests and has processed the actual workspace export; authenticated GTM import has not happened, so server-side validation remains outstanding. Also review Google automatic user-provided-data settings separately: some Google-tag destination settings live outside the exported web container.
+This proposal was not imported or published and is no longer a recommended action for the website task. The source export was preserved. Tag-level observations and any future changes are for the marketer to decide.
 
-## Production acceptance still required
+## Historical marketing acceptance outline — for the marketer
 
 1. Deploy the corrected site with its HTML middleware and confirm the public response has matching nonce CSP/script attributes, `no-store, no-transform`, and no injected email decoder.
-2. Apply the reviewed GTM repair and run Preview against the deployed site. Invalid, failed, unconfirmed, and honeypot submissions must produce zero `Lead`; one confirmed delivery must produce exactly one. Repeat email/Telegram/WhatsApp clicks must reach their intended events.
+2. Review the site's available events and select the intended conversion mapping in GTM. The existing export proposal is not required; the marketer owns these choices and tests them in Preview.
 3. Check the actual Meta data source and campaign conversion selection. Verify receipt in Events Manager with the intended Pixel, first after accepting Marketing consent and then after withdrawal. Google measurement and Meta measurement have different consent behavior.
 4. Test once in a normal unblocked browser and once with blocking enabled. Browser-only Pixel tracking cannot guarantee delivery from browsers that deliberately block Meta. Do not implement a consent bypass to change that.
 

@@ -30,7 +30,7 @@ try {
         window.__cspViolations.push({ directive: event.effectiveDirective, blocked: event.blockedURI })
       })
     })
-    const measurements = [], errors = [], metaRequests = [], warnings = []
+    const measurements = [], errors = [], metaRequests = [], warnings = [], fallbackTransports = []
     await context.route('**/*', async route => {
       const request = route.request(), url = new URL(request.url())
       if (url.origin === siteOrigin) {
@@ -43,6 +43,13 @@ try {
       if (url.origin === new URL(base).origin) return route.continue()
       if (blockMeta && url.hostname === 'connect.facebook.net') return route.abort('blockedbyclient')
       if (delayMeta && url.hostname === 'connect.facebook.net' && url.pathname === '/en_US/fbevents.js') await metaGate
+      // Deterministic reproduction of the observed connection-to-image fallback.
+      // This synthetic probe never reaches a real collector or changes GTM tags.
+      if (url.hostname === 'ad.doubleclick.net' && url.searchParams.get('site_transport_probe') === '1') {
+        fallbackTransports.push(request.resourceType())
+        if (request.resourceType() !== 'image') return route.abort('blockedbyclient')
+        return route.fulfill({ status: 200, contentType: 'image/gif', body: Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64') })
+      }
       const meta = /(^|\.)facebook\.com$/.test(url.hostname) && url.pathname.startsWith('/tr')
       const google = /google-analytics\.com$|doubleclick\.net$|googlesyndication\.com$|googleadservices\.com$/.test(url.hostname)
         || (url.hostname === 'www.google.com' && /pagead|collect/.test(url.pathname))
@@ -88,6 +95,21 @@ try {
     await page.locator('[data-cookie-banner] button').first().waitFor()
     await page.waitForFunction(() => !!window.google_tag_manager?.['GTM-TKPFHC7B'])
     if (!blockMeta && !delayMeta) await page.waitForFunction(() => !!window.fbq?.callMethod)
+    if (mode === 'normal') {
+      const imageLoaded = await page.evaluate(async () => {
+        const url = 'https://ad.doubleclick.net/ccm/s/collect?site_transport_probe=1'
+        try { await fetch(url, { method: 'POST', body: '' }) } catch { /* Expected mocked client block. */ }
+        return new Promise(resolve => {
+          const pixel = new Image()
+          const timeout = setTimeout(() => resolve(false), 5000)
+          pixel.onload = () => { clearTimeout(timeout); resolve(true) }
+          pixel.onerror = () => { clearTimeout(timeout); resolve(false) }
+          pixel.src = url
+        })
+      })
+      assert.ok(imageLoaded, 'CSP must allow the Google image fallback after a client-blocked connection')
+      assert.deepEqual(fallbackTransports, ['fetch', 'image'])
+    }
     await page.evaluate(() => document.addEventListener('click', event => {
       if (event.target.closest('a[href^="https://t.me/"], a[href^="https://wa.me/"]')) event.preventDefault()
     }))
@@ -150,12 +172,12 @@ try {
     await waitForMeasurement(() => measurements.some(item => item.provider === 'google' && item.event === 'whatsapp_click'), 'Google WhatsApp event')
     assert.deepEqual(state.violations, [])
     assert.deepEqual(errors, [])
-    reports.push({ mode, blockMeta, measurements, initialViolations, ...state })
+    reports.push({ mode, blockMeta, measurements, fallbackTransports, initialViolations, ...state })
     await context.close()
   }
   await mkdir('artifacts/analytics-check', { recursive: true })
   await writeFile('artifacts/analytics-check/result.json', JSON.stringify(reports, null, 2))
-  console.log('Analytics passed: real GTM/Meta libraries, mocked measurement, deny/grant/withdraw, delayed consent and blocked Meta library.')
+  console.log('Site compatibility passed: unchanged GTM, Google/Meta loading and consent, delayed/blocked Meta, and mocked Google image fallback. Tag configuration remains owned by the marketer.')
 } finally {
   for (const release of releasePendingLoads) release()
   await browser.close()

@@ -56,7 +56,7 @@ test('static and dynamic baseline CSP allow required measurement and preview res
     const [name, ...sources] = value.split(' ')
     return [name, sources]
   }))
-  for (const origin of ['https://www.googleadservices.com', 'https://googleads.g.doubleclick.net', 'https://pagead2.googlesyndication.com', 'https://www.google.com', 'https://www.facebook.com']) {
+  for (const origin of ['https://www.googleadservices.com', 'https://googleads.g.doubleclick.net', 'https://ad.doubleclick.net', 'https://pagead2.googlesyndication.com', 'https://www.google.com', 'https://www.facebook.com']) {
     assert.ok(directives['img-src'].includes(origin), `image beacon: ${origin}`)
     assert.ok(directives['connect-src'].includes(origin), `connection: ${origin}`)
   }

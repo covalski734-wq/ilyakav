@@ -16,7 +16,7 @@ export const HTML_BASE_CSP = [
   `script-src ${scriptSources}`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "img-src 'self' data: blob: https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://ssl.gstatic.com https://www.gstatic.com https://www.facebook.com",
+  "img-src 'self' data: blob: https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://ssl.gstatic.com https://www.gstatic.com https://www.facebook.com",
   "media-src 'self'",
   "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://ad.doubleclick.net https://pagead2.googlesyndication.com https://www.facebook.com https://connect.facebook.net",
   "frame-src https://marianaleus.com https://www.marianaleus.com https://www.googletagmanager.com https://www.facebook.com",

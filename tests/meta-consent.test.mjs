@@ -35,7 +35,7 @@ test('disabling Meta keeps a revoked stub so standard GTM Meta tags cannot bypas
   window.fbq('init','1076328401949671');window.fbq('track','PageView');`,context)
  window.__ilyakavSetMetaConsent(true)
  assert.deepEqual([...window.fbq.queue].map(args=>Array.from(args)),[
-  ['consent','revoke'],['set','autoConfig',false,'1076328401949671'],['init','1076328401949671'],['track','PageView']
+  ['consent','revoke'],['init','1076328401949671'],['track','PageView']
  ])
  const direct=[]
  window.fbq.callMethod=(...args)=>direct.push(args)
@@ -126,7 +126,7 @@ test('standard GTM bootstrap reuses the loader and queues init/events after Meta
   window.fbq('init','1076328401949671');window.fbq('track','PageView');`,context)
  assert.equal(scripts.length,1,'GTM does not need to load the library a second time')
  assert.deepEqual([...window.fbq.queue].map(args=>Array.from(args)),[
-  ['consent','revoke'],['set','autoConfig',false,'1076328401949671'],['init','1076328401949671'],['track','PageView']
+  ['consent','revoke'],['init','1076328401949671'],['track','PageView']
  ])
  // Changes while the library is delayed must update the latest choice, not
  // enqueue a grant which Meta would strand behind the initial revoke.
@@ -134,7 +134,7 @@ test('standard GTM bootstrap reuses the loader and queues init/events after Meta
  window.fbq('trackCustom','TelegramClick')
  const loaded=finishMetaLoad({window,scripts})
  assert.equal(loaded.locked,false)
- assert.deepEqual(loaded.executed,[['set','autoConfig',false,'1076328401949671'],['init','1076328401949671'],['track','PageView'],['trackCustom','TelegramClick']])
+ assert.deepEqual(loaded.executed,[['init','1076328401949671'],['track','PageView'],['trackCustom','TelegramClick']])
  window.__ilyakavSetMetaConsent(false)
  assert.equal(loaded.locked,true)
  assert.deepEqual(loaded.received.at(-1),['consent','revoke'])
@@ -153,20 +153,22 @@ test('latest denial during library load wins over an earlier grant or saved cons
  assert.deepEqual(loaded.received.at(-1),['consent','revoke'])
  result.window.__ilyakavSetMetaConsent(true)
  assert.equal(loaded.locked,false)
- assert.deepEqual(loaded.executed,[['set','autoConfig',false,'1076328401949671'],['init','1076328401949671'],['track','PageView']])
+ assert.deepEqual(loaded.executed,[['init','1076328401949671'],['track','PageView']])
 })
 
-test('Meta automatic-event policy precedes every init before and after the library loads', () => {
+test('Meta configuration and event calls from GTM pass through without site overrides', () => {
  const result=bootstrap()
+ result.window.fbq('set','autoConfig',true,'12345')
  result.window.fbq('init',12345)
  result.window.fbq('track','PageView')
  result.window.__ilyakavSetMetaConsent(true)
  const loaded=finishMetaLoad(result)
+ result.window.fbq('set','autoConfig',false,'67890')
  result.window.fbq('init','67890')
  result.window.fbq('trackCustom','TelegramClick')
  assert.deepEqual(loaded.executed,[
-  ['set','autoConfig',false,'12345'],['init',12345],['track','PageView'],
+  ['set','autoConfig',true,'12345'],['init',12345],['track','PageView'],
   ['set','autoConfig',false,'67890'],['init','67890'],['trackCustom','TelegramClick']
  ])
- assert.equal(loaded.executed.filter(args=>args[0]==='track').length,1,'policy does not duplicate tracking events')
+ assert.equal(loaded.executed.filter(args=>args[0]==='track').length,1,'bridge does not duplicate tracking events')
 })
